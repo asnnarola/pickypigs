@@ -16,7 +16,6 @@ const Header = (props) => {
     const { getUser } = useAppState("useGlobal")
 
     useEffect(() => {
-
         window.addEventListener('scroll', () => {
                 let ele = document.getElementById("navbar")
                 if (window.scrollY !== 0) {
