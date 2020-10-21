@@ -1,0 +1,94 @@
+.allrestaurant-section {
+    padding-top: 0rem !important;
+    background: #fff !important;
+    margin-top: 82px !important;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #ff75ba, transparent);
+        background-size: 100% 100%;
+        background-position: top center;
+    }
+    h1 {
+        &.allrestaurant-label {
+            font-size: 48px;
+        }
+    }
+    .allrestaurant-wrapper {
+        background: #fff;
+        background-color: #fff;
+        border-radius: 10px;
+        .allrestaurant-filter {
+            nav {
+                &.navbar {
+                    background: #fff;
+                    background-color: #fff !important;
+                    border-bottom: 1px solid #d9d9d9;
+
+                    .menurestaurant-btn {
+                        width: 40px;
+                        height: 40px;
+                        background: #fff;
+                        border-radius: 50px;
+                        box-shadow: 0px 0px 0px 4px #0000000a;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        outline: none !important;
+                        text-decoration: none !important;
+                        cursor: pointer;
+                    }
+
+                    h4 {
+                        &.restaurant-no {
+                            color: #2e482b;
+                        }
+                    }
+
+                    .shortby-btn {
+                        label {
+                            &.form-label {
+                                color: #919191;
+                            }
+                        }
+                        select {
+                            &.custom-select {
+                                padding: 0 2rem 0 10px;
+                                border: none;
+                                outline: none !important;
+                                background: #fff url("../../assets/images/down-arrow.svg") no-repeat right 0rem
+                                    center/10px 10px;
+                                cursor: pointer;
+                                color: #232323;
+                                &:focus {
+                                    box-shadow: 0 0 0 0.2rem #cb007b3d !important;
+                                }
+                            }
+                        }
+                        .filtershort-lightbtn {
+                            background: #fff;
+                            border: 1px solid #cb007b;
+                            border-radius: 25px;
+                            color: #232323;
+                            width: 110px;
+                            height: 40px;
+                            font-size: 15px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 10px 20px !important;
+                            &:focus {
+                                box-shadow: 0 0 0 0.2rem #cb007b3d !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

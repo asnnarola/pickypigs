@@ -8,6 +8,9 @@ import history from "./shared/history"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'bootstrap';
+import 'bootstrap/js/dist/util';
+import 'bootstrap/js/dist/alert';
 
 ReactDOM.render(
   <React.StrictMode>

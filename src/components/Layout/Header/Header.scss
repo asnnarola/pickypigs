@@ -1,17 +1,17 @@
 .theme-light-btn {
-    border         : 2px solid #333333;
-    border-radius  : 25px;
-    font-weight    : 400;
-    color          : #333333;
-    transition     : ease 0.25s;
-    font-size      : 15px;
+    border: 2px solid #333333;
+    border-radius: 25px;
+    font-weight: 400;
+    color: #333333;
+    transition: ease 0.25s;
+    font-size: 15px;
     text-decoration: none !important;
-    font-family    : "Brandon Text Medium";
+    font-family: "Brandon Text Medium";
 
     &:hover {
-        background  : #333;
+        background: #333;
         border-color: #333333;
-        color       : #fff;
+        color: #fff;
 
         .user-icon {
             fill: #fff !important;
@@ -23,10 +23,10 @@
     }
 
     &:not(:disabled):not(.disabled):active {
-        box-shadow  : 0 0 0 0.2rem #d9d9d9 !important;
-        background  : #333;
+        box-shadow: 0 0 0 0.2rem #d9d9d9 !important;
+        background: #333;
         border-color: #333333;
-        color       : #fff;
+        color: #fff;
     }
 
     &.w-140 {
@@ -39,15 +39,15 @@
 }
 
 .pinkline-btn {
-    border: 1px solid #CB007B;
-    color : #CB007B;
+    border: 1px solid #cb007b;
+    color: #cb007b;
 
     &:hover {
-        background: linear-gradient(2deg, #CB007B, #FF75BA);
-        color     : #fff;
-        border    : 1px solid #fb6bb5 !important;
+        background: linear-gradient(2deg, #cb007b, #ff75ba);
+        color: #fff;
+        border: 1px solid #fb6bb5 !important;
     }
-    &:focus{
+    &:focus {
         box-shadow: 0 0 0 0.2rem #d00b812e !important;
     }
 }
@@ -63,28 +63,28 @@
 .main-layout {
     nav {
         &.main-header {
-            padding : 1.25rem 1rem;
+            padding: 1.25rem 1rem;
             position: absolute;
-            left    : 0;
-            right   : 0;
-            width   : 100%;
-            height  : 82px;
-            top     : 0px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 82px;
+            top: 0px;
+            z-index: 1;
 
             &.navsticky {
-                position        : fixed !important;
-                background      : #fff;
-                z-index         : 11;
+                position: fixed !important;
+                background: #fff;
+                z-index: 11;
                 background-color: #fff !important;
-                box-shadow      : 0px 0px 14px 0px #0000001f;
+                box-shadow: 0px 0px 14px 0px #0000001f;
 
                 .menu-list {
                     .navright-btn {
                         .search-topnav {
-                            opacity   : 1;
+                            opacity: 1;
                             visibility: visible;
-                            z-index   : 1;
-
+                            z-index: 1;
                         }
                     }
                 }
@@ -95,8 +95,8 @@
 
                 &.navbar-brand {
                     .logo-txt {
-                        color      : #CB007B;
-                        font-size  : 16px;
+                        color: #cb007b;
+                        font-size: 16px;
                         font-family: "Brandon Text" !important;
                     }
                 }
@@ -106,8 +106,8 @@
                 .navbar-nav {
                     .nav-link {
                         &.menu-link {
-                            color      : #232323;
-                            font-size  : 15px;
+                            color: #232323;
+                            font-size: 15px;
                             font-family: "Brandon Text Medium";
 
                             &:hover {
@@ -119,35 +119,34 @@
 
                 .navright-btn {
                     .search-topnav {
-                        width     : 100px;
-                        opacity   : 0;
+                        width: 100px;
+                        opacity: 0;
                         visibility: hidden;
-                        z-index   : -1;
+                        z-index: -1;
                         transition: all 0.25s;
-
 
                         .search-navicon {
                             position: absolute;
-                            left    : 0;
-                            top     : 3px;
+                            left: 0;
+                            top: 3px;
                         }
 
                         .search-input {
-                            border       : none;
+                            border: none;
                             border-bottom: 1px solid transparent;
                             border-radius: 0px;
-                            padding-left : 35px;
-                            color        : #232323;
-                            box-shadow   : none;
-                            outline      : none !important;
-                            font-size    : 15px;
+                            padding-left: 35px;
+                            color: #232323;
+                            box-shadow: none;
+                            outline: none !important;
+                            font-size: 15px;
 
                             &::placeholder {
                                 color: #232323;
                             }
 
                             &:focus {
-                                border-bottom: 1px solid #CB007B;
+                                border-bottom: 1px solid #cb007b;
                             }
                         }
                     }
