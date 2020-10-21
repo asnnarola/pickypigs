@@ -87,6 +87,19 @@ body {
         width: 160px;
     }
 }
+.lightgray-btn{
+    border: 1px solid #C1C1C1 !important;
+    background: #fff !important;
+    color: #C1C1C1 !important;
+    border-radius: 20px !important;
+    &:hover{
+        background: #C1C1C1 !important;
+        color: #fff !important;
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.2rem #ececec !important;
+    }
+}
 
 
 @media screen and (min-width:992px) {
