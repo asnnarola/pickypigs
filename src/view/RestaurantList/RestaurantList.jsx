@@ -11,10 +11,18 @@ import restaurant_P5 from "../../assets/images/restaurant/r5.png"
 import restaurant_P6 from "../../assets/images/restaurant/r6.png"
 import restaurant_P7 from "../../assets/images/restaurant/r7.png"
 import restaurant_P8 from "../../assets/images/restaurant/r8.png"
-import Scrollspy from 'react-scrollspy'
+import Scroll from 'react-scroll';
+
+const Link = Scroll.Link;
+const DirectLink = Scroll.DirectLink;
+const Element = Scroll.Element;
+const Events = Scroll.Events;
+const scroll = Scroll.animateScroll;
+const scrollSpy = Scroll.scrollSpy;
+const ScrollLink = Scroll.ScrollLink
 
 const RestaurantList = () => {
-    let resturantData = [{ "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }];
+    let resturantData = [{ "image": restaurant_P1, "type": "food" }, { "image": restaurant_P2, "type": "food" }, { "image": restaurant_P3, "type": "food" }, { "image": restaurant_P4, "type": "food" }, { "image": restaurant_P5, "type": "ambience" }, { "image": restaurant_P6, "type": "ambience" }, { "image": restaurant_P7, "type": "ambience" }, { "image": restaurant_P8, "type": "ambience" }, { "image": restaurant_P1, "type": "food" }, { "image": restaurant_P2, "type": "food" }, { "image": restaurant_P3, "type": "ambience" }, { "image": restaurant_P4, "type": "ambience" }, { "image": restaurant_P5, "type": "food" }, { "image": restaurant_P6, "type": "ambience" }, { "image": restaurant_P7, "type": "food" }, { "image": restaurant_P8, "type": "food" }];
     let [visible, setVisible] = useState(5);
     const loadMore = () => {
         setVisible(
@@ -77,7 +85,7 @@ const RestaurantList = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12">
-                            <div class="fr-wrapper fr-rl-wrapper">
+                            <div className="fr-wrapper fr-rl-wrapper">
                                 <FilterList filterIcon={true} />
                             </div>
                         </div>
@@ -128,40 +136,50 @@ const RestaurantList = () => {
                 <div className="container position-relative">
                     <div className="row">
                         <div className="col-md-3 tab-filter">
-                            <Scrollspy items={['section-1', 'section-2', 'section-3']}
-                                currentClassName="tabfilter-active" style={{ position: 'sticky', top: 50,}}>
-                                <li>
-                                    <a href="#section-1">
-                                        <h6 class="mb-1 brandon-Bold "><b>Top Picks</b></h6>
-                                        <p class="mb-0">6 Options</p>
-                                    </a>
+                            <ul  style={{ position: 'sticky', top: 50,}}>
+                                <li >
+                                    <Link to="section-1" activeClass="tabfilter-active bg-prime" spy={true}  smooth={true}  offset={-50}  >
+                                        <h6 className="mb-1 brandon-Bold "><b>Top Picks</b></h6>
+                                        <p className="mb-0">6 Options</p>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#section-2">
-                                        <h6 class="mb-1 brandon-Bold "><b>What's new</b></h6>
-                                        <p class="mb-0">15 Options</p>
-                                    </a>
+                                    <Link to="section-2" activeClass="tabfilter-active" spy={true}  smooth={true}   offset={-80}>
+                                        <h6 className="mb-1 brandon-Bold "><b>What's new</b></h6>
+                                        <p className="mb-0">15 Options</p>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#section-3">
-                                        <h6 class="mb-1 brandon-Bold"><b>Top Picks</b></h6>
-                                        <p class="mb-0">6 Options</p>
-                                    </a>
+                                    <Link to="section-3" activeClass="tabfilter-active" spy={true}  smooth={true}   offset={-80}>
+                                        <h6 className="mb-1 brandon-Bold"><b>Top Picks</b></h6>
+                                        <p className="mb-0">6 Options</p>
+                                    </Link>
                                 </li>
-                            </Scrollspy>
+                            </ul>
                         </div>
                         <div className="col-md-9 tabfilter-content">
                             <div >
-                                <section id="section-1" style={{ paddingTop: 60 }}>
+                                <Element name="section-1" style={{ paddingTop: 60 }}>
                                     <h4 className="text-uppercase mb-4 brandon-Bold"><b>Top Picks</b></h4>
                                     <div className="row">
-                                        {resturantData.slice(0, visible).map((data, index) => {
-                                            return (
-                                                <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                                    <DishBlock restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
-                                                </div>
-                                            )
-                                        })}
+                                        {
+                                            resturantData.length>6?
+                                                resturantData.slice(0, visible).map((data, index) => {
+                                                    return (
+                                                        <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                            <DishBlock restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
+                                                        </div>
+                                                    )
+                                                })
+                                                :
+                                                resturantData.map((data, index) => {
+                                                    return (
+                                                        <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                            <DishBlock restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
+                                                        </div>
+                                                    )
+                                                })
+                                            }
                                         {visible+1 < resturantData.length &&
                                             <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                                 <button onClick={loadMore.bind(this)} className="btn filter-morebtn w-100" style={{ maxHeight: 270 }}>
@@ -170,13 +188,13 @@ const RestaurantList = () => {
                                             </div>
                                         }
                                     </div>
-                                </section>
+                                </Element>
                                 <div className="row mt-3">
                                     <div className="col-sm-12">
                                         <hr className="borderstyle-dotted" />
                                     </div>
                                 </div>
-                                <section id="section-2" className="pt-3">
+                                <Element name="section-2" className="pt-3">
                                     <h1>bbbbbb</h1>
                                     <div className="row">
                                         <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -189,15 +207,20 @@ const RestaurantList = () => {
                                             <DishBlock restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.3} />
                                         </div>
                                     </div>
-                                </section>
-                                <section id="section-3" style={{ paddingTop: 80 }}>
+                                </Element>
+                                <div className="row mt-3">
+                                    <div className="col-sm-12">
+                                        <hr className="borderstyle-dotted" />
+                                    </div>
+                                </div>
+                                <Element name="section-3" className="pt-3">
                                     <h1>ccccccc</h1>
                                     <div className="row">
                                         <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                             <DishBlock restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
                                         </div>
                                     </div>
-                                </section>
+                                </Element>
                             </div>
                         </div>
                     </div>

@@ -85,17 +85,16 @@
                         text-transform: uppercase;
                         font-size: 13px;
                     }
-                }
-                &.tabfilter-active {
-                    background: #ffd5e2;
-                    a {
-                        h6 {
-                            color: #cb007b;
-                        }
-                        p {
-                            color: #cb007b;
-                        }
+                    &.tabfilter-active {
+                        background: #ffd5e2;
+                            h6 {
+                                color: #cb007b;
+                            }
+                            p {
+                                color: #cb007b;
+                            }
                     }
+                   
                 }
             }
         }

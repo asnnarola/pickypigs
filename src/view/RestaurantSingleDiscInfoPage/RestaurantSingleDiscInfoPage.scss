@@ -1,0 +1,28 @@
+.rsdiscinfo-section {
+    margin-top: 90px;
+    .breadcrumb-wrapper {
+        ol {
+            &.breadcrumb {
+                padding: 0px;
+                background: #fff;
+                .breadcrumb-item {
+                    a {
+                        color: #232323;
+                        text-decoration: none;
+                    }
+                    &.active {
+                        color: #c1c1c1;
+                    }
+                }
+            }
+        }
+    }
+    .rsdiscinfo-leftcontent{
+        max-width: 500px;
+        flex: 0 0 500px;
+    }
+    .rsdiscinfo-rightcontent{
+        max-width: calc(100% - 500px);
+        flex: 0 0 calc(100% - 500px);
+    }
+}
