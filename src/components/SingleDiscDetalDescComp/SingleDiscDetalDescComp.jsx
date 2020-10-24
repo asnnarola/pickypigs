@@ -1,5 +1,8 @@
 import React from "react";
 import dishimg1 from "../../assets/images/dishinfo_img/dishimg1.jpg";
+import whatmenuicon1 from "../../assets/images/micon1.svg"
+import whatmenuicon2 from "../../assets/images/micon2.svg"
+import whatmenuicon3 from "../../assets/images/micon3.svg"
 import './SingleDiscDetalDescComp.scss';
 
 const SingleDiscDetalDescComp = () => {
@@ -9,16 +12,22 @@ const SingleDiscDetalDescComp = () => {
                 <div className="dishinfo-img">
                     <img src={dishimg1} alt="" className="img-fluid w-100" />
                 </div>
-                <div>
-                    <div className="d-flex">
-                        <h3>disc info</h3>
-                        <h3 className="ml-auto">disc info</h3>
+                <div className="dishinfo-detail">
+                    <div className="d-flex align-items-center justify-content-between flex-wrap">
+                        <p className="brandon-Medium">Dish info</p>
+                        <p className="brandon-Medium">£2.50</p>
                     </div>
-                    <p>Sea dolor at dolor eirmod voluptua rebum magna, sed lorem et et dolor et diam. Diam erat ipsum aliquyam labore sed est ut est. Amet diam eos stet eos nonumy.</p>
-                    <div className="d-flex">
-                        <h3>disc</h3>
-                        <h3 className="mx-2">disc</h3>
-                        <h3>disc</h3>
+                    <p className="txt-lightgray dishinfo-txt">Es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde g el año texto de relleno de.</p>
+                    <div className="whatmeu-types d-flex">
+                        <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
+                            <img src={whatmenuicon1} className="img-fluid" />
+                        </div>
+                        <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
+                            <img src={whatmenuicon2} className="img-fluid" />
+                        </div>
+                        <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
+                            <img src={whatmenuicon3} className="img-fluid" />
+                        </div>
                     </div>
                 </div>
             </div>

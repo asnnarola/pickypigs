@@ -1,0 +1,39 @@
+.Ingredients-wrapper {
+    background: #fff;
+    box-shadow: 0px 2px 18px 0px #00000012;
+    border-radius: 6px;
+    padding: 21px 25px;
+    .Ingredients-head{
+        h4{
+            word-break: break-all;
+        }
+    }
+    .table-responsive{
+        .table{
+            color: #232323;
+            thead{
+                tr{
+                    th{
+                        border-top: none;
+                        border-bottom: none;
+                        font-weight: 400;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    th{
+                        font-weight: 400;
+                        border-color: #C8C7CC;
+                        padding: 0.85rem 0.75rem;
+                    }
+                    td{
+                        border-color: #C8C7CC;
+                        font-weight: 400;
+                        padding: 0.85rem 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+}

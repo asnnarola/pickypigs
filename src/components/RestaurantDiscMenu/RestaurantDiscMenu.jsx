@@ -21,7 +21,7 @@ const scroll = Scroll.animateScroll;
 const scrollSpy = Scroll.scrollSpy;
 const ScrollLink = Scroll.ScrollLink
 
-const RestaurantDiscMenu=()=>{
+const RestaurantDiscMenu=(props)=>{
     
     let resturantData = [{ "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }];
     var settings = {
@@ -57,6 +57,7 @@ const RestaurantDiscMenu=()=>{
             <div>
                  {/* restaurantlist-tab content Start */}
                 <section className="restaurant-tabfilter">
+                    {props.someText}
                     <div className="position-relative">
                         <div className="row">
                             <div className="col-md-2 tab-filter">

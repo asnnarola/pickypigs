@@ -34,7 +34,7 @@ const RestaurantList = () => {
         arrows: true,
         centerMode: true,
         centerPadding: '0px',
-        slidesToShow: 3.95,
+        slidesToShow: 3.951,
         slidesToScroll: 1,
         responsive: [
             {

@@ -3,7 +3,7 @@ import { Button, Nav, Form, Navbar, Modal } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import filtershorticonpink from "../../assets/images/filtershort-pinkicon.svg"
 import menuline from "../../assets/images/menu-line.svg"
-import RestaurantFilterModal from '../RestaurantFilterModal/RestaurantFilterModal';
+import AllRestaurantFilterModal from '../AllRestaurantFilterModal/AllRestaurantFilterModal';
 
 const AllResturantNav = () => {
   
@@ -36,7 +36,7 @@ const AllResturantNav = () => {
                     <Button className="filtershort-btn ml-2 p-0 filtershort-lightbtn" onClick={()=>{setFilterModalShow(true)}}>
                             Filters<img width="20" src={filtershorticonpink} className="img-fluid" alt="filterIcon" />
                     </Button>
-                    <RestaurantFilterModal show={filterModalShow} onHide={filterModalClose}/>
+                    <AllRestaurantFilterModal show={filterModalShow} onHide={filterModalClose}/>
                 </div>
                 
             </Navbar>

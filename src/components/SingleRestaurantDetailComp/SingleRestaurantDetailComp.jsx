@@ -70,11 +70,10 @@ const SingleRestaurantDetailComp = () => {
                                 <div className="rs-timeimg mr-3">
                                     <img src={clockicon} alt={"clockicon"} className="img-fluid" />
                                 </div>
-                                <div className="text-left">
+                                <div className={`text-left ${open ? "" : null}`}>
                                     <p className="mb-1 text-dark">Open now</p>
                                     <p className="txt-lightgray mb-0">Friday 9:00 am to 11:00 pm</p>
                                 </div>
-                                {/* {open ? "11111" : "22222"} */}
                             </Button>
                             <Collapse in={open}>
                                 <div id="example-collapse-text">

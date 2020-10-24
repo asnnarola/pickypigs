@@ -29,6 +29,8 @@ const RestaurantSingleDiscInfoPage = () => {
                         </div>
                     </div>
                 </div>
+                <br></br>
+                <br></br>
             </section>
         </>
     )

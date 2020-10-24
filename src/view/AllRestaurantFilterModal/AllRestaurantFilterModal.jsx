@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import './RestaurantFilterModal.scss';
+import './AllRestaurantFilterModal.scss';
 
 const paragraph = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet natus sint provident vel ab reprehenderit cum soluta, suscipit facere nisi sed earum repellendus fuga debitis, nam molestiae minima voluptates possimus.'
 const data = [
@@ -24,6 +24,7 @@ const data = [
 
 const MyCard = (props) => {
     let [opened, setOpened] = useState(true);
+    
     return (
         <div>
             <div {...{ className: `accordion-item, ${opened && 'accordion-item--opened'}` }} >
@@ -44,8 +45,8 @@ const MyCard = (props) => {
                                             return (
                                                 <div className="col-md-6">
                                                     <div className="form-check custom-control custom-checkbox filter-checkbox">
-                                                        <input type="checkbox" className="form-check-input custom-control-input" id="exampleCheck1" />
-                                                        <label className="form-check-label custom-control-label" htmlFor="exampleCheck1">{data}</label>
+                                                        <input type="checkbox" className="form-check-input custom-control-input" id="exampleCheck1" style={{marginLeft:0,zIndex:1,cursor:"pointer"}} />
+                                                        <label className="form-check-label custom-control-label" htmlFor="exampleCheck1" style={{zIndex:-1}}>{data}</label>
                                                     </div>
                                                     {/* <div className="form-check">
                                                     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
@@ -68,7 +69,7 @@ const MyCard = (props) => {
 
 
 
-const RestaurantFilterModal = (props) => {
+const AllRestaurantFilterModal = (props) => {
 
 
     return (
@@ -104,6 +105,6 @@ const RestaurantFilterModal = (props) => {
     )
 }
 
-export default RestaurantFilterModal;
+export default AllRestaurantFilterModal;
 
 
