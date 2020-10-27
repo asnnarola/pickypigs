@@ -9,12 +9,12 @@ const SingleDiscIngredientTableComp = () => {
 
     return (
         <>
-            <div className="Ingredients-wrapper">
+            <div className="Ingredients-wrapper mb-4">
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="Ingredients-head d-flex align-items-start mb-3">
                             <div className="Ingredients-img position-absolute">
-                                <img src={Ingredientsicon} alt="" className="img-fluid" />
+                                <img src={Ingredientsicon} alt="" className="img-fluid " />
                             </div>
                             <h4 class="pl-4 ml-3 mb-0 txt-darkgreen mb-0">Ingredients</h4>
                         </div>
@@ -46,7 +46,7 @@ const SingleDiscIngredientTableComp = () => {
                     </table>
                 </div>
             </div>
-            <div>
+            <div className="d-flex flex-wrap justify-content-between">
                 <RestaurentDiscCaloriesInfoModal />
                 <RestaurentDiscAllergiesInfoModal />
             </div>

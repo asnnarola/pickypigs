@@ -1,4 +1,5 @@
 import React from "react";
+import CheckBoxExampleTry from "../../components/CheckBoxExampleTry/CheckBoxExampleTry";
 import SingleDiscDetalDescComp from "../../components/SingleDiscDetalDescComp/SingleDiscDetalDescComp";
 import SingleDiscIngredientTableComp from "../../components/SingleDiscIngredientTableComp/SingleDiscIngredientTableComp";
 import './RestaurantSingleDiscInfoPage.scss';

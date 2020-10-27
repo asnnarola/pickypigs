@@ -1,0 +1,28 @@
+.rs-infomodalbtn {
+    width: 48%;
+    .btn {
+        background: #fff !important;
+        box-shadow: 0px 2px 18px 0px #00000012 !important;
+        border: none;
+        outline: none !important;
+        color: #232323 !important;
+        padding: 19px;
+        width: 100%;
+        border-radius: 15px;
+        .icontext-content {
+            .rs-infomodal-sub {
+                min-height: 48px;
+                max-height: 48px;
+                overflow: hidden;
+                .rs-infomodal-name {
+                    width: calc(100% - 20px);
+                    word-break: break-all;
+                    line-height: 1.25;
+                }
+            }
+            .rs-infomodalbtn-detail {
+                font-size: 14px;
+            }
+        }
+    }
+}

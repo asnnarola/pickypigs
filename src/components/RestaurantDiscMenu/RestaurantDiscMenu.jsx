@@ -2,6 +2,7 @@ import React from "react";
 import Scroll from 'react-scroll';
 import DishBlock from '../../components/DishBlock/DishBlock';
 import Slider from 'react-slick';
+import "./RestaurantDiscMenu.scss"
 
 import restaurant_P1 from "../../assets/images/restaurant/r1.png"
 import restaurant_P2 from "../../assets/images/restaurant/r2.png"
@@ -22,7 +23,7 @@ const scrollSpy = Scroll.scrollSpy;
 const ScrollLink = Scroll.ScrollLink
 
 const RestaurantDiscMenu=(props)=>{
-    
+    let menudata=[{"type":"buns",restaurant:[{"name":"Denny's Benny Famil","desc":"freshly made every day with avocados, lime & coriander with trealy Farm choriz","tags":["CUSTOMISABLE","ve","v","gf"],"price":17.80}]}]
     let resturantData = [{ "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }];
     var settings = {
         arrows: true,
@@ -53,14 +54,13 @@ const RestaurantDiscMenu=(props)=>{
     };
     return(
         <>
-        <section>
+        <section className="restaurant-discmenu">
             <div>
                  {/* restaurantlist-tab content Start */}
                 <section className="restaurant-tabfilter">
-                    {props.someText}
                     <div className="position-relative">
                         <div className="row">
-                            <div className="col-md-2 tab-filter">
+                            <div className="col-md-3 tab-filter">
                                 <ul  style={{ position: 'sticky', top: 50,}}>
                                     <li >
                                         <Link to="section-1" activeClass="tabfilter-active bg-prime" spy={true}  smooth={true}  offset={-50}  >
@@ -82,7 +82,7 @@ const RestaurantDiscMenu=(props)=>{
                                     </li>
                                 </ul>
                             </div>
-                            <div className="col-md-10">
+                            <div className="col-md-9">
                                 <div >
                                     <Element name="section-1" style={{ paddingTop: 60 }}>
                                         <h4 className="text-uppercase mb-4 brandon-Bold"><b>Top Picks</b></h4>
@@ -123,19 +123,19 @@ const RestaurantDiscMenu=(props)=>{
                                     <Element name="section-2" className="pt-3">
                                         <h1>bbbbbb</h1>
                                         <div>
-                                           <MenuAccordianCommonComp/>
+                                           <MenuAccordianCommonComp value={menudata}/>
                                         </div>
                                     </Element>
                                     <Element name="section-3" className="pt-3">
                                         <h1>ccccccc</h1>
                                         <div>
-                                           <MenuAccordianCommonComp/>
+                                           <MenuAccordianCommonComp value="bbbb"/>
                                         </div>
                                     </Element>
                                     <Element name="section-4" className="pt-3">
                                         <h1>ccccccc</h1>
                                         <div>
-                                           <MenuAccordianCommonComp/>
+                                           <MenuAccordianCommonComp value="cccc"/>
                                         </div>
                                     </Element>
                                 </div>

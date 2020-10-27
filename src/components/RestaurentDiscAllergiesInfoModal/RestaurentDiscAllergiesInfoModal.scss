@@ -1,0 +1,65 @@
+.rs-allergiesinfomodalbtn {
+    width: 48%;
+    .btn {
+        background: #fff !important;
+        box-shadow: 0px 2px 18px 0px #00000012 !important;
+        border: none;
+        outline: none !important;
+        color: #232323 !important;
+        padding: 19px;
+        width: 100%;
+        border-radius: 15px;
+        .icontext-content {
+            .rs-allergiesinfomodal-sub {
+                min-height: 48px;
+                max-height: 48px;
+                overflow: hidden;
+                .rs-allergiesinfomodal-name {
+                    width: calc(100% - 20px);
+                    word-break: break-all;
+                    line-height: 1.25;
+                }
+                .rs-allergiesinfomodalbtn-detail {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+.rs-discallergiesinfomadel {
+    background: #fff;
+    .modal-dialog {
+        margin: 0px;
+        .modal-content {
+            border: none;
+            border-radius: 0;
+            .modal-header {
+                padding: 24px 29px 7px;
+                .modal-title {
+                    font-size: 16px;
+                }
+                .close {
+                    display: none;
+                }
+            }
+            .modal-body {
+                padding: 15px 29px 15px;
+                .rscategory-detail{
+                    .table{
+                        tbody{
+                            tr{
+                                td{
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .contributes-detailtxt{
+                    font-size: 14px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
