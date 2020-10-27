@@ -1,0 +1,76 @@
+.menudisc-accordian {
+    .card {
+        box-shadow: 0px 3px 16px 0px #00000010;
+        margin-bottom: 20px;
+        border-radius: 15px !important;
+        border: none;
+        .card-header {
+            background: #fff;
+            background: #fff;
+            margin: 30px 30px 0px;
+            padding: 0px 0px 20px;
+            border-bottom: none;
+            button {
+                // color: #2e482b !important;
+                background: #fff !important;
+                background-color: #fff !important;
+                border: none;
+                outline: none !important;
+            }
+            .accordian-arrow {
+                &.active {
+                    transform: rotate(180deg);
+                    svg {
+                        path {
+                            fill: #2e482b;
+                        }
+                    }
+                }
+            }
+        }
+        .collapse {
+            .card-body {
+                margin: 0px 30px 30px;
+                border-top: 1px solid #d9d9d9;
+                padding: 20px 0px 0px 0px;
+                .dishimg-block {
+                    width: 49px;
+                    height: 49px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 25px;
+                    img {
+                        object-fit: cover;
+                        width: 49px;
+                        height: 49px;
+                    }
+                }
+                .dish-details {
+                    width: calc(100% - 65px);
+                    .dish-info {
+                        font-size: 14px;
+                        color: #919191;
+                    }
+                    .dish-price {
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+                    .dish-tag {
+                        .cuisine-label {
+                            border: 1px solid #c1c1c1;
+                            border-radius: 25px;
+                            padding: 5px 20px;
+                            margin-right: 10px;
+                            margin-bottom: 10px;
+                            font-size: 11px;
+                            color: #c1c1c1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

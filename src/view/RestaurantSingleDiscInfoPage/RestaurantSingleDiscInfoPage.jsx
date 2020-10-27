@@ -33,6 +33,7 @@ const RestaurantSingleDiscInfoPage = () => {
                 <br></br>
                 <br></br>
             </section>
+            <CheckBoxExampleTry/>
         </>
     )
 }

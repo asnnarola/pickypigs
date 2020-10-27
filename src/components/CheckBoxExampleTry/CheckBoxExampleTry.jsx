@@ -1,58 +1,72 @@
 import React from "react";
 import { useState } from "react";
+import { Formik, Field, Form } from 'formik';
 
-const CheckBoxExampleTry=()=>{
-    const element1 = "boy";
-const element2 = "girl";
-let [value,setValue]=useState([{
-   
-}])
-const handleChange = (e) => {
-    // to find out if it's checked or not; returns true or false
-    const checked = e.target.checked;
-    
-    // to get the checked value
-    const checkedValue = e.target.value;
-    
-    // to get the checked name
-    const checkedName = e.target.name;
-    
-    //then you can do with the value all you want to do with it.
-    if(e.target.checked){
-        setValue([{
-      
-            aaa:checked,
-            bbb:checkedValue,
-            ccc:checkedName
-        }])
+const data = [
+    {
+        title: 'Pricing plans',
+        category: ["Celery", "Egg", "Fish", "Milk", "Soya", "Mustard", "Fish", "Tree Nuts"],
+    },
+    {
+        title: 'How to apply',
+        category: ["aaaa", "bbbb", "cccc", "dddd", "eeee", "ffff", "gggg", "hhhh Nuts"],
+    },
+    {
+        title: 'Purchasing process',
+        category: ["Celery", "Egg", "Fish", "Milk", "Soya", "Mustard", "Fish", "Tree Nuts"],
+    },
+    {
+        title: 'Usage guides',
+        category: ["Celery", "Egg", "Fish", "Milk", "Soya", "Mustard", "Fish", "Tree Nuts"],
     }
-   
-    };
+]
+const CheckBoxExampleTry = (e) => {
+   const  category= ["aaaa", "bbbb", "cccc", "dddd", "eeee", "ffff", "gggg", "hhhh Nuts"];
     return(
         <>
-        <section className="m-5">
             <div className="container">
-            <input
- type="checkbox"
- name="xxxxx"
- value={element1}
- onChange={handleChange}
-/>
-<label for="element" style={{ fontSize: 35 }}>
-xxxxx
- </label>
+                <h1>Sign Up</h1>
+                <Formik
+                initialValues={{
+                    // checked: [],
+                }}
+                onSubmit={(values) => {
+                    alert(JSON.stringify(values));
+                    console.log(values.checked)
+                }}
+                >
+                {({ values }) => (
+                    <Form>
+                   
+                    {data.map((singleData)=>{
+                        return(
+                            <div>
+                                <div id={singleData.title}>{singleData.title}</div>
+                                <div role="group" aria-labelledby={singleData.title}>
+                                    <div className="row">
+                                    {singleData.category.map((boxdata)=>{
+                                        return(
+                                            <div className="col-md-1">
+                                                <label>
+                                                    <Field type="checkbox" name={singleData.title} value={boxdata} />
+                                                    {boxdata}
+                                                </label>
+                                            </div>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                    
+                    
 
-<input
- type="checkbox"
- name="yyyyyyy"
- value={element2}
- onChange={handleChange}
-/>
-<label for="element" style={{ fontSize: 35 }}>
-yyyyyyy </label>
+                    <button type="submit">Submit</button>
+                    </Form>
+                )}
+                </Formik>
             </div>
-        </section>
-        {JSON.stringify(value)}
         </>
     )
 }

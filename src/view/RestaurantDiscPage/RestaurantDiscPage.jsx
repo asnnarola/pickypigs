@@ -35,6 +35,9 @@ const RestaurantDiscPage = () => {
 
                                 <div className="ml-auto">
                                     <div className="ml-auto d-flex shortby-btn">
+                                        <form>
+                                            <input type="text" placeholder="Search For Dishes"/>
+                                        </form>
                                         <Form inline className="mr-5">
                                             <Form.Group controlId="exampleForm.SelectCustom">
                                                 <Form.Label className="mr-2">Short By:</Form.Label>
