@@ -14,7 +14,7 @@ const AllResturantNav = () => {
 
     return (
         <>
-            <Navbar bg="light" variant="light" className="align-items-center pl-0 pr-0 pb-3">
+            <Navbar bg="light" variant="light" className="align-items-center pl-0 pr-0 pb-3 allrestaurant-nav">
                 <Navbar.Brand href="#home" className="pt-0 pb-0 menurestaurant-btn">
                     <img src={menuline} className="img-fluid" alt="menuline" />
                 </Navbar.Brand>

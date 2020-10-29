@@ -99,6 +99,12 @@ const AllRestaurantFilterModal = (props) => {
                                                 </li>
                                             )
                                         })}
+                                        <div className="form-check custom-control custom-checkbox filter-checkbox">
+                                            <label for="formControlRange">Example Range input</label>
+                                            <input type="range" class="form-control-range" id="formControlRange"/>
+                                        </div>
+                                        
+                                      
                                         <Modal.Footer className="justify-content-center border-top-0 mb-3">
                                             {/* style={{position:"sticky",bottom:0,zIndex:99}} */}
                                             <Button variant="secondary" className="lightgray-btn btn cancel-btn mr-4" onClick={props.onHide}>Cancel</Button>

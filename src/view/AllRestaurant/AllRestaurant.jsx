@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import DishBlock from '../../components/DishBlock/DishBlock';
 import './AllRestaurant.scss';
 import FilterList from '../../components/FilterList/FilterList'
@@ -16,6 +16,17 @@ import AllResturantNav from '../AllResturantNav/AllResturantNav';
 
 const AllRestaurant = () => {
     let resturantData = [{ "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }];
+   
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+                let ele = document.getElementById("abcd")
+                if (window.scrollY > 170 ) {
+                ele.classList.add("allrsfilter-sticky")
+                } else {
+                    ele.classList.remove("allrsfilter-sticky")
+                }
+            });
+    }, [])
 
     return (
         <>
@@ -30,7 +41,7 @@ const AllRestaurant = () => {
                     <div className="allrestaurant-wrapper position-relative p-3">
                         <div className="row">
                             <div className="col-sm-12">
-                                <div className="mb-5 allrestaurant-filter">
+                                <div className="mb-5 allrestaurant-filter" id="abcd" >
                                     <AllResturantNav />
                                 </div>
                             </div>
