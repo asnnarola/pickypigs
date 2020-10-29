@@ -4,10 +4,11 @@ import './RestaurantDiscPage.scss';
 import SingleRestaurantDetailComp from "../../components/SingleRestaurantDetailComp/SingleRestaurantDetailComp";
 import RestaurantDiscInfo from "../../components/RestaurantDiscInfo/RestaurantDiscInfo";
 import RestaurantDiscMenu from "../../components/RestaurantDiscMenu/RestaurantDiscMenu";
-import RestaurantDiscGallery from "../../components/RestaurantDiscGallery/RestaurantDiscGallery";
+import RestaurantDiscGallery from "../../components/RestaurantDiscGallery/RestaurantDiscGallery"; 
 
 import { Button, Nav, Form, Navbar, Modal } from 'react-bootstrap'
 import filtershorticonpink from "../../assets/images/filtershort-pinkicon.svg"
+import search_icon from "../../assets/images/search_icon.svg"
 
 
 const RestaurantDiscPage = () => {
@@ -17,7 +18,7 @@ const RestaurantDiscPage = () => {
         tab2: false,
         tab3: false,
     });
-    
+
     return (
         <>
             <section className="restaurantdisc-wrapper">
@@ -26,22 +27,27 @@ const RestaurantDiscPage = () => {
                 <div className="container">
                     <div className="row mt-5">
                         <div className="col-sm-12">
-                            <div className="rstab-subhead d-flex justifu-content-between align-items-center">
+                            <div className="rstab-subhead d-flex justify-content-between align-items-center flex-wrap">
                                 <div className="rstab-lists d-flex flex-wrap align-items-center">
                                     <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab1 ? 'active' : null}`} onClick={() => { setTabs({ tab1: true, tab2: false, tab3: false }) }}>Info</button>
-                                    <button  className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab2 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: true, tab3: false }) }}>Menu</button>
-                                    <button  className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab3 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: false, tab3: true }) }}>Gallery</button>
+                                    <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab2 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: true, tab3: false }) }}>Menu</button>
+                                    <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab3 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: false, tab3: true }) }}>Gallery</button>
                                 </div>
-
-                                <div className="ml-auto">
-                                    <div className="ml-auto d-flex shortby-btn">
+                                {tabs.tab2?
+                                <div className="ml-auto filter-formlist">
+                                    <div className="ml-auto d-flex shortby-btn align-items-center">
                                         <form>
-                                            <input type="text" placeholder="Search For Dishes"/>
+                                            <div className="search-input position-relative d-flex align-items-center mr-3">
+                                                <div className="search-icon">
+                                                    <img src={search_icon} className="img-fluid" />
+                                                </div>
+                                                <input className="search-inputbox" type="text" placeholder="Search For Dishes" />
+                                            </div>
                                         </form>
-                                        <Form inline className="mr-5">
+                                        <Form inline className="mr-4">
                                             <Form.Group controlId="exampleForm.SelectCustom">
-                                                <Form.Label className="mr-2">Short By:</Form.Label>
-                                                <Form.Control as="select" name="dropboxValue" custom>
+                                                <Form.Label className="mr-2 txt-lightgray">Short By:</Form.Label>
+                                                <Form.Control className="select-shortby" as="select" name="dropboxValue" custom>
                                                     <option >Recommended</option>
                                                     <option >2</option>
                                                     <option>3</option>
@@ -51,23 +57,23 @@ const RestaurantDiscPage = () => {
                                             </Form.Group>
                                         </Form>
                                         <Button className="filtershort-btn ml-2 p-0 filtershort-lightbtn">
-                                                Filters<img width="20" src={filtershorticonpink} className="img-fluid" alt="filterIcon" />
+                                            Filters<img width="20" src={filtershorticonpink} className="img-fluid ml-2" alt="filterIcon" />
                                         </Button>
                                         {/* <AllRestaurantFilterModal show={filterModalShow} onHide={filterModalClose}/> */}
                                     </div>
                                 </div>
-
+                                :null}
                             </div>
                             <br></br>
                             {tabs.tab1 ?
-                                    <section><RestaurantDiscInfo/></section>
+                                <section><RestaurantDiscInfo /></section>
                                 :
 
                                 tabs.tab2 ?
-                                    <section><RestaurantDiscMenu/></section>
+                                    <section><RestaurantDiscMenu /></section>
                                     :
 
-                                    <section><RestaurantDiscGallery/></section>
+                                    <section><RestaurantDiscGallery /></section>
                             }
                         </div>
                     </div>

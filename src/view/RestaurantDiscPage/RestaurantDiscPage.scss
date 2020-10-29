@@ -3,6 +3,7 @@
     .rstab-subhead {
         border-bottom: 1px solid #d9d9d9;
         position: relative;
+        padding-bottom: 5px;
         .rstab-lists {
             .rstab-btn {
                 background: #fff;
@@ -16,7 +17,7 @@
                     color: #cb007b;
                     &:after {
                         position: absolute;
-                        bottom: -12px;
+                        bottom: -16px;
                         width: 110%;
                         height: 3px;
                         background: #cb007b;
@@ -25,6 +26,52 @@
                         left: 0;
                         border-radius: 2px;
                     }
+                }
+            }
+        }
+        .filter-formlist {
+            .shortby-btn {
+                .search-input {
+                    max-width: 200px;
+                    .search-icon {
+                        position: absolute;
+                        line-height: 1;
+                    }
+                    input {
+                        &.search-inputbox {
+                            background: #fff;
+                            border: none;
+                            padding-left: 30px;
+                            outline: none;
+                            box-shadow: none;
+                            padding-top: 2px;
+                            padding-bottom: 2px;
+                            &::placeholder {
+                                color: #232323;
+                            }
+                            &:focus {
+                                border-bottom: 1px solid #333 !important;
+                            }
+                        }
+                    }
+                }
+                .select-shortby {
+                    padding: 0px;
+                    height: auto !important;
+                    border: none;
+                    padding-right: 36px;
+                    outline: none !important;
+                    box-shadow: none !important;
+                    cursor: pointer;
+                    color: #232323;
+                    padding-left: 5px;
+                }
+                .filtershort-btn {
+                    background: #fff !important;
+                    color: #333333 !important;
+                    border: none;
+                    box-shadow: none !important;
+                    outline: none !important;
                 }
             }
         }

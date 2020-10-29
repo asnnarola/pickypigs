@@ -65,14 +65,16 @@ const SingleRestaurantDetailComp = () => {
                         </div>
                     </div>
                     <div className="col-md-3">
-                        <div className="rs-opendropdown w-100">
-                            <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open} className="d-flex rs-opendropdown-btn w-100">
+                        <div className="rs-opendropdown w-100 position-relative">
+                            <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open} className={`d-flex rs-opendropdown-btn w-100 ${open?"active":null}`}>
                                 <div className="rs-timeimg mr-3">
                                     <img src={clockicon} alt={"clockicon"} className="img-fluid" />
                                 </div>
                                 <div className={`text-left ${open ? "" : null}`}>
                                     <p className="mb-1 text-dark">Open now</p>
-                                    <p className="txt-lightgray mb-0">Friday 9:00 am to 11:00 pm</p>
+                                    <p className="txt-lightgray mb-0">
+                                        Friday 9:00 am to 11:00 pm
+                                    </p>
                                 </div>
                             </Button>
                             <Collapse in={open}>

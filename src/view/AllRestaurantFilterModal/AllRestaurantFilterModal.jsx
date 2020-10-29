@@ -5,20 +5,24 @@ import { Formik, Field, Form } from 'formik';
 
 const data = [
     {
-        title: 'Pricing plans',
-        category: ["Celery", "Egg", "Fish", "Milk", "Soya", "Mustard", "Chicken", "Tree Nuts"],
+        title: 'ALLERGENS',
+        category: ["celery","crustaceans","egg", "fish","gluten","lupin","Milk", "Soya", "Mustard", "Chicken", "Tree Nuts"],
     },
     {
-        title: 'How to apply',
-        category: ["aaaa", "bbbb", "cccc", "dddd", "eeee", "ffff", "gggg", "hhhh Nuts"],
+        title: 'DIETARY PREFERENCES',
+        category: ["pescatarian", "vegetarian", "plant based", "low gluten", "lactose free", "halal", "kosher", "low sugar"],
     },
     {
-        title: 'Purchasing process',
-        category: ["Celery", "Egg", "Fish", "Milk", "Soya", "Mustard", "Chicken", "Tree Nuts"],
+        title: 'LIFESTYLE CHOICES',
+        category: ["pregnant", "ordinary", "rich"],
     },
     {
-        title: 'Usage guides',
-        category: ["Celery", "Egg", "Fish", "Milk", "Soya", "Mustard", "Chicken", "Tree Nuts"],
+        title: 'RESTAURANT TYPE',
+        category: ["disabled access", "pet friendly", "loud music", "child friendly", "seating space", "reservation"],
+    },
+    {
+        title: 'RESTAURANT DISTANCE',
+        category: ["Near you (optional)"],
     }
 ]
 
