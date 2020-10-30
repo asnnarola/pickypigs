@@ -139,78 +139,129 @@
     .modal-body {
       padding: 0;
       .wrapper {
-        li {
-          &.accordion-list__item {
-            border-bottom: 2px #d9d9d9;
-            border-bottom-style: dashed;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-
-            .accordion-item__line {
-              padding: 0;
-
-              .accordion-item__title {
-                text-transform: uppercase;
-                font-size: 16px;
-                outline: none !important;
-                box-shadow: none !important;
-                font-family: "Brandon Text" !important;
-                padding: 0.375rem 0px;
-              }
-
-              .accordion-item__icon {
-                opacity: 1;
-                width: 27px;
-                height: 27px;
+        .accordion-list__item {
+          border-bottom: 2px #d9d9d9;
+          border-bottom-style: dashed;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+          h3 {
+            &.react-sanfona-item-title {
+              text-transform: uppercase;
+              font-size: 16px;
+              outline: none !important;
+              box-shadow: none !important;
+              font-family: "Brandon Text" !important;
+              padding: 15px 0px 15px 0px;
+              &:after {
+                content: "";
                 position: absolute;
                 right: 0;
-                z-index: -1;
+                background-image: url("../../assets/images/up-arrow.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 13px;
+                height: 7px;
+                transform: rotate(180deg);
               }
             }
 
-            .accordion-item__inner {
-              .accordion-item__content {
-                padding: 5px 0px 0px;
-                .filter-checkbox {
-                  margin-bottom: 15px;
+            .accordion-item__icon {
+              opacity: 1;
+              width: 27px;
+              height: 27px;
+              position: absolute;
+              right: 0;
+              z-index: -1;
+            }
+          }
 
-                  .custom-control-input {
-                    &:checked {
-                      & ~.custom-control-label {
-                        &::before {
-                          background-color: #fff;
-                          border-color: #CB007B;
-                          color: #CB007B;
-                        }
-                        &::after {
-                          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.898' height='7.014' viewBox='0 0 9.898 7.014'%3E%3Cpath id='Path_411' data-name='Path 411' d='M-8.169-3.752l5.362-5.362.826.826L-8.169-2.1l-3.71-3.71.826-.826Z' transform='translate(11.879 9.114)' fill='%23cb007b'/%3E%3C/svg%3E%0A");
-                        }
-                      }
-                    }
-                    &:focus{
-                      &~.custom-control-label{
-                        &::before {
-                          box-shadow: none !important;
-                        }
-                      }
-                    }
+          &.react-sanfona-item-expanded {
+            h3 {
+              &.react-sanfona-item-title {
+                &:after {
+                  transform: rotate(0deg);
+                }
+              }
+            }
+          }
+
+          .filter-checkbox {
+            margin-bottom: 15px;
+
+            .custom-control-input {
+              &:checked {
+                & ~ .custom-control-label {
+                  &::before {
+                    background-color: #fff;
+                    border-color: #cb007b;
+                    color: #cb007b;
                   }
-                  label {
-                    padding-left: 3px;
-                    color: #232323;
-                    word-break: break-all;
-
-                    &::before {
-                      width: 18px;
-                      height: 18px;
-                      border-color: #919191;
-                    }
-                    &::after {
-                      width: 18px;
-                      height: 18px;
-                    }
+                  &::after {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.898' height='7.014' viewBox='0 0 9.898 7.014'%3E%3Cpath id='Path_411' data-name='Path 411' d='M-8.169-3.752l5.362-5.362.826.826L-8.169-2.1l-3.71-3.71.826-.826Z' transform='translate(11.879 9.114)' fill='%23cb007b'/%3E%3C/svg%3E%0A");
                   }
                 }
+              }
+              &:focus {
+                & ~ .custom-control-label {
+                  &::before {
+                    box-shadow: none !important;
+                  }
+                }
+              }
+            }
+            label {
+              padding-left: 3px;
+              color: #232323;
+              word-break: break-all;
+
+              &::before {
+                width: 18px;
+                height: 18px;
+                border-color: #919191;
+              }
+              &::after {
+                width: 18px;
+                height: 18px;
+              }
+              &.ranage-txt {
+                width: 60px;
+                -webkit-appearance: none;
+                height: 30px;
+                background: #fff;
+                border-radius: 20px;
+                box-shadow: 0px 0px 12px 0px #00000020;
+                position: relative;
+                top: -15px;
+                // cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // left: 3px;
+              }
+            }
+            input#formControlRange {
+              background: #cb007b;
+              border: solid 1px #cb007b;
+              border-radius: 10px;
+              height: 2px;
+              outline: none;
+              transition: background 450ms ease-in;
+              -webkit-appearance: none;
+              margin-top: 10px;
+            }
+            input[type="range"] {
+              &::-webkit-slider-thumb {
+                width: 60px;
+                -webkit-appearance: none;
+                height: 30px;
+                background: transparent;
+                border-radius: 20px;
+                // box-shadow: 0px 0px 12px 0px #00000020;
+                position: relative;
+                top: -1px;
+                cursor: pointer;
+                z-index: 1;
               }
             }
           }

@@ -11,6 +11,7 @@ import location from "../../assets/images/restaurant-dish/location.svg";
 import mapimg from "../../assets/images/restaurant-dish/map-img.jpg";
 import shareicon from "../../assets/images/restaurant-dish/share-icon.svg";
 import getdirection from "../../assets/images/restaurant-dish/getdirection.svg";
+import GoogleMapTestComp from "../GoogleMapTestComp/GoogleMapTestComp";
 
 const RestaurantDiscInfo = () => {
     return (
@@ -147,7 +148,8 @@ const RestaurantDiscInfo = () => {
                                             </div>
                                         </div>
                                         <div className="map-wrapper mb-1 mt-2">
-                                            <img src={mapimg} className="img-fluid" alt="mapimg" />
+                                            <GoogleMapTestComp/>
+                                            {/* <img src={mapimg} className="img-fluid" alt="mapimg" /> */}
                                         </div>
                                         <p className="address-label mt-2 mb-4 pt-1">
                                             20 Domain Road, Papamoa Beach,

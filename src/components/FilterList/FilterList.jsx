@@ -20,27 +20,28 @@ function FilterList({ filterIcon ="false"}) {
     const [allergenValue, setAllergenValue] = useState([])
 
     useEffect(() => {
+       
         getMyLocation()
-        axios.get(`${HOST_URL}/list/allergen`).then(res => {
-            console.log('res allergen => ', res.data.data);
-            setAllergen(res.data.data)
-        }).catch(err => {
-            console.log('err => ', err);
-        })
+        // axios.get(`${HOST_URL}/list/allergen`).then(res => {
+        //     console.log('res allergen => ', res.data.data);
+        //     setAllergen(res.data.data)
+        // }).catch(err => {
+        //     console.log('err => ', err);
+        // })
 
-        axios.get(`${HOST_URL}/list/dietary`).then(res => {
-            console.log('res dietary => ', res);
-            setDietary(res.data.data)
-        }).catch(err => {
-            console.log('err => ', err);
-        })
+        // axios.get(`${HOST_URL}/list/dietary`).then(res => {
+        //     console.log('res dietary => ', res);
+        //     setDietary(res.data.data)
+        // }).catch(err => {
+        //     console.log('err => ', err);
+        // })
 
-        axios.get(`${HOST_URL}/list/lifeStyle`).then(res => {
-            console.log('res lifestyle=> ', res);
-            setLifestyle(res.data.data)
-        }).catch(err => {
-            console.log('err => ', err.response);
-        })
+        // axios.get(`${HOST_URL}/list/lifeStyle`).then(res => {
+        //     console.log('res lifestyle=> ', res);
+        //     setLifestyle(res.data.data)
+        // }).catch(err => {
+        //     console.log('err => ', err.response);
+        // })
 
     }, [])
 
@@ -74,7 +75,8 @@ function FilterList({ filterIcon ="false"}) {
                 <Dropdown className="fr-location mr-2">
                     <Dropdown.Toggle className="d-flex justify-content-between align-items-center w-100" variant="Secondary" id="dropdown-basic">
                         <span className="d-flex align-items-center">
-                            <img src={location} className="img-fluid mr-2" alt="marker" /> {selectedPlace !== null ? (selectedPlace && selectedPlace.address_components[1].long_name) : (places && places[0].address_components[0].short_name)}
+                            <img src={location} className="img-fluid mr-2" alt="marker" /> 
+                            {/* {selectedPlace !== null ? (selectedPlace && selectedPlace.address_components[1].long_name) : (places && places[0].address_components[0].short_name)} */}
                         </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>

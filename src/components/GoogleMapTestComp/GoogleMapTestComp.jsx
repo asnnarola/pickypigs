@@ -12,14 +12,14 @@ const points = [
 
 export default function GoogleMapTestComp() {
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div style={{ height:140, width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{
           key: "AIzaSyCKNYJOc_E1GD16c6Qd44fleZmmkyqDi7c",
           language: "en",
           region: "US"
         }}
-        defaultCenter={{ lat: 51.506, lng: -0.169 }}
+        defaultCenter={{ lat:21.195836, lng:72.793251 }}
         defaultZoom={15}
       >
         {points.map(({ lat, lng, id, title }) => {
