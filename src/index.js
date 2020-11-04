@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,HashRouter} from 'react-router-dom';
 import history from "./shared/history"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
@@ -15,9 +15,11 @@ import 'bootstrap/js/dist/alert';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter history={history}>
+      <HashRouter hashType="noslash">
       {/* <MainProvider> */}
         <App />
       {/* </MainProvider> */}
+      </HashRouter>
       </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

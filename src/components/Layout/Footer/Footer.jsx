@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="footer-section bg-white mt-auto">
             <div className="container">
-                <div className="row">
+                <div className="row pl-lg-4">
                     <div className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
                         <div className="footer-block">
                             <p className="f-15 brandon-Medium">About</p>
@@ -112,7 +112,7 @@ const Footer = () => {
             <div className="col-sm-12">
                 <div className="row bg-pink align-items-center h-80">
                     <div className="container">
-                        <div className="row">
+                        <div className="row pl-lg-4">
                             <div className="col-sm-12">
                                 <p className="text-white mb-0">Copyright © 2020 nareshbingi. All rights reserved.</p>
                             </div>

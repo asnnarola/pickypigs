@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import "./Home.scss"
 import mainimg from "../../assets/images/main-img.png"
 import pattern from "../../assets/images/Pattern.png"
@@ -74,7 +75,7 @@ function Home({ coords }) {
                                 <h1 className="sectionhead-txt">
                                     FIND A RESTAURANT <br className="d-lg-block d-none" /> YOU WILL LOVE
                                 </h1>
-                                <Button variant="" className="theme-light-btn w-140 h-48 f-14">VIEW ALL</Button>{' '}
+                                <Link to="/allrestaurant" style={{display:'flex',justifyContent:'center',alignItems:'center'}} variant="" className="theme-light-btn w-140 h-48 f-14">VIEW ALL</Link>{' '}
                             </div>
                         </div>
                     </div>
@@ -126,7 +127,7 @@ function Home({ coords }) {
                         <div className="col-sm-12">
                             <div className="whatmenu-wrapper d-flex justify-content-between align-items-end">
                                 <h1 className="sectionhead-txt text-center">WHAT ON THE MENU?</h1>
-                                <button type="button" className="theme-light-btn w-140 h-48 f-14 btn btn-">VIEW ALL</button>
+                                <Link to="/restaurant_list" style={{display:'flex',justifyContent:'center',alignItems:'center'}} type="button" className="theme-light-btn w-140 h-48 f-14 btn btn-">VIEW ALL</Link>
                             </div>
                         </div>
                     </div>
