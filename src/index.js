@@ -14,13 +14,13 @@ import 'bootstrap/js/dist/alert';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter history={history}>
-      <HashRouter hashType="noslash">
+    {/* <BrowserRouter history={history}> */}
+      {/* <HashRouter hashType="noslash"> */}
       {/* <MainProvider> */}
         <App />
       {/* </MainProvider> */}
-      </HashRouter>
-      </BrowserRouter>
+      {/* </HashRouter> */}
+      {/* </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
