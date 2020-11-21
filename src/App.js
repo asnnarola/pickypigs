@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from "react-router-dom"
+import { BrowserRouter,HashRouter,Route, Switch} from 'react-router-dom';
+
 import './App.css';
 import { AppStateProvider } from './context';
 import Routes from './routes';
@@ -11,6 +12,9 @@ import containers from './state';
 function App() {
   return (
     <AppStateProvider containers={containers}>
+      <HashRouter>
+
+   
       <Suspense fallback={<div></div>}>
         <Switch>
           {/* <Route exact path="/login" render={(props) => <Login {...props} />} /> */}
@@ -18,6 +22,7 @@ function App() {
           <Routes />
         </Switch>
       </Suspense>
+      </HashRouter>
     </AppStateProvider>
   );
 }
