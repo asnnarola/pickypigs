@@ -8,6 +8,7 @@ import Drinks_icon from "../assets/images/category_icon/Drinks_icon.svg"
 
 const ExploreCategories = () => {
   var settings = {
+    focusOnSelect: true,
     arrows: true,
     centerMode: true,
     centerPadding: '15px',
@@ -19,6 +20,7 @@ const ExploreCategories = () => {
       {
         breakpoint: 768,
         settings: {
+          focusOnSelect: true,
           arrows: false,
           centerMode: true,
           centerPadding: '40px',
@@ -28,6 +30,7 @@ const ExploreCategories = () => {
       {
         breakpoint: 480,
         settings: {
+          focusOnSelect: true,
           arrows: false,
           centerMode: true,
           centerPadding: '40px',

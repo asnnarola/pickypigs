@@ -19,7 +19,8 @@ import Soya_icon from "../assets/images/filterfeature/Cereals_icon.svg"
 function FilterByFeature() {
     var settings = {
         arrows: false,
-        centerMode: true,
+        // centerMode: true,
+        swipeToSlide: true,
         centerPadding: '5px',
         slidesToShow: 13,
         slidesToScroll: 1,
@@ -28,7 +29,8 @@ function FilterByFeature() {
                 breakpoint: 768,
                 settings: {
                     arrows: false,
-                    centerMode: true,
+                    swipeToSlide: true,
+                    // centerMode: true,
                     centerPadding: '40px',
                     slidesToShow: 3
                 }
@@ -37,7 +39,8 @@ function FilterByFeature() {
                 breakpoint: 480,
                 settings: {
                     arrows: false,
-                    centerMode: true,
+                    swipeToSlide: true,
+                    // centerMode: true,
                     centerPadding: '40px',
                     slidesToShow: 1
                 }

@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Dropdown } from 'react-bootstrap'
 import axios from 'axios';
-import { API_KEY, GOOGLE_MAP_API_URL, HOST_URL } from '../../shared/constant';
+import { API_KEY, GOOGLE_MAP_API_URL, HOST_URL,GOOGLE_PLACE_API_URL} from '../../shared/constant';
 import location from "../../assets/images/location-icon.svg"
 import serachwhite from "../../assets/images/serach-white.svg"
 import filtershorticon from "../../assets/images/filtershort-icon.svg"
 import downarrow from "../../assets/images/down-arrow.svg"
 import CustomDropdown from '../CustomDropdown/CustomDropdown';
 import "./FilterList.scss"
+import { useDispatch, useSelector } from "react-redux";
+
+import { getRestaurantSearchData } from '../../redux/actions/generalActions';
 
 function FilterList({ filterIcon ="false"}) {
+    const dispatch=useDispatch();
     const [places, setPlaces] = useState(null)
     const [selectedPlace, setSelectedPlace] = useState(null)
     const [allergen, setAllergen] = useState([])
@@ -18,30 +22,32 @@ function FilterList({ filterIcon ="false"}) {
     const [dietaryValue, setDietaryValue] = useState([])
     const [lifeStyleValue, setLifeStyleValue] = useState([])
     const [allergenValue, setAllergenValue] = useState([])
+    const [userSearchText, setUserSearchText] = useState("")
+    const [userSearchDetails, setUserSearchDetails] = useState("")
 
     useEffect(() => {
-       
+        
         getMyLocation()
-        // axios.get(`${HOST_URL}/list/allergen`).then(res => {
-        //     console.log('res allergen => ', res.data.data);
-        //     setAllergen(res.data.data)
-        // }).catch(err => {
-        //     console.log('err => ', err);
-        // })
+        axios.get(`${HOST_URL}/list/allergen`).then(res => {
+            console.log('res allergen => ', res.data.data);
+            setAllergen(res.data.data)
+        }).catch(err => {
+            console.log('err => ', err);
+        })
 
-        // axios.get(`${HOST_URL}/list/dietary`).then(res => {
-        //     console.log('res dietary => ', res);
-        //     setDietary(res.data.data)
-        // }).catch(err => {
-        //     console.log('err => ', err);
-        // })
+        axios.get(`${HOST_URL}/list/dietary`).then(res => {
+            console.log('res dietary => ', res);
+            setDietary(res.data.data)
+        }).catch(err => {
+            console.log('err => ', err);
+        })
 
-        // axios.get(`${HOST_URL}/list/lifeStyle`).then(res => {
-        //     console.log('res lifestyle=> ', res);
-        //     setLifestyle(res.data.data)
-        // }).catch(err => {
-        //     console.log('err => ', err.response);
-        // })
+        axios.get(`${HOST_URL}/list/lifeStyle`).then(res => {
+            console.log('res lifestyle=> ', res);
+            setLifestyle(res.data.data)
+        }).catch(err => {
+            console.log('err => ', err.response);
+        })
 
     }, [])
 
@@ -64,19 +70,29 @@ function FilterList({ filterIcon ="false"}) {
             })
         }
     }
+    
+    const getAllRestaurant = () => {
+        const location = window.navigator && window.navigator.geolocation
+        if (location) {
+            location.getCurrentPosition((position)=>{
+                dispatch(getRestaurantSearchData(position.coords.latitude,position.coords.longitude,userSearchText));
+            });
+        }
+    }
 
     const handleSearch = (e) => {
-        console.log('e.target.value => ', e.target.value)
+        setUserSearchText(e.target.value)
     }
 
     return (
         <div className="restaurant-find w-100 p-2 p-xl-3">
+            {/* {JSON.stringify(userSearchDetails&&userSearchDetails)} */}
             <div className="fr-search d-flex align-items-center flex-wrap pb-3">
                 <Dropdown className="fr-location mr-2">
                     <Dropdown.Toggle className="d-flex justify-content-between align-items-center w-100" variant="Secondary" id="dropdown-basic">
                         <span className="d-flex align-items-center">
                             <img src={location} className="img-fluid mr-2" alt="marker" /> 
-                            {/* {selectedPlace !== null ? (selectedPlace && selectedPlace.address_components[1].long_name) : (places && places[0].address_components[0].short_name)} */}
+                            {selectedPlace !== null ? (selectedPlace && selectedPlace.address_components[1].long_name) : (places && places[0].address_components[0].short_name)}
                         </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -88,8 +104,8 @@ function FilterList({ filterIcon ="false"}) {
                     </Dropdown.Menu>
                 </Dropdown>
                 <div className="fr-input d-flex justify-content-between align-items-center">
-                    <input onChange={(e) => handleSearch(e)} className="w-100 fr-search-box rl-fl-searchbox" placeholder="Type here for restaurant or dishe" />
-                    <Button variant="primary" className="fr-search-btn theme-pink-btn">
+                    <input onChange={handleSearch} className="w-100 fr-search-box rl-fl-searchbox" placeholder="Type here for restaurant or dishe" />
+                    <Button variant="primary" onClick={getAllRestaurant} className="fr-search-btn theme-pink-btn">
                         <img src={serachwhite} className="img-fluid" alt="serachwhite" />
                     </Button>
                    {filterIcon && <Button className="filtershort-btn ml-2 p-0">
@@ -118,6 +134,7 @@ function FilterList({ filterIcon ="false"}) {
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
+
         </div>
     )
 }

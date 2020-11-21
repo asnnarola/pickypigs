@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { Button, Collapse, Form } from "react-bootstrap"
-import './SingleRestaurantDetailComp.scss'
+import { Button, Collapse, Form } from "react-bootstrap";
+import './SingleRestaurantDetailComp.scss';
 
-// import restaurant_P8 from "../../assets/images/restaurant/r8.png"
-import restaurant_banner from "../../assets/images/restaurant-dish/restaurant-banner.jpg"
-import accessible_icon from "../../assets/images/accessible.svg"
-import locationgray_icon from "../../assets/images/location-gray.svg"
+// import restaurant_P8 from "../../assets/images/restaurant/r8.png";
+import restaurant_banner from "../../assets/images/restaurant-dish/restaurant-banner.jpg";
+import accessible_icon from "../../assets/images/accessible.svg";
+import locationgray_icon from "../../assets/images/location-gray.svg";
 import nonveg from "../../assets/images/non-veg.svg"
-import veg from "../../assets/images/veg.svg"
-import clockicon from "../../assets/images/restaurant-dish/clock-icon.svg"
+import veg from "../../assets/images/veg.svg";
+import clockicon from "../../assets/images/restaurant-dish/clock-icon.svg";
+import moment from 'moment';
 
 const SingleRestaurantDetailComp = () => {
     const [open, setOpen] = useState(false);
-
+    let myDay=moment().format('dddd');
     return (
         <>
             <div className="container">
-
                 <div className="breadcrumb-wrapper">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -72,20 +72,25 @@ const SingleRestaurantDetailComp = () => {
                                 </div>
                                 <div className={`text-left ${open ? "" : null}`}>
                                     <p className="mb-1 text-dark">Open now</p>
-                                    <p className="txt-lightgray mb-0">
-                                        Friday 9:00 am to 11:00 pm
-                                    </p>
+
+                                       {myDay==="Monday"? <p className="txt-lightgray mb-0">Monday 9:00 am - 11:30 pm</p>
+                                        :myDay==="Tuesday"? <p className="txt-lightgray mb-0">Tuesday 9:00 am to 11:00 pm</p>
+                                        :myDay==="Wednesday"? <p className="txt-lightgray mb-0">Wednesday 9:00 am to 11:00 pm</p>
+                                        :myDay==="Thrusday"? <p className="txt-lightgray mb-0">Closed / Holiday</p>
+                                        :myDay==="Friday"? <p className="txt-lightgray mb-0">Friday 9:00 am to 11:00 pm</p>
+                                        :myDay==="Saturday"? <p className="txt-lightgray mb-0">Saturday 7:00 am to 12:00 am</p>
+                                        :<p className="txt-lightgray mb-0">Sunday 7:00 am to 12:00 am</p>}
                                 </div>
                             </Button>
                             <Collapse in={open}>
                                 <div id="example-collapse-text">
-                                    <p>Monday  9am–7pm</p>
-                                    <p>Tuesday  9am–7pm</p>
-                                    <p>Wednesday  9am–7pm</p>
-                                    <p>thrusday  9am–7pm</p>
-                                    <p>Friday  9am–7pm</p>
-                                    <p>Saturday  9am–7pm</p>
-                                    <p>Sunday  9am–7pm</p>
+                                    <p>Monday  9 am–7 pm</p>
+                                    <p>Tuesday  9 am–7 pm</p>
+                                    <p>Wednesday  9 am–7 pm</p>
+                                    <p>Thrusday  Closed / Holiday</p>
+                                    <p>Friday  9 am–7 pm</p>
+                                    <p>Saturday  9 am–7 pm</p>
+                                    <p>Sunday  9 am–7 pm</p>
                                 </div>
                             </Collapse>
                         </div>

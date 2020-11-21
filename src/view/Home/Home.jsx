@@ -3,7 +3,6 @@ import { Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import "./Home.scss"
 import mainimg from "../../assets/images/main-img.png"
-import pattern from "../../assets/images/Pattern.png"
 import restaurant_P1 from "../../assets/images/restaurant/r1.png"
 import restaurant_P2 from "../../assets/images/restaurant/r2.png"
 import restaurant_P3 from "../../assets/images/restaurant/r3.png"
@@ -20,15 +19,14 @@ import personalise from "../../assets/images/personalise.svg"
 import allergen from "../../assets/images/Allergen-icon.svg"
 import ingredients from "../../assets/images/Ingredients-icon.svg"
 import nutritionFacts from "../../assets/images/NutritionFacts-icon.svg"
-import digitalise from "../../assets/images/Digitalise.svg"
-import integrate from "../../assets/images/Integrate.svg"
-import showcasemenu from "../../assets/images/Showcase-Menu.svg"
 import knowwhatimg from "../../assets/images/knowwhat-imgs.png"
 import { geolocated } from "react-geolocated";
 import FilterByFeature from '../../components/FilterByFeature';
 import ExploreCategories from '../../components/ExploreCategories';
 import FilterList from '../../components/FilterList/FilterList';
 import DishBlock from "../../components/DishBlock/DishBlock"
+import OurVisionComponent from '../../components/OurVisionComponent/OurVisionComponent';
+
 function Home({ coords }) {
     return (
         <>
@@ -75,7 +73,7 @@ function Home({ coords }) {
                                 <h1 className="sectionhead-txt">
                                     FIND A RESTAURANT <br className="d-lg-block d-none" /> YOU WILL LOVE
                                 </h1>
-                                <Link to="/allrestaurant" style={{display:'flex',justifyContent:'center',alignItems:'center'}} variant="" className="theme-light-btn w-140 h-48 f-14">VIEW ALL</Link>{' '}
+                                <Link to="/restaurant_list" style={{display:'flex',justifyContent:'center',alignItems:'center'}} variant="" className="theme-light-btn w-140 h-48 f-14">VIEW ALL</Link>{' '}
                             </div>
                         </div>
                     </div>
@@ -476,64 +474,8 @@ function Home({ coords }) {
                 </div>
             </section>
 
-            {/* Would you like to join us? start content */}
-            <section className="section7 joinus-section position-relative">
-                <div className="container">
-                    <div className="patternimg-block">
-                        <img src={pattern} className="img-fluid" />
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <div className="joinus-wrapper pl-4 pr-4 pt-5 pb-5">
-                                <div className="d-flex align-items-start justify-content-between">
-                                    <div>
-                                        <h1 className="sectionhead-txt text-uppercase pink-txt">Would you like to join us? </h1>
-                                        <p className="join-subtxt f-15 line-height-1_75">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein <br className="d-lg-block d-none" /> Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist, dass es mehr oder weniger die</p>
-                                    </div>
-                                    <div className="contactus-btn">
-                                        <Button variant="primary" className="theme-pink-btn w-160 text-uppercase brandon-Medium">Contact Us</Button>{' '}
-                                    </div>
-                                </div>
-                                <div className="row mt-4 pt-2">
-                                    <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4 joinus-main mb-2">
-                                        <div className="joinus-block p-3">
-                                            <div className="joinus-icon d-flex align-items-center justify-content-center mb-2">
-                                                <img src={digitalise} className="img-fluid" />
-                                            </div>
-                                            <div className="joinus-info pt-1">
-                                                <h6 className="text-uppercase pb-1 brandon-Bold"><b>Digitalise today</b></h6>
-                                                <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4 joinus-main mb-2">
-                                        <div className="joinus-block p-3">
-                                            <div className="joinus-icon d-flex align-items-center justify-content-center mb-2">
-                                                <img src={integrate} className="img-fluid" />
-                                            </div>
-                                            <div className="joinus-info pt-1">
-                                                <h6 className="text-uppercase pb-1 brandon-Bold"><b>Digitalise today</b></h6>
-                                                <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4 joinus-main mb-2">
-                                        <div className="joinus-block p-3">
-                                            <div className="joinus-icon d-flex align-items-center justify-content-center mb-2">
-                                                <img src={showcasemenu} className="img-fluid" alt="showcasemenu" />
-                                            </div>
-                                            <div className="joinus-info pt-1">
-                                                <h6 className="text-uppercase pb-1 brandon-Bold"><b>Digitalise today</b></h6>
-                                                <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <OurVisionComponent/>
+           
         </>
     )
 }

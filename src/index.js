@@ -11,15 +11,21 @@ import "slick-carousel/slick/slick-theme.css";
 import 'bootstrap';
 import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/alert';
+import store from './redux/store';
+import { Provider } from "react-redux";
+
 
 ReactDOM.render(
+
   <React.StrictMode>
     <BrowserRouter history={history}>
-      <HashRouter hashType="noslash">
+      {/* <HashRouter hashType="noslash"> */}
       {/* <MainProvider> */}
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       {/* </MainProvider> */}
-      </HashRouter>
+      {/* </HashRouter> */}
       </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

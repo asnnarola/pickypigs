@@ -28,7 +28,7 @@ const Header = (props) => {
 
     return (
         <Navbar bg="transparent" id="navbar" expand="lg" className="container main-header">
-            <Navbar.Brand href="#home" className="pr-lg-5 mr-lg-5">
+            <Navbar.Brand href="/" className="pr-lg-5 mr-lg-5">
                 <img src={logo} className="img-fluid mr-2" alt="logo" />
                 <span className="logo-txt">Picky Pigs</span>
             </Navbar.Brand>
