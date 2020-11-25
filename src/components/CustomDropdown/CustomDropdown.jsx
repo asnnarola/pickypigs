@@ -45,10 +45,11 @@ const CustomDropdown = ({ placeholder, labelKey = "name", valueKey = "_id", opti
                                         onClick={() => selectValue(item)}
                                         custom
                                         inline
-                                        label={item[labelKey]}
+                                        checked={isSelected}
+                                        label={item}
                                         className="filterdrop-checkbox"
                                         type={"checkbox"}
-                                        id={item[valueKey]}
+                                        id={item}
                                     />
                                 </div>
                             ))}

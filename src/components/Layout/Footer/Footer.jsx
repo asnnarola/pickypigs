@@ -30,8 +30,8 @@ const Footer = () => {
                         <div className="footer-block">
                             <p className="f-15 brandon-Medium">Newsletter</p>
                             <ul className="pl-0">
-                                <li className="li-list f-15 mb-2"><Link>Signup for our newsletter</Link></li>
-                                <li className="li-list f-15 mb-2"><Link>Signup for our B2B newsletter</Link></li>
+                                <li className="li-list f-15 mb-2"><Link to='/'>Signup for our newsletter</Link></li>
+                                <li className="li-list f-15 mb-2"><Link to='/'>Signup for our B2B newsletter</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -40,19 +40,19 @@ const Footer = () => {
                             <p className="f-15 brandon-Medium">Connect with us</p>
                             <ul className="pl-0">
                                 <li className="li-list f-15 mb-2">
-                                    <div class="socail-icon d-flex">
-                                        <div class="socail-btn mr-4">
+                                    <div className="socail-icon d-flex">
+                                        <div className="socail-btn mr-4">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16">
                                                 <g id="Facebook" transform="translate(-1049 -5261)">
                                                     <g id="Facebook-2" data-name="Facebook" transform="translate(1015.939 5221.564)">
-                                                        <path id="Path_26" data-name="Path 26" d="M34.824,47.5v7.735a.21.21,0,0,0,.217.2h3.092a.21.21,0,0,0,.217-.2V47.373H40.59a.211.211,0,0,0,.216-.185l.216-2.369a.208.208,0,0,0-.216-.218H38.349v-1.68a.742.742,0,0,1,.767-.713h1.728a.21.21,0,0,0,.217-.2V39.638a.21.21,0,0,0-.217-.2H37.925a3,3,0,0,0-3.1,2.882V44.6H33.278a.209.209,0,0,0-.217.2v2.369a.209.209,0,0,0,.217.2h1.546Z" fill="#fff" fill-rule="evenodd"></path>
+                                                        <path id="Path_26" data-name="Path 26" d="M34.824,47.5v7.735a.21.21,0,0,0,.217.2h3.092a.21.21,0,0,0,.217-.2V47.373H40.59a.211.211,0,0,0,.216-.185l.216-2.369a.208.208,0,0,0-.216-.218H38.349v-1.68a.742.742,0,0,1,.767-.713h1.728a.21.21,0,0,0,.217-.2V39.638a.21.21,0,0,0-.217-.2H37.925a3,3,0,0,0-3.1,2.882V44.6H33.278a.209.209,0,0,0-.217.2v2.369a.209.209,0,0,0,.217.2h1.546Z" fill="#fff" fillRule="evenodd"></path>
                                                     </g>
                                                     <path id="Color_Overlay" data-name="Color Overlay" d="M1050.98,5277a.209.209,0,0,1-.217-.2v-7.861h-1.546a.21.21,0,0,1-.217-.2v-2.368a.209.209,0,0,1,.217-.2h1.546v-2.285a3,3,0,0,1,3.1-2.881h2.919a.21.21,0,0,1,.217.2v2.369a.21.21,0,0,1-.217.2h-1.728a.741.741,0,0,0-.767.714v1.681h2.457a.207.207,0,0,1,.216.217l-.216,2.369a.211.211,0,0,1-.216.186h-2.241v7.861a.209.209,0,0,1-.217.2Z" fill="#333"></path>
                                                 </g>
                                             </svg>
 
                                         </div>
-                                        <div class="socail-btn mr-4">
+                                        <div className="socail-btn mr-4">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13">
                                                 <g id="Twitter" transform="translate(-1105 -5263)">
                                                     <g id="Twitter-2" data-name="Twitter" transform="translate(992.171 5221.455)">
@@ -62,7 +62,7 @@ const Footer = () => {
                                                 </g>
                                             </svg>
                                         </div>
-                                        <div class="socail-btn mr-4">
+                                        <div className="socail-btn mr-4">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17.001" viewBox="0 0 18 17.001">
                                                 <g id="Instagram" transform="translate(-1164 -5261)">
                                                     <g id="Instagram-2" data-name="Instagram" transform="translate(1090.848 5221.397)">
@@ -75,7 +75,7 @@ const Footer = () => {
                                             </svg>
 
                                         </div>
-                                        <div class="socail-btn">
+                                        <div className="socail-btn">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="14.001" height="14" viewBox="0 0 14.001 14">
                                                 <g id="Linkedin" transform="translate(-1225.999 -5262)">
                                                     <g id="Linkedin-2" data-name="Linkedin" transform="translate(1065.298 5179.448)">

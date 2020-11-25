@@ -23,7 +23,7 @@ const RestaurantDiscGallery = () => {
                 <div className="rsdishtabmain-content">
                     <div className="row">
                         <div className="col-lg-3 rsdish-filter">
-                            <ul className="rsdish-ul">
+                            <ul className="rsdish-ul" style={{ position: 'sticky', top: 110, }}>
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value==="all" ? 'rsdish-active' : null}`} onClick={() => { setValue("all") }}>
                                         <h6 class="mb-1 brandon-Bold "><b>All</b></h6>

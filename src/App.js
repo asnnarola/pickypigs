@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter,HashRouter,Route, Switch} from 'react-router-dom';
+import withSplashScreen from './components/withSplashScreen';
 
 import './App.css';
 import { AppStateProvider } from './context';
@@ -12,9 +13,6 @@ import containers from './state';
 function App() {
   return (
     <AppStateProvider containers={containers}>
-      <HashRouter>
-
-   
       <Suspense fallback={<div></div>}>
         <Switch>
           {/* <Route exact path="/login" render={(props) => <Login {...props} />} /> */}
@@ -22,9 +20,8 @@ function App() {
           <Routes />
         </Switch>
       </Suspense>
-      </HashRouter>
     </AppStateProvider>
   );
 }
 
-export default App;
+export default withSplashScreen(App);

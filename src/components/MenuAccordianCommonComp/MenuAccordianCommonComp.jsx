@@ -34,6 +34,10 @@ function ContextAwareToggle({ children, eventKey, callback }) {
 
 const MenuAccordianCommonComp = (props) => {
 
+    const [subCate1,setSubCate1]=useState(true);
+    const [subCate2,setSubCate2]=useState(false);
+    const [subCate3,setSubCate3]=useState(false);
+
     return (
         <>
             <div className="row">
@@ -43,11 +47,102 @@ const MenuAccordianCommonComp = (props) => {
                             <Card>
                                 <Accordion.Toggle as={Card.Header} eventKey="0" className="txt-darkgreen flex-wrap align-items-center brandon-Bold card-header d-flex justify-content-between">
                                     <ContextAwareToggle eventKey="0">buns</ContextAwareToggle>
-                                    
                                 </Accordion.Toggle>
                                 <Accordion.Collapse eventKey="0">
                                     <Card.Body>
-                                        <div className="row">
+                                        <div className="d-flex sub-cate">
+                                            <button className={`rstab-btn mr-5  text-uppercase ${subCate1? 'active' : null}`} onClick={()=>{setSubCate1(true);setSubCate2(false);setSubCate3(false)}} >SUB CATEGORY - 1</button>
+                                            <button className={`rstab-btn mr-5  text-uppercase ${subCate2? 'active' : null}`} onClick={()=>{setSubCate1(false);setSubCate2(true);setSubCate3(false)}} >SUB CATEGORY - 2</button>
+                                            <button className={`rstab-btn mr-5  text-uppercase ${subCate3? 'active' : null}`} onClick={()=>{setSubCate1(false);setSubCate2(false);setSubCate3(true)}} >SUB CATEGORY - 3</button>
+                                        </div>
+                                        {subCate1&&
+                                            <div className="row">
+                                                <div className="col-sm-12 col-md-6">
+                                                    <div className="d-flex mb-3">
+                                                        <div className="mr-3 dishimg-block">
+                                                            <img src={dishimg} className="img-fluid" alt="Diningtable" />
+                                                        </div>
+                                                        <div className="dish-details">
+                                                            <div className="d-flex justify-content-between">
+                                                                <div className="pt-1">
+                                                                    <p className="dish-title mb-2">Denny's Benny Family</p>
+                                                                    <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
+                                                                    <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
+                                                                        <span class="cuisine-label">CUSTOMISABLE</span>
+                                                                        <span class="cuisine-label">VE</span>
+                                                                        <span class="cuisine-label">V</span>
+                                                                        <span class="cuisine-label">GF</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div className="dish-price">
+                                                                    <p>£17.80</p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-block">
+                                                                <hr className="mt-0 mb-0"></hr>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-12 col-md-6">
+                                                    <div className="d-flex mb-3">
+                                                        <div className="mr-3 dishimg-block">
+                                                            <img src={dishimg} className="img-fluid" alt="Diningtable" />
+                                                        </div>
+                                                        <div className="d-flex border-bottom justify-content-between dish-details">
+                                                            <div className="pt-1">
+                                                                <p className="dish-title mb-2">Denny's Benny Family</p>
+                                                                <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
+                                                                <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
+                                                                    <span class="cuisine-label">CUSTOMISABLE</span>
+                                                                    <span class="cuisine-label">VE</span>
+                                                                    <span class="cuisine-label">V</span>
+                                                                    <span class="cuisine-label">GF</span>
+                                                                </p>
+                                                            </div>
+                                                            <div className="dish-price">
+                                                                <p>£17.80</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        {
+                                            subCate2&&
+                                            <div className="row">
+                                                <div className="col-sm-12 col-md-6">
+                                                    <div className="d-flex mb-3">
+                                                        <div className="mr-3 dishimg-block">
+                                                            <img src={dishimg} className="img-fluid" alt="Diningtable" />
+                                                        </div>
+                                                        <div className="dish-details">
+                                                            <div className="d-flex justify-content-between">
+                                                                <div className="pt-1">
+                                                                    <p className="dish-title mb-2">Denny's Benny Family</p>
+                                                                    <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
+                                                                    <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
+                                                                        <span class="cuisine-label">CUSTOMISABLE</span>
+                                                                        <span class="cuisine-label">VE</span>
+                                                                        <span class="cuisine-label">V</span>
+                                                                        <span class="cuisine-label">GF</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div className="dish-price">
+                                                                    <p>£17.80</p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="d-block">
+                                                                <hr className="mt-0 mb-0"></hr>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        {   
+                                            subCate3&&
+                                            <div className="row">
                                             <div className="col-sm-12 col-md-6">
                                                 <div className="d-flex mb-3">
                                                     <div className="mr-3 dishimg-block">
@@ -97,7 +192,30 @@ const MenuAccordianCommonComp = (props) => {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div className="col-sm-12 col-md-6">
+                                                <div className="d-flex mb-3">
+                                                    <div className="mr-3 dishimg-block">
+                                                        <img src={dishimg} className="img-fluid" alt="Diningtable" />
+                                                    </div>
+                                                    <div className="d-flex border-bottom justify-content-between dish-details">
+                                                        <div className="pt-1">
+                                                            <p className="dish-title mb-2">Denny's Benny Family</p>
+                                                            <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
+                                                            <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
+                                                                <span class="cuisine-label">CUSTOMISABLE</span>
+                                                                <span class="cuisine-label">VE</span>
+                                                                <span class="cuisine-label">V</span>
+                                                                <span class="cuisine-label">GF</span>
+                                                            </p>
+                                                        </div>
+                                                        <div className="dish-price">
+                                                            <p>£17.80</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                        }
                                     </Card.Body>
                                 </Accordion.Collapse>
                             </Card>

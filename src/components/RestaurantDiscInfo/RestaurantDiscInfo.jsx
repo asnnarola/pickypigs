@@ -48,10 +48,10 @@ const RestaurantDiscInfo = () => {
                                             <div className="rs-infosubwrap pt-1">
                                                 <p className="brandon-Medium text-uppercase mb-2">Cuisine</p>
                                                 <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3">
-                                                    <span class="cuisine-label">Steak</span>
-                                                    <span class="cuisine-label">Fast Food</span>
-                                                    <span class="cuisine-label">Italian</span>
-                                                    <span class="cuisine-label">American</span>
+                                                    <span className="cuisine-label">Steak</span>
+                                                    <span className="cuisine-label">Fast Food</span>
+                                                    <span className="cuisine-label">Italian</span>
+                                                    <span className="cuisine-label">American</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -122,12 +122,12 @@ const RestaurantDiscInfo = () => {
                                                 <p className="brandon-Medium text-uppercase mb-2 pb-1">Contact</p>
                                                 <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-start position-relative">
                                                     <span className="txt-lightgray mopo-number position-absolute">Mo:</span>
-                                                    <span class="pl-5 mb-2">+44 793 184 7339</span><span className="pl-5">+91 994 535 2904</span>
+                                                    <span className="pl-5 mb-2">+44 793 184 7339</span><span className="pl-5">+91 994 535 2904</span>
                                                 </p>
                                                 <p className="txt-lightgray mb-0 d-flex flex-wrap align-items-start position-relative">
                                                     <span className="txt-lightgray mopo-number position-absolute">Ph:</span>
-                                                    <span class="pl-5 mb-2">+44 1234 567 890</span>
-                                                    <span class="pl-5">+44 1234 567 890</span>
+                                                    <span className="pl-5 mb-2">+44 1234 567 890</span>
+                                                    <span className="pl-5">+44 1234 567 890</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -148,7 +148,13 @@ const RestaurantDiscInfo = () => {
                                             </div>
                                         </div>
                                         <div className="map-wrapper mb-1 mt-2">
-                                            <GoogleMapTestComp/>
+                                            {/* <GoogleMapTestComp/> */}
+                                            <GoogleMapTestComp
+                                                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWIIb5rlIPoxCKRCQlueENTkj2KcniU1I&v=3.exp&libraries=geometry,drawing,places"
+                                                loadingElement={<div style={{ height: `100%` }} />}
+                                                containerElement={<div style={{ height: `100%` }} />}
+                                                mapElement={<div style={{ height: `100%` }} />}
+                                            />
                                             {/* <img src={mapimg} className="img-fluid" alt="mapimg" /> */}
                                         </div>
                                         <p className="address-label mt-2 mb-4 pt-1">
@@ -165,7 +171,7 @@ const RestaurantDiscInfo = () => {
                                             </div>
                                             <div className="location-borderstyle"></div>
                                             <div className="get-directions location-btn d-flex justify-content-end pr-2">
-                                                <a href="#" className="d-inline-flex align-items-center pink-txt justify-content-end">
+                                                <a href="https://www.google.com/maps/dir/21.2072044,72.7522558/21.1593458,72.7522558" target="_blank" className="d-inline-flex align-items-center pink-txt justify-content-end">
                                                     <img src={getdirection} className="img-fluid mr-3" alt="walleticon" />
                                                     <span>Get Directions</span>
                                                 </a>

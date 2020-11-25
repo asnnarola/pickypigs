@@ -37,9 +37,29 @@
                 padding: 24px 29px 7px;
                 .modal-title {
                     font-size: 16px;
+                    order: 2;
                 }
                 .close {
-                    display: none;
+                    float: inherit !important;
+                    margin-left: 0px !important;
+                    padding: 0;
+                    margin: 0px;
+                    opacity: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 10px;
+                    outline: none;
+                    
+                    span {
+                        font-size: 42px;
+                        opacity: 1 !important;
+                        color: #000 !important;
+                        font-weight: 500;
+                        line-height: 0;
+                      }
                 }
             }
             .modal-body {

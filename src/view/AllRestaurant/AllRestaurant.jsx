@@ -19,14 +19,14 @@ const AllRestaurant = () => {
    
     useEffect(() => {
         window.addEventListener('scroll', () => {
-                let ele = document.getElementById("abcd")
+                let ele = document.getElementById("top_navbar")
                 if (window.scrollY > 170 ) {
                 ele.classList.add("allrsfilter-sticky")
                 } else {
                     ele.classList.remove("allrsfilter-sticky")
                 }
             });
-    }, [])
+    }, [window.scrollY])
 
     return (
         <>
@@ -41,7 +41,7 @@ const AllRestaurant = () => {
                     <div className="allrestaurant-wrapper position-relative p-3">
                         <div className="row">
                             <div className="col-sm-12">
-                                <div className="mb-5 allrestaurant-filter" id="abcd" >
+                                <div className="mb-5 allrestaurant-filter" id="top_navbar" >
                                     <AllResturantNav />
                                 </div>
                             </div>

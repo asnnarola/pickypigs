@@ -20,7 +20,9 @@ const UserPreferenceComponent = () => {
         if(alergy.indexOf(e.target.id) !== -1){
             var Index = alergy.indexOf(e.target.id);
             if(Index>-1){
-                setAlergy(alergy.slice(0,Index).concat(alergy.slice(Index+ 1, alergy.length)));
+                // setAlergy(alergy.slice(0,Index).concat(alergy.slice(Index+ 1, alergy.length)));
+                setAlergy(alergy.filter(myallergy=>myallergy!==e.target.id));
+
             }
         }else{
             setAlergy([...alergy,e.target.id]);

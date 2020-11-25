@@ -14,20 +14,39 @@ import moment from 'moment';
 const SingleRestaurantDetailComp = () => {
     const [open, setOpen] = useState(false);
     let myDay=moment().format('dddd');
+    let myTime=moment();
+    const restaurantTime1=`${moment().format('MMMM Do YYYY')}, 7:00 am`;
+    const restaurantTime2=`${moment().format('MMMM Do YYYY')}, 9:00 am`;
+    const restaurantTime3=`${moment().format('MMMM Do YYYY')}, 12:30 am`;
+    const restaurantTime4=`${moment().format('MMMM Do YYYY')}, 11:30 pm`;
+
+    const compareData=(open,close,now)=>{
+        // (moment(open, 'MMMM Do YYYY, h:mm a').isValid() && now.isAfter(moment(open, 'MMMM Do YYYY, h:mm a')) )&&(moment(close, 'MMMM Do YYYY, h:mm a').isValid() && now.isBefore(moment(close, 'MMMM Do YYYY, h:mm a')) )?"Open now":">Closed now"
+        if(moment(open, 'MMMM Do YYYY, h:mm a').isValid() && now.isAfter(moment(open, 'MMMM Do YYYY, h:mm a')) ){
+           if(moment(close, 'MMMM Do YYYY, h:mm a').isValid() && now.isBefore(moment(close, 'MMMM Do YYYY, h:mm a')) ){
+                return "Open Now"
+           }else{
+                return "Closed Now"
+        }
+        }else{
+            return "Closed Now"
+        }
+    }
+
     return (
         <>
             <div className="container">
                 <div className="breadcrumb-wrapper">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Library</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data</li>
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="#">Home</a></li>
+                            <li className="breadcrumb-item"><a href="#">Library</a></li>
+                            <li className="breadcrumb-item active" aria-current="page">Data</li>
                         </ol>
                     </nav>
                 </div>
 
-                <div class="row">
+                <div className="row">
                     <div className="col-sm-12">
                         <div className="rsbanner-wrapper">
                             <img src={restaurant_banner} alt={"restaurant_banner"} className="w-100 img-fluid" />
@@ -45,7 +64,7 @@ const SingleRestaurantDetailComp = () => {
                                     <img src={locationgray_icon} alt={"locationgray_icon"} className="img-fluid mr-2" />
                                 </span>
                                 <span className="rsdediction-km"> 1.5 km from you </span>
-                                <div class="rs-bordertyle ml-2 mr-2"></div>
+                                <span className="rs-bordertyle ml-2 mr-2"></span>
                                 <span className="ml-2 txt-gray">
                                     Manukau
                                 </span>
@@ -71,26 +90,60 @@ const SingleRestaurantDetailComp = () => {
                                     <img src={clockicon} alt={"clockicon"} className="img-fluid" />
                                 </div>
                                 <div className={`text-left ${open ? "" : null}`}>
-                                    <p className="mb-1 text-dark">Open now</p>
 
-                                       {myDay==="Monday"? <p className="txt-lightgray mb-0">Monday 9:00 am - 11:30 pm</p>
-                                        :myDay==="Tuesday"? <p className="txt-lightgray mb-0">Tuesday 9:00 am to 11:00 pm</p>
-                                        :myDay==="Wednesday"? <p className="txt-lightgray mb-0">Wednesday 9:00 am to 11:00 pm</p>
-                                        :myDay==="Thrusday"? <p className="txt-lightgray mb-0">Closed / Holiday</p>
-                                        :myDay==="Friday"? <p className="txt-lightgray mb-0">Friday 9:00 am to 11:00 pm</p>
-                                        :myDay==="Saturday"? <p className="txt-lightgray mb-0">Saturday 7:00 am to 12:00 am</p>
-                                        :<p className="txt-lightgray mb-0">Sunday 7:00 am to 12:00 am</p>}
+                                    <p className="mb-1 text-dark">
+                                        {
+                                        myDay==="Monday"
+                                            ?
+                                            compareData(restaurantTime2,restaurantTime4,myTime)
+                                            :
+                                        myDay==="Wednesday"
+                                            ?
+                                            compareData(restaurantTime2,restaurantTime4,myTime)
+                                            :
+                                        myDay==="Thrusday"
+                                            ?
+                                            compareData(restaurantTime2,restaurantTime4,myTime)
+                                            :
+                                        myDay==="Friday"
+                                            ?
+                                            compareData(restaurantTime2,restaurantTime4,myTime)
+                                            :
+                                        myDay==="Saturday"
+                                            ?
+                                            compareData(restaurantTime1,restaurantTime3,myTime)
+                                            :
+                                        myDay==="Sunday"
+                                            ?
+                                            compareData(restaurantTime1,restaurantTime3,myTime)
+                                            : 
+                                            "Today Close"
+                                        }
+                                    </p>   
+                                    
+                                    <p className="txt-lightgray mb-0 brandon-Medium">{myDay==="Monday"? "Monday 9:00 am - 11:30 pm"
+                                        :myDay==="Tuesday"? "Tuesday Closed / Holiday"
+                                        :myDay==="Wednesday"? "Wednesday 9:00 am - 11:30 pm"
+                                        :myDay==="Thrusday"? "Thrusday 9:00 am - 11:30 pm"
+                                        :myDay==="Friday"? "Friday 9:00 am to 11:00 pm"
+                                        :myDay==="Saturday"? "Saturday 7:00 am to 12:00 am"
+                                        :"Sunday 7:00 am to 12:00 am"}
+                                    </p>
                                 </div>
                             </Button>
                             <Collapse in={open}>
                                 <div id="example-collapse-text">
-                                    <p>Monday  9 am–7 pm</p>
-                                    <p>Tuesday  9 am–7 pm</p>
-                                    <p>Wednesday  9 am–7 pm</p>
-                                    <p>Thrusday  Closed / Holiday</p>
-                                    <p>Friday  9 am–7 pm</p>
-                                    <p>Saturday  9 am–7 pm</p>
-                                    <p>Sunday  9 am–7 pm</p>
+                                    <table>
+                                        <tbody>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Sunday"&&"pink-txt brandon-Medium"}`}>Sunday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Sunday"&&"pink-txt brandon-Medium"}`}>7:00 am - 12:30 am</p></td></tr>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Monday"&&"pink-txt brandon-Medium"}`}>Monday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Monday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Tuesday"&&"pink-txt brandon-Medium"}`}>Tuesday</p></td><td><p style={{color:'#f545b0'}} className={`txt-lightgray mb-2 ${myDay==="Tuesday"&&"pink-txt brandon-Medium"}`}>Closed / Holiday</p></td></tr>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Wednesday"&&"pink-txt brandon-Medium"}`}>Wednesday&nbsp;&nbsp;</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Wednesday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Thrusday"&&"pink-txt brandon-Medium"}`}>Thrusday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Thrusday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Friday"&&"pink-txt brandon-Medium"}`}>Friday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Friday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Saturday"&&"pink-txt brandon-Medium"}`}>Saturday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Saturday"&&"pink-txt brandon-Medium"}`}>7:00 am - 12:30 am</p></td></tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </Collapse>
                         </div>

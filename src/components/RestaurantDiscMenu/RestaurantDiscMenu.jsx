@@ -62,23 +62,41 @@ const RestaurantDiscMenu = (props) => {
                         <div className="position-relative">
                             <div className="row">
                                 <div className="col-md-3 tab-filter">
-                                    <ul style={{ position: 'sticky', top: 50, }}>
+                                    <ul style={{ position: 'sticky', top: 110, }}>
                                         <li >
-                                            <Link to="section-1" activeClass="tabfilter-active bg-prime" spy={true} smooth={true} offset={-100}  >
+                                            <Link to="section-1" activeClass="tabfilter-active bg-prime" spy={true} smooth={true} offset={-110}  >
                                                 <h6 className="mb-1 brandon-Bold "><b>Top Picks</b></h6>
                                                 <p className="mb-0">6 Options</p>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="section-2" activeClass="tabfilter-active" spy={true} smooth={true} offset={-80}>
-                                                <h6 className="mb-1 brandon-Bold "><b>What's new</b></h6>
+                                            <Link to="section-2" activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
+                                                <h6 className="mb-1 brandon-Bold "><b>Breakfast</b></h6>
                                                 <p className="mb-0">15 Options</p>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="section-3" activeClass="tabfilter-active" spy={true} smooth={true} offset={-80}>
-                                                <h6 className="mb-1 brandon-Bold"><b>Top Picks</b></h6>
-                                                <p className="mb-0">6 Options</p>
+                                            <Link to="section-3" activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
+                                                <h6 className="mb-1 brandon-Bold"><b>Lunch</b></h6>
+                                                <p className="mb-0">112 Options</p>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="section-4" activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
+                                                <h6 className="mb-1 brandon-Bold"><b>Dinner</b></h6>
+                                                <p className="mb-0">40 Options</p>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="section-5" activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
+                                                <h6 className="mb-1 brandon-Bold"><b>Drinks</b></h6>
+                                                <p className="mb-0">56 OPTIONS</p>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="section-6" activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
+                                                <h6 className="mb-1 brandon-Bold"><b>Vegan</b></h6>
+                                                <p className="mb-0">611 RESTAURANTS</p>
                                             </Link>
                                         </li>
                                     </ul>
@@ -139,13 +157,49 @@ const RestaurantDiscMenu = (props) => {
                                         <MenuAccordianCommonComp value={menudata} />
                                     </Element>
                                     <Element name="section-3" className="pt-3">
-                                        <h1>ccccccc</h1>
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                                <div className="col-sm-12">
+                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Lunch</h4>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div>
                                             <MenuAccordianCommonComp/>
                                         </div>
                                     </Element>
                                     <Element name="section-4" className="pt-3">
-                                        <h1>ccccccc</h1>
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                                <div className="col-sm-12">
+                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Dinner</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <MenuAccordianCommonComp  />
+                                        </div>
+                                    </Element>
+                                    <Element name="section-5" className="pt-3">
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                                <div className="col-sm-12">
+                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Drinks</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <MenuAccordianCommonComp  />
+                                        </div>
+                                    </Element>
+                                    <Element name="section-6" className="pt-3">
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                                <div className="col-sm-12">
+                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Vegan</h4>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div>
                                             <MenuAccordianCommonComp  />
                                         </div>

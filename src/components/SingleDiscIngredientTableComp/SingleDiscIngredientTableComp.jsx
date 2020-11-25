@@ -1,14 +1,46 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import RestaurentDiscAllergiesInfoModal from "../RestaurentDiscAllergiesInfoModal/RestaurentDiscAllergiesInfoModal";
 import RestaurentDiscCaloriesInfoModal from "../RestaurentDiscCaloriesInfoModal/RestaurentDiscCaloriesInfoModal";
 import './SingleDiscIngredientTableComp.scss';
 import Ingredientsicon from "../../assets/images/dishinfo_img/Ingredients-icon.svg";
+import { useDispatch,useSelector } from "react-redux";
+import { getNutritionData } from "../../redux/actions/generalActions";
 
 const SingleDiscIngredientTableComp = () => {
     let ingredient = [{ "serving": 36.9, "ingredient": "raw broccoli", "allergies": "", "amend": "no" }, { "serving": 12.9, "ingredient": "cheese", "allergies": "dairy", "amend": "yes" }, { "serving": 15.5, "ingredient": "potatoes", "allergies": "", "amend": "yes" }, { "serving": 20.5, "ingredient": "lenties", "allergies": "", "amend": "yes" }, { "serving": 15.5, "ingredient": "olives", "allergies": "", "amend": "yes" }, { "serving": 50.5, "ingredient": "peanuts", "allergies": "peanuts", "amend": "yes" }, { "serving": 15.5, "ingredient": "housing dressing", "allergies": "", "amend": "yes" }]
+    const dispatch=useDispatch();
+
+    const title="Fresh Ham Roasted With Rye Bread and Dried Fruit Stuffing";
+    const ingr=[
+        "1 fresh ham, about 18 pounds, prepared by your butcher (See Step 1)",
+        "7 cloves garlic, minced",
+        "1 tablespoon caraway seeds, crushed",
+        "4 teaspoons salt",
+        "Freshly ground pepper to taste",
+        "1 teaspoon olive oil",
+        "1 medium onion, peeled and chopped",
+        "3 cups sourdough rye bread, cut into 1/2-inch cubes",
+        "1 1/4 cups coarsely chopped pitted prunes",
+        "1 1/4 cups coarsely chopped dried apricots",
+        "1 large tart apple, peeled, cored and cut into 1/2-inch cubes",
+        "2 teaspoons chopped fresh rosemary",
+        "1 egg, lightly beaten",
+        "1 cup chicken broth, homemade or low-sodium canned"
+      ];
+
+    useEffect(()=>{
+        dispatch(getNutritionData({title,ingr}))
+    },[dispatch]);
+
+   
+    const selectedNutritionInfo = useSelector((state) => state.general);
+
+    let {isLoading,nutrition_Data}=selectedNutritionInfo;
+    
 
     return (
         <>
+        {/* {JSON.stringify(nutrition_Data)} */}
             <div className="Ingredients-wrapper mb-4">
                 <div className="row">
                     <div className="col-sm-12">
