@@ -12,7 +12,7 @@ import containers from './state';
 function App() {
   return (
     <AppStateProvider containers={containers}>
-      <HashRouter>
+      {/* <HashRouter> */}
 
    
       <Suspense fallback={<div></div>}>
@@ -22,7 +22,7 @@ function App() {
           <Routes />
         </Switch>
       </Suspense>
-      </HashRouter>
+      {/* </HashRouter> */}
     </AppStateProvider>
   );
 }
