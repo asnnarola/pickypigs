@@ -1,0 +1,134 @@
+.signup-modal .modal-dialog {
+  max-width: 770px;
+}
+.signup-modal .modal-dialog .modal-content {
+  border-radius: 20px;
+  border: none !important;
+  box-shadow: 0px 1px 18px 0px #0000002b;
+  overflow: hidden;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-left {
+  background-image: url("../../assets/images/signup-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  flex: 0 0 370px;
+  max-width: 370px;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-left .hello-msg {
+  padding: 75px 50px;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-left .hello-msg h1 {
+  font-size: 48px;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right {
+  flex: 0 0 400px;
+  max-width: 400px;
+  padding: 2rem 50px 1rem 65px;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-input {
+  height: calc(1.5em + .75rem + 9px);
+  border: none;
+  border-bottom: 2px solid #919191;
+  border-radius: 0px;
+  padding-left: 0;
+  outline: none !important;
+  box-shadow: none !important;
+  font-size: 15px;
+  position: relative;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-input:focus {
+  border-color: #FF75BA;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-btn {
+  height: 50px;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  background: #fff;
+  padding-left: 10px;
+  cursor: pointer;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block.show:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 21px;
+  height: 1.5px;
+  background: #232323;
+  transform: rotate(45deg);
+  margin-top: 12.5px;
+  margin-right: -4px;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .forgot-block .forgot-link {
+  color: #cb007b;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .or-txt {
+  color: #ccc;
+  width: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -31px;
+  background: #fff;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn {
+  border: 1px solid #232323 !important;
+  background: #fff;
+  border-radius: 25px !important;
+  max-width: 135px;
+  width: 50px;
+  height: 50px;
+  font-size: 15px !important;
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center;
+  padding: 10px 10px 10px 10px !important;
+  color: #232323 !important;
+  font-family: inherit !important;
+  box-shadow: none !important;
+  margin-bottom: 15px;
+  outline: none !important;
+  transition: all 0.25s;
+  opacity: 1 !important;
+  font-family: "Brandon Text Medium" !important;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn:before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.25s;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnFacebook:before {
+  background-image: url(../../assets/images/FB-black.svg);
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnFacebook:hover:before {
+  background-image: url(../../assets/images/FB-white.svg);
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnGoogle:before {
+  background-image: url(../../assets/images/Google-black.svg);
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnGoogle:hover:before {
+  background-image: url(../../assets/images/Google-white.svg);
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnApple:before {
+  background-image: url(../../assets/images/apple-black.svg);
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnApple:hover:before {
+  background-image: url(../../assets/images/apple-white.svg);
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn:hover {
+  background: #232323 !important;
+  color: #fff !important;
+}
