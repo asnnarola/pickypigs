@@ -107,7 +107,7 @@ function FilterList({ filterIcon ="false"}) {
                 >
                     {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                         <div style={{position:'relative'}} className="fr-location">
-                            <div className="d-flex justify-content-between align-items-center w-100">
+                            <div className="d-flex justify-content-start align-items-center w-100">
                             <img src={location} className="img-fluid mr-2" alt="marker" />
                             <input
                             {...getInputProps({
@@ -167,7 +167,7 @@ function FilterList({ filterIcon ="false"}) {
                     </Button>}
                 </div>
             </div>
-            <div className="fr-category-select d-flex justify-content-between align-items-center mt-3 flex-wrap">
+            <div className="fr-category-select d-flex justify-content-between align-items-center mt-3 flex-wrap pr-4">
                 <CustomDropdown placeholder={"Allergen"} options={alergy_information} value={allergenValue} onChangeData={setAllergenValue} />
 
                 <CustomDropdown placeholder={"Dietary Preference"} options={dietary_preference} value={dietaryValue} onChangeData={setDietaryValue} />

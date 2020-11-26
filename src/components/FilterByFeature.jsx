@@ -71,7 +71,7 @@ function FilterByFeature() {
                         <React.Fragment key={index}>
                             <button  id= {data.name} 
                              onClick={handleFeatures} 
-                             className={`btn filter-subwrapper ${features.indexOf(data.name)!==-1 && "bg-warning"}`}
+                             className={`btn filter-subwrapper ${features.indexOf(data.name)!==-1 && "active"}`}
                             >
                                 <div className="filter-icon">
                                     <img src={data.image} className="img-fluid" />

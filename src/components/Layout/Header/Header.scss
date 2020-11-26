@@ -47,6 +47,7 @@
         color: #fff;
         border: 1px solid #fb6bb5 !important;
     }
+
     &:focus {
         box-shadow: 0 0 0 0.2rem #d00b812e !important;
     }
@@ -147,6 +148,65 @@
 
                             &:focus {
                                 border-bottom: 1px solid #cb007b;
+                            }
+                        }
+                    }
+
+                    .userprofile-dropdown {
+                        .userprofile-dropbtn {
+                            border: 1px solid #333333 !important;
+                            background: #fff !important;
+                            color: #333 !important;
+                            display: flex;
+                            align-items: center;
+                            max-width: 200px;
+                            min-width: 175px;
+                            border-radius: 25px;
+                            justify-content: space-between;
+                            position: relative;
+
+                            .user-name {
+                                display: flex;
+                                align-items: center;
+                                width: 100%;
+                                text-align: left;
+
+                                img {
+                                    &.userprofile-img {
+                                        border-radius: 50px;
+                                        width: 25px;
+                                        height: 25px;
+                                        overflow: hidden;
+                                        object-fit: contain;
+                                        object-position: center;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                    }
+                                }
+
+                                span {
+                                    font-size: 14px;
+                                    max-width: calc(100% - 49px);
+                                    width: 100%;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 1;
+                                }
+                            }
+
+                            &:after {
+                                content: url(/static/media/left-arrow.cea1b2ed.svg);
+                                border: none;
+                                width: 10px;
+                                height: 10px;
+                                display: flex;
+                                align-items: center;
+                                transform: rotate(90deg) scale(0.9);
+                                position: absolute;
+                                right: 15px;
                             }
                         }
                     }

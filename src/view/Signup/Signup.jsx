@@ -49,13 +49,13 @@ const Signup = ({ handleClose }) => {
     const [type, setType] = useState("password")
     const [isLoginPage, setLoginPage] = useState(false)
     const [error, setError] = useState(null)
-//     const [popup, setPopup] = useState(false);
+    //     const [popup, setPopup] = useState(false);
 
-//     const handlePopup = (pop) => {
-//         pop === true ? setPopup(false) : setPopup(true)
-//    }
+    //     const handlePopup = (pop) => {
+    //         pop === true ? setPopup(false) : setPopup(true)
+    //    }
 
-    console.log('isLoginPage => ',isLoginPage);
+    console.log('isLoginPage => ', isLoginPage);
 
     const handleForm = (input) => {
         console.log('input => ', input);
@@ -96,21 +96,21 @@ const Signup = ({ handleClose }) => {
             setType("password")
         }
     }
-  const  handleLoginForm = (input) => {
-      let obj = {
-          email:input.email,
-          password:input.password
-}
-      axios.post(`${HOST_URL}/auth/login`, obj).then(resp => {
-          setLogin(resp.data.token)
-          setError("")
+    const handleLoginForm = (input) => {
+        let obj = {
+            email: input.email,
+            password: input.password
+        }
+        axios.post(`${HOST_URL}/auth/login`, obj).then(resp => {
+            setLogin(resp.data.token)
+            setError("")
             handleClose();
         }).catch(e => {
-            console.log('e => ',e.response);
+            console.log('e => ', e.response);
             setError(e.response.data.message)
         })
     }
-console.log('error => ',error);
+    console.log('error => ', error);
 
     return (
         <div className="row">
@@ -122,9 +122,9 @@ console.log('error => ',error);
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-right">
                 <div className="row">
                     <div className="col-sm-12 mb-3">
-                        <h3 className="brandon-Bold">{isLoginPage ?"Sign in": "Sign up"}</h3>
-                        <p className="f-15"><span className="pr-2">{isLoginPage ? "Create account":"Have an account?"}</span>
-                            {isLoginPage ? <Link className="pink-txt brandon-Medium" onClick={() => setLoginPage(false)}>Sign up</Link> : <Link className="pink-txt brandon-Medium" onClick={() => setLoginPage(true)}>Sign in</Link>}
+                        <h3 className="brandon-Bold">{isLoginPage ? "Sign in" : "Sign up"}</h3>
+                        <p className="f-15"><span className="pr-2">{isLoginPage ? "Don't have an account?" : "Have an account?"}</span>
+                            {isLoginPage ? <Link className="pink-txt brandon-Medium" onClick={() => setLoginPage(false)}>Create account</Link> : <Link className="pink-txt brandon-Medium" onClick={() => setLoginPage(true)}>Sign in</Link>}
                         </p>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ console.log('error => ',error);
                         initialValues={{ email: '', password: '' }}
                         validationSchema={validationSchemaForLogin}
                         onSubmit={(values, { setSubmitting }) => {
-                            console.log('values => ',values);
+                            console.log('values => ', values);
 
                             handleLoginForm(values)
                             setSubmitting(false);
@@ -160,77 +160,82 @@ console.log('error => ',error);
                                                 <Field type={type} name="password" placeholder="Password" className="form-control signup-input"
                                                 />
                                                 <div className="showpassword-block" id="password" onClick={() => handlePassword()}>
-                                                    <img src={showpassword} className="img-fluid" alt="showpassword"/>
+                                                    <img src={showpassword} className="img-fluid" alt="showpassword" />
                                                 </div>
                                                 <div className="error pink-txt f-11">{(touched.password && errors.password && errors.password) || error}</div>
                                             </div>
                                             <div className="form-group">
                                                 <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" disabled={isSubmitting}>
                                                     Sign in
-                                            </button>
+                                                </button>
+                                            </div>
+                                            <div class="forgot-block text-center mt-3 mb-3">
+                                                <a class="forgot-link" href="#">
+                                                    <span>Forgot Password</span>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </Form>
                             )}
                     </Formik>
-                : <Formik
-                    initialValues={{ fullName: '', email: '', password: '', confirmPassword: '' }}
-                    validationSchema={validationSchema}
-                    onSubmit={(values, { setSubmitting }) => {
-                        handleForm(values)
-                        setSubmitting(false);
-                    }}
-                >
-                    {({
-                        values,
-                        errors,
-                        touched,
-                        handleChange,
-                        handleBlur,
-                        isSubmitting,
-                        /* and other goodies */
-                    }) => (
-                            <Form>
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        <div className="form-group">
-                                            <Field name="fullName" className="form-control signup-input" placeholder="Name or Full name" />
-                                            {touched.fullName && errors.fullName && <div className="error pink-txt f-11">{errors.fullName}</div>}
-                                        </div>
-                                        <div className="form-group">
-                                            <Field name="email" placeholder="Email" className="form-control signup-input" />
-                                            {/* {touched.email && errors.email &&
-                                                <div className="error pink-txt f-11">{errors.email}</div>} */}
-                                                <div className="error pink-txt f-11">{(touched.email && errors.email  && errors.email) || error}</div>
-                                        </div>
-                                        <div className="form-group">
-                                            <Field name="phone" placeholder="Phone no" className="form-control signup-input" />
-                                            {touched.phone && errors.phone &&
-                                                <div className="error pink-txt f-11">{errors.phone}</div>}
-                                        </div>
-                                        <div className="form-group position-relative">
-                                            <Field type={type}  name="password" placeholder="Password" className="form-control signup-input"
-                                            />
-                                            <div className="showpassword-block" id="password" onClick={()=>handlePassword()}>
-                                                <img src={showpassword} className="img-fluid" />
+                    : <Formik
+                        initialValues={{ fullName: '', email: '', password: '', confirmPassword: '' }}
+                        validationSchema={validationSchema}
+                        onSubmit={(values, { setSubmitting }) => {
+                            handleForm(values)
+                            setSubmitting(false);
+                        }}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleChange,
+                            handleBlur,
+                            isSubmitting,
+                            /* and other goodies */
+                        }) => (
+                                <Form>
+                                    <div className="row">
+                                        <div className="col-sm-12">
+                                            <div className="form-group">
+                                                <Field name="fullName" className="form-control signup-input" placeholder="Name or Full name" />
+                                                {touched.fullName && errors.fullName && <div className="error pink-txt f-11">{errors.fullName}</div>}
                                             </div>
-                                            {touched.password && errors.password && <div className="error pink-txt f-11">{errors.password}</div>}
-                                        </div>
-                                        <div className="form-group">
-                                            <Field type="password" name="confirmPassword" placeholder="Confirm Password" className="form-control signup-input" />
-                                            {touched.confirmPassword && errors.confirmPassword && <div className="error pink-txt f-11">{errors.confirmPassword}</div>}
-                                        </div>
-                                        <div className="form-group">
-                                            <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" disabled={isSubmitting}>
-                                                Sign up
+                                            <div className="form-group">
+                                                <Field name="email" placeholder="Email" className="form-control signup-input" />
+                                                {/* {touched.email && errors.email &&
+                                                <div className="error pink-txt f-11">{errors.email}</div>} */}
+                                                <div className="error pink-txt f-11">{(touched.email && errors.email && errors.email) || error}</div>
+                                            </div>
+                                            <div className="form-group">
+                                                <Field name="phone" placeholder="Phone no" className="form-control signup-input" />
+                                                {touched.phone && errors.phone &&
+                                                    <div className="error pink-txt f-11">{errors.phone}</div>}
+                                            </div>
+                                            <div className="form-group position-relative">
+                                                <Field type={type} name="password" placeholder="Password" className="form-control signup-input"
+                                                />
+                                                <div className="showpassword-block" id="password" onClick={() => handlePassword()}>
+                                                    <img src={showpassword} className="img-fluid" />
+                                                </div>
+                                                {touched.password && errors.password && <div className="error pink-txt f-11">{errors.password}</div>}
+                                            </div>
+                                            <div className="form-group">
+                                                <Field type="password" name="confirmPassword" placeholder="Confirm Password" className="form-control signup-input" />
+                                                {touched.confirmPassword && errors.confirmPassword && <div className="error pink-txt f-11">{errors.confirmPassword}</div>}
+                                            </div>
+                                            <div className="form-group">
+                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" disabled={isSubmitting}>
+                                                    Sign up
                                             </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Form>
-                        )}
-                </Formik>}
+                                </Form>
+                            )}
+                    </Formik>}
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="form-group mt-2 pt-2">
@@ -246,13 +251,23 @@ console.log('error => ',error);
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="socail-login d-flex justify-content-between align-items-center mt-3">
+                            <GoogleLogin
+                                clientId={GOOGLE_CLIENT_ID}
+                                onSuccess={googleResponse}
+                                className="btnApple socail-btn"
+                                icon={false}
+                            >
+                                {/* <span>Google</span> */}
+                                <span></span>
+                            </GoogleLogin>
                             <FacebookLogin
                                 appId={FACEBOOK_APP_ID}
                                 autoLoad={false}
                                 fields="name,email,picture"
                                 callback={facebookResponse}
                                 cssClass="btnFacebook socail-btn"
-                                textButton="&nbsp;&nbsp;Facebook"
+                                // textButton="&nbsp;&nbsp;Facebook"
+                                textButton=""
                             />
                             <GoogleLogin
                                 clientId={GOOGLE_CLIENT_ID}
@@ -260,7 +275,8 @@ console.log('error => ',error);
                                 className="btnGoogle socail-btn"
                                 icon={false}
                             >
-                                <span>Google</span>
+                                {/* <span>Google</span> */}
+                                <span></span>
                             </GoogleLogin>
                         </div>
                         <div class="terms-block text-center mt-4 txt-lightgray">
