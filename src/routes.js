@@ -1,6 +1,9 @@
 import React, { lazy } from "react";
 import { Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import Hidden from '@material-ui/core/Hidden';
+import RestaurantDiscMobilePage from "./Mobile/MobileView/RestaurantDiscMobilePage/RestaurantDiscMobilePage";
+import RestaurantDiscInfoMobilePage from "./Mobile/MobileView/RestaurantDiscInfoMobilePage/RestaurantDiscInfoMobilePage";
 
 const Home = lazy(() => import("./view/Home/Home.jsx"));
 const RestaurantList = lazy(() => import("./view/RestaurantList/RestaurantList"));
@@ -25,9 +28,32 @@ class Routes extends React.PureComponent {
     render() {
         return (
             <Layout>
-                {routesCode.map((route, i) =>
-                    <Route {...route} key={i} />)
-                }
+                <Route  path="/" exact strict component={Home} />
+                <Route  path="/restaurant_list" exact strict component={RestaurantList} />
+                <Route  path="/allrestaurant" exact strict component={AllRestaurant} />
+
+                <Hidden only={['xs','sm']}>
+                    <Route  path="/restaurant_disc" exact strict component={RestaurantDiscPage} />
+                </Hidden>
+                <Hidden only={['xs','md','lg','xl']}>
+                    <Route  path="/restaurant_disc" exact strict component={RestaurantDiscPage} />
+                </Hidden>
+                <Hidden only={['sm','md','lg','xl']}>
+                    <Route  path="/restaurant_disc" exact strict component={RestaurantDiscMobilePage} />
+                </Hidden>
+
+                <Hidden only={['xs','sm']}>
+                    <Route  path="/restaurant_disc_info" exact strict component={RestaurantSingleDiscInfoPage} />
+                </Hidden>
+                <Hidden only={['xs','md','lg','xl']}>
+                    <Route  path="/restaurant_disc_info" exact strict component={RestaurantSingleDiscInfoPage} />
+                </Hidden>
+                <Hidden only={['sm','md','lg','xl']}>
+                    <Route  path="/restaurant_disc_info" exact strict component={RestaurantDiscInfoMobilePage} />
+                </Hidden>
+
+                <Route  path="/user_detail" exact strict component={UserDetailPage} />
+                <Route  path="/verify/:token" exact strict component={Verify} />
             </Layout>
         );
     }

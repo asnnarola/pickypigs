@@ -23,5 +23,7 @@ function App() {
     </AppStateProvider>
   );
 }
+export default App;
 
-export default withSplashScreen(App);
+
+// export default withSplashScreen(App);

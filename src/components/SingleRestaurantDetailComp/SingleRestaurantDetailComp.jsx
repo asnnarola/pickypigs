@@ -36,6 +36,7 @@ const SingleRestaurantDetailComp = () => {
     return (
         <>
             <div className="container">
+                {myDay}
                 <div className="breadcrumb-wrapper">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
@@ -101,7 +102,7 @@ const SingleRestaurantDetailComp = () => {
                                             ?
                                             compareData(restaurantTime2,restaurantTime4,myTime)
                                             :
-                                        myDay==="Thrusday"
+                                        myDay==="Thursday"
                                             ?
                                             compareData(restaurantTime2,restaurantTime4,myTime)
                                             :
@@ -124,7 +125,7 @@ const SingleRestaurantDetailComp = () => {
                                     <p className="txt-lightgray mb-0 brandon-Medium">{myDay==="Monday"? "Monday 9:00 am - 11:30 pm"
                                         :myDay==="Tuesday"? "Tuesday Closed / Holiday"
                                         :myDay==="Wednesday"? "Wednesday 9:00 am - 11:30 pm"
-                                        :myDay==="Thrusday"? "Thrusday 9:00 am - 11:30 pm"
+                                        :myDay==="Thursday"? "Thursday 9:00 am - 11:30 pm"
                                         :myDay==="Friday"? "Friday 9:00 am to 11:00 pm"
                                         :myDay==="Saturday"? "Saturday 7:00 am to 12:00 am"
                                         :"Sunday 7:00 am to 12:00 am"}
@@ -139,7 +140,7 @@ const SingleRestaurantDetailComp = () => {
                                             <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Monday"&&"pink-txt brandon-Medium"}`}>Monday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Monday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
                                             <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Tuesday"&&"pink-txt brandon-Medium"}`}>Tuesday</p></td><td><p style={{color:'#f545b0'}} className={`txt-lightgray mb-2 ${myDay==="Tuesday"&&"pink-txt brandon-Medium"}`}>Closed / Holiday</p></td></tr>
                                             <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Wednesday"&&"pink-txt brandon-Medium"}`}>Wednesday&nbsp;&nbsp;</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Wednesday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Thrusday"&&"pink-txt brandon-Medium"}`}>Thrusday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Thrusday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
+                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Thursday"&&"pink-txt brandon-Medium"}`}>Thursday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Thursday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
                                             <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Friday"&&"pink-txt brandon-Medium"}`}>Friday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Friday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
                                             <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Saturday"&&"pink-txt brandon-Medium"}`}>Saturday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Saturday"&&"pink-txt brandon-Medium"}`}>7:00 am - 12:30 am</p></td></tr>
                                         </tbody>

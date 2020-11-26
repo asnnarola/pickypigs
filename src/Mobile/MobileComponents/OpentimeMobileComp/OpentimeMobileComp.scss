@@ -1,0 +1,47 @@
+.openTimeMobile-content{
+    
+    .rs-opendropdown {
+        .rs-opendropdown-btn {
+            background: #fff !important;
+            border: none;
+            box-shadow: none!important;
+            border-radius: 0px;
+            outline: none !important;
+            padding: 15px 0px;
+            height: 80px;
+            position: relative;
+            border-bottom: 1px solid black;
+            margin-bottom: 15px;
+            &:after {
+                content: "";
+                position: absolute;
+                right: 20px;
+                top: 25px;
+                background-image: url("../../../assets/images/dropdown-arrow.svg");
+                width: 10px;
+                height: 10px;
+                background-size: 10px;
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: ease 0.25s;
+            }
+            &.active {
+                &:after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        #example-collapse-text {
+            position: absolute;
+            top:50px;
+            background: #fff;
+            z-index: 1;
+            width: 100%;
+            border: none;
+            box-shadow: 0px 17px 18px 0px #00000014 !important;
+            padding: 10px 20px 10px 45px;
+        }
+
+    }
+
+}
