@@ -1,0 +1,70 @@
+.filterFitureMobile-container {
+    .filterfeature-wrapper {
+        .slick-list {
+            height:160px;
+            .slick-track {
+                .slick-slide {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    outline: none !important;
+                    margin-left: 0.4px;
+                    border-radius: 10px;
+
+                    .filter-subwrapper {
+                        min-width: 90px;
+                        max-width: 90px;
+                        margin: 1rem auto 1.5rem;
+                        text-align: center;
+                        height: 110px;
+                        align-items: center;
+                        display: flex !important;
+                        flex-direction: column;
+                        justify-content: center;
+                        background: #fff;
+                        border-radius: 10px;
+                        box-shadow: 0px 2px 8px 1px #0000000d;
+                        position: relative;
+                        outline: none !important;
+                        transition: all 0.25s;
+                        margin-right: 10px;
+                        border: 1px solid transparent;
+
+                        .filter-icon {
+                            width: 42px;
+                            height: 42px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        a {
+                            &.text-link {
+                                font-family: "Brandon Text Medium";
+                            }
+                        }
+
+                        &.active {
+                            border: 1px solid #cb007b;
+
+                            .filter-icon {
+                                img {
+                                    filter: invert(20%) sepia(98%) saturate(3481%) hue-rotate(309deg) brightness(75%) contrast(118%);
+                                }
+                            }
+                            .text-link{
+                                color: #cb007b !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // @media screen and (min-width:1200px) and (max-width:2400px) {
+    //     .filter-container {
+    //         max-width: calc(100% - 30px) !important;
+    //     }
+    // }
+}
