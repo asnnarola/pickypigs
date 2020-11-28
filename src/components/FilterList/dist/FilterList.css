@@ -22,10 +22,20 @@
   max-width: 200px;
   width: 100%;
 }
+.fr-section .fr-wrapper .restaurant-find .fr-search .fr-location .txt-location {
+  font-size: 13px;
+  color: #232323;
+}
 .fr-section .fr-wrapper .restaurant-find .fr-search .fr-location .location-search-input {
   border: none;
   outline: none;
-  max-width: calc(100% - 30px);
+  max-width: calc(100% - 55px);
+  font-size: 15px;
+  color: #919191;
+}
+.fr-section .fr-wrapper .restaurant-find .fr-search .fr-location .downarrow-icon {
+  position: absolute;
+  right: 10px;
 }
 .fr-section .fr-wrapper .restaurant-find .fr-search .fr-input {
   max-width: calc(100% - 210px);

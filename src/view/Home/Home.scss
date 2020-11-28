@@ -168,6 +168,7 @@
     .ff-section {
         .filterfeature-wrapper {
             .slick-list {
+                max-height:150px;
                 .slick-track {
                     .slick-slide {
                         display: flex;
@@ -188,7 +189,7 @@
                             flex-direction: column;
                             justify-content: center;
                             background: #fff;
-                            border-radius: 10px;
+                            border-radius: 15px;
                             box-shadow: 0px 2px 8px 1px #0000000d;
                             position: relative;
                             outline: none !important;
