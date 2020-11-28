@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Dropdown } from 'react-bootstrap'
 import axios from 'axios';
-import { API_KEY, GOOGLE_MAP_API_URL, HOST_URL,GOOGLE_PLACE_API_URL} from '../../shared/constant';
+import { API_KEY, GOOGLE_MAP_API_URL, HOST_URL, GOOGLE_PLACE_API_URL } from '../../shared/constant';
 import location from "../../assets/images/location-icon.svg"
+import nearlocation from "../../assets/images/nearlocaion-icon.svg"
 import serachwhite from "../../assets/images/serach-white.svg"
 import filtershorticon from "../../assets/images/filtershort-icon.svg"
 import downarrow from "../../assets/images/down-arrow.svg"
+import dropdownarrow from "../../assets/images/dropdown-arrow.svg"
 import CustomDropdown from '../CustomDropdown/CustomDropdown';
 import "./FilterList.scss"
 import { useDispatch, useSelector } from "react-redux";
@@ -14,16 +16,16 @@ import { getRestaurantSearchData } from '../../redux/actions/generalActions';
 import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng,
-  } from 'react-places-autocomplete';
+} from 'react-places-autocomplete';
 
 
-const alergy_information=["Egg","Milk","Celery","Mustard","Lupin","Nuts","Peanuts","Sesame","Molluscs","Crustaceans","Fish","Cereals (Wheat)","Soya","Sulphur dioxide"];
-const dietary_preference=["Gluten Free","Dairy Free","Meat Lover","Fodmap","Low Sugar","Low Carb","Plant Based","Vegetarian","Pescatarian","Keto"];
-const lifestyle_choice=["Pregnant","Vegan","Halal","Kosher","Organic","Locally Sourced"];
-const restaurant_features=["Pet Friendly","Child friendly","Live music","Outside sitting","Disabled access","Reservations needed","Bring your own","Large parties accepted","Private dining room","Table service","Bar service","Holding bar","R20","Take away"];
+const alergy_information = ["Egg", "Milk", "Celery", "Mustard", "Lupin", "Nuts", "Peanuts", "Sesame", "Molluscs", "Crustaceans", "Fish", "Cereals (Wheat)", "Soya", "Sulphur dioxide"];
+const dietary_preference = ["Gluten Free", "Dairy Free", "Meat Lover", "Fodmap", "Low Sugar", "Low Carb", "Plant Based", "Vegetarian", "Pescatarian", "Keto"];
+const lifestyle_choice = ["Pregnant", "Vegan", "Halal", "Kosher", "Organic", "Locally Sourced"];
+const restaurant_features = ["Pet Friendly", "Child friendly", "Live music", "Outside sitting", "Disabled access", "Reservations needed", "Bring your own", "Large parties accepted", "Private dining room", "Table service", "Bar service", "Holding bar", "R20", "Take away"];
 
-function FilterList({ filterIcon ="false"}) {
-    const dispatch=useDispatch();
+function FilterList({ filterIcon = "false" }) {
+    const dispatch = useDispatch();
     const [places, setPlaces] = useState(null)
     const [selectedPlace, setSelectedPlace] = useState(null)
     const [allergen, setAllergen] = useState([])
@@ -38,7 +40,7 @@ function FilterList({ filterIcon ="false"}) {
     const [address, setAddress] = useState()
 
     useEffect(() => {
-        
+
         getMyLocation()
 
     }, [])
@@ -63,12 +65,12 @@ function FilterList({ filterIcon ="false"}) {
             })
         }
     }
-    
+
     const getAllRestaurant = () => {
         const location = window.navigator && window.navigator.geolocation
         if (location) {
-            location.getCurrentPosition((position)=>{
-                dispatch(getRestaurantSearchData(position.coords.latitude,position.coords.longitude,userSearchText));
+            location.getCurrentPosition((position) => {
+                dispatch(getRestaurantSearchData(position.coords.latitude, position.coords.longitude, userSearchText));
             });
         }
     }
@@ -76,24 +78,24 @@ function FilterList({ filterIcon ="false"}) {
     const handleSearch = (e) => {
         setUserSearchText(e.target.value)
     }
-   
+
 
 
     // ssssssssssss
 
     const handleChange = address => {
         setAddress(address);
-      };
+    };
 
-      const handleSelect = address => {
+    const handleSelect = address => {
         geocodeByAddress(address)
-          .then(results => getLatLng(results[0]))
-          .then( setAddress(address))
-          .then(latLng => console.log('Success', latLng))
-          .catch(error => console.error('Error', error));
-      };
+            .then(results => getLatLng(results[0]))
+            .then(setAddress(address))
+            .then(latLng => console.log('Success', latLng))
+            .catch(error => console.error('Error', error));
+    };
 
-      
+
     return (
         <div className="restaurant-find w-100 p-2 p-xl-3">
             {/* {JSON.stringify(userSearchDetails&&userSearchDetails)} */}
@@ -106,42 +108,47 @@ function FilterList({ filterIcon ="false"}) {
 
                 >
                     {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                        <div style={{position:'relative'}} className="fr-location">
-                            <div className="d-flex justify-content-start align-items-center w-100">
-                            <img src={location} className="img-fluid mr-2" alt="marker" />
-                            <input
-                            {...getInputProps({
-                                placeholder: 'Search Places ...',
-                                className: 'location-search-input',
-                            })}
-                            />
-                            <div style={{borderRadius:10,position:"absolute",top:50,width:500,backgroundColor:'white',zIndex:99,boxShadow:"2px 4px 20px 0px #0000001a"}} className="autocomplete-dropdown-container">
-                                {loading && <div>Loading...</div>}
-                                {suggestions.map(suggestion => {
-                                    const className = suggestion.active
-                                    ? 'suggestion-item--active'
-                                    : 'suggestion-item';
-                                    // inline style for demonstration purpose
-                                    const style = suggestion.active
-                                    ? { backgroundColor: '#fafafa', cursor: 'pointer',padding:10 }
-                                    : { backgroundColor: '#ffffff', cursor: 'pointer',padding:10};
-                                    return (
-                                    <div
-                                        {...getSuggestionItemProps(suggestion, {
-                                        className,
-                                        style,
+                        <div style={{ position: 'relative' }} className="fr-location">
+                            <label className="d-block text-left w-100 txt-location brandon-regular mb-0">Location</label>
+                            <div className="d-flex justify-content-start align-items-center w-100 position-relative">
+                                {/* w-100 flex-column position-relative */}
+                                <div className="location-input d-flex align-items-center w-100">
+                                    <img src={location} className="img-fluid mr-2" alt="marker" />
+                                    <input
+                                        {...getInputProps({
+                                            placeholder: 'Where are you?',
+                                            className: 'location-search-input brandon-regular',
                                         })}
-                                    >
-                                        <span><img src={location} className="img-fluid mr-2" alt="marker" /> {suggestion.description}</span>
-                                    </div>
-                                    );
-                                })}
-                            </div>
+                                    />
+                                    <img src={dropdownarrow} className="img-fluid mr-2 downarrow-icon" alt="marker" />
+                                </div>
+                                <div style={{ borderRadius: 20, position: "absolute", top: 50, width: 400, backgroundColor: 'white', zIndex: 99, boxShadow: "2px 4px 20px 0px #0000001a", }} className="autocomplete-dropdown-container">
+                                    {loading && <div>Loading...</div>}
+                                    {suggestions.map(suggestion => {
+                                        const className = suggestion.active
+                                            ? 'suggestion-item--active'
+                                            : 'suggestion-item';
+                                        // inline style for demonstration purpose
+                                        const style = suggestion.active
+                                            ? { backgroundColor: '#fafafa', cursor: 'pointer', padding: 10 }
+                                            : { backgroundColor: '#ffffff', cursor: 'pointer', padding: 10 };
+                                        return (
+                                            <div
+                                                {...getSuggestionItemProps(suggestion, {
+                                                    className,
+                                                    style,
+                                                })}
+                                            >
+                                                <span className="location-nearicon"><img src={nearlocation} className="img-fluid mr-2" alt="marker" /> <span className="location-address">{suggestion.description}</span></span>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
                     )}
                 </PlacesAutocomplete>
-                
+
                 {/* <Dropdown className="fr-location mr-2">
                     <Dropdown.Toggle className="d-flex justify-content-between align-items-center w-100" variant="Secondary" id="dropdown-basic">
                         <span className="d-flex align-items-center">
@@ -158,11 +165,11 @@ function FilterList({ filterIcon ="false"}) {
                     </Dropdown.Menu>
                 </Dropdown> */}
                 <div className="fr-input d-flex justify-content-between align-items-center">
-                    <input onChange={handleSearch} className="w-100 fr-search-box rl-fl-searchbox" placeholder="Type here for restaurant or dishe" />
+                    <input onChange={handleSearch} className="w-100 fr-search-box rl-fl-searchbox brandon-regular" placeholder="Search for restaurant or dish" />
                     <Button variant="primary" onClick={getAllRestaurant} className="fr-search-btn theme-pink-btn">
                         <img src={serachwhite} className="img-fluid" alt="serachwhite" />
                     </Button>
-                   {filterIcon && <Button className="filtershort-btn ml-2 p-0">
+                    {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
                     </Button>}
                 </div>
@@ -176,7 +183,7 @@ function FilterList({ filterIcon ="false"}) {
 
                 <CustomDropdown placeholder={"Restaurant Features"} options={restaurant_features} value={featuresValue} onChangeData={setFeaturesValue} />
 
-                
+
             </div>
 
         </div>
