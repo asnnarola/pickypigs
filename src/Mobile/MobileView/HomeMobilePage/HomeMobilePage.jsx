@@ -32,7 +32,9 @@ const HomeMobilePage=()=>{
                 <SubMenuModalMobileComp show={submenuModalShow}  onHide={() => setSubmenuModalShow(false)} />
 
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                    <input type="text" placeholder="search for restaurant Or receipy" className="w-100 mr-3 rounded-pill p-2" />
+                    <Link to="mobile_search"  className="w-100 mr-3">
+                        <input type="text" placeholder="search for restaurant Or receipy"  className="w-100 rounded-pill p-2" />
+                    </Link>
                     <Link to="allergy_mobile"><Filter/></Link>
                 </div>
                 <div>
