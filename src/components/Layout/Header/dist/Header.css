@@ -92,7 +92,7 @@
   color: #cb007b;
 }
 .main-layout nav.main-header .menu-list .navright-btn .search-topnav {
-  width: 100px;
+  width: 215px;
   opacity: 0;
   visibility: hidden;
   z-index: -1;
@@ -100,14 +100,15 @@
 }
 .main-layout nav.main-header .menu-list .navright-btn .search-topnav .search-navicon {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 3px;
 }
 .main-layout nav.main-header .menu-list .navright-btn .search-topnav .search-input {
   border: none;
   border-bottom: 1px solid transparent;
   border-radius: 0px;
-  padding-left: 35px;
+  padding-left: 2px;
+  padding-right: 25px;
   color: #232323;
   box-shadow: none;
   outline: none !important;

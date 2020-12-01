@@ -39,12 +39,12 @@ const Header = (props) => {
                     <Nav.Link className="menu-link mr-lg-5" href="#link">What</Nav.Link>
                     <Nav.Link className="menu-link" href="#link">How</Nav.Link>
                 </Nav>
-                <Form inline className="navright-btn userlogin-after">
-                    <div className="search-topnav mr-3 position-relative">
+               { false&&<Form inline className="navright-btn userlogin-after">
+                    <div className="search-topnav mr-5 position-relative">
                         <div className="search-navicon">
                             <img src={search_icon} className="img-fluid" alt="search_icon" />
                         </div>
-                        <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search" />
+                        <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                     </div>
                     <div className="btn-group userprofile-dropdown">
                         <button type="button" className="btn btn-secondary dropdown-toggle userprofile-dropbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,8 +59,8 @@ const Header = (props) => {
                             <button className="dropdown-item" type="button">Something else here</button>
                         </div>
                     </div>
-                </Form>
-                <Form inline className="navright-btn d-none">
+                </Form>}
+                <Form inline className="navright-btn ">
                     <div className="search-topnav mr-3 position-relative">
                         <div className="search-navicon">
                             <img src={search_icon} className="img-fluid" alt="search_icon" />

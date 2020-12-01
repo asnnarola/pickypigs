@@ -1,0 +1,51 @@
+.restaurantMenuBlockMobile-wrapper {
+    
+    .restaurant-img {
+        height       : 178px;
+        overflow     : hidden;
+        border-radius: 10px;
+
+    }
+
+    .restaurant-details {
+        position: absolute;
+        width    : 100%;
+        margin       : auto;
+        padding      : 0.1rem 0.75rem;
+        background   : #fff;
+        border-radius: 10px;
+        bottom: 0px;
+        background     : #00000087;
+
+            .restaurant-view {
+                background     : #00000087;
+                padding        : 2px 12px;
+                border-radius  : 25px;
+                top            : 20px;
+                display        : flex;
+                align-items    : center;
+                justify-content: center;
+                font-size      : 14px;
+            }
+            p{
+                font-size: 14px;
+            }
+            span{
+                font-size: 12px;
+            }
+            .location-icon {
+                top: -2px
+            }
+
+            .foodtypes-wrap {
+                .food-types {
+                    background     :transparent;
+                    width        : 36px;
+                    height       : 36px;
+                    border-radius: 50px;
+                    border: 1px solid #ffffff;
+                    border-radius: 100px;
+                }
+            }
+        }
+}

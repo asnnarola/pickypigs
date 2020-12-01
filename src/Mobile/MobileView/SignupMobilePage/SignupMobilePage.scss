@@ -1,0 +1,157 @@
+// Modal signup design css start
+.mobileSignup-modal {
+  
+
+                .signup-right {
+                    flex: 0 0 400px;
+                    max-width: 400px;
+                    padding: 2rem 50px 1rem 65px;
+                    // background-image: url('../../../assets/images/signup-bg.png');
+                    // background-repeat: no-repeat;
+                    // background-size: cover;
+                    // background-position: top center;
+                    form {
+                        .form-group {
+                            .signup-input {
+                                height: calc(1.5em + .75rem + 9px);
+                                border: none;
+                                border-bottom: 2px solid #919191;
+                                border-radius: 0px;
+                                padding-left: 0;
+                                outline: none !important;
+                                box-shadow: none !important;
+                                font-size: 15px;
+                                position: relative;
+
+                                &:focus {
+                                    border-color: #FF75BA;
+                                }
+                            }
+
+                            .signup-btn {
+                                height: 50px;
+                            }
+
+                            .showpassword-block {
+                                position: absolute;
+                                top: 0px;
+                                right: 0;
+                                margin-top: 10px;
+                                margin-right: 10px;
+                                background: #fff;
+                                padding-left: 10px;
+                                cursor: pointer;
+
+                                &.show {
+                                    &:before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 0px;
+                                        right: 0px;
+                                        width: 21px;
+                                        height: 1.5px;
+                                        background: #232323;
+                                        transform: rotate(45deg);
+                                        margin-top: 12.5px;
+                                        margin-right: -4px;
+                                    }
+                                }
+                            }
+                        }
+                        .forgot-block{
+                            .forgot-link{
+                                color: #cb007b;
+                            }
+                        }
+                    }
+
+                    .or-txt {
+                        color: #ccc;
+                        width: 50px;
+                        text-align: center;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: -31px;
+                        background: #fff;
+                    }
+
+                    .socail-login {
+                        .socail-btn {
+                            border: 1px solid #232323 !important;
+                            background: #fff;
+                            border-radius: 25px !important;
+                            max-width: 135px;
+                            width: 50px;
+                            height: 50px;
+                            font-size: 15px !important;
+                            position: relative;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center;
+                            padding: 10px 10px 10px 10px !important;
+                            // padding        : 10px 10px 10px 2rem !important;
+                            color: #232323 !important;
+                            font-family: inherit !important;
+                            box-shadow: none !important;
+                            margin-bottom: 15px;
+                            outline: none !important;
+                            transition: all 0.25s;
+                            opacity: 1 !important;
+                            font-family: "Brandon Text Medium" !important;
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                left: 10px;
+                                width: 30px;
+                                height: 30px;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                transition: all 0.25s;
+                            }
+
+                            &.btnFacebook {
+                                &:before {
+                                    background-image: url(../../../assets/images/FB-black.svg);
+                                }
+
+                                &:hover {
+                                    &:before {
+                                        background-image: url(../../../assets/images/FB-white.svg);
+                                    }
+                                }
+                            }
+
+                            &.btnGoogle {
+                                &:before {
+                                    background-image: url(../../../assets/images/Google-black.svg);
+                                }
+
+                                &:hover {
+                                    &:before {
+                                        background-image: url(../../../assets/images/Google-white.svg);
+                                    }
+                                }
+                            }
+
+                            &.btnApple {
+                                &:before {
+                                    background-image: url(../../../assets/images/apple-black.svg);
+                                }
+
+                                &:hover {
+                                    &:before {
+                                        background-image: url(../../../assets/images/apple-white.svg);
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                background: #232323 !important;
+                                color: #fff !important;
+                            }
+                        }
+                    }
+                }
+}

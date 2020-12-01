@@ -22,11 +22,33 @@
                     max-width: 200px;
                     width: 100%;
 
+                    .txt-location {
+                        font-size: 13px;
+                        color: #232323;
+                    }
+
                     .location-search-input {
                         border: none;
                         outline: none;
-                        max-width: calc(100% - 30px);
+                        max-width: calc(100% - 55px);
+                        font-size: 15px;
+                        color: #919191;
                     }
+
+                    .downarrow-icon{
+                        position: absolute;
+                        right: 10px;
+                    }
+
+                    // .autocomplete-dropdown-container {
+                    //     .location-address {
+                    //         overflow: hidden;
+                    //         text-overflow: ellipsis;
+                    //         display: -webkit-box;
+                    //         -webkit-box-orient: vertical;
+                    //         -webkit-line-clamp: 1;
+                    //     }
+                    // }
                 }
 
                 .fr-input {
