@@ -2,6 +2,14 @@
 .signup-modal {
     .modal-dialog {
         max-width: 770px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+
+        @media screen and (min-width:576px) {
+            min-height: calc(100% - (1.75rem * 2));
+        }
 
         .modal-content {
             border-radius: 20px;
@@ -31,6 +39,21 @@
                     flex: 0 0 400px;
                     max-width: 400px;
                     padding: 2rem 50px 1rem 65px;
+
+                    .modalclose-icon {
+                        position: absolute;
+                        width: 13px;
+                        height: 13px;
+                        top: -5px;
+                        right: -15px;
+                        padding: 0;
+                        z-index: 11;
+                        cursor: pointer;
+                        line-height: 0;
+                        outline: none;
+                        box-shadow: none;
+                        border: none;
+                    }
 
                     form {
                         .form-group {
@@ -80,9 +103,12 @@
                                 }
                             }
                         }
-                        .forgot-block{
-                            .forgot-link{
-                                color: #cb007b;
+
+                        .forgot-block {
+                            .forgot-link {
+                                border-bottom: 2px solid #232323;
+                                text-decoration: none;
+                                font-size: 14px;
                             }
                         }
                     }

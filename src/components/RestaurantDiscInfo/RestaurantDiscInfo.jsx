@@ -10,6 +10,7 @@ import phoneicon from "../../assets/images/restaurant-dish/phone-icon.svg";
 import location from "../../assets/images/restaurant-dish/location.svg";
 import mapimg from "../../assets/images/restaurant-dish/map-img.jpg";
 import shareicon from "../../assets/images/restaurant-dish/share-icon.svg";
+import socialshareicon from "../../assets/images/share.svg";
 import getdirection from "../../assets/images/restaurant-dish/getdirection.svg";
 import GoogleMapTestComp from "../GoogleMapTestComp/GoogleMapTestComp";
 
@@ -175,6 +176,21 @@ const RestaurantDiscInfo = () => {
                                                     <img src={getdirection} className="img-fluid mr-3" alt="walleticon" />
                                                     <span>Get Directions</span>
                                                 </a>
+                                            </div>
+                                        </div>
+                                        <div className="sharesocial-link">
+                                            <div className="sharesocial-title">
+                                                <img src={socialshareicon} className="img-fluid" />
+                                                <h6 className="mb-0">SOCIAL</h6>
+                                            </div>
+                                            <div class="sharesocial-linkbtn">
+                                                <a href="#">Facebook</a>
+                                            </div>
+                                            <div class="sharesocial-linkbtn">
+                                                <a href="#">Twitter</a>
+                                            </div>
+                                            <div class="sharesocial-linkbtn">
+                                                <a href="#">Instagram</a>
                                             </div>
                                         </div>
                                     </div>

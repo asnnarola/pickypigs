@@ -1,5 +1,14 @@
 .signup-modal .modal-dialog {
   max-width: 770px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@media screen and (min-width: 576px) {
+  .signup-modal .modal-dialog {
+    min-height: calc(100% - (1.75rem * 2));
+  }
 }
 .signup-modal .modal-dialog .modal-content {
   border-radius: 20px;
@@ -25,6 +34,20 @@
   flex: 0 0 400px;
   max-width: 400px;
   padding: 2rem 50px 1rem 65px;
+}
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .modalclose-icon {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  top: -5px;
+  right: -15px;
+  padding: 0;
+  z-index: 11;
+  cursor: pointer;
+  line-height: 0;
+  outline: none;
+  box-shadow: none;
+  border: none;
 }
 .signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-input {
   height: calc(1.5em + .75rem + 9px);
@@ -66,7 +89,9 @@
   margin-right: -4px;
 }
 .signup-modal .modal-dialog .modal-content .modal-body .signup-right form .forgot-block .forgot-link {
-  color: #cb007b;
+  border-bottom: 2px solid #232323;
+  text-decoration: none;
+  font-size: 14px;
 }
 .signup-modal .modal-dialog .modal-content .modal-body .signup-right .or-txt {
   color: #ccc;

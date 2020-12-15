@@ -109,6 +109,23 @@
 .fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .picky__dropdown div[data-testid=dropdown] li {
   list-style: none !important;
 }
+.fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .picky__dropdown .filter-listcheck {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .picky__dropdown .filter-listcheck .clearall-link {
+  position: absolute;
+  right: 15px;
+  display: none;
+}
+.fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .picky__dropdown .filter-listcheck .clearall-link a {
+  color: #cb007b;
+  font-size: 14px;
+}
+.fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .picky__dropdown .filter-listcheck:nth-child(1) .clearall-link {
+  display: block;
+}
 .fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .filterdrop-checkbox .custom-control-label:before {
   border-color: #919191;
 }

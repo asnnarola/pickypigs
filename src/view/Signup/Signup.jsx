@@ -8,6 +8,7 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from "react-facebook-login";
 import useAppState from '../../context/useAppState';
 import showpassword from "../../assets/images/eye_icon.svg";
+import closeicon from "../../assets/images/close.svg";
 import { Modal } from 'react-bootstrap';
 import "./Signup.scss"
 
@@ -121,6 +122,13 @@ const Signup = ({ handleClose }) => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-right">
                 <div className="row">
+                    <div className="col-sm-12">
+                        <button className="btn modalclose-icon">
+                            <img src={closeicon} alt="signup modal close icon" className="img-fluid" />
+                        </button>
+                    </div>
+                </div>
+                <div className="row">
                     <div className="col-sm-12 mb-3">
                         <h3 className="brandon-Bold">{isLoginPage ? "Sign in" : "Sign up"}</h3>
                         <p className="f-15"><span className="pr-2">{isLoginPage ? "Don't have an account?" : "Have an account?"}</span>
@@ -164,15 +172,15 @@ const Signup = ({ handleClose }) => {
                                                 </div>
                                                 <div className="error pink-txt f-11">{(touched.password && errors.password && errors.password) || error}</div>
                                             </div>
+                                            <div class="forgot-block text-left mt-3 mb-1 pt-1">
+                                                <a class="forgot-link text-dark" href="#">
+                                                    <span>Forgot Password?</span>
+                                                </a>
+                                            </div>
                                             <div className="form-group">
                                                 <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" disabled={isSubmitting}>
                                                     Sign in
                                                 </button>
-                                            </div>
-                                            <div class="forgot-block text-center mt-3 mb-3">
-                                                <a class="forgot-link" href="#">
-                                                    <span>Forgot Password</span>
-                                                </a>
                                             </div>
                                         </div>
                                     </div>

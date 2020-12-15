@@ -25,25 +25,25 @@ const RestaurantDiscGallery = () => {
                         <div className="col-lg-3 rsdish-filter">
                             <ul className="rsdish-ul" style={{ position: 'sticky', top: 110, }}>
                                 <li className="rsdish-li">
-                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value==="all" ? 'rsdish-active' : null}`} onClick={() => { setValue("all") }}>
+                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "all" ? 'rsdish-active' : null}`} onClick={() => { setValue("all") }}>
                                         <h6 class="mb-1 brandon-Bold "><b>All</b></h6>
                                         <small className="txt-lightgray">(159)</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
-                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value==="food" ? 'rsdish-active' : null}`} onClick={() => { setValue("food") }}>
+                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "food" ? 'rsdish-active' : null}`} onClick={() => { setValue("food") }}>
                                         <h6 class="mb-1 brandon-Bold "><b>Food</b></h6>
                                         <small className="txt-lightgray">(159)</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
-                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value==="ambience" ? 'rsdish-active' : null}`} onClick={() => { setValue("ambience") }}>
+                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "ambience" ? 'rsdish-active' : null}`} onClick={() => { setValue("ambience") }}>
                                         <h6 class="mb-1 brandon-Bold"><b>Ambience</b></h6>
                                         <small className="txt-lightgray">(159)</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
-                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value==="videos" ? 'rsdish-active' : null}`} onClick={() => { setValue("videos") }}>
+                                    <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "videos" ? 'rsdish-active' : null}`} onClick={() => { setValue("videos") }}>
                                         <h6 class="mb-1 brandon-Bold"><b>videos</b></h6>
                                         <small className="txt-lightgray">(159)</small>
                                     </button>
@@ -56,9 +56,14 @@ const RestaurantDiscGallery = () => {
                                     value === "all" ?
 
                                         <div className="row">
+                                            <div className="col-sm-12 pl-0 pr-0">
+                                                <div className="col-sm-12 pl-0 pr-0">
+                                                    <h4 className="text-uppercase mb-4 brandon-Bold txt-darkgreen"><b>ALL</b></h4>
+                                                </div>
+                                            </div>
                                             {resturantData.map((data, index) => {
                                                 return (
-                                                    <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0">
+                                                    <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
                                                         <div className="rsdish-gallery">
                                                             <img src={data.image} alt="" className="img-fluid" />
                                                         </div>
@@ -78,7 +83,7 @@ const RestaurantDiscGallery = () => {
                                                         return data.type === value
                                                     }).map((data, index) => {
                                                         return (
-                                                            <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0">
+                                                            <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
                                                                 <div className="rsdish-gallery">
                                                                     <img src={data.image} alt="" className="img-fluid" />
                                                                 </div>

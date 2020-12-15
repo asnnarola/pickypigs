@@ -1,6 +1,7 @@
 .rsdishtabmain-content {
     position: relative;
     padding-bottom: 3rem;
+
     &:after {
         content: "";
         position: absolute;
@@ -17,10 +18,11 @@
         z-index: -1;
         transform: rotate(90deg);
     }
-            
+
     .rsdish-filter {
         max-width: 270px !important;
         flex: 0 0 270px !important;
+
         .rsdish-ul {
             list-style: none;
             padding-left: 0px;
@@ -28,6 +30,7 @@
             box-shadow: 0px 3px 16px 0px #00000010;
             border-radius: 10px;
             overflow: hidden;
+
             .rsdish-li {
                 button {
                     background: transparent;
@@ -41,13 +44,16 @@
                     border: none;
                     outline: none;
                     flex-wrap: wrap;
+
                     &.rsdish-active {
                         background: #ffd5e2;
+
                         h6,
                         small {
                             color: #cb007b;
                         }
                     }
+
                     h6 {
                         font-size: 18px;
                     }
@@ -55,25 +61,44 @@
             }
         }
     }
+
     .rsdish-rightcontent {
         max-width: calc(100% - 270px) !important;
         flex: 0 0 calc(100% - 270px) !important;
-        .rsdish-gallery {
-            height: 158px;
-            max-width: 158px;
-            margin-left: auto;
-            margin-bottom: 20px;
-            margin-right: 20px;
-            border-radius: 6px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            img {
-                height: 100%;
-                object-fit: cover;
-                width: 100%;
+
+        .gallery-imgblock {
+
+            .rsdish-gallery {
+                height: 158px;
+                max-width: 158px;
+                margin-left: auto;
+                margin-bottom: 20px;
+                margin-right: 20px;
+                border-radius: 6px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                    width: 100%;
+                }
             }
+        }
+    }
+}
+
+// media query css start
+@media screen and (min-width:1200px) {
+    .rsdishtabmain-content {
+        .rsdish-rightcontent {
+            .gallery-imgblock {
+                max-width: 20%;
+                flex: 0 0 20%;
+            }
+
         }
     }
 }

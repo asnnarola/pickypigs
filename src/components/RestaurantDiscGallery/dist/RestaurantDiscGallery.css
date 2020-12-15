@@ -1,0 +1,83 @@
+.rsdishtabmain-content {
+  position: relative;
+  padding-bottom: 3rem;
+}
+.rsdishtabmain-content:after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../../assets/images/Pattern.png");
+  background-position: top center;
+  background-size: 100% 100%;
+  height: 225px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -1;
+  transform: rotate(90deg);
+}
+.rsdishtabmain-content .rsdish-filter {
+  max-width: 270px !important;
+  flex: 0 0 270px !important;
+}
+.rsdishtabmain-content .rsdish-filter .rsdish-ul {
+  list-style: none;
+  padding-left: 0px;
+  background: #fff;
+  box-shadow: 0px 3px 16px 0px #00000010;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.rsdishtabmain-content .rsdish-filter .rsdish-ul .rsdish-li button {
+  background: transparent;
+  display: flex;
+  max-width: calc(100% - 30px);
+  width: 100%;
+  height: 60px;
+  padding: 17px;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  outline: none;
+  flex-wrap: wrap;
+}
+.rsdishtabmain-content .rsdish-filter .rsdish-ul .rsdish-li button.rsdish-active {
+  background: #ffd5e2;
+}
+.rsdishtabmain-content .rsdish-filter .rsdish-ul .rsdish-li button.rsdish-active h6,
+.rsdishtabmain-content .rsdish-filter .rsdish-ul .rsdish-li button.rsdish-active small {
+  color: #cb007b;
+}
+.rsdishtabmain-content .rsdish-filter .rsdish-ul .rsdish-li button h6 {
+  font-size: 18px;
+}
+.rsdishtabmain-content .rsdish-rightcontent {
+  max-width: calc(100% - 270px) !important;
+  flex: 0 0 calc(100% - 270px) !important;
+}
+.rsdishtabmain-content .rsdish-rightcontent .gallery-imgblock .rsdish-gallery {
+  height: 158px;
+  max-width: 158px;
+  margin-left: auto;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rsdishtabmain-content .rsdish-rightcontent .gallery-imgblock .rsdish-gallery img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .rsdishtabmain-content .rsdish-rightcontent .gallery-imgblock {
+    max-width: 20%;
+    flex: 0 0 20%;
+  }
+}

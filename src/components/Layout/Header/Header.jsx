@@ -39,7 +39,7 @@ const Header = (props) => {
                     <Nav.Link className="menu-link mr-lg-5" href="#link">What</Nav.Link>
                     <Nav.Link className="menu-link" href="#link">How</Nav.Link>
                 </Nav>
-                <Form inline className="navright-btn userlogin-after">
+                <Form inline className="navright-btn userlogin-after d-none">
                     <div className="search-topnav mr-5 position-relative">
                         <div className="search-navicon">
                             <img src={search_icon} className="img-fluid" alt="search_icon" />
@@ -60,12 +60,12 @@ const Header = (props) => {
                         </div>
                     </div>
                 </Form>
-                <Form inline className="navright-btn d-none">
-                    <div className="search-topnav mr-3 position-relative">
+                <Form inline className="navright-btn">
+                    <div className="search-topnav mr-5 position-relative">
                         <div className="search-navicon">
                             <img src={search_icon} className="img-fluid" alt="search_icon" />
                         </div>
-                        <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search" />
+                        <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                     </div>
                     <Button variant="outline-success" className="mr-3 theme-light-btn pt-2 pb-2 pl-4 pr-4 radius-50">Partner with us</Button>
                     <Link to="/" onClick={!getUser() && handleShow} variant="" className="outline-success theme-light-btn pt-2 pb-2 pl-4 pr-4 mr-4">
