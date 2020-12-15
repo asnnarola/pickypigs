@@ -12,10 +12,10 @@ import './RestaurantDiscMobilePage.scss';
 const RestaurantDiscMobilePage = () => {
 
     let [mobileTabs, setMobileTabs] = useState({
-        tab1: false,
+        tab1: true,
         tab2: false,
         tab3: false,
-        tab4: true,
+        tab4: false,
     });
 
     return (

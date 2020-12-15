@@ -36,9 +36,9 @@ const DiscBlockCarouselMobileComp=()=>{
                                  {resturantData.map((data, index) => {
                                      return (
                                          <div key={index} >
-                                             {/* <Link to='/'style={{textDecoration:'none',color:'initial'}}> */}
+                                             <Link to='/restaurant_disc'style={{textDecoration:'none',color:'initial'}}>
                                                 <DiscBlockMobileComp  restaurant_Pic={data.image} scale={index===activeSlide?null:"scale"} kmValue={data.dist} rating={data.stars} />
-                                             {/* </Link> */}
+                                             </Link>
                                          </div>
                                      )
                                  })}
