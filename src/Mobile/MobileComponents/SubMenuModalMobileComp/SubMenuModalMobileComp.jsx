@@ -29,7 +29,7 @@ const SubMenuModalMobileComp=(props)=>{
                             </Link>
                         </div>
                         <div className="mb-3">
-                            <Link to='/mobile_user' className="w-100 d-flex justify-content-between align-items-center">
+                            <Link to='/user_detail' className="w-100 d-flex justify-content-between align-items-center">
                                 Account
                                 <Location/>
                             </Link>

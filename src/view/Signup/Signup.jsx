@@ -34,6 +34,7 @@ const validationSchema = Yup.object().shape({
             return this.parent.password === value;
         }),
 });
+
 const validationSchemaForLogin = Yup.object().shape({
     email: Yup.string().email().required('Required'),
     password: Yup
@@ -43,11 +44,17 @@ const validationSchemaForLogin = Yup.object().shape({
         .min(2, 'Seems a bit short...')
         .max(10, 'We prefer insecure system, try a shorter password.')
 });
+
+const validationSchemaForForgotPassword = Yup.object().shape({
+    email: Yup.string().email().required('Required'),        
+});
+
 const Signup = ({ handleClose }) => {
     // const [open, setOpen] = useState(!!show)
     const { setLogin } = useAppState("useGlobal")
     const [type, setType] = useState("password")
     const [isLoginPage, setLoginPage] = useState(false)
+    const [isSignupPage, setSignupPage] = useState(true)
     const [error, setError] = useState(null)
     //     const [popup, setPopup] = useState(false);
 
@@ -122,13 +129,13 @@ const Signup = ({ handleClose }) => {
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-right">
                 <div className="row">
                     <div className="col-sm-12 mb-3">
-                        <h3 className="brandon-Bold">{isLoginPage ? "Sign in" : "Sign up"}</h3>
-                        <p className="f-15"><span className="pr-2">{isLoginPage ? "Don't have an account?" : "Have an account?"}</span>
-                            {isLoginPage ? <Link className="pink-txt brandon-Medium" onClick={() => setLoginPage(false)}>Create account</Link> : <Link className="pink-txt brandon-Medium" onClick={() => setLoginPage(true)}>Sign in</Link>}
+                        <h3 className="brandon-Bold">{isLoginPage ? "Sign in" : isSignupPage?"Sign up":"Reset Password"}</h3>
+                        <p className="f-15"><span className="pr-2">{isLoginPage ? "Don't have an account?" :isSignupPage?"Have an account?":"Enter your email address in the for below and we will send you further instructions on how toreset your password."}</span>
+                            {isLoginPage ? <button className="pink-txt brandon-Medium trans_button" onClick={() =>{setLoginPage(false);setSignupPage(true)}}>Create account</button> :isSignupPage? <button className="pink-txt brandon-Medium trans_button" onClick={() =>{setLoginPage(true);setSignupPage(false)}}>Sign in</button>:null}
                         </p>
                     </div>
                 </div>
-                {isLoginPage ?
+                {isLoginPage  ?
                     <Formik
                         initialValues={{ email: '', password: '' }}
                         validationSchema={validationSchemaForLogin}
@@ -170,16 +177,17 @@ const Signup = ({ handleClose }) => {
                                                 </button>
                                             </div>
                                             <div class="forgot-block text-center mt-3 mb-3">
-                                                <a class="forgot-link" href="#">
+                                                <button onClick={() =>{setLoginPage(false);setSignupPage(false)}} class="forgot-link trans_button">
                                                     <span>Forgot Password</span>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </Form>
                             )}
                     </Formik>
-                    : <Formik
+                    : isSignupPage ?
+                    <Formik
                         initialValues={{ fullName: '', email: '', password: '', confirmPassword: '' }}
                         validationSchema={validationSchema}
                         onSubmit={(values, { setSubmitting }) => {
@@ -235,63 +243,107 @@ const Signup = ({ handleClose }) => {
                                     </div>
                                 </Form>
                             )}
+                    </Formik>
+                    :
+                    <Formik
+                        initialValues={{ email: '', }}
+                        validationSchema={validationSchemaForForgotPassword}
+                        onSubmit={(values, { setSubmitting }) => {
+                            console.log('values => ', values);
+
+                            handleLoginForm(values)
+                            setSubmitting(false);
+                        }}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleChange,
+                            handleBlur,
+                            isSubmitting,
+                            /* and other goodies */
+                        }) => (
+                                <Form>
+                                    <div className="row">
+                                        <div className="col-sm-12">
+                                            <div className="form-group">
+                                                <Field name="email" placeholder="Email" className="form-control signup-input" />
+                                                {touched.email && errors.email &&
+                                                    <div className="error pink-txt f-11">{errors.email}</div>}
+                                            </div>
+                                           
+                                            <div className="form-group">
+                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25 " type="submit" disabled={isSubmitting}>
+                                                    RESET PASSWORD
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </Form>
+                            )}
                     </Formik>}
-                <div className="row">
-                    <div className="col-sm-12">
-                        <div className="form-group mt-2 pt-2">
-                            <div className="border-separate">
+               { isLoginPage || isSignupPage ?
+               <React.Fragment>
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <div className="form-group mt-2 pt-2">
+                                <div className="border-separate">
+                                </div>
+                            </div>
+                            <div className="or-txt f-15">
+                                <span>or</span>
                             </div>
                         </div>
-                        <div className="or-txt f-15">
-                            <span>or</span>
-                        </div>
                     </div>
-                </div>
 
-                <div className="row">
-                    <div className="col-sm-12">
-                        <div className="socail-login d-flex justify-content-between align-items-center mt-3">
-                            <GoogleLogin
-                                clientId={GOOGLE_CLIENT_ID}
-                                onSuccess={googleResponse}
-                                className="btnApple socail-btn"
-                                icon={false}
-                            >
-                                {/* <span>Google</span> */}
-                                <span></span>
-                            </GoogleLogin>
-                            <FacebookLogin
-                                appId={FACEBOOK_APP_ID}
-                                autoLoad={false}
-                                fields="name,email,picture"
-                                callback={facebookResponse}
-                                cssClass="btnFacebook socail-btn"
-                                // textButton="&nbsp;&nbsp;Facebook"
-                                textButton=""
-                            />
-                            <GoogleLogin
-                                clientId={GOOGLE_CLIENT_ID}
-                                onSuccess={googleResponse}
-                                className="btnGoogle socail-btn"
-                                icon={false}
-                            >
-                                {/* <span>Google</span> */}
-                                <span></span>
-                            </GoogleLogin>
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <div className="socail-login d-flex justify-content-between align-items-center mt-3">
+                                <GoogleLogin
+                                    clientId={GOOGLE_CLIENT_ID}
+                                    onSuccess={googleResponse}
+                                    className="btnApple socail-btn"
+                                    icon={false}
+                                >
+                                    {/* <span>Google</span> */}
+                                    <span></span>
+                                </GoogleLogin>
+                                <FacebookLogin
+                                    appId={FACEBOOK_APP_ID}
+                                    autoLoad={false}
+                                    fields="name,email,picture"
+                                    callback={facebookResponse}
+                                    cssClass="btnFacebook socail-btn"
+                                    // textButton="&nbsp;&nbsp;Facebook"
+                                    textButton=""
+                                />
+                                <GoogleLogin
+                                    clientId={GOOGLE_CLIENT_ID}
+                                    onSuccess={googleResponse}
+                                    className="btnGoogle socail-btn"
+                                    icon={false}
+                                >
+                                    {/* <span>Google</span> */}
+                                    <span></span>
+                                </GoogleLogin>
+                            </div>
+                            <div class="terms-block text-center mt-4 txt-lightgray">
+                                <p>By proceeding you agree to the<br />
+                                    <Link href="#" class="pink-txt pr-1 brandon-Medium">Terms</Link>and
+                                    <Link href="#" class="pink-txt pl-1 brandon-Medium">Privacy Policy</Link>
+                                </p>
+                            </div>
+                            {/* <Modal show={popup} onHide={handlePopup} className="signup-modal">
+                                <Modal.Body className="p-0">
+                                            <p>Signup successfully !</p>
+                                </Modal.Body>
+                            </Modal> */}
                         </div>
-                        <div class="terms-block text-center mt-4 txt-lightgray">
-                            <p>By proceeding you agree to the<br />
-                                <Link href="#" class="pink-txt pr-1 brandon-Medium">Terms</Link>and
-                                <Link href="#" class="pink-txt pl-1 brandon-Medium">Privacy Policy</Link>
-                            </p>
-                        </div>
-                        {/* <Modal show={popup} onHide={handlePopup} className="signup-modal">
-                            <Modal.Body className="p-0">
-                                        <p>Signup successfully !</p>
-                            </Modal.Body>
-                        </Modal> */}
                     </div>
-                </div>
+                </React.Fragment>
+                :null}
             </div>
         </div>
     )

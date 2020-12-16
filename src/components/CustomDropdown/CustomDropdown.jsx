@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import { Picky } from 'react-picky';
 import "./CustomDropdown.scss"
 
-const CustomDropdown = ({ placeholder, labelKey = "name", valueKey = "_id", options, value, onChangeData, className = "" }) => {
+const CustomDropdown = ({ placeholder,clearAll, labelKey = "name", valueKey = "_id", options, value, onChangeData, className = "" }) => {
     // const [state, setstate] = useState(false)
     // const addClass = () => {
     //     console.log('Hiiiiiiiiiii', state);
@@ -57,6 +57,9 @@ const CustomDropdown = ({ placeholder, labelKey = "name", valueKey = "_id", opti
                     </div>
                 );
             }}
+
+           
+
         />
     )
 }

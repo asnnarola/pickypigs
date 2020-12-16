@@ -76,8 +76,9 @@ const Header = (props) => {
                     </Link>
                     <img src={cart} className="img-fluid" alt="cart" />
                 </Form>
-                <Modal show={show} onHide={handleClose} className="signup-modal">
-                    <Modal.Body className="p-0">
+                <Modal centered show={show} onHide={handleClose} className="signup-modal">
+                    <Modal.Body className="p-0 position-relative">
+                        <Button style={{position:'absolute',right:0,backgroundColor:'transparent',color:'black',border:'none',zIndex:1}} onClick={handleClose}>x</Button>
                         <Signup handleClose={handleClose} show={show} />
                     </Modal.Body>
                 </Modal>

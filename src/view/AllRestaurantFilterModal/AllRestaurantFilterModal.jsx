@@ -44,6 +44,7 @@ const AllRestaurantFilterModal = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter" className="brandon-Bold">
                         Filters
+                        {/* <button onClick={()=>{alert(values)}}>Clear all</button> */}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -53,15 +54,16 @@ const AllRestaurantFilterModal = (props) => {
                                 initialValues={{
                                     // checked: [],
                                     toggle: false,
-                                    distance:5
+                                    distance:5,
                                 }}
                                 onSubmit={(values) => {
                                     console.log(values)
                                     
                                 }}
                                 >
-                                {({ values }) => (
+                                {({ values,resetForm }) => (
                                     <Form>
+                                        <button style={{position:'absolute',top:-27,right:0}} type="reset" onClick={resetForm}>Reset All</button>                 
                                         <Accordion allowMultiple={true}>
                                             {data && data.map((singleData,index) => {
                                                  return (
@@ -72,7 +74,7 @@ const AllRestaurantFilterModal = (props) => {
                                                                 return (
                                                                     <div className="col-md-6" key={index}>
                                                                         <div className="form-check custom-control custom-checkbox filter-checkbox">
-                                                                            <Field type="checkbox" name={singleData.title} value={boxdata} className="form-check-input custom-control-input" id="exampleCheck1" style={{marginLeft:2,zIndex:1,cursor:"pointer"}}/>
+                                                                            <Field type="checkbox" name={singleData.title} value={boxdata} className="form-check-input custom-control-input" style={{marginLeft:2,zIndex:1,cursor:"pointer"}}/>
                                                                             <label className="form-check-label custom-control-label" htmlFor="exampleCheck1" style={{zIndex:-1}}>
                                                                                 {boxdata}
                                                                             </label>

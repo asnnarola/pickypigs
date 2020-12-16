@@ -12,8 +12,12 @@ import mapimg from "../../assets/images/restaurant-dish/map-img.jpg";
 import shareicon from "../../assets/images/restaurant-dish/share-icon.svg";
 import getdirection from "../../assets/images/restaurant-dish/getdirection.svg";
 import GoogleMapTestComp from "../GoogleMapTestComp/GoogleMapTestComp";
+import {FacebookShareButton,TwitterShareButton} from "react-share";
 
 const RestaurantDiscInfo = () => {
+    const shareUrl = window.location.href;
+    const shareTitle = "Share Restaurant Location";
+
     return (
         <>
             <section >
@@ -177,6 +181,31 @@ const RestaurantDiscInfo = () => {
                                                 </a>
                                             </div>
                                         </div>
+
+                                        <div className="social-wrapper">
+                                            <div className="d-block w-100 mb-3">
+                                                <div className="rs-infoicon mr-3">
+                                                    <img src={location} className="img-fluid" alt="Diningtable" />
+                                                </div>
+                                                <div className="rs-infosubwrap pt-1">
+                                                    <p className="brandon-Medium text-uppercase mb-2">Social</p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <FacebookShareButton className="btn-twitter" url={shareUrl} title={shareTitle}>
+                                                        <span>Facebook</span>
+                                                    </FacebookShareButton>
+                                                </div>
+                                                <div>
+                                                    <TwitterShareButton className="btn-twitter" url={shareUrl} title={shareTitle}>
+                                                        <span>Twitter</span>
+                                                    </TwitterShareButton>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
                                     </div>
                                 </div>
                             </div>

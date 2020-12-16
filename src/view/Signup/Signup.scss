@@ -32,6 +32,17 @@
                     max-width: 400px;
                     padding: 2rem 50px 1rem 65px;
 
+                    .trans_button{
+                        background-color: transparent;
+                        border: none;
+                        padding:0px
+                    }
+                    .trans_button:focus{
+                        outline: none;
+                    }
+                    .trans_button:hover{
+                        text-decoration: underline;
+                    }
                     form {
                         .form-group {
                             .signup-input {

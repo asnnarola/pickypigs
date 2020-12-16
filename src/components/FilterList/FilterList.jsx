@@ -45,6 +45,9 @@ function FilterList({ filterIcon = "false" }) {
 
     }, [])
 
+    const clearAll=()=>{
+        setAllergenValue([])
+    }
 
     const getMyLocation = () => {
         const location = window.navigator && window.navigator.geolocation
@@ -185,7 +188,8 @@ function FilterList({ filterIcon = "false" }) {
 
 
             </div>
-
+{allergenValue}
+<button onClick={clearAll}>ssss</button>
         </div>
     )
 }
