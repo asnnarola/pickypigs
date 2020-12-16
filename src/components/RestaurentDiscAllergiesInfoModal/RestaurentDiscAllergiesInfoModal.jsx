@@ -27,7 +27,7 @@ const RestaurentDiscAllergiesInfoModal = () => {
                 </Button>
             </div>
             <Modal className="rs-discallergiesinfomadel" show={show} onHide={handleClose} animation={false} style={{ width: 400, marginLeft: 'auto', right: 0, top: 0 }}>
-                <Modal.Header closeButton className="border-bottom-0">
+                <Modal.Header closeButton className="border-bottom-0 align-items-center">
                     <Modal.Title className="w-100">
                         <p className="d-flex align-items-center mb-0 rsd-icontext-content">
                             <div className="d-flex align-items-center w-100">

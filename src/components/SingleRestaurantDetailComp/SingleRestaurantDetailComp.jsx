@@ -57,7 +57,7 @@ const SingleRestaurantDetailComp = () => {
 
 
                 <div className="row mt-4">
-                    <div className="col-md-9">
+                    <div className="col-md-9 rs-maindetails">
                         <div className="rs-name">
                             <h2 className="mb-2 brandon-Medium">The Barrio Brothers Express</h2>
                             <p className="rs-dediction d-flex flex-wrap align-items-center mb-2">
@@ -84,7 +84,7 @@ const SingleRestaurantDetailComp = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-3 rs-opendropdownwrapper">
                         <div className="rs-opendropdown w-100 position-relative">
                             <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open} className={`d-flex rs-opendropdown-btn w-100 ${open?"active":null}`}>
                                 <div className="rs-timeimg mr-3">

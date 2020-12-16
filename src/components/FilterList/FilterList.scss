@@ -35,7 +35,7 @@
                         color: #919191;
                     }
 
-                    .downarrow-icon{
+                    .downarrow-icon {
                         position: absolute;
                         right: 10px;
                     }
@@ -138,6 +138,48 @@
                                     list-style: none !important;
                                 }
                             }
+                        }
+
+                        .filter-listcheck {
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+
+                            .clearall-link {
+                                position: absolute;
+                                right: 15px;
+                                display: none;
+
+                                a {
+                                    color: #cb007b;
+                                    font-size: 14px;
+                                }
+                            }
+
+                            &:nth-child(1) {
+                                .clearall-link {
+                                    display: block;
+                                }
+                            }
+
+                            // form {
+                            //     max-width: calc(100% - 70px);
+                            //     width: 100%;
+
+                            //     .filterdrop-checkbox {
+                            //         width: 100%;
+
+                            //         label {
+                            //             &.custom-control-label {
+                            //                 overflow: hidden;
+                            //                 text-overflow: ellipsis;
+                            //                 display: -webkit-box;
+                            //                 -webkit-box-orient: vertical;
+                            //                 -webkit-line-clamp: 1;
+                            //             }
+                            //         }
+                            //     }
+                            // }
                         }
                     }
 

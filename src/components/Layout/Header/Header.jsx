@@ -39,7 +39,7 @@ const Header = (props) => {
                     <Nav.Link className="menu-link mr-lg-5" href="#link">What</Nav.Link>
                     <Nav.Link className="menu-link" href="#link">How</Nav.Link>
                 </Nav>
-               { false&&<Form inline className="navright-btn userlogin-after">
+                <Form inline className="navright-btn userlogin-after d-none">
                     <div className="search-topnav mr-5 position-relative">
                         <div className="search-navicon">
                             <img src={search_icon} className="img-fluid" alt="search_icon" />
@@ -59,13 +59,13 @@ const Header = (props) => {
                             <button className="dropdown-item" type="button">Something else here</button>
                         </div>
                     </div>
-                </Form>}
-                <Form inline className="navright-btn ">
-                    <div className="search-topnav mr-3 position-relative">
+                </Form>
+                <Form inline className="navright-btn">
+                    <div className="search-topnav mr-5 position-relative">
                         <div className="search-navicon">
                             <img src={search_icon} className="img-fluid" alt="search_icon" />
                         </div>
-                        <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search" />
+                        <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                     </div>
                     <Button variant="outline-success" className="mr-3 theme-light-btn pt-2 pb-2 pl-4 pr-4 radius-50">Partner with us</Button>
                     <Link to="/" onClick={!getUser() && handleShow} variant="" className="outline-success theme-light-btn pt-2 pb-2 pl-4 pr-4 mr-4">
@@ -78,7 +78,6 @@ const Header = (props) => {
                 </Form>
                 <Modal centered show={show} onHide={handleClose} className="signup-modal">
                     <Modal.Body className="p-0 position-relative">
-                        <Button style={{position:'absolute',right:0,backgroundColor:'transparent',color:'black',border:'none',zIndex:1}} onClick={handleClose}>x</Button>
                         <Signup handleClose={handleClose} show={show} />
                     </Modal.Body>
                 </Modal>

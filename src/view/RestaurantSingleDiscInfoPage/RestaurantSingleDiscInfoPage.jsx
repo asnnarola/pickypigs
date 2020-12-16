@@ -21,7 +21,7 @@ const RestaurantSingleDiscInfoPage = () => {
                         </nav>
                     </div>
                     {/*Breadcrumb Ends*/}
-                    <div className="row row mt-4 pt-2">
+                    <div className="row mt-4 pt-2">
                         <div className="col-md-5 rsdiscinfo-leftcontent">
                             <SingleDiscDetalDescComp />
                         </div>

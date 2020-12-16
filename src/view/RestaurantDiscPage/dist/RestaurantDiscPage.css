@@ -1,0 +1,74 @@
+.restaurantdisc-wrapper {
+  margin-top: 90px;
+}
+.restaurantdisc-wrapper .rstab-subhead {
+  border-bottom: 1px solid #d9d9d9;
+  position: relative;
+  padding-bottom: 5px;
+}
+.restaurantdisc-wrapper .rstab-subhead .rstab-lists .rstab-btn {
+  background: #fff;
+  border: none;
+  outline: none !important;
+  text-decoration: none;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 0;
+}
+.restaurantdisc-wrapper .rstab-subhead .rstab-lists .rstab-btn.active {
+  color: #cb007b;
+}
+.restaurantdisc-wrapper .rstab-subhead .rstab-lists .rstab-btn.active:after {
+  position: absolute;
+  bottom: -16px;
+  width: 110%;
+  height: 3px;
+  background: #cb007b;
+  content: "";
+  display: block;
+  left: 0;
+  border-radius: 2px;
+}
+.restaurantdisc-wrapper .rstab-subhead .filter-formlist .shortby-btn .search-input {
+  max-width: 200px;
+}
+.restaurantdisc-wrapper .rstab-subhead .filter-formlist .shortby-btn .search-input .search-icon {
+  position: absolute;
+  line-height: 1;
+}
+.restaurantdisc-wrapper .rstab-subhead .filter-formlist .shortby-btn .search-input input.search-inputbox {
+  background: #fff;
+  border: none;
+  padding-left: 30px;
+  outline: none;
+  box-shadow: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+.restaurantdisc-wrapper .rstab-subhead .filter-formlist .shortby-btn .search-input input.search-inputbox::placeholder {
+  color: #232323;
+}
+.restaurantdisc-wrapper .rstab-subhead .filter-formlist .shortby-btn .search-input input.search-inputbox:focus {
+  border-bottom: 1px solid #333 !important;
+}
+.restaurantdisc-wrapper .rstab-subhead .filter-formlist .shortby-btn .select-shortby {
+  padding: 0px;
+  height: auto !important;
+  border: none;
+  padding-right: 36px;
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  color: #232323;
+  padding-left: 5px;
+  background: #fff url("../../assets/images/down-arrow.svg") no-repeat right 0.75rem center/10px 10px;
+  background-position: right;
+}
+.restaurantdisc-wrapper .rstab-subhead .filter-formlist .shortby-btn .filtershort-btn {
+  background: #fff !important;
+  color: #333333 !important;
+  border: none;
+  box-shadow: none !important;
+  outline: none !important;
+}

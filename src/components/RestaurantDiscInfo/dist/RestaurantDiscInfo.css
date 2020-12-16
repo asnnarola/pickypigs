@@ -1,0 +1,105 @@
+.tabmain-content {
+  position: relative;
+  padding-bottom: 3rem;
+}
+.tabmain-content:after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../../assets/images/Pattern.png");
+  background-position: top center;
+  background-size: 100% 100%;
+  height: 225px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -1;
+  transform: rotate(90deg);
+}
+.tabmain-content .rs-infosdetail {
+  line-height: 1.75;
+}
+.tabmain-content .rs-infoblock {
+  padding: 20px 19px 20px 25px;
+  box-shadow: 0px 2px 18px 0px #00000012;
+  border-radius: 6px;
+  background: #fff;
+}
+.tabmain-content .rs-infoblock .rs-infoicon {
+  position: absolute;
+  width: 30px;
+}
+.tabmain-content .rs-infoblock .rs-infosubwrap {
+  width: 100%;
+  padding-left: 45px;
+}
+.tabmain-content .rs-infoblock .rs-infosubwrap .cuisine-label {
+  border: 1px solid #c1c1c1;
+  border-radius: 20px;
+  padding: 2px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  word-break: break-all;
+  display: inline-block;
+}
+.tabmain-content .rs-infoblock .rs-infosubwrap .otherinfo-list .otherinfo-li {
+  list-style: none;
+}
+.tabmain-content .rs-infoblock .map-wrapper {
+  height: 140px;
+  border-radius: 6px;
+}
+.tabmain-content .rs-infoblock .address-label {
+  line-height: 1.65;
+}
+.tabmain-content .rs-infoblock .location-wrapper {
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+.tabmain-content .rs-infoblock .location-wrapper .location-btn {
+  width: 46%;
+}
+.tabmain-content .rs-infoblock .location-wrapper .location-borderstyle {
+  height: 30px;
+  width: 1px;
+  background: #d9d9d9;
+}
+.tabmain-content .rs-infoblock .sharesocial-link {
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+.tabmain-content .rs-infoblock .sharesocial-link .sharesocial-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.tabmain-content .rs-infoblock .sharesocial-link .sharesocial-title img {
+  width: 20px;
+  margin-right: 18px;
+  height: 20px;
+}
+.tabmain-content .rs-infoblock .sharesocial-link .sharesocial-title h6 {
+  font-weight: 600;
+  font-size: 15px;
+}
+.tabmain-content .rs-infoblock .sharesocial-link .sharesocial-linkbtn a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #232323;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  transition: ease 0.25s;
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+}
+.tabmain-content .rs-infoblock .sharesocial-link .sharesocial-linkbtn a:hover {
+  color: #cb007b;
+}
+.tabmain-content .rs-infoblock .sharesocial-link .sharesocial-linkbtn:last-child a {
+  margin-bottom: 0;
+}
