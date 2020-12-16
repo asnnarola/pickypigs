@@ -150,9 +150,15 @@
                                 right: 15px;
                                 display: none;
 
-                                a {
+                                button {
+                                    padding: 0px;
                                     color: #cb007b;
                                     font-size: 14px;
+                                    background-color: transparent;
+                                    border-color: transparent;
+                                    &:focus{
+                                        outline: none;
+                                    }
                                 }
                             }
 

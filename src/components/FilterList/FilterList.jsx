@@ -45,8 +45,17 @@ function FilterList({ filterIcon = "false" }) {
 
     }, [])
 
-    const clearAll=()=>{
+    const clearAllAllergy=()=>{
         setAllergenValue([])
+    }
+    const clearAllDietary=()=>{
+        setDietaryValue([])
+    }
+    const clearAllLifeStyle=()=>{
+        setLifeStyleValue([])
+    }
+    const clearAllFeature=()=>{
+        setFeaturesValue([])
     }
 
     const getMyLocation = () => {
@@ -178,18 +187,16 @@ function FilterList({ filterIcon = "false" }) {
                 </div>
             </div>
             <div className="fr-category-select d-flex justify-content-between align-items-center mt-3 flex-wrap pr-4">
-                <CustomDropdown placeholder={"Allergen"} options={alergy_information} value={allergenValue} onChangeData={setAllergenValue} />
+                <CustomDropdown placeholder={"Allergen"} clearAll={clearAllAllergy} options={alergy_information} value={allergenValue} onChangeData={setAllergenValue} />
 
-                <CustomDropdown placeholder={"Dietary Preference"} options={dietary_preference} value={dietaryValue} onChangeData={setDietaryValue} />
+                <CustomDropdown placeholder={"Dietary Preference"} clearAll={clearAllDietary} options={dietary_preference} value={dietaryValue} onChangeData={setDietaryValue} />
 
-                <CustomDropdown placeholder={"Lifestyle Choices"} options={lifestyle_choice} value={lifeStyleValue} onChangeData={setLifeStyleValue} />
+                <CustomDropdown placeholder={"Lifestyle Choices"} clearAll={clearAllLifeStyle} options={lifestyle_choice} value={lifeStyleValue} onChangeData={setLifeStyleValue} />
 
-                <CustomDropdown placeholder={"Restaurant Features"} options={restaurant_features} value={featuresValue} onChangeData={setFeaturesValue} />
+                <CustomDropdown placeholder={"Restaurant Features"} clearAll={clearAllFeature} options={restaurant_features} value={featuresValue} onChangeData={setFeaturesValue} />
 
 
             </div>
-{allergenValue}
-<button onClick={clearAll}>ssss</button>
         </div>
     )
 }

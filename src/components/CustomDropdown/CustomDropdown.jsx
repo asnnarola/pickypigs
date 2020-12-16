@@ -37,11 +37,14 @@ const CustomDropdown = ({ placeholder,clearAll, labelKey = "name", valueKey = "_
             }) => {
                 return (
                     <div className="filter-listcheck">
-                        <div className="clearall-link">
-                            <a href="#">
-                                Clear all
-                            </a>
-                        </div>
+                        
+                        {isSelected?
+                       <div className="clearall-link">
+                       <button onClick={clearAll}>
+                           Clear all
+                       </button>
+                   </div>
+                        :null}
                         <Form>
                             {['checkbox'].map((type) => (
                                 <div key={`custom-inline-${type}`} className="mb-2">
