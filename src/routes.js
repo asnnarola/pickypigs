@@ -10,6 +10,7 @@ const RestaurantSingleDiscInfoPage = lazy(() => import("./view/RestaurantSingleD
 const UserDetailPage = lazy(() => import("./view/UserDetailPage/UserDetailPage"));
 const Verify = lazy(() => import("./view/Signup/verify"));
 
+
 export const routesCode = [
     { path: "/", exact: true, component: Home },
     { path: "/restaurant_list", exact: true, component: RestaurantList },

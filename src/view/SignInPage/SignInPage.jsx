@@ -1,79 +1,34 @@
-import React, { useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import { FACEBOOK_APP_ID, GOOGLE_CLIENT_ID, HOST_URL } from '../../shared/constant';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from "react-facebook-login";
 import useAppState from '../../context/useAppState';
 import showpassword from "../../assets/images/eye_icon.svg";
 import closeicon from "../../assets/images/close.svg";
-import { Modal } from 'react-bootstrap';
-import "./Signup.scss"
-import { useDispatch,useSelector} from 'react-redux';
+import "./SignInPage.scss"
+import { useDispatch } from 'react-redux';
 import { getLogin,registerUser } from '../../redux/actions/generalActions';
 
-const phoneRegex = RegExp(
-    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-);
-const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
+
+
+const validationSchemaForLogin = Yup.object().shape({
     email: Yup.string().email().required('Required'),
-    password: Yup.string().label('Password').required('Required').min(8, 'Seems a bit short...').max(16, 'We prefer insecure system, try a shorter password.'),
-    phone: Yup.string().required("Phone is required").matches(phoneRegex, "Invalid phone").min(10, "to short").max(10, "to long"),
-    confirmPassword: Yup
-        .string().required('Required').label('Confirm password')
-        .test('passwords-match', 'Passwords must match', function (value) {
-            return this.parent.password === value;
-        }),
+    password: Yup.string().label('Password').required('Required').min(2, 'Seems a bit short...').max(16, 'We prefer insecure system, try a shorter password.')
 });
 
 
-const Signup = (props,{ handleClose }) => {
+
+const SignInPage = (props,{ handleClose }) => {
     const dispatch=useDispatch();
+    const history=useHistory();
     const { setLogin } = useAppState("useGlobal")
     const [type, setType] = useState("password")
- 
-    const [error, setError] = useState(false)
- 
-
-
-    
-    const handleForm = (input ,{ setStatus,resetForm}) => {
-        let obj = {
-            email: input.email,
-            name: input.name,
-            phone: input.phone,
-            password: input.password,
-            confirmPassword: input.confirmPassword,
-            role:"user"
-        }
-        // setLoading(true);
-        let dataURL=`/auth/user_signup`;
-        let config = {
-            headers : {
-                'Content-Type' : 'application/json'
-            }
-        };
-        axios.post(dataURL, JSON.stringify(obj) , config)
-        .then((res) => {
-            if (res.data.status === 1) {
-            props.gotoLogin()
-            resetForm();
-            }
-        })
-        .catch((err) => {
-            console.log('err => ', err.response);
-            // if(err.response && err.response.data.message === "Email is alredy registered") {
-            //     setMessage(err.response.data.message);
-            // }
-            // setLoading(false);
-        });
-
-    }
    
-   
+
 
 
     const googleResponse = response => {
@@ -90,10 +45,7 @@ const Signup = (props,{ handleClose }) => {
         }).catch(err => console.log('err => ', err.response))
     }
 
-    const onFailure = error => {
-        console.log("error login", error)
-        // alert(error)
-    }
+   
     const handlePassword = () => {
         let ele = document.getElementById("password")
         if (type === "password") {
@@ -104,7 +56,15 @@ const Signup = (props,{ handleClose }) => {
             setType("password")
         }
     }
-  
+    const handleLoginForm = (input) => {
+        let obj = {
+            email: input.email,
+            password: input.password
+        }
+        dispatch(getLogin(obj,history))
+
+    }
+    
 
     return (
         <div className="row">
@@ -123,16 +83,20 @@ const Signup = (props,{ handleClose }) => {
                 </div>
                 <div className="row">
                     <div className="col-sm-12 mb-3">
-                        <h3 className="brandon-Bold">Sign up</h3>
-                        <p className="f-15"><span className="pr-2">Have an account?</span>
-                            <button className="pink-txt brandon-Medium trans_button" onClick={()=>{props.gotoLogin()}} >Sign In</button>
+                        <h3 className="brandon-Bold">Sign in</h3>
+                        <p className="f-15"><span className="pr-2">Don't have an account?</span>
+                            <button className="pink-txt brandon-Medium trans_button" onClick={()=>{props.gotoSignup()}}>Sign Up</button>
                         </p>
                     </div>
                 </div>
-              
                     <Formik
-                        initialValues={{ name: '', email: '', password: '',phone:'', confirmPassword: '' }}
-                        validationSchema={validationSchema}  onSubmit={handleForm}
+                        initialValues={{ email: '', password: '' }}
+                        validationSchema={validationSchemaForLogin}
+                        onSubmit={(values, { setSubmitting }) => {
+                            console.log('values => ', values);
+                            handleLoginForm(values)
+                            setSubmitting(false);
+                        }}
                     >
                         {({
                             values,
@@ -147,43 +111,35 @@ const Signup = (props,{ handleClose }) => {
                                     <div className="row">
                                         <div className="col-sm-12">
                                             <div className="form-group">
-                                                <Field name="name" className="form-control signup-input" placeholder="Name or Full name" />
-                                                {touched.name && errors.name && <div className="error pink-txt f-11">{errors.name}</div>}
-                                            </div>
-                                            <div className="form-group">
                                                 <Field name="email" placeholder="Email" className="form-control signup-input" />
-                                                {/* {touched.email && errors.email &&
-                                                <div className="error pink-txt f-11">{errors.email}</div>} */}
-                                                <div className="error pink-txt f-11">{(touched.email && errors.email && errors.email)}</div>
-                                            </div>
-                                            <div className="form-group">
-                                                <Field name="phone" placeholder="Phone no" className="form-control signup-input" />
-                                                {touched.phone && errors.phone && <div className="error pink-txt f-11">{errors.phone}</div>}
+                                                {touched.email && errors.email &&
+                                                    <div className="error pink-txt f-11">{errors.email}</div>}
                                             </div>
                                             <div className="form-group position-relative">
                                                 <Field type={type} name="password" placeholder="Password" className="form-control signup-input"
                                                 />
                                                 <div className="showpassword-block" id="password" onClick={() => handlePassword()}>
-                                                    <img src={showpassword} className="img-fluid" />
+                                                    <img src={showpassword} className="img-fluid" alt="showpassword" />
                                                 </div>
-                                                {touched.password && errors.password && <div className="error pink-txt f-11">{errors.password}</div>}
+                                                <div className="error pink-txt f-11">{(touched.password && errors.password && errors.password)}</div>
+                                            </div>
+                                            <div className="forgot-block mt-3 mb-3">
+                                                <button  className="forgot-link trans_button" onClick={()=>{props.openForgotPass()}}>
+                                                    <span>Forgot Password</span>
+                                                </button>
                                             </div>
                                             <div className="form-group">
-                                                <Field type="password" name="confirmPassword" placeholder="Confirm Password" className="form-control signup-input" />
-                                                {touched.confirmPassword && errors.confirmPassword && <div className="error pink-txt f-11">{errors.confirmPassword}</div>}
-                                            </div>
-                                            
-                                            <div className="form-group">
-                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" >
-                                                    Sign up
-                                            </button>
+                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" disabled={isSubmitting}>
+                                                    Sign in
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </Form>
                             )}
                     </Formik>
-                  
+                 
+                    
                <React.Fragment>
                     <div className="row">
                         <div className="col-sm-12">
@@ -247,4 +203,4 @@ const Signup = (props,{ handleClose }) => {
     )
 }
 
-export default Signup
+export default SignInPage

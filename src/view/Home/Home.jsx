@@ -21,6 +21,7 @@ import FilterList from '../../components/FilterList/FilterList';
 import DishBlock from "../../components/DishBlock/DishBlock"
 import OurVisionComponent from '../../components/OurVisionComponent/OurVisionComponent';
 import KnowWhatYouEatComponent from '../../components/KnowWhatYouEatComponent/KnowWhatYouEatComponent';
+import pattern_img from "../../assets/images/Pattern.png"
 
 function Home({ coords }) {
     return (
@@ -392,13 +393,24 @@ function Home({ coords }) {
                     </div>
                 </div>
             </section>
-
-           
-
-            <KnowWhatYouEatComponent/>
-            <OurVisionComponent/>
-           
-           
+            
+            <section >
+                <KnowWhatYouEatComponent/>
+            </section>
+            <section>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <div className="patternimg-wrapper">
+                                <img src={pattern_img} className="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <OurVisionComponent/>
+            </section>
         </>
     )
 }

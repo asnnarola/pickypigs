@@ -17,6 +17,7 @@ import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng,
 } from 'react-places-autocomplete';
+import MyfilterListExample from './MyfilterListExample';
 
 
 const alergy_information = ["Egg", "Milk", "Celery", "Mustard", "Lupin", "Nuts", "Peanuts", "Sesame", "Molluscs", "Crustaceans", "Fish", "Cereals (Wheat)", "Soya", "Sulphur dioxide"];
@@ -39,11 +40,11 @@ function FilterList({ filterIcon = "false" }) {
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        getMyLocation()
+    //     getMyLocation()
 
-    }, [])
+    // }, [])
 
     const clearAllAllergy=()=>{
         setAllergenValue([])
@@ -58,25 +59,25 @@ function FilterList({ filterIcon = "false" }) {
         setFeaturesValue([])
     }
 
-    const getMyLocation = () => {
-        const location = window.navigator && window.navigator.geolocation
-        if (location) {
-            location.getCurrentPosition((position) => {
-                console.log('Lat => ', {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                });
-                axios.get(
-                    `${GOOGLE_MAP_API_URL}?latlng=${position.coords.latitude},${position.coords.longitude}&key=${API_KEY}`).then(res => {
-                        console.log('res sejal => ', res)
-                        setPlaces(res.data.results)
-                        setAddress(res.data.results[0].address_components[0].short_name);
-                    }).catch(err => console.log('err => ', err))
-            }, (error) => {
-                console.log('error => ', error);
-            })
-        }
-    }
+    // const getMyLocation = () => {
+    //     const location = window.navigator && window.navigator.geolocation
+    //     if (location) {
+    //         location.getCurrentPosition((position) => {
+    //             console.log('Lat => ', {
+    //                 latitude: position.coords.latitude,
+    //                 longitude: position.coords.longitude,
+    //             });
+    //             axios.get(
+    //                 `${GOOGLE_MAP_API_URL}?latlng=${position.coords.latitude},${position.coords.longitude}&key=${API_KEY}`).then(res => {
+    //                     console.log('res sejal => ', res)
+    //                     setPlaces(res.data.results)
+    //                     setAddress(res.data.results[0].formatted_address);
+    //                 }).catch(err => console.log('err => ', err))
+    //         }, (error) => {
+    //             console.log('error => ', error);
+    //         })
+    //     }
+    // }
 
     const getAllRestaurant = () => {
         const location = window.navigator && window.navigator.geolocation
@@ -95,17 +96,6 @@ function FilterList({ filterIcon = "false" }) {
 
     // ssssssssssss
 
-    const handleChange = address => {
-        setAddress(address);
-    };
-
-    const handleSelect = address => {
-        geocodeByAddress(address)
-            .then(results => getLatLng(results[0]))
-            .then(setAddress(address))
-            .then(latLng => console.log('Success', latLng))
-            .catch(error => console.error('Error', error));
-    };
 
 
     return (
@@ -113,53 +103,10 @@ function FilterList({ filterIcon = "false" }) {
             {/* {JSON.stringify(userSearchDetails&&userSearchDetails)} */}
             <div className="fr-search d-flex align-items-center flex-wrap pb-3">
 
-                <PlacesAutocomplete
-                    value={address}
-                    onSelect={handleSelect}
-                    onChange={handleChange}
+               
+                <MyfilterListExample />
 
-                >
-                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                        <div style={{ position: 'relative' }} className="fr-location">
-                            <label className="d-block text-left w-100 txt-location brandon-regular mb-0">Location</label>
-                            <div className="d-flex justify-content-start align-items-center w-100 position-relative">
-                                {/* w-100 flex-column position-relative */}
-                                <div className="location-input d-flex align-items-center w-100">
-                                    <img src={location} className="img-fluid mr-2" alt="marker" />
-                                    <input
-                                        {...getInputProps({
-                                            placeholder: 'Where are you?',
-                                            className: 'location-search-input brandon-regular',
-                                        })}
-                                    />
-                                    <img src={dropdownarrow} className="img-fluid mr-2 downarrow-icon" alt="marker" />
-                                </div>
-                                <div style={{ borderRadius: 20, position: "absolute", top: 50, width: 400, backgroundColor: 'white', zIndex: 99, boxShadow: "2px 4px 20px 0px #0000001a", }} className="autocomplete-dropdown-container">
-                                    {loading && <div>Loading...</div>}
-                                    {suggestions.map(suggestion => {
-                                        const className = suggestion.active
-                                            ? 'suggestion-item--active'
-                                            : 'suggestion-item';
-                                        // inline style for demonstration purpose
-                                        const style = suggestion.active
-                                            ? { backgroundColor: '#fafafa', cursor: 'pointer', padding: 10 }
-                                            : { backgroundColor: '#ffffff', cursor: 'pointer', padding: 10 };
-                                        return (
-                                            <div
-                                                {...getSuggestionItemProps(suggestion, {
-                                                    className,
-                                                    style,
-                                                })}
-                                            >
-                                                <span className="location-nearicon"><img src={nearlocation} className="img-fluid mr-2" alt="marker" /> <span className="location-address">{suggestion.description}</span></span>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </PlacesAutocomplete>
+
 
                 {/* <Dropdown className="fr-location mr-2">
                     <Dropdown.Toggle className="d-flex justify-content-between align-items-center w-100" variant="Secondary" id="dropdown-basic">
