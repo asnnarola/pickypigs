@@ -5,9 +5,9 @@ import nonveg from "../../assets/images/non-veg.svg"
 import veg from "../../assets/images/veg.svg"
 import "./DishBlock.scss"
 import restaurant_P1 from "../../assets/images/restaurant/r1.png"
+import axios from 'axios'
 
-
-const DishBlock = ({ restaurant_Pic = { restaurant_P1}, kmValue="1", rating="3.1"}) => {
+const DishBlock = ({restaurant_Name, restaurant_Pic, kmValue="1", rating="3.1"}) => {
     return (
             <div className="restaurant-wrapper mb-4 pb-2">
                 <div className="restaurant-img position-relative">
@@ -17,10 +17,12 @@ const DishBlock = ({ restaurant_Pic = { restaurant_P1}, kmValue="1", rating="3.1
                         </svg>
                         <span className="view-txt text-white brandon-Medium">{rating}</span>
                     </div>
-                    <img src={restaurant_Pic} alt={"restaurant_P1"} className="img-fluid w-100" />
+    
+                    <img src={restaurant_Pic?restaurant_Pic:restaurant_P1} alt={"restaurant_P1"} className="img-fluid w-100" />
+                    
                 </div>
                 <div className="restaurant-details brandon-Medium">
-                    <p className="mb-2">The Barrio Brothers Express</p>
+                    <p className="mb-2">{restaurant_Name}</p>
                     <p className="txt-lightgray f-14 d-flex flex-wrap align-items-center">
                         <span className="position-relative location-icon">
                             <img src={locationgray_icon} alt={"locationgray_icon"} className="img-fluid mr-2" />

@@ -5,9 +5,11 @@ const initialState = {
   errorMessage:'',
   login_Data:{},
   joinus_massage:null,
-  restaurant_Search_Data:null,
+  restaurant_Search_Data:[],
+  isSignedIn : false,
   isSignedUp : false,
   showSignUpPopup: false,
+  showSignInPopup: false,
 
   };
   
@@ -18,11 +20,16 @@ const initialState = {
           ...state,
           restaurant_Search_Data:payload.results,
         };
-      case "SHOW_LOGIN_POPUP":
+      case "SHOW_SIGNUP_POPUP":
         return {
           ...state,
           showSignUpPopup: payload,
         };
+      case "SHOW_LOGIN_POPUP":
+        return {
+          ...state,
+          showSignInPopup: payload,
+        };   
 
       case "GET_NUTRITION_DATA_REQUEST":
       case "SEND_JOINUS_REQUEST":
@@ -31,21 +38,39 @@ const initialState = {
         return {
           ...state,
           isLoading :true,
+          isSignedIn : false,
+          isSignedUp : false,
         };
 
       case "GET_LOGIN_SUCCESS":
         localStorage.setItem('access_token',payload.token);
+        localStorage.setItem('isEmailVerified',payload.emailVerified);
+        localStorage.setItem('email',payload.email);
+        localStorage.setItem('role','user');
         return {
           ...state,
           isLoading:false,
           login_Data:payload,
-        };  
+          isSignedIn:true,
+        }; 
+        
+      //logout user
+      case "LOGOUT_USER_REQUEST":
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('isEmailVerified');
+        localStorage.removeItem('email');
+        localStorage.removeItem('role');
+         return{
+            ...state,
+            isLoading:false,
+         }   
 
       case "REGISTER_USER_SUCCESS":
             return {
                 ...state,
                 loading: false,
-                isSignedUp:false,
+                isSignedUp : true,
+
             };  
 
       case "GET_NUTRITION_DATA_SUCCESS":
@@ -70,8 +95,8 @@ const initialState = {
           ...state,
           isLoading:false,
           errorMessage:payload,
-          isSignedUp:true,
-
+          isSignedIn : false,
+          isSignedUp : false,
         };
       
 

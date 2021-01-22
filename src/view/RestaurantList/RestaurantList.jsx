@@ -12,6 +12,7 @@ import restaurant_P6 from "../../assets/images/restaurant/r6.png"
 import restaurant_P7 from "../../assets/images/restaurant/r7.png"
 import restaurant_P8 from "../../assets/images/restaurant/r8.png"
 import Scroll from 'react-scroll';
+import { useSelector } from 'react-redux';
 
 const Link = Scroll.Link;
 const DirectLink = Scroll.DirectLink;
@@ -78,6 +79,7 @@ const RestaurantList = () => {
     //             }
     //         });
     // }, [])
+    const resturantData2 = useSelector((state) => state.general.restaurant_Search_Data);
 
     return (
         <>
@@ -101,28 +103,28 @@ const RestaurantList = () => {
                             <div className="rl-list-slider">
                                 <Slider {...settings}>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
+                                        <DishBlock  restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
                                     </div>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
+                                        <DishBlock  restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
                                     </div>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} />
+                                        <DishBlock  restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} />
                                     </div>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
+                                        <DishBlock  restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
                                     </div>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
+                                        <DishBlock  restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
                                     </div>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
+                                        <DishBlock  restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
                                     </div>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
+                                        <DishBlock  restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
                                     </div>
                                     <div className="col-sm-12">
-                                        <DishBlock restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
+                                        <DishBlock  restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
                                     </div>
                                 </Slider>
                             </div>
@@ -163,11 +165,11 @@ const RestaurantList = () => {
                                     <h4 className="text-uppercase mb-4 brandon-Bold"><b>Top Picks</b></h4>
                                     <div className="row">
                                         {
-                                            resturantData.length>6?
-                                                resturantData.slice(0, visible).map((data, index) => {
+                                            resturantData&&resturantData.length>6?
+                                            resturantData.slice(0, visible).map((data, index) => {
                                                     return (
                                                         <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                                            <DishBlock restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
+                                                            <DishBlock restaurant_Name={"Lebanese Falafel Salad"} restaurant_Pic={data.image} kmValue={10} rating={4.5} />
                                                         </div>
                                                     )
                                                 })
@@ -175,7 +177,7 @@ const RestaurantList = () => {
                                                 resturantData.map((data, index) => {
                                                     return (
                                                         <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                                            <DishBlock restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
+                                                            <DishBlock restaurant_Name={"Lebanese Falafel Salad"} restaurant_Pic={data.image} kmValue={10} rating={4.5} />
                                                         </div>
                                                     )
                                                 })

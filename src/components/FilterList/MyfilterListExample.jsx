@@ -10,8 +10,19 @@ import { API_KEY, GOOGLE_MAP_API_URL, HOST_URL, GOOGLE_PLACE_API_URL } from '../
 import axios from 'axios';
 import "./MyfilterListExample.scss"
 import location from "../../assets/images/location-icon.svg"
+import Popper from "@material-ui/core/Popper";
+import nearlocation from "../../assets/images/nearlocaion-icon.svg"
+import { getLocationGeometryData } from '../../redux/actions/googleAction';
+import { useDispatch } from 'react-redux';
 
-
+const styles = (theme) => ({
+  popper: {
+    maxWidth: "fit-content",
+  }
+});
+const PopperMy = function (props) {
+  return <Popper {...props} style={styles.popper} placement="bottom-start" />;
+};
 
 function loadScript(src, position, id) {
   if (!position) {
@@ -35,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MyfilterListExample() {
+  const dispatch=useDispatch();
   const classes = useStyles();
   const [value, setValue] = React.useState('');
   const [inputValue, setInputValue] = React.useState('');
@@ -101,10 +113,8 @@ export default function MyfilterListExample() {
 
 
   React.useEffect(() => {
-
-    getAddressHandler()
-
-
+    getAddressHandler();
+    dispatch(getLocationGeometryData(value&&value.place_id));
   }, [value, inputValue, fetch]);
 
   const getAddressHandler = () => {
@@ -151,10 +161,10 @@ export default function MyfilterListExample() {
 
 
   const callTwoFunction = () => {
+    setValue('');
     getMyLocation();
     getAddressHandler();
     setzzzz(true)
-
   }
 
 
@@ -162,7 +172,7 @@ export default function MyfilterListExample() {
     <React.Fragment>
       <div className="location-input-wrapper d-flex align-items-center">
         <div className="location-button">
-          <button onClick={callTwoFunction}>
+          <button onClick={()=>{callTwoFunction()}}>
             <img src={location} alt="Near_Me" />
           </button>
 
@@ -170,6 +180,7 @@ export default function MyfilterListExample() {
         <Autocomplete
           id="google-map-demo"
           getOptionLabel={(option) => (typeof option === 'string' ? option : option.description)}
+          PopperComponent={PopperMy}
           options={options}
           autoComplete
           includeInputInList
@@ -201,29 +212,34 @@ export default function MyfilterListExample() {
 
             return (
               <React.Fragment>
-<div style={{ width: 500 }}>
-                <Grid   style={{ width: 500 }}>
+                <Grid   >
+
                   <Grid item>
                   </Grid >
-                  <Grid item xs style={{ width: 500 }}>
+                  <div className="justify-content-center align-items-center d-flex">
+                  <img src={nearlocation} alt="Near_Me" className="img-fluid mr-3"/>
+                  <Grid item xs  >
                     {parts.map((part, index) => (
                       <span key={index} style={{ fontWeight: part.highlight ? 700 : 400 }}>
                         {part.text}
                       </span>
                     ))}
-
-                    <Typography variant="body2" color="textSecondary" style={{ width: 500 }}>
+                    <br/>
+                    <Typography variant="body2" color="textSecondary" >
                       {option.structured_formatting.secondary_text}
                     </Typography>
                   </Grid>
+                  </div>
                 </Grid>
-               </div>
               </React.Fragment>
             );
           }}
         />
       </div>
       {/* {JSON.stringify(inputValue)} */}
+      {/* {JSON.stringify(value&&value.place_id)} */}
+
+      
     </React.Fragment>
   );
 }

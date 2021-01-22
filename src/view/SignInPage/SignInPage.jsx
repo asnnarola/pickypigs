@@ -11,7 +11,7 @@ import showpassword from "../../assets/images/eye_icon.svg";
 import closeicon from "../../assets/images/close.svg";
 import "./SignInPage.scss"
 import { useDispatch } from 'react-redux';
-import { getLogin,registerUser } from '../../redux/actions/generalActions';
+import { getLogin,registerUser, showSignUpPopup } from '../../redux/actions/generalActions';
 
 
 
@@ -22,7 +22,7 @@ const validationSchemaForLogin = Yup.object().shape({
 
 
 
-const SignInPage = (props,{ handleClose }) => {
+const SignInPage = (props) => {
     const dispatch=useDispatch();
     const history=useHistory();
     const { setLogin } = useAppState("useGlobal")
@@ -34,14 +34,14 @@ const SignInPage = (props,{ handleClose }) => {
     const googleResponse = response => {
         axios.post(`${HOST_URL}/auth/google`, response.profileObj).then(res => {
             setLogin(res.data.token)
-            handleClose();
+            props.onHide();
         }).catch(err => console.log('err => ', err.response))
     }
 
     const facebookResponse = async response => {
         axios.post(`${HOST_URL}/auth/facebook`, response).then(res => {
             setLogin(res.data.token)
-            handleClose();
+            props.onHide();
         }).catch(err => console.log('err => ', err.response))
     }
 
@@ -56,13 +56,14 @@ const SignInPage = (props,{ handleClose }) => {
             setType("password")
         }
     }
-    const handleLoginForm = (input) => {
+
+    const handleLoginForm = (input,{ setStatus,resetForm}) => {
         let obj = {
             email: input.email,
             password: input.password
         }
+        
         dispatch(getLogin(obj,history))
-
     }
     
 
@@ -76,7 +77,7 @@ const SignInPage = (props,{ handleClose }) => {
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-right">
                 <div className="row">
                     <div className="col-sm-12">
-                        <button className="btn modalclose-icon" onClick={handleClose}>
+                        <button className="btn modalclose-icon" onClick={()=>{props.onHide()} }>
                             <img src={closeicon} alt="signup modal close icon" className="img-fluid" />
                         </button>
                     </div>
@@ -92,11 +93,7 @@ const SignInPage = (props,{ handleClose }) => {
                     <Formik
                         initialValues={{ email: '', password: '' }}
                         validationSchema={validationSchemaForLogin}
-                        onSubmit={(values, { setSubmitting }) => {
-                            console.log('values => ', values);
-                            handleLoginForm(values)
-                            setSubmitting(false);
-                        }}
+                        onSubmit={handleLoginForm}
                     >
                         {({
                             values,
@@ -129,7 +126,7 @@ const SignInPage = (props,{ handleClose }) => {
                                                 </button>
                                             </div>
                                             <div className="form-group">
-                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" disabled={isSubmitting}>
+                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" >
                                                     Sign in
                                                 </button>
                                             </div>

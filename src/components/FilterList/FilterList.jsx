@@ -79,11 +79,13 @@ function FilterList({ filterIcon = "false" }) {
     //     }
     // }
 
+    const geoLocation = useSelector((state) => state.googledata.location_data);
+
     const getAllRestaurant = () => {
         const location = window.navigator && window.navigator.geolocation
         if (location) {
             location.getCurrentPosition((position) => {
-                dispatch(getRestaurantSearchData(position.coords.latitude, position.coords.longitude, userSearchText));
+                dispatch(getRestaurantSearchData(geoLocation.lat, geoLocation.lng, userSearchText));
             });
         }
     }
@@ -101,7 +103,7 @@ function FilterList({ filterIcon = "false" }) {
     return (
         <div className="restaurant-find w-100 p-2 p-xl-3">
             {/* {JSON.stringify(userSearchDetails&&userSearchDetails)} */}
-            <div className="fr-search d-flex align-items-center flex-wrap pb-3">
+            <div className="fr-search d-flex align-items-center  pb-3">
 
                
                 <MyfilterListExample />

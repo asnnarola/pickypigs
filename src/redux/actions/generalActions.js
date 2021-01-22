@@ -43,6 +43,8 @@ export const getLogin=(data,history)=>{
           let response = await Axios.post(dataURL,JSON.stringify(data),config );
           dispatch({type:"GET_LOGIN_SUCCESS",payload:response.data});
           history.push('/');
+          await dispatch(showSignInPopup(false));
+
           // await dispatch(setAlert('LogIn Success', 'success'));
          
       }
@@ -61,7 +63,7 @@ export const getRestaurantSearchData = (latitude,longitude,userSearchText) =>  {
     return async(dispatch)=>{
       try{
         
-      let dataURL=`${GOOGLE_PLACE_API_URL}?location=${latitude},${longitude}&sensor=true&query=${userSearchText}&key=${API_KEY}`
+      let dataURL=`${GOOGLE_PLACE_API_URL}?location=${latitude},${longitude}&sensor=true&type=restaurant&keyword=${userSearchText}&key=${API_KEY}`
       let response = await axios.get(dataURL );
       dispatch({ type: "GET_RESTAURANT_SEARCH_DATA", payload: response.data,  });
         }
@@ -116,8 +118,31 @@ export const sendJoinUsMessage=(data)=>{
   }
 };
 
+export const logoutUser=(history)=>{
+  return async(dispatch)=>{
+      try{
+          await dispatch({type:"LOGOUT_USER_REQUEST"});
+          // await dispatch(setAlert('LogOut Success', 'success'));
+          history.push('/') ;
+      }
+      catch(error){
+          console.error(error);
+          // await dispatch(setAlert('Something Wrong', 'error'));
+
+      }
+  }
+}
+
+
 
 export const showSignUpPopup = (data) => (dispatch) => {
+  dispatch({
+    type: "SHOW_SIGNUP_POPUP",
+    payload: data,
+  });
+};
+
+export const showSignInPopup = (data) => (dispatch) => {
   dispatch({
     type: "SHOW_LOGIN_POPUP",
     payload: data,
