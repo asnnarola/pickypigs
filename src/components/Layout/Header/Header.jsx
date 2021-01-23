@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Nav, Form, Navbar, Modal } from 'react-bootstrap'
-import { Link, withRouter } from 'react-router-dom'
+import {Button, Nav, Form, Navbar, Modal} from 'react-bootstrap'
+import {Link,NavLink,useHistory, withRouter} from 'react-router-dom'
 import "./Header.scss"
 import logo from "../../../assets/images/logo.svg"
 import cart from "../../../assets/images/cart.svg"
@@ -9,11 +9,12 @@ import { useAppState } from '../../../context'
 import Signup from "../../../view/Signup/Signup"
 import SignInPage from '../../../view/SignInPage/SignInPage'
 import { useDispatch, useSelector } from 'react-redux';
-import {showSignUpPopup,showSignInPopup} from '../../../redux/actions/generalActions'
+import {showSignUpPopup,showSignInPopup, logoutUser} from '../../../redux/actions/generalActions'
 import ForgotPasswordPage from '../../../view/ForgotPasswordPage/ForgotPasswordPage'
 
 const Header = (props) => {
     const dispatch=useDispatch();
+    const history = useHistory();
     const [showSignUp, setShowSignUp] = useState(false);
     const handleCloseSignUp = () => dispatch(showSignUpPopup(false));
 
@@ -37,6 +38,7 @@ const Header = (props) => {
     
     const token = localStorage.getItem("access_token");
     const emailVerified = localStorage.getItem("isEmailVerified");
+    const role = localStorage.getItem("role");
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -51,18 +53,18 @@ const Header = (props) => {
 
     return (
         <Navbar bg="transparent" id="navbar" expand="lg" className="container main-header">
-            <Navbar.Brand href="/" className="pr-lg-5 mr-lg-5">
+            <Link to="/" className="navbar-brand pr-lg-5 mr-lg-5">
                 <img src={logo} className="img-fluid mr-2" alt="logo" />
                 <span className="logo-txt">Picky Pigs</span>
-            </Navbar.Brand>
+            </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="menu-list">
                 <Nav className="mr-auto">
-                    <Nav.Link className="menu-link mr-lg-5" href="#home">Who</Nav.Link>
-                    <Nav.Link className="menu-link mr-lg-5" href="#link">What</Nav.Link>
-                    <Nav.Link className="menu-link" href="#link">How</Nav.Link>
+                    <NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/who">Who</NavLink>
+                    <NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/faq">What</NavLink>
+                    <NavLink className="menu-link" activeStyle={{color:'#cb007b'}} to="/how">How</NavLink>
                 </Nav>
-                {   token&&emailVerified
+                {   token&&emailVerified==="true"&&role==="user"
                     ?
                     <Form inline className="navright-btn userlogin-after ">
                         <div className="search-topnav mr-5 position-relative">
@@ -79,7 +81,7 @@ const Header = (props) => {
                                 </div>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right">
-                                <button className="dropdown-item" type="button">Action</button>
+                                <button className="dropdown-item" type="button" onClick={()=>{dispatch(logoutUser(history))}}>Logout</button>
                                 <button className="dropdown-item" type="button">Another action</button>
                                 <button className="dropdown-item" type="button">Something else here</button>
                             </div>
