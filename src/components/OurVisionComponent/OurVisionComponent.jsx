@@ -25,11 +25,11 @@ const OurVisionComponent = () => {
         message: '',
     }
     const validationSchema  = Yup.object().shape({
-        name:Yup.string().required('Title is required'),
-        email:Yup.string().email().required('Title is required'),
-        phoneNumber:Yup.number().required().positive().integer(),
-        company:Yup.string().required('Title is required'),
-        message:Yup.string().required('Title is required'),
+        name:Yup.string().required('Name is required'),
+        email:Yup.string().email().required('Email is required'),
+        phoneNumber:Yup.number().required('Phone Number is required').positive().integer(),
+        company:Yup.string().required('Company is required'),
+        message:Yup.string().required('Message is required'),
     });
 
     const onSubmit=(fields, { setStatus,resetForm})=>{

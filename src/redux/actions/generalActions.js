@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Axios from './axios';
+import {setAlert} from './alertAction';
 import { API_KEY,GOOGLE_PLACE_API_URL,EDAMAM_APP_ID,EDAMAM_APP_KEY} from '../../shared/constant';
 const token = localStorage.getItem("access_token");
 // if (token) axios.defaults.headers.common = { "x-access-token": token };
@@ -18,12 +19,16 @@ export const registerUser = (user) => {
           };
           let dataURL=`/auth/user_signup`
           let response = await Axios.post(dataURL, JSON.stringify(user) , config);
-          dispatch({type : "REGISTER_USER_SUCCESS" , payload : response.data});
+          dispatch({type : "REGISTER_USER_SUCCESS.Please Verify The Mail Id" , payload : response.data});
 
       }
       catch (error) {
-    
           dispatch({type : "REGISTER_USER_FAILURE", payload: error});
+          if (error.response) {
+            dispatch(setAlert(`${error.response.data.message}`, 'error'));
+          } else {
+            dispatch(setAlert('Something went wrong!', 'error'));
+          }
 
       }
   }
@@ -44,13 +49,16 @@ export const getLogin=(data,history)=>{
           dispatch({type:"GET_LOGIN_SUCCESS",payload:response.data});
           history.push('/');
           await dispatch(showSignInPopup(false));
-
-          // await dispatch(setAlert('LogIn Success', 'success'));
+          await dispatch(setAlert('LogIn Success', 'success'));
          
       }
       catch(error){
         dispatch({type:"GET_LOGIN_FAILURE",payload:error});
-        // await dispatch(setAlert('Wrong Credential', 'error'));
+        if (error.response) {
+          dispatch(setAlert('Wrong Credential', 'error'));
+        } else {
+          dispatch(setAlert('Something went wrong!', 'error'));
+        }
       }
   }
 };
@@ -58,20 +66,105 @@ export const getLogin=(data,history)=>{
 
 
 
-export const getRestaurantSearchData = (latitude,longitude,userSearchText) =>  {
-    // console.log("Data: ", latitude,longitude,userSearchText);
-    return async(dispatch)=>{
+export const logoutUser=(history)=>{
+  return async(dispatch)=>{
       try{
-        
-      let dataURL=`${GOOGLE_PLACE_API_URL}?location=${latitude},${longitude}&sensor=true&type=restaurant&keyword=${userSearchText}&key=${API_KEY}`
-      let response = await axios.get(dataURL );
-      dispatch({ type: "GET_RESTAURANT_SEARCH_DATA", payload: response.data,  });
+          await dispatch({type:"LOGOUT_USER_REQUEST"});
+          await dispatch(setAlert('LogOut Success', 'success'));
+          history.push('/') ;
+      }
+      catch(error){
+          console.error(error);
+          if (error.response) {
+            dispatch(setAlert(`${error.response.data.message}`, 'error'));
+          } else {
+            dispatch(setAlert('Something went wrong!', 'error'));
+          }
+      }
+  }
+}
+
+
+
+export const forgotPassword=(data)=>{
+  return async(dispatch)=>{
+      try{
+          dispatch({type:"FORGOT_PASSWORD_REQUEST"});
+          let config= {
+              headers:{
+               "Content-Type":"application/json"
+               }
+           }
+          let dataURL=`/auth/forgot_password`
+          let response = await Axios.post(dataURL,JSON.stringify(data),config );
+          dispatch({type:"FORGOT_PASSWORD_SUCCESS",payload:response.data});
+          if (response.data.message==="Reset link was sent to your email address") {
+            await dispatch(setAlert(`${response.data.message}`, 'success'));
+          } else {
+          await dispatch(setAlert(`${response.data.message}`, 'error'));
+          }
+      }
+      catch(error){
+        dispatch({type:"FORGOT_PASSWORD_FAILURE",payload:error});
+        if (error.response) {
+          dispatch(setAlert('Wrong Credential', 'error'));
+        } else {
+          dispatch(setAlert('Something went wrong!', 'error'));
         }
-    catch(error){
-      console.log(error);
+      }
+  }
+};
+
+
+export const resetPassword=(data,history)=>{
+  console.log(data);
+  return async(dispatch)=>{
+      try{
+          dispatch({type:"RESET_PASSWORD_REQUEST"});
+          let config= {
+              headers:{
+               "Content-Type":"application/json"
+               }
+           }
+          let dataURL=`/auth/reset_password`
+          let response = await Axios.post(dataURL,JSON.stringify(data),config );
+          dispatch({type:"RESET_PASSWORD_SUCCESS",payload:response.data});
+          await dispatch(setAlert(`${response.data.message}`, 'success'));
+          history.push('/');
+      }
+      catch(error){
+        dispatch({type:"RESET_PASSWORD_FAILURE",payload:error});
+        if (error.response) {
+          dispatch(setAlert(`${error.response.data.message}`, 'error'));
+        } else {
+          dispatch(setAlert('Something went wrong!', 'error'));
         }
-    }
-  };
+      }
+  }
+};
+
+
+
+export const sendJoinUsMessage=(data)=>{
+  return async(dispatch)=>{
+      try{
+          dispatch({type:"SEND_JOINUS_REQUEST"});
+          let config= {
+              headers:{
+               "Content-Type":"application/json",
+               'x-access-token': `${token&&token}`
+               }
+           }
+          let dataURL=`/frontend/homePage/join_us`
+          let response = await Axios.post(dataURL,JSON.stringify(data),config );
+          dispatch({type:"SEND_JOINUS_SUCCESS",payload:response.data});
+         
+      }
+      catch(error){
+        dispatch({type:"SEND_JOINUS_FAILURE",payload:error});
+      }
+  }
+};
 
 
 
@@ -96,42 +189,20 @@ export const getNutritionData=(data)=>{
 };
 
 
-export const sendJoinUsMessage=(data)=>{
-
+export const getRestaurantSearchData = (latitude,longitude,userSearchText) =>  {
+  // console.log("Data: ", latitude,longitude,userSearchText);
   return async(dispatch)=>{
-      try{
-          dispatch({type:"SEND_JOINUS_REQUEST"});
-          let config= {
-              headers:{
-               "Content-Type":"application/json",
-               'x-access-token': `${token&&token}`
-               }
-           }
-          let dataURL=`/frontend/homePage/join_us`
-          let response = await Axios.post(dataURL,JSON.stringify(data),config );
-          dispatch({type:"SEND_JOINUS_SUCCESS",payload:response.data});
-         
+    try{
+      
+    let dataURL=`${GOOGLE_PLACE_API_URL}?location=${latitude},${longitude}&sensor=true&type=restaurant&keyword=${userSearchText}&key=${API_KEY}`
+    let response = await axios.get(dataURL );
+    dispatch({ type: "GET_RESTAURANT_SEARCH_DATA", payload: response.data,  });
       }
-      catch(error){
-        dispatch({type:"SEND_JOINUS_FAILURE",payload:error});
+  catch(error){
+    console.log(error);
       }
   }
 };
-
-export const logoutUser=(history)=>{
-  return async(dispatch)=>{
-      try{
-          await dispatch({type:"LOGOUT_USER_REQUEST"});
-          // await dispatch(setAlert('LogOut Success', 'success'));
-          history.push('/') ;
-      }
-      catch(error){
-          console.error(error);
-          // await dispatch(setAlert('Something Wrong', 'error'));
-
-      }
-  }
-}
 
 
 

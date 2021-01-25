@@ -30,7 +30,7 @@ const validationSchema = Yup.object().shape({
 });
 
 
-const Signup = (props,{ handleClose }) => {
+const Signup = (props) => {
     const dispatch=useDispatch();
     const { setLogin } = useAppState("useGlobal")
     const [type, setType] = useState("password")
@@ -79,14 +79,14 @@ const Signup = (props,{ handleClose }) => {
     const googleResponse = response => {
         axios.post(`${HOST_URL}/auth/google`, response.profileObj).then(res => {
             setLogin(res.data.token)
-            handleClose();
+            props.onHide()
         }).catch(err => console.log('err => ', err.response))
     }
 
     const facebookResponse = async response => {
         axios.post(`${HOST_URL}/auth/facebook`, response).then(res => {
             setLogin(res.data.token)
-            handleClose();
+            props.onHide()
         }).catch(err => console.log('err => ', err.response))
     }
 
@@ -116,7 +116,7 @@ const Signup = (props,{ handleClose }) => {
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-right">
                 <div className="row">
                     <div className="col-sm-12">
-                        <button className="btn modalclose-icon" onClick={handleClose}>
+                        <button className="btn modalclose-icon" onClick={()=>{props.onHide()} }>
                             <img src={closeicon} alt="signup modal close icon" className="img-fluid" />
                         </button>
                     </div>

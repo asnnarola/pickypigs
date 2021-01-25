@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import DishBlock from '../../components/DishBlock/DishBlock';
 import './AllRestaurant.scss';
 import FilterList from '../../components/FilterList/FilterList'
+import {Link} from 'react-router-dom';
 
 
 import restaurant_P1 from "../../assets/images/restaurant/r1.png"
@@ -21,9 +22,9 @@ const AllRestaurant = () => {
         window.addEventListener('scroll', () => {
                 let ele = document.getElementById("top_navbar")
                 if (window.scrollY > 170 ) {
-                ele.classList.add("allrsfilter-sticky")
+                    ele&&ele.classList.add("allrsfilter-sticky")
                 } else {
-                    ele.classList.remove("allrsfilter-sticky")
+                    ele&&ele.classList.remove("allrsfilter-sticky")
                 }
             });
     }, [window.scrollY])
@@ -50,7 +51,9 @@ const AllRestaurant = () => {
                                     {resturantData.map((data, index) => {
                                         return (
                                             <div key={index} className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                                <DishBlock restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
+                                                <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                                    <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
+                                                </Link>
                                             </div>
                                         )
                                     })}

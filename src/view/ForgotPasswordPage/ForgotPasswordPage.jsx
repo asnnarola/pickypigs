@@ -12,25 +12,24 @@ import closeicon from "../../assets/images/close.svg";
 import { Modal } from 'react-bootstrap';
 import "./ForgotPasswordPage.scss"
 import { useDispatch,useSelector} from 'react-redux';
-import { getLogin,registerUser } from '../../redux/actions/generalActions';
+import { forgotPassword } from '../../redux/actions/generalActions';
 
 
 
-
-const validationSchemaForForgotPassword = Yup.object().shape({
-    email: Yup.string().email().required('Required'),        
-});
-
-const ForgotPasswordPage = (props,{ handleClose }) => {
+const ForgotPasswordPage = (props) => {
     const dispatch=useDispatch();
+
+    const validationSchemaForForgotPassword = Yup.object().shape({
+        email: Yup.string().email().required('Required'),        
+    });
+
+    const handlelForgotPassword=(input)=>{
+        let obj = {
+            email: input.email,
+        }
+        dispatch(forgotPassword(obj))
+    }
   
- 
-
-   
-    
-
-    
-
     return (
         <div className="row">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-left">
@@ -41,7 +40,7 @@ const ForgotPasswordPage = (props,{ handleClose }) => {
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-right">
                 <div className="row">
                     <div className="col-sm-12">
-                        <button className="btn modalclose-icon" onClick={handleClose}>
+                        <button className="btn modalclose-icon" onClick={()=>{props.onHide()} }>
                             <img src={closeicon} alt="signup modal close icon" className="img-fluid" />
                         </button>
                     </div>
@@ -60,9 +59,8 @@ const ForgotPasswordPage = (props,{ handleClose }) => {
                         initialValues={{ email: '', }}
                         validationSchema={validationSchemaForForgotPassword}
                         onSubmit={(values, { setSubmitting }) => {
-                            console.log('values => ', values);
+                            handlelForgotPassword(values)
 
-                            setSubmitting(false);
                         }}
                     >
                         {({
@@ -84,7 +82,7 @@ const ForgotPasswordPage = (props,{ handleClose }) => {
                                             </div>
                                            
                                             <div className="form-group">
-                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25 " type="submit" disabled={isSubmitting}>
+                                                <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25 " type="submit" >
                                                     RESET PASSWORD
                                                 </button>
                                             </div>

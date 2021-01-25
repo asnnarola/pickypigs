@@ -53,7 +53,8 @@ const Header = (props) => {
     }, [])
 
     return (
-        <Navbar bg="transparent" id="navbar" expand="lg" className="container main-header">
+        <Navbar bg="transparent" id="navbar" expand="lg" className=" main-header">
+            <div className="container">
             <Link to="/" className="navbar-brand pr-lg-5 mr-lg-5">
                 <img src={logo} className="img-fluid mr-2" alt="logo" />
                 <span className="logo-txt">Picky Pigs</span>
@@ -110,7 +111,7 @@ const Header = (props) => {
                     <Modal.Body className="p-0 position-relative">
                         <Signup  
                             gotoLogin={() => {dispatch(showSignUpPopup(false));dispatch(showSignInPopup(true));}} 
-                            handleClose={handleCloseSignUp} show={showSignUp} 
+                            onHide={handleCloseSignUp} show={showSignUp} 
                         />
                     </Modal.Body>
                 </Modal>
@@ -129,12 +130,13 @@ const Header = (props) => {
                     <Modal.Body className="p-0 position-relative">
                         <ForgotPasswordPage 
                             gotoLogin={() => { setForgotPassword(false); setShowLogIn(true); }} 
-                            handleClose={handleCloseForgotPassword} show={forgotPassword} 
+                            onHide={handleCloseForgotPassword} show={forgotPassword} 
                         />
                     </Modal.Body>
                 </Modal>
 
             </Navbar.Collapse>
+            </div>
         </Navbar>
     )
 }

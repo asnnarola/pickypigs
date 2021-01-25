@@ -17,9 +17,9 @@ const AllResturantNav = () => {
         window.addEventListener('scroll', () => {
                 let ele = document.getElementById("selected_search_bar")
                 if (window.scrollY > 170 ) {
-                ele.classList.add("d-block")
+                    ele&&ele.classList.add("d-block")
                 } else {
-                    ele.classList.remove("d-block")
+                    ele&&ele.classList.remove("d-block")
                 }
             });
     }, [window.scrollY]);

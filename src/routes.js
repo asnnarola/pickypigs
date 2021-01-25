@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import { Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import AlertSystemPage from './view/AlertSystemPage/AlertSystemPage';
 
 const Home = lazy(() => import("./view/Home/Home.jsx"));
 const TheWhoPage = lazy(() => import("./view/TheWhoPage/TheWhoPage.jsx"));
@@ -36,6 +37,9 @@ class Routes extends React.PureComponent {
     render() {
         return (
             <Layout>
+                    <div>
+                       <AlertSystemPage/>
+                   </div>
                 {routesCode.map((route, i) =>
                     <Route {...route} key={i} />)
                 }

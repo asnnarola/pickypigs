@@ -76,28 +76,44 @@ function Home({ coords }) {
                     </div>
                     <div className="row">
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                            <DishBlock restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                            <DishBlock restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                            <DishBlock restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} /></div>
-                        <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-
-                            <DishBlock restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} />
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                            <DishBlock restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                            <DishBlock restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                            <DishBlock restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                            <DishBlock restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
+                            </Link>
+                        </div>
+                        <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                            <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>
+                                <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -128,6 +144,7 @@ function Home({ coords }) {
                     </div>
                     <div className="row">
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                             <div className="whatmenu-wrap mb-4">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P2} className="img-fluid w-100" />
@@ -159,8 +176,10 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                             <div className="whatmenu-wrap mb-4">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P3} className="img-fluid w-100" />
@@ -192,8 +211,10 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                             <div className="whatmenu-wrap">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P4} className="img-fluid w-100" />
@@ -225,8 +246,10 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                             <div className="whatmenu-wrap mb-4">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P5} className="img-fluid w-100" />
@@ -258,8 +281,10 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                             <div className="whatmenu-wrap mb-4">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P6} className="img-fluid w-100" />
@@ -291,9 +316,10 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                            <div className="whatmenu-wrap mb-4">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>                            <div className="whatmenu-wrap mb-4">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P7} className="img-fluid w-100" />
                                 </div>
@@ -324,8 +350,10 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                             <div className="whatmenu-wrap mb-4">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P8} className="img-fluid w-100" />
@@ -357,8 +385,10 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                        <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                             <div className="whatmenu-wrap mb-4">
                                 <div className="whatmenu-img">
                                     <img src={restaurant_P2} className="img-fluid w-100" />
@@ -390,6 +420,7 @@ function Home({ coords }) {
                                     </div>
                                 </div>
                             </div>
+                        </Link>
                         </div>
                     </div>
                 </div>
