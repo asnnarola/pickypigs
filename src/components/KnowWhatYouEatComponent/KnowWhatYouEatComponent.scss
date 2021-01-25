@@ -15,7 +15,7 @@
             max-width: 200px;
             height: 6px;
             width: 100%;
-            background: #FFD5E2;
+            background: #ffd5e2;
             border-radius: 42px;
         }
 
@@ -34,37 +34,129 @@
 
             &:nth-child(1) {
                 .knowwhat-icon {
-                    background: #ECF0FF;
+                    background: #ecf0ff;
                 }
             }
 
             &:nth-child(2) {
                 .knowwhat-icon {
-                    background: #EBFFEB;
+                    background: #ebffeb;
                 }
             }
 
             &:nth-child(3) {
                 .knowwhat-icon {
-                    background: #EBFFEB;
+                    background: #ebffeb;
                 }
             }
 
             &:nth-child(4) {
                 .knowwhat-icon {
-                    background: #ECFFFB;
+                    background: #ecfffb;
                 }
             }
 
             &:nth-child(5) {
                 .knowwhat-icon {
-                    background: #FFF3F7;
+                    background: #fff3f7;
                 }
             }
 
             &:nth-child(6) {
                 .knowwhat-icon {
-                    background: #E8FFE5;
+                    background: #e8ffe5;
+                }
+            }
+        }
+    }
+}
+
+.knowyoueat-modal {
+    .modal-dialog {
+        max-width: 570px;
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            .modal-body {
+                padding: 54px 30px;
+                .close-btn {
+                    position: absolute;
+                    right: 25px;
+                    top: 25px;
+                    border: none;
+                    background: #fff;
+                    padding: 0;
+                    font-size: 25px;
+                    line-height: 14px;
+                    font-weight: 600;
+                }
+                .knowyoueat-carousel {
+                    .carousel-item {
+                        .knowwhat-wrapper {
+                            .knowwhat-icon {
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50px;
+                            }
+                        }
+                        &:nth-child(1) {
+                            .knowwhat-icon {
+                                background: #ecf0ff;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            .knowwhat-icon {
+                                background: #ebffeb;
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            .knowwhat-icon {
+                                background: #ecfffb;
+                                // background: #ebffeb;
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            .knowwhat-icon {
+                                background: #fff3f7;
+                                // background: #ecfffb;
+                            }
+                        }
+
+                        &:nth-child(5) {
+                            .knowwhat-icon {
+                                background: #e8ffe5;
+                                // background: #fff3f7;
+                            }
+                        }
+
+                        &:nth-child(6) {
+                            .knowwhat-icon {
+                                background: #e8ffe5;
+                            }
+                        }
+                    }
+                    .carousel-control-prev,
+                    .carousel-control-next {
+                        width: 48px;
+                        height: 48px;
+                        background: #fff;
+                        opacity: 1;
+                        border-radius: 50px;
+                        border: none;
+                        top: 50%;
+                        transform: translate(0%, -110%);
+                        margin: 2rem;
+                        .carousel-control-prev-icon,
+                        .carousel-control-next-icon {
+                            background: url("../../assets/images/right-arrow.svg") no-repeat 50%/50% 100%;
+                        }
+                        .carousel-control-next-icon {
+                            transform: rotate(180deg);
+                        }
+                    }
                 }
             }
         }
