@@ -50,7 +50,8 @@ function Home({ coords }) {
 
             {/* FILTER BY FEATURES section start */}
             <section className="ff-section mb-4 pb-4">
-                <div className="container pr-0 filter-container">
+                <div className="container pr-0">
+                {/* filter-container */}
                     <div className="row">
                         <div className="col-sm-12">
                             <h3 className="brandon-Medium fw-600">FILTER BY FEATURES</h3>

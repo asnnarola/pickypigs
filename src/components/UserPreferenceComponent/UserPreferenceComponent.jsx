@@ -69,6 +69,14 @@ const UserPreferenceComponent = () => {
     return (
         <>
             <section >
+                <div className="col-sm-12">
+                    <div className="row">
+                        <div className="col-sm-12 pl-0 pr-0">
+                            <div className="border">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {alergy}--{dietary}--{lifestyle}--{restaurant}
                 <div>
                     <p>You don't have set your preferences</p>

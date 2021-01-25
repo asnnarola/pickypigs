@@ -39,6 +39,7 @@ const Header = (props) => {
     const token = localStorage.getItem("access_token");
     const emailVerified = localStorage.getItem("isEmailVerified");
     const role = localStorage.getItem("role");
+    const userEmail = localStorage.getItem("email");
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -77,13 +78,13 @@ const Header = (props) => {
                             <button type="button" className="btn btn-secondary dropdown-toggle userprofile-dropbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div className="user-name">
                                     <img src={logo} className="userprofile-img img-fluid mr-2" alt="logo" />
-                                    <span>{localStorage.getItem("email")}</span>
+                                    <span>{userEmail.substring(0, userEmail.lastIndexOf("@"))}</span>
                                 </div>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right">
+                                <NavLink to="/user_detail" type="button" className="dropdown-item" type="button">My Profile</NavLink>
+                                <button className="dropdown-item" type="button">My Favorites</button>
                                 <button className="dropdown-item" type="button" onClick={()=>{dispatch(logoutUser(history))}}>Logout</button>
-                                <button className="dropdown-item" type="button">Another action</button>
-                                <button className="dropdown-item" type="button">Something else here</button>
                             </div>
                         </div>
                     </Form>

@@ -19,15 +19,15 @@ import { Provider } from "react-redux";
 ReactDOM.render(
 
   <React.StrictMode>
-    <BrowserRouter history={history}>
-      {/* <HashRouter hashType="noslash"> */}
+    {/* <BrowserRouter history={history}> */}
+      <HashRouter >
       {/* <MainProvider> */}
         <Provider store={store}>
           <App />
         </Provider>
       {/* </MainProvider> */}
-      {/* </HashRouter> */}
-      </BrowserRouter>
+      </HashRouter>
+      {/* </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

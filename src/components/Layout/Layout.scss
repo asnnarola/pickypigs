@@ -5,11 +5,15 @@
 html,
 body {
     font-family: "BrandonTextWeb-Regular" !important;
-    height     : 100%;
+    height: 100%;
 }
 
 body {
     color: #232323;
+}
+
+.zindex-1{
+    z-index: 1;
 }
 
 .f-11 {
@@ -25,7 +29,7 @@ body {
 }
 
 .pink-txt {
-    color: #CB007B !important;
+    color: #cb007b !important;
 }
 
 .line-height-1_75 {
@@ -33,7 +37,7 @@ body {
 }
 
 .bg-pink {
-    background: #CB007B;
+    background: #cb007b;
 }
 
 .h-80 {
@@ -51,42 +55,76 @@ body {
 .brandon-Bold {
     font-family: "Brandon Text" !important;
 }
-.fw-400{
+.fw-400 {
     font-weight: 400;
 }
 .fw-600 {
     font-weight: 600;
 }
-.text-dark{
+.text-dark {
     color: #232323 !important;
 }
 .txt-lightgray {
     color: #919191;
 }
-.txt-darkgreen{
-    color: #2E482B;
+.txt-darkgreen {
+    color: #2e482b;
 }
 
 .list-style-none {
     list-style: none;
 }
-hr{
-    border-color:#D9D9D9 !important;
+hr {
+    border-color: #d9d9d9 !important;
 }
 
+// --- Border-radius CSS Start ---
+
+.border-radius-20 {
+    border-radius: 20px !important;
+}
+
+// --- Border-radius CSS End ---
+
+// --- Width CSS Start ---
+
+.w-120 {
+    width: 120px;
+}
+
+.w-150 {
+    width: 150px;
+}
+
+// --- Width CSS End ---
+
+// --- Hight CSS Start ---
+
+.h-36 {
+    height: 36px;
+}
+
+.h-40 {
+    height: 40px;
+}
+
+// --- Hight CSS End ---
+
+// --- Button CSS Start ---
+
 .theme-pink-btn {
-    width          : 50px;
-    height         : 50px;
-    border-radius  : 25px !important;
-    display        : flex !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px !important;
+    display: flex !important;
     justify-content: center;
-    align-items    : center;
-    background     : linear-gradient(0deg, #CB007B, #FF75BA);
-    border         : none !important;
-    transition     : background 0.5s !important;
+    align-items: center;
+    background: linear-gradient(0deg, #cb007b, #ff75ba);
+    border: none !important;
+    transition: background 0.5s !important;
 
     &:hover {
-        background: linear-gradient(90deg, #CB007B, #FF75BA);
+        background: linear-gradient(90deg, #cb007b, #ff75ba);
     }
 
     &:focus {
@@ -97,62 +135,113 @@ hr{
         width: 160px;
     }
 }
-.lightgray-btn{
-    border: 1px solid #C1C1C1 !important;
+
+.lightgray-btn {
+    border: 1px solid #c1c1c1 !important;
     background: #fff !important;
-    color: #C1C1C1 !important;
+    color: #c1c1c1 !important;
     border-radius: 20px !important;
-    &:hover{
-        background: #C1C1C1 !important;
+    &:hover {
+        background: #c1c1c1 !important;
         color: #fff !important;
     }
-    &:focus{
+    &:focus {
         box-shadow: 0 0 0 0.2rem #ececec !important;
     }
 }
 
-
-@media screen and (min-width:992px) {
-    .container, .allrsfilter-sticky .allrestaurant-nav {
-        max-width: 980px !important;
+.darkgray-btn {
+    border: 1px solid #919191 !important;
+    background: #fff !important;
+    color: #919191 !important;
+    border-radius: 20px !important;
+    &:hover {
+        background: #919191 !important;
+        color: #fff !important;
     }
-}
-@media screen and (min-width:1200px) {
-    .container, .allrsfilter-sticky .allrestaurant-nav {
-        max-width: 1140px !important;
-    }
-}
-@media screen and (min-width:1200px) and (max-width:2400px) {
-    .container, .allrsfilter-sticky .allrestaurant-nav {
-        max-width: 100% !important;
+    &:focus {
+        box-shadow: 0 0 0 0.2rem #ececec !important;
     }
 }
 
-@media screen and (min-width:1200px) and (max-width:1400px) {
-    .container, .allrsfilter-sticky .allrestaurant-nav {
-        max-width    : 100% !important;
-        padding-left : 5% !important;
-        padding-right: 5% !important;
+.pinkline-btn {
+    border: 1px solid #cb007b;
+    color: #cb007b !important;
+    background: #fff;
+    outline: none !important;
+    font-size: 14px;
+    font-family: "BrandonTextWeb-Regular";
+
+    &:hover {
+        background: linear-gradient(2deg, #cb007b, #ff75ba);
+        color: #fff !important  ;
+        border: 1px solid #fb6bb5 !important;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.2rem #d00b812e !important;
     }
 }
 
-@media screen and (min-width:1401px) and (max-width:1600px) {
-    .container, .allrsfilter-sticky .allrestaurant-nav {
-        padding-left : 10% !important;
-        padding-right: 10% !important;
+.graytxt-btn {
+    color: #919191 !important;
+    outline: none;
+    border: none;
+    font-size: 15px;
+
+    &:hover {
+        background: #919191 !important;
+        color: #fff !important;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.2rem #ececec !important;
     }
 }
 
-@media screen and (min-width:1601px) and (max-width:1800px) {
-    .container, .allrsfilter-sticky .allrestaurant-nav {
-        padding-left : 15% !important;
-        padding-right: 15% !important;
-    }
-}
+// --- Button CSS End ---
 
-@media screen and (min-width:1800px) and (max-width:2400px) {
-    .container, .allrsfilter-sticky .allrestaurant-nav {
-        padding-left : 20% !important;
-        padding-right: 20% !important;
-    }
-}
+// @media screen and (min-width:992px) {
+//     .container, .allrsfilter-sticky .allrestaurant-nav {
+//         max-width: 980px !important;
+//     }
+// }
+// @media screen and (min-width:1200px) {
+//     .container, .allrsfilter-sticky .allrestaurant-nav {
+//         max-width: 1140px !important;
+//     }
+// }
+// @media screen and (min-width:1200px) and (max-width:2400px) {
+//     .container, .allrsfilter-sticky .allrestaurant-nav {
+//         max-width: 100% !important;
+//     }
+// }
+
+// @media screen and (min-width:1200px) and (max-width:1400px) {
+//     .container, .allrsfilter-sticky .allrestaurant-nav {
+//         max-width    : 100% !important;
+//         padding-left : 5% !important;
+//         padding-right: 5% !important;
+//     }
+// }
+
+// @media screen and (min-width:1401px) and (max-width:1600px) {
+//     .container, .allrsfilter-sticky .allrestaurant-nav {
+//         padding-left : 10% !important;
+//         padding-right: 10% !important;
+//     }
+// }
+
+// @media screen and (min-width:1601px) and (max-width:1800px) {
+//     .container, .allrsfilter-sticky .allrestaurant-nav {
+//         padding-left : 15% !important;
+//         padding-right: 15% !important;
+//     }
+// }
+
+// @media screen and (min-width:1800px) and (max-width:2400px) {
+//     .container, .allrsfilter-sticky .allrestaurant-nav {
+//         padding-left : 20% !important;
+//         padding-right: 20% !important;
+//     }
+// }

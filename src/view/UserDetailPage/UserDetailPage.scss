@@ -6,13 +6,13 @@ section {
             margin-top: 45px;
 
             .userprofile-select {
-                max-width: 100px;
+                max-width: 120px;
                 margin: auto;
                 position: relative;
 
                 img {
-                    width: 100px;
-                    height: 100px;
+                    width: 120px;
+                    height: 120px;
                     border-radius: 50%;
                     overflow: hidden;
                     object-fit: cover;
@@ -61,7 +61,7 @@ section {
                         border: none;
                         outline: none;
                         cursor: pointer;
-                        background-image: url('../../assets/images/upload.svg');
+                        background-image: url("../../assets/images/upload.svg");
                         background-size: 14px;
                         background-repeat: no-repeat;
                         background-position: center;
@@ -72,22 +72,30 @@ section {
                 }
             }
 
-            h5.username-txt {
-                margin-bottom: 30px;
-                text-align: center;
-                margin-top: 1.25rem;
-                font-size: 2rem;
+            h5 {
+                &.username-txt {
+                    margin-bottom: 30px;
+                    text-align: center;
+                    margin-top: 1rem;
+                    font-size: 36px;
+                }
             }
         }
 
-        .border-seprater {
-            border: 1px solid #dedede;
-        }
-
         .userdetails-tabs {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
+            .userdetail-btncenter {
+                max-width: 325px;
+                width: 100%;
+                button{
+                    &.usertabs-btn{
+                        color:#919191;
+                        
+                        &:hover{
+                            color: #CB007B;
+                        }
+                    }
+                }
+            }
         }
     }
 }

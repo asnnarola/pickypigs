@@ -26,8 +26,8 @@ function TheWhoPage({ filterIcon = "false" }) {
             {/* Who section 1 start */}
             <section className="who-section" >
                 <div className="container">
-                    <h1 className="text-center text-uppercase header-txt brandon-Bold">the who</h1>
-                    <p className="text-center f-15">Lorem ipsum dolor text dummy</p>
+                    <h1 className="text-center text-uppercase header-txt brandon-Bold position-relative">the who</h1>
+                    <p className="text-center f-15 position-relative">Lorem ipsum dolor text dummy</p>
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="who-we-are-wrapper mt-4">
