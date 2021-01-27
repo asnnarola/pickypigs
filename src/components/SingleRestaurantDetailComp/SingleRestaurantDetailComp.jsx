@@ -36,7 +36,6 @@ const SingleRestaurantDetailComp = () => {
     return (
         <>
             <div className="container">
-                {myDay}
                 <div className="breadcrumb-wrapper">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">

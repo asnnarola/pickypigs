@@ -67,7 +67,7 @@ export const getLogin=(data,history)=>{
   }
 };
 
-export const googleLogin=(data,history,show,page)=>{
+export const googleLogin=(website,data,history,show,page)=>{
   console.log(show,page)
   return async(dispatch)=>{
       try{
@@ -77,7 +77,7 @@ export const googleLogin=(data,history,show,page)=>{
                "Content-Type":"application/json",
                }
            }
-          let dataURL=`/auth/google`
+          let dataURL=`/auth/${website}`
           let response = await Axios.post(dataURL,JSON.stringify(data),config );
           dispatch({type:"GOOGLE_LOGIN_SUCCESS",payload:response.data});
           history.push('/');

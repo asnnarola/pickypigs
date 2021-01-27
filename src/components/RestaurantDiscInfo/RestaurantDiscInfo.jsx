@@ -183,7 +183,7 @@ const RestaurantDiscInfo = () => {
                                             </div>
                                         </div>
 
-                                        <div className="social-wrapper">
+                                        {/* <div className="social-wrapper">
                                             <div className="d-block w-100 mb-3">
                                                 <div className="rs-infoicon mr-3">
                                                     <img src={location} className="img-fluid" alt="Diningtable" />
@@ -204,7 +204,7 @@ const RestaurantDiscInfo = () => {
                                                     </TwitterShareButton>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         
 
                                         <div className="sharesocial-link">

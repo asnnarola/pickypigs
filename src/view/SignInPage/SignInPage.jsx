@@ -47,7 +47,7 @@ const SignInPage = (props) => {
                 name: user._profile.name,
                 // token: user._token.accessToken,
             }
-            dispatch(googleLogin(obj,history))
+            dispatch(googleLogin("facebook",obj,history,props.show,"signIn"))
         }
         if (user._provider === "google") {
             // console.log(user);
@@ -57,7 +57,7 @@ const SignInPage = (props) => {
                 name: user._profile.name,
                 // token: user._token.accessToken,
             }
-            dispatch(googleLogin(obj,history,props.show,"signIn"))
+            dispatch(googleLogin("google",obj,history,props.show,"signIn"))
         }
        
       };
