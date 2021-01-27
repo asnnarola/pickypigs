@@ -36,6 +36,7 @@ const initialState = {
       case "SEND_JOINUS_REQUEST":
       case "GET_LOGIN_REQUEST":
       case "REGISTER_USER_REQUEST":
+      case "GOOGLE_LOGIN_REQUEST":
         return {
           ...state,
           isLoading :true,
@@ -54,6 +55,16 @@ const initialState = {
           login_Data:payload,
           isSignedIn:true,
         }; 
+
+      case "GOOGLE_LOGIN_SUCCESS":
+        localStorage.setItem('access_token',payload.token);
+        localStorage.setItem('isEmailVerified','true');
+        localStorage.setItem('email',payload.email);
+        localStorage.setItem('role','user');
+        return {
+          ...state,
+          isLoading:false,
+        };   
         
       //logout user
       case "LOGOUT_USER_REQUEST":
@@ -92,6 +103,7 @@ const initialState = {
       case "SEND_JOINUS_FAILURE":
       case "GET_LOGIN_FAILURE":
       case "REGISTER_USER_FAILURE":
+      case "GOOGLE_LOGIN_FAILURE":
         return {
           ...state,
           isLoading:false,

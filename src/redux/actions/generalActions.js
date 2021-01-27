@@ -67,6 +67,41 @@ export const getLogin=(data,history)=>{
   }
 };
 
+export const googleLogin=(data,history,show,page)=>{
+  console.log(show,page)
+  return async(dispatch)=>{
+      try{
+          dispatch({type:"GOOGLE_LOGIN_REQUEST"});
+          let config= {
+              headers:{
+               "Content-Type":"application/json",
+               }
+           }
+          let dataURL=`/auth/google`
+          let response = await Axios.post(dataURL,JSON.stringify(data),config );
+          dispatch({type:"GOOGLE_LOGIN_SUCCESS",payload:response.data});
+          history.push('/');
+          if(page==="signIn"){
+             dispatch(showSignInPopup(show));
+             dispatch(showSignInPopup(!show));
+          }else{
+            dispatch(showSignUpPopup(show));
+            dispatch(showSignUpPopup(!show));
+          }
+          await dispatch(setAlert('LogIn Success', 'success'));
+         
+      }
+      catch(error){
+        dispatch({type:"GOOGLE_LOGIN_FAILURE",payload:error});
+        if (error.response) {
+          dispatch(setAlert('Wrong Credential', 'error'));
+        } else {
+          dispatch(setAlert('Something went wrong!', 'error'));
+        }
+      }
+  }
+};
+
 
 
 

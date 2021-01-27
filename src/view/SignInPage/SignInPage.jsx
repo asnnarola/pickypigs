@@ -11,7 +11,8 @@ import showpassword from "../../assets/images/eye_icon.svg";
 import closeicon from "../../assets/images/close.svg";
 import "./SignInPage.scss"
 import { useDispatch } from 'react-redux';
-import { getLogin,registerUser, showSignUpPopup } from '../../redux/actions/generalActions';
+import { getLogin,googleLogin, showSignUpPopup } from '../../redux/actions/generalActions';
+import SocialButton from '../../components/SocialButton';
 
 
 const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
@@ -30,6 +31,7 @@ const validationSchemaForLogin = Yup.object().shape({
 
 
 const SignInPage = (props) => {
+
     const dispatch=useDispatch();
     const history=useHistory();
     const { setLogin } = useAppState("useGlobal")
@@ -37,6 +39,32 @@ const SignInPage = (props) => {
    
 
 
+    const handleSocialLogin = (user) => {
+        if (user._provider === "facebook") {
+            let obj = {
+                email: user._profile.email,
+                facebookId: user._profile.id,
+                name: user._profile.name,
+                // token: user._token.accessToken,
+            }
+            dispatch(googleLogin(obj,history))
+        }
+        if (user._provider === "google") {
+            // console.log(user);
+            let obj = {
+                email: user._profile.email,
+                googleId: user._profile.id,
+                name: user._profile.name,
+                // token: user._token.accessToken,
+            }
+            dispatch(googleLogin(obj,history,props.show,"signIn"))
+        }
+       
+      };
+    
+      const handleSocialLoginFailure = (err) => {
+        console.error(err);
+      };
 
     const googleResponse = response => {
         axios.post(`${HOST_URL}/auth/google`, response.profileObj).then(res => {
@@ -94,6 +122,7 @@ const SignInPage = (props) => {
                     <div className="col-sm-12 mb-3">
                         <h3 className="brandon-Bold">Sign in</h3>
                         <p className="f-15"><span className="pr-2">Don't have an account?</span>
+
                             <button className="pink-txt brandon-Medium trans_button" onClick={()=>{props.gotoSignup()}}>Sign Up</button>
                         </p>
                     </div>
@@ -170,24 +199,26 @@ const SignInPage = (props) => {
                                     {/* <span>Google</span> */}
                                     <span></span>
                                 </GoogleLogin>
-                                <FacebookLogin
-                                    appId={FACEBOOK_APP_ID}
-                                    autoLoad={false}
-                                    fields="name,email,picture"
-                                    callback={facebookResponse}
-                                    cssClass="btnFacebook socail-btn"
-                                    // textButton="&nbsp;&nbsp;Facebook"
-                                    textButton=""
-                                />
-                                <GoogleLogin
-                                    clientId={GOOGLE_CLIENT_ID}
-                                    onSuccess={googleResponse}
-                                    className="btnGoogle socail-btn"
-                                    icon={false}
-                                >
-                                    {/* <span>Google</span> */}
-                                    <span></span>
-                                </GoogleLogin>
+                                
+                                <SocialButton
+                                    style={{backgroundColor:'transparent',border:'none'}}
+                                     provider={"facebook"}
+                                     appId={FACEBOOK_APP_ID}
+                                     onLoginSuccess={handleSocialLogin}
+                                     onLoginFailure={handleSocialLoginFailure}
+                                    >
+                                        <div className="btnFacebook socail-btn"></div>
+                                    </SocialButton>
+                                    <SocialButton
+                                        style={{backgroundColor:'transparent',border:'none'}}
+                                        provider={"google"}
+                                        appId={GOOGLE_CLIENT_ID}
+                                        onLoginSuccess={handleSocialLogin}
+                                        onLoginFailure={handleSocialLoginFailure}
+                                    >
+                                        <div className="btnGoogle socail-btn"></div>
+                                    </SocialButton>
+                                
                             </div>
                             <div className="terms-block text-center mt-4 txt-lightgray">
                                 <p>By proceeding you agree to the<br />

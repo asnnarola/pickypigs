@@ -12,7 +12,8 @@ import closeicon from "../../assets/images/close.svg";
 import { Modal } from 'react-bootstrap';
 import "./Signup.scss"
 import { useDispatch,useSelector} from 'react-redux';
-import { getLogin,registerUser } from '../../redux/actions/generalActions';
+import { googleLogin,registerUser } from '../../redux/actions/generalActions';
+import SocialButton from '../../components/SocialButton';
 
 const phoneRegex = RegExp(
     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
@@ -62,7 +63,31 @@ const Signup = (props) => {
         dispatch(registerUser(obj,history))
     }
    
-   
+    const handleSocialLogin = (user) => {
+        if (user._provider === "facebook") {
+            let obj = {
+                email: user._profile.email,
+                facebookId: user._profile.id,
+                name: user._profile.name,
+                // token: user._token.accessToken,
+            }
+            dispatch(googleLogin(obj,history))
+        }
+        if (user._provider === "google") {
+            // console.log(user);
+            let obj = {
+                email: user._profile.email,
+                googleId: user._profile.id,
+                name: user._profile.name,
+                // token: user._token.accessToken,
+            }
+            dispatch(googleLogin(obj,history,props.show,"signIn"))
+        }
+       
+      };
+      const handleSocialLoginFailure = (err) => {
+        console.error(err);
+      };
 
 
     const googleResponse = response => {
@@ -223,15 +248,15 @@ const Signup = (props) => {
                                     // textButton="&nbsp;&nbsp;Facebook"
                                     textButton=""
                                 />
-                                <GoogleLogin
-                                    clientId={GOOGLE_CLIENT_ID}
-                                    onSuccess={googleResponse}
-                                    className="btnGoogle socail-btn"
-                                    icon={false}
-                                >
-                                    {/* <span>Google</span> */}
-                                    <span></span>
-                                </GoogleLogin>
+                                    <SocialButton
+                                        style={{backgroundColor:'transparent',border:'none'}}
+                                        provider={"google"}
+                                        appId={GOOGLE_CLIENT_ID}
+                                        onLoginSuccess={handleSocialLogin}
+                                        onLoginFailure={handleSocialLoginFailure}
+                                    >
+                                        <div className="btnGoogle socail-btn"></div>
+                                    </SocialButton>
                             </div>
                             <div className="terms-block text-center mt-4 txt-lightgray">
                                 <p>By proceeding you agree to the<br />
