@@ -37,6 +37,7 @@ const initialState = {
       case "GET_LOGIN_REQUEST":
       case "REGISTER_USER_REQUEST":
       case "GOOGLE_LOGIN_REQUEST":
+      case "FACEBOOK_LOGIN_REQUEST":
         return {
           ...state,
           isLoading :true,
@@ -64,7 +65,17 @@ const initialState = {
         return {
           ...state,
           isLoading:false,
-        };   
+        };  
+
+      case "FACEBOOK_LOGIN_SUCCESS":
+        localStorage.setItem('access_token',payload.token);
+        localStorage.setItem('isEmailVerified','true');
+        localStorage.setItem('email',payload.email);
+        localStorage.setItem('role','user');
+        return {
+          ...state,
+          isLoading:false,
+        };     
         
       //logout user
       case "LOGOUT_USER_REQUEST":
@@ -104,6 +115,7 @@ const initialState = {
       case "GET_LOGIN_FAILURE":
       case "REGISTER_USER_FAILURE":
       case "GOOGLE_LOGIN_FAILURE":
+      case "FACEBOOK_LOGIN_FAILURE":
         return {
           ...state,
           isLoading:false,

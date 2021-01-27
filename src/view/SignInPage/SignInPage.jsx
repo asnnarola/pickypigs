@@ -11,7 +11,7 @@ import showpassword from "../../assets/images/eye_icon.svg";
 import closeicon from "../../assets/images/close.svg";
 import "./SignInPage.scss"
 import { useDispatch } from 'react-redux';
-import { getLogin,googleLogin, showSignUpPopup } from '../../redux/actions/generalActions';
+import { facebookLogin, getLogin,googleLogin, showSignUpPopup } from '../../redux/actions/generalActions';
 import SocialButton from '../../components/SocialButton';
 
 
@@ -47,7 +47,7 @@ const SignInPage = (props) => {
                 name: user._profile.name,
                 // token: user._token.accessToken,
             }
-            dispatch(googleLogin("facebook",obj,history,props.show,"signIn"))
+            dispatch(facebookLogin(obj,history,props.show,"signIn"))
         }
         if (user._provider === "google") {
             // console.log(user);
@@ -57,7 +57,7 @@ const SignInPage = (props) => {
                 name: user._profile.name,
                 // token: user._token.accessToken,
             }
-            dispatch(googleLogin("google",obj,history,props.show,"signIn"))
+            dispatch(googleLogin(obj,history,props.show,"signIn"))
         }
        
       };

@@ -12,7 +12,7 @@ import closeicon from "../../assets/images/close.svg";
 import { Modal } from 'react-bootstrap';
 import "./Signup.scss"
 import { useDispatch,useSelector} from 'react-redux';
-import { googleLogin,registerUser } from '../../redux/actions/generalActions';
+import { facebookLogin, googleLogin,registerUser } from '../../redux/actions/generalActions';
 import SocialButton from '../../components/SocialButton';
 
 const phoneRegex = RegExp(
@@ -71,7 +71,7 @@ const Signup = (props) => {
                 name: user._profile.name,
                 // token: user._token.accessToken,
             }
-            dispatch(googleLogin(obj,history))
+            dispatch(facebookLogin(obj,history,props.show,"signUp"))
         }
         if (user._provider === "google") {
             // console.log(user);
@@ -81,7 +81,7 @@ const Signup = (props) => {
                 name: user._profile.name,
                 // token: user._token.accessToken,
             }
-            dispatch(googleLogin(obj,history,props.show,"signIn"))
+            dispatch(googleLogin(obj,history,props.show,"signUp"))
         }
        
       };
@@ -239,15 +239,15 @@ const Signup = (props) => {
                                     {/* <span>Google</span> */}
                                     <span></span>
                                 </GoogleLogin>
-                                <FacebookLogin
-                                    appId={FACEBOOK_APP_ID}
-                                    autoLoad={false}
-                                    fields="name,email,picture"
-                                    callback={facebookResponse}
-                                    cssClass="btnFacebook socail-btn"
-                                    // textButton="&nbsp;&nbsp;Facebook"
-                                    textButton=""
-                                />
+                                <SocialButton
+                                    style={{backgroundColor:'transparent',border:'none'}}
+                                     provider={"facebook"}
+                                     appId={FACEBOOK_APP_ID}
+                                     onLoginSuccess={handleSocialLogin}
+                                     onLoginFailure={handleSocialLoginFailure}
+                                    >
+                                        <div className="btnFacebook socail-btn"></div>
+                                    </SocialButton>
                                     <SocialButton
                                         style={{backgroundColor:'transparent',border:'none'}}
                                         provider={"google"}
