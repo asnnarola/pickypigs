@@ -8,7 +8,7 @@ const token = localStorage.getItem("access_token");
 
 
 // register a user
-export const registerUser = (user) => {
+export const registerUser = (user,history) => {
   return async (dispatch) => {
       try {
           dispatch({type : "REGISTER_USER_REQUEST"});
@@ -19,7 +19,11 @@ export const registerUser = (user) => {
           };
           let dataURL=`/auth/user_signup`
           let response = await Axios.post(dataURL, JSON.stringify(user) , config);
-          dispatch({type : "REGISTER_USER_SUCCESS.Please Verify The Mail Id" , payload : response.data});
+          dispatch({type : "REGISTER_USER_SUCCESS" , payload : response.data});
+          history.push('/');
+          await dispatch(setAlert('REGISTER_USER_SUCCESS.Please Verify The Mail Id', 'success'));
+          await dispatch(showSignUpPopup(false));
+
 
       }
       catch (error) {

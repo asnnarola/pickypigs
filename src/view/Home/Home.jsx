@@ -29,7 +29,7 @@ function Home({ coords }) {
         <>
             <div className="HomeSecond_container ">
                 {/* Home main section start */}
-                <section className="fr-section">
+                <section className="fr-section ">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
@@ -51,12 +51,21 @@ function Home({ coords }) {
                 </section>
 
                 {/* FILTER BY FEATURES section start */}
-                <section className="ff-section mb-4 pb-4 home-main-wrapper">
-                    <div className="container  pr-0">
+                <section className="ff-section mb-4 pb-4 position-relative ">
+                    <div className="container  pr-0 position-relative ">
                         {/* filter-container */}
                         <div className="row">
                             <div className="col-sm-12">
                                 <h3 className="brandon-Medium fw-600">FILTER BY FEATURES</h3>
+
+                                    {/* <FilterByFeature /> */}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container">
+                        <div className="mb-5 pb-5 row">
+                            <div className="col-sm-12 position-absolute">
+                                {/* <h3 className="brandon-Medium fw-600">FILTER BY FEATURES</h3> */}
                                     <FilterByFeature />
                             </div>
                         </div>
@@ -64,7 +73,7 @@ function Home({ coords }) {
                 </section>
 
                 {/* FIND A RESTAURANT YOU WILL LOVE section start */}
-                <section className="mt-5 section3 mb-5">
+                <section className="mt-5 section3 mb-5 pt-5">
                     <div className="container">
                         <div className="row mb-4 pb-3">
                             <div className="col-sm-12">
@@ -134,7 +143,7 @@ function Home({ coords }) {
                 <ExploreCategories />
 
                 {/* WHAT ON THE MENU? section start */}
-                <section className="section5 mt-5 pt-2 mb-5">
+                <section className="section5 mt-5 pt-2 mb-5 ">
                     <div className="container">
                         <div className="row mb-4 pb-3">
                             <div className="col-sm-12">
@@ -428,10 +437,10 @@ function Home({ coords }) {
                     </div>
                 </section>
 
-                <section >
+                <section className="">
                     <KnowWhatYouEatComponent />
                 </section>
-                <section>
+                <section className="">
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12">
@@ -442,7 +451,7 @@ function Home({ coords }) {
                         </div>
                     </div>
                 </section>
-                <section>
+                <section className="">
                     <OurVisionComponent />
                 </section>
             </div>

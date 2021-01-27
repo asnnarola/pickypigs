@@ -14,10 +14,17 @@ import { useDispatch } from 'react-redux';
 import { getLogin,registerUser, showSignUpPopup } from '../../redux/actions/generalActions';
 
 
+const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
 
 const validationSchemaForLogin = Yup.object().shape({
-    email: Yup.string().email().required('Required'),
-    password: Yup.string().label('Password').required('Required').min(2, 'Seems a bit short...').max(16, 'We prefer insecure system, try a shorter password.')
+    email: Yup.string().email('Email must be a valid email').required('Email Required'),
+    password: Yup
+    .string()
+    .label('Password')
+    .required('Password Required')
+    .min(8, 'Seems a bit short(Min 8 characters)...')
+    .max(24, 'Please try a shorter password(Max 24 characters)...).')
+    .matches(passwordRegExp, 'Password should Have 1 Uppercase,1 Lowercase,1 digit,1 special characte'),
 });
 
 
@@ -34,6 +41,7 @@ const SignInPage = (props) => {
     const googleResponse = response => {
         axios.post(`${HOST_URL}/auth/google`, response.profileObj).then(res => {
             setLogin(res.data.token)
+            console.log(res.data.token);
             props.onHide();
         }).catch(err => console.log('err => ', err.response))
     }

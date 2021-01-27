@@ -13,15 +13,19 @@ import "./SignupMobilePage.scss"
 const phoneRegex = RegExp(
     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
 );
+const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
+
 const validationSchema = Yup.object().shape({
-    fullName: Yup.string().required('Required'),
-    email: Yup.string().email().required('Required'),
+    fullName: Yup.string().required('Name Required'),
+    email: Yup.string().email('Email must be a valid email').required('Email Required'),
     password: Yup
-        .string()
-        .label('Password')
-        .required('Required')
-        .min(2, 'Seems a bit short...')
-        .max(10, 'We prefer insecure system, try a shorter password.'),
+    .string()
+    .label('Password')
+    .required('Password Required')
+    .min(8, 'Seems a bit short(Min 8 characters)...')
+    .max(24, 'Please try a shorter password(Max 24 characters)...).')
+    .matches(passwordRegExp, 'Password should Have 1 Uppercase,1 Lowercase,1 digit,1 special characte'),
+
     phone: Yup.string().matches(phoneRegex, "Invalid phone").required("Phone is required")
         .min(10, "to short")
         .max(10, "to long"),

@@ -20,7 +20,7 @@ class Layout extends React.PureComponent {
                     {this.props.children}
                 </div>
                     <Footer/>
-                </div>
+            </div>
         );
     }
     // componentDidUpdate() {

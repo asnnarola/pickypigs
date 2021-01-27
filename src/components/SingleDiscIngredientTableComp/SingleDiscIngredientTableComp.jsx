@@ -1,6 +1,4 @@
 import React,{useState,useEffect} from "react";
-import RestaurentDiscAllergiesInfoModal from "../RestaurentDiscAllergiesInfoModal/RestaurentDiscAllergiesInfoModal";
-import RestaurentDiscCaloriesInfoModal from "../RestaurentDiscCaloriesInfoModal/RestaurentDiscCaloriesInfoModal";
 import './SingleDiscIngredientTableComp.scss';
 import Ingredientsicon from "../../assets/images/dishinfo_img/Ingredients-icon.svg";
 import { useDispatch,useSelector } from "react-redux";
@@ -41,7 +39,7 @@ const SingleDiscIngredientTableComp = () => {
     return (
         <>
         {/* {JSON.stringify(nutrition_Data)} */}
-            <div className="Ingredients-wrapper mb-4">
+            <div className="Ingredients-wrapper mb-4 h-100">
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="Ingredients-head d-flex align-items-start mb-3">
@@ -52,7 +50,7 @@ const SingleDiscIngredientTableComp = () => {
                         </div>
                     </div>
                 </div>
-                <div className="table-responsive">
+                <div className="table-responsive ingredients-table">
                     <table class="table">
                         <thead>
                             <tr>
@@ -78,10 +76,7 @@ const SingleDiscIngredientTableComp = () => {
                     </table>
                 </div>
             </div>
-            <div className="d-flex flex-wrap justify-content-between">
-                <RestaurentDiscCaloriesInfoModal />
-                <RestaurentDiscAllergiesInfoModal />
-            </div>
+            
 
         </>
     )

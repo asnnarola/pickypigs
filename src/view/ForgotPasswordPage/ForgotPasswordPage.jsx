@@ -20,7 +20,7 @@ const ForgotPasswordPage = (props) => {
     const dispatch=useDispatch();
 
     const validationSchemaForForgotPassword = Yup.object().shape({
-        email: Yup.string().email().required('Required'),        
+        email: Yup.string().email('Email must be a valid email').required('Email Required'),        
     });
 
     const handlelForgotPassword=(input)=>{

@@ -178,8 +178,9 @@
                         justify-content: center;
                         align-items: center;
                         outline: none !important;
-                        margin-left: 15.5px;
+                        margin-left: 0;
                         border-radius: 10px;
+                        // max-width: 105px;
 
                         .filter-subwrapper {
                             min-width: 90px;
@@ -227,6 +228,10 @@
                                     color: #cb007b !important;
                                 }
                             }
+                        }
+
+                        @media screen and (min-width:1200px) and (max-width:1400px){
+                            margin-right: 17.5px;
                         }
                     }
                 }

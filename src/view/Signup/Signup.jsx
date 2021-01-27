@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FACEBOOK_APP_ID, GOOGLE_CLIENT_ID, HOST_URL } from '../../shared/constant';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from "react-facebook-login";
 import useAppState from '../../context/useAppState';
@@ -17,13 +17,21 @@ import { getLogin,registerUser } from '../../redux/actions/generalActions';
 const phoneRegex = RegExp(
     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
 );
+const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
+
 const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
-    email: Yup.string().email().required('Required'),
-    password: Yup.string().label('Password').required('Required').min(8, 'Seems a bit short...').max(16, 'We prefer insecure system, try a shorter password.'),
-    phone: Yup.string().required("Phone is required").matches(phoneRegex, "Invalid phone").min(10, "to short").max(10, "to long"),
+    name: Yup.string().required('Name Required'),
+    email: Yup.string().email('Email must be a valid email').required('Email Required'),
+    password: Yup
+    .string()
+    .label('Password')
+    .required('Password Required')
+    .min(8, 'Seems a bit short(Min 8 characters)...')
+    .max(24, 'Please try a shorter password(Max 24 characters)...).')
+    .matches(passwordRegExp, 'Password should Have 1 Uppercase,1 Lowercase,1 digit,1 special characte'),  
+    phone: Yup.string().required("Phone Number is required").matches(phoneRegex, "Invalid Phone Number").min(10, "to short").max(10, "Not More Than 10 "),
     confirmPassword: Yup
-        .string().required('Required').label('Confirm password')
+        .string().required('Confirm password Required').label('Confirm password')
         .test('passwords-match', 'Passwords must match', function (value) {
             return this.parent.password === value;
         }),
@@ -32,9 +40,11 @@ const validationSchema = Yup.object().shape({
 
 const Signup = (props) => {
     const dispatch=useDispatch();
+    const history=useHistory();
     const { setLogin } = useAppState("useGlobal")
     const [type, setType] = useState("password")
- 
+    const [confirmType, setConfirmType] = useState("password")
+
     const [error, setError] = useState(false)
  
 
@@ -49,28 +59,7 @@ const Signup = (props) => {
             confirmPassword: input.confirmPassword,
             role:"user"
         }
-        // setLoading(true);
-        let dataURL=`/auth/user_signup`;
-        let config = {
-            headers : {
-                'Content-Type' : 'application/json'
-            }
-        };
-        axios.post(dataURL, JSON.stringify(obj) , config)
-        .then((res) => {
-            if (res.data.status === 1) {
-            props.gotoLogin()
-            resetForm();
-            }
-        })
-        .catch((err) => {
-            console.log('err => ', err.response);
-            // if(err.response && err.response.data.message === "Email is alredy registered") {
-            //     setMessage(err.response.data.message);
-            // }
-            // setLoading(false);
-        });
-
+        dispatch(registerUser(obj,history))
     }
    
    
@@ -102,6 +91,14 @@ const Signup = (props) => {
         } else {
             ele.classList.remove("show")
             setType("password")
+        }
+    }
+
+    const handleConfirmPassword=()=>{
+        if (confirmType === "password") {
+            setConfirmType("text")
+        } else {
+            setConfirmType("password")
         }
     }
   
@@ -168,9 +165,17 @@ const Signup = (props) => {
                                                 </div>
                                                 {touched.password && errors.password && <div className="error pink-txt f-11">{errors.password}</div>}
                                             </div>
-                                            <div className="form-group">
+                                            {/* <div className="form-group">
                                                 <Field type="password" name="confirmPassword" placeholder="Confirm Password" className="form-control signup-input" />
                                                 {touched.confirmPassword && errors.confirmPassword && <div className="error pink-txt f-11">{errors.confirmPassword}</div>}
+                                            </div> */}
+                                            <div className="form-group position-relative">
+                                                <Field type={confirmType} name="confirmPassword" placeholder="Confirm new password" className="form-control signup-input"
+                                                />
+                                                <div className={`showpassword-block ${confirmType=== "password"?null:"show"}`} id="confirmPassword" onClick={handleConfirmPassword}>
+                                                    <img src={showpassword} className="img-fluid" alt="showpassword" />
+                                                </div>
+                                                <div className="error pink-txt f-11">{(touched.confirmPassword && errors.confirmPassword && errors.confirmPassword) || error}</div>
                                             </div>
                                             
                                             <div className="form-group">

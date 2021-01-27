@@ -15,6 +15,8 @@ import { TextareaAutosize } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { sendJoinUsMessage } from "../../redux/actions/generalActions";
 
+const phoneRegex = RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
+
 const OurVisionComponent = () => {
     const dispatch=useDispatch();
     const initialValue={
@@ -26,8 +28,8 @@ const OurVisionComponent = () => {
     }
     const validationSchema  = Yup.object().shape({
         name:Yup.string().required('Name is required'),
-        email:Yup.string().email().required('Email is required'),
-        phoneNumber:Yup.number().required('Phone Number is required').positive().integer(),
+        email:Yup.string().email('Email must be a valid email').required('Email is required'),
+        phoneNumber: Yup.string().required("Phone Number is required").matches(phoneRegex, "Invalid Phone Number").min(10, "to short").max(10, "Not More Than 10 "),
         company:Yup.string().required('Company is required'),
         message:Yup.string().required('Message is required'),
     });
