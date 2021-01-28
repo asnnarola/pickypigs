@@ -66,7 +66,7 @@ const ResetPasswordComp = () => {
     }
     return (
         <>
-            <section>
+            <section className="resetPassword-container">
             <br />
             <br />
             <br />

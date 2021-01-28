@@ -67,9 +67,30 @@ const UserProfileDescriptionComponent = () => {
                                 </div>
                             </div>
                             <div class="form-group row align-items-center mb-1">
-                                <label class="col-sm-2 col-form-label tabs-form-label">Full name</label>
+                                <label class="col-sm-2 col-form-label tabs-form-label">Password</label>
                                 <div class="col-sm-10 tabs-form-input">
-                                <input type="text" readOnly={editForm} className={` ${editForm ? "form-control-plaintext" : "form-control-inputtext form-control"}`} name="name" onChange={handleChange} value={editRestInfo.name} />
+                                <input type="password" readOnly={editForm} className={` ${editForm ? "form-control-plaintext" : "form-control-inputtext form-control"}`} name="password" onChange={handleChange} value={editRestInfo.password} />
+                                </div>
+                            </div>
+                            <div class="form-group row align-items-center mb-1">
+                                <label class="col-sm-2 col-form-label tabs-form-label">Date of Birth</label>
+                                <div class="col-sm-10 tabs-form-input">
+                                <input type="date" readOnly={editForm} className={` ${editForm ? "form-control-plaintext" : "form-control-inputtext form-control"}`} name="dob" onChange={handleChange} value={editRestInfo.dob} />
+                                </div>
+                            </div>
+                            <div class="form-group row align-items-center mb-1">
+                                <label class="col-sm-2 col-form-label tabs-form-label">Gender</label>
+                                <div class="col-sm-10 tabs-form-input">
+                                {editForm
+                                    ?
+                                    <p className="form-control-plaintext">Male</p>
+                                    :
+                                    <select name="gender" className="form-control-inputtext form-control" onChange={handleChange} value={editRestInfo.gender} >
+                                        <option>male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </select>
+                                }
                                 </div>
                             </div>
                             {/* <div className="col-md-4">

@@ -180,7 +180,9 @@
                         outline: none !important;
                         margin-left: 0;
                         border-radius: 10px;
-                        // max-width: 105px;
+                        min-width: 95px;
+                        width: 95px !important;
+                        margin-right: 7.5px;
 
                         .filter-subwrapper {
                             min-width: 90px;
@@ -230,7 +232,7 @@
                             }
                         }
 
-                        @media screen and (min-width:1200px) and (max-width:1400px){
+                        @media screen and (min-width: 1200px) and (max-width: 1400px) {
                             margin-right: 17.5px;
                         }
                     }

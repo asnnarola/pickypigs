@@ -51,29 +51,27 @@ function Home({ coords }) {
                 </section>
 
                 {/* FILTER BY FEATURES section start */}
-                <section className="ff-section mb-4 pb-4 position-relative ">
+                <section className="ff-section pb-4 position-relative ">
                     <div className="container  pr-0 position-relative ">
                         {/* filter-container */}
                         <div className="row">
                             <div className="col-sm-12">
                                 <h3 className="brandon-Medium fw-600">FILTER BY FEATURES</h3>
-
-                                    {/* <FilterByFeature /> */}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="container">
-                        <div className="mb-5 pb-5 row">
-                            <div className="col-sm-12 position-absolute">
-                                {/* <h3 className="brandon-Medium fw-600">FILTER BY FEATURES</h3> */}
                                     <FilterByFeature />
                             </div>
                         </div>
                     </div>
+                    {/* <div className="container">
+                        <div className="mb-5 pb-5 row">
+                            <div className="col-sm-12 position-absolute">
+                                    <FilterByFeature />
+                            </div>
+                        </div>
+                    </div> */}
                 </section>
 
                 {/* FIND A RESTAURANT YOU WILL LOVE section start */}
-                <section className="mt-5 section3 mb-5 pt-5">
+                <section className="section3 mb-5 pt-5">
                     <div className="container">
                         <div className="row mb-4 pb-3">
                             <div className="col-sm-12">

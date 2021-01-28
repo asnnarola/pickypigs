@@ -89,6 +89,7 @@ section {
                 button{
                     &.usertabs-btn{
                         color:#919191;
+                        box-shadow: none !important;
                         
                         &:hover{
                             color: #CB007B;
