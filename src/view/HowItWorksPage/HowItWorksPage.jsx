@@ -2,13 +2,18 @@ import React from 'react'
 
 import pattern_img from "../../assets/images/Pattern.png"
 import OurVisionComponent from '../../components/OurVisionComponent/OurVisionComponent';
+import video_img from "../../assets/images/how/video-img.jpg"
 import how_img_1 from "../../assets/images/how/work-img1.jpg"
+
 import how_img_2 from "../../assets/images/how/work-img2.jpg"
 import how_img_3 from "../../assets/images/how/work-img3.jpg"
+import play_icon from "../../assets/images/how/play-button.svg"
 import "./HowItWorksPage.scss"
 import SecondOverlapedCardComp from '../../components/SecondOverlapedCardComp/SecondOverlapedCardComp';
 import FirstOverlapedCardComp from '../../components/FirstOverlapedCardComp/FirstOverlapedCardComp';
 import WhyWeMadePickyPigComp from '../../components/WhyWeMadePickyPigComp/WhyWeMadePickyPigComp';
+import HowPageAllegyDescComp from '../../components/HowPageAllegyDescComp/HowPageAllegyDescComp';
+import ReactPlayer from 'react-player/lazy'
 
 
 const detail_1 = "You can search based on allergy requirements, dietary preferences,lifestyle choices, restaurant features and even go on to see the calorie and macros of every meal. So whether you su4er with an allergy, choose to have a plant based diet, are pregnant, own a dog or are just trying to think more consciously about what you're eating, Picky Pigs is your ultimate dining out tool."
@@ -29,7 +34,7 @@ function HowItWorksPage() {
             <section className="how-section">
                 <div className="container">
                     <div className="row">
-                        <div className="col-sm-12">
+                        <div className="col-sm-12 mb-2">
                             <h1 className="text-center text-uppercase header-txt brandon-Bold">HOW IT WORKS</h1>
                             <p className="text-center f-15">
                                 This is your ultimate food finding application for FUSS FREE FOOD. Search for the best place for you to dine based <br className="d-none d-xl-block" />
@@ -38,16 +43,38 @@ function HowItWorksPage() {
                             </p>
                         </div>
                     </div>
+
+
+
+                </div>
+            </section>
+            {/* Who section 1 end */}
+            <section className="howvideo-section">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <div className="howvideo-wrapper">
+                                <ReactPlayer
+                                    light={video_img}
+                                    playIcon={play_icon}
+                                    className="w-100 h-100"
+                                    controls
+                                    url='https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div className="container">
                     <FirstOverlapedCardComp img={how_img_1} detail={detail_1} />
                     <SecondOverlapedCardComp img={how_img_2} detail={detail_1} />
                     <FirstOverlapedCardComp img={how_img_3} detail={detail_1} />
                 </div>
             </section>
-            {/* Who section 1 end */}
-
-            <section>
-                <WhyWeMadePickyPigComp />
-            </section>
+            
+            <WhyWeMadePickyPigComp />
+            <HowPageAllegyDescComp />
 
 
             <section>
