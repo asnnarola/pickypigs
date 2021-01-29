@@ -98,7 +98,7 @@ const UserPreferenceComponent = () => {
                         </div>
                     </div>
                 </div>
-                {alergy}{dietary}{lifestyle}{restaurant}
+                {/* {alergy}{dietary}{lifestyle}{restaurant} */}
                 <div className="container">
                     <div className="row mt-2">
                         <div className="col-sm-12 mb-4">
@@ -122,7 +122,7 @@ const UserPreferenceComponent = () => {
                                                 <div className="allergen-icon d-flex align-items-center justify-content-center mb-2">
                                                     <img src={data.image} className="img-fluid" />
                                                 </div>
-                                                <p className="mb-0 f-12 txt-lightgray">{data.name}</p>
+                                                <span className="mb-0 f-12 txt-lightgray">{data.name}</span>
                                             </button>
                                         </React.Fragment>
                                     )
