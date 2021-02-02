@@ -23,6 +23,8 @@ import DishBlock from "../../components/DishBlock/DishBlock"
 import OurVisionComponent from '../../components/OurVisionComponent/OurVisionComponent';
 import KnowWhatYouEatComponent from '../../components/KnowWhatYouEatComponent/KnowWhatYouEatComponent';
 import pattern_img from "../../assets/images/Pattern.png"
+import WorkWithUsFooterComp from '../../components/WorkWithUsFooterComp/WorkWithUsFooterComp'
+
 
 function Home({ coords }) {
     return (
@@ -438,7 +440,7 @@ function Home({ coords }) {
                 <section className="">
                     <KnowWhatYouEatComponent />
                 </section>
-                <section className="">
+                {/* <section className="">
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12">
@@ -448,6 +450,9 @@ function Home({ coords }) {
                             </div>
                         </div>
                     </div>
+                </section> */}
+                <section>
+                    <WorkWithUsFooterComp/>
                 </section>
                 <section className="">
                     <OurVisionComponent />
