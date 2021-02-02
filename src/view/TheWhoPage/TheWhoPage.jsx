@@ -26,7 +26,7 @@ function TheWhoPage({ filterIcon = "false" }) {
             {/* Who section 1 start */}
             <section className="who-section" >
                 <div className="container">
-                    <h1 className="text-center text-uppercase header-txt brandon-Bold position-relative">the who</h1>
+                    <h1 className="text-center text-uppercase header-txt brandon-Medium position-relative">the who</h1>
                     <p className="text-center f-15 position-relative">Lorem ipsum dolor text dummy</p>
                     <div className="row">
                         <div className="col-sm-12">
@@ -35,7 +35,7 @@ function TheWhoPage({ filterIcon = "false" }) {
                                     <img src={who_img} className="img-fluid" />
                                 </div>
                                 <div className="who-we-are-info">
-                                    <h6 className="brandon-Bold text-uppercase">Who we are</h6>
+                                    <h6 className="brandon-Medium fw-600 text-uppercase">Who we are</h6>
                                     <p className="f-15 mb-2">
                                         We are a team of Picky Pigs with over 18 years experience in hospitality and 20 years experience in UX/UI design and website/application development. Between us we love to eat great food, enjoy being surrounded by wonderful people and can find any excuse to take that experience out into restaurants and bars.
                                     </p>
@@ -66,7 +66,7 @@ function TheWhoPage({ filterIcon = "false" }) {
                                     <div className="founder-img mb-3">
                                         <img src={founder_img} className="img-fluid" />
                                     </div>
-                                    <h5 className="user-name text-center">
+                                    <h5 className="user-name text-center borndon-Medium fw-600">
                                         Sasha Miljus
                                     </h5>
                                     <p className="user-founder text-center f-15 mb-2">
@@ -76,7 +76,7 @@ function TheWhoPage({ filterIcon = "false" }) {
                             </div>
                             <div className="col-sm-12 col-md-12 col-lg-6 col-xl-7 ourfounder-subright">
                                 <div className="ourfounder-intro">
-                                    <h6 className="brandon-Bold text-uppercase">
+                                    <h6 className="brandon-Medium fw-600 text-uppercase">
                                         Our Founder
                                     </h6>
                                     <p className="f-15 mb-2">
@@ -112,7 +112,7 @@ function TheWhoPage({ filterIcon = "false" }) {
                 <div className="container">
                     <div className="ourmission-wrapper">
                         <div className="container ourmission-container">
-                            <h1 className="text-center text-uppercase header-txt brandon-Bold mb-5 pb-2">Our mission</h1>
+                            <h1 className="text-center text-uppercase header-txt brandon-Medium fw-600 mb-5 pb-2">Our mission</h1>
 
                             <div className="row">
                                 <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ourmission-subwrapper">
@@ -164,7 +164,7 @@ function TheWhoPage({ filterIcon = "false" }) {
 
                             <div className="row">
                                 <div className="col-sm-12">
-                                    <h6 className="brandon-Bold text-uppercase text-center">What we stand for</h6>
+                                    <h6 className="brandon-Medium fw-600 text-uppercase text-center">What we stand for</h6>
                                     <p className="f-15 text-center mb-0">No one should ever feel like they are a “fussy feeder” or that they can't enjoy the experience of dining out because of their dietary needs. Equally no one should feel like that don't have enough support or the right tools to lead, meet and exceed expectations. Picky Pigs believes that the detail matters, we wish to raise the bar in both the customer journey and the industry standard in how we handle the new norm. Fuss free food from every angle, nothing needs to be an issue with Picky Pigs.</p>
                                 </div>
                             </div>

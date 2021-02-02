@@ -76,7 +76,7 @@ function FilterByFeature() {
                                 <div className="filter-icon">
                                     <img src={data.image} className="img-fluid" />
                                 </div>
-                                <p  className="mt-1 text-dark text-link f-14">{data.name}</p>
+                                <p  className="mt-2 text-dark text-link f-14 brandon-Medium">{data.name}</p>
                             </button>
                         </React.Fragment>
                     )

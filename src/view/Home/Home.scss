@@ -169,9 +169,11 @@
         .container {
             padding-right: 1rem !important;
         }
+
         .filterfeature-wrapper {
             .slick-list {
                 max-height: 150px;
+
                 .slick-track {
                     .slick-slide {
                         display: flex;
@@ -193,7 +195,7 @@
                             align-items: center;
                             display: flex !important;
                             flex-direction: column;
-                            justify-content: center;
+                            // justify-content: center;
                             background: #fff;
                             border-radius: 15px;
                             box-shadow: 0px 2px 8px 1px #0000000d;
@@ -206,6 +208,7 @@
                             .filter-icon {
                                 width: 42px;
                                 height: 42px;
+                                min-height: 42px;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
@@ -217,15 +220,24 @@
                                 }
                             }
 
+                            p {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 2;
+                                line-height: 17px;
+                            }
+
                             &.active {
                                 border: 1px solid #cb007b;
 
                                 .filter-icon {
                                     img {
-                                        filter: invert(20%) sepia(98%) saturate(3481%) hue-rotate(309deg)
-                                            brightness(75%) contrast(118%);
+                                        filter: invert(20%) sepia(98%) saturate(3481%) hue-rotate(309deg) brightness(75%) contrast(118%);
                                     }
                                 }
+
                                 .text-link {
                                     color: #cb007b !important;
                                 }
@@ -248,8 +260,7 @@
     }
 
     .section3 {
-        .fn-restaurant-detail {
-        }
+        .fn-restaurant-detail {}
     }
 
     .categories-main {
@@ -333,12 +344,14 @@
             .slick-prev {
                 &:before {
                     content: url("../../assets/images/right-arrow.svg");
+                    line-height: 0;
                 }
             }
 
             .slick-next {
                 &:before {
                     content: url("../../assets/images/left-arrow.svg");
+                    line-height: 0;
                 }
             }
         }
@@ -358,6 +371,15 @@
             }
 
             .whatmenu-details {
+                min-height: 240px;
+                .whatmenu-label {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                }
+
                 .whatmenu-price {
                     span {
                         font-family: "BrandonTextWeb-Regular";
@@ -381,6 +403,11 @@
 
                 .whatmenu-intro {
                     font-family: "BrandonTextWeb-Regular";
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 4;
                 }
 
                 .whatmeu-types {
@@ -397,15 +424,14 @@
 
     h1.sectionhead-txt {
         font-size: 3rem;
-        font-family: "Brandon Text";
+        font-family: "Brandon Text Medium";
         font-weight: 600;
         line-height: 1.35;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    .main-layout {
-    }
+    .main-layout {}
 }
 
 @media screen and (max-width: 1199px) {

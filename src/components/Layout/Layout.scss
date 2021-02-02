@@ -8,12 +8,17 @@ body {
     height: 100%;
 }
 
+.MuiFormLabel-root,
+.MuiAutocomplete-popper {
+    font-family: "BrandonTextWeb-Regular" !important;
+}
+
 body {
     color: #232323;
     overflow-x: hidden;
 }
 
-.zindex-1{
+.zindex-1 {
     z-index: 1;
 }
 
@@ -21,7 +26,7 @@ body {
     font-size: 11px;
 }
 
-.f-12{
+.f-12 {
     font-size: 12px;
 }
 
@@ -60,18 +65,23 @@ body {
 .brandon-Bold {
     font-family: "Brandon Text" !important;
 }
+
 .fw-400 {
     font-weight: 400;
 }
+
 .fw-600 {
     font-weight: 600;
 }
+
 .text-dark {
     color: #232323 !important;
 }
+
 .txt-lightgray {
     color: #919191;
 }
+
 .txt-darkgreen {
     color: #2e482b;
 }
@@ -79,8 +89,13 @@ body {
 .list-style-none {
     list-style: none;
 }
+
 hr {
     border-color: #d9d9d9 !important;
+}
+
+.light-white-hr {
+    border-color: #d9d9d957 !important;
 }
 
 // --- Border-radius CSS Start ---
@@ -146,10 +161,12 @@ hr {
     background: #fff !important;
     color: #c1c1c1 !important;
     border-radius: 20px !important;
+
     &:hover {
         background: #c1c1c1 !important;
         color: #fff !important;
     }
+
     &:focus {
         box-shadow: 0 0 0 0.2rem #ececec !important;
     }
@@ -160,10 +177,12 @@ hr {
     background: #fff !important;
     color: #919191 !important;
     border-radius: 20px !important;
+
     &:hover {
         background: #919191 !important;
         color: #fff !important;
     }
+
     &:focus {
         box-shadow: 0 0 0 0.2rem #ececec !important;
     }
@@ -179,7 +198,7 @@ hr {
 
     &:hover {
         background: linear-gradient(2deg, #cb007b, #ff75ba);
-        color: #fff !important  ;
+        color: #fff !important;
         border: 1px solid #fb6bb5 !important;
     }
 
@@ -205,6 +224,12 @@ hr {
 }
 
 // --- Button CSS End ---
+
+// Form Control CSS Start
+
+input:-webkit-autofill { 
+    -webkit-background-clip: text;
+}
 
 // @media screen and (min-width:992px) {
 //     .container, .allrsfilter-sticky .allrestaurant-nav {

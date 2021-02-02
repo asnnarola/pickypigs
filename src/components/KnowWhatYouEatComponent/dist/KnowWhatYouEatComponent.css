@@ -1,0 +1,117 @@
+.whatYouEat-container .knowwhat-section {
+  margin-top: 7rem;
+  padding-top: 9rem;
+  margin-bottom: 3rem;
+}
+.whatYouEat-container .knowwhat-section .knowwhatbg-img {
+  position: absolute;
+  right: -3%;
+  top: 0;
+  max-width: 720px;
+}
+.whatYouEat-container .knowwhat-section .know-borderstyle {
+  max-width: 200px;
+  height: 6px;
+  width: 100%;
+  background: #ffd5e2;
+  border-radius: 42px;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main .knowwhat-wrapper {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 12px 0px #00000014;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main .knowwhat-wrapper .knowwhat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main:nth-child(1) .knowwhat-icon {
+  background: #ecf0ff;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main:nth-child(2) .knowwhat-icon {
+  background: #ebffeb;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main:nth-child(3) .knowwhat-icon {
+  background: #ebffeb;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main:nth-child(4) .knowwhat-icon {
+  background: #ecfffb;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main:nth-child(5) .knowwhat-icon {
+  background: #fff3f7;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main:nth-child(6) .knowwhat-icon {
+  background: #e8ffe5;
+}
+
+.knowyoueat-modal .modal-dialog {
+  max-width: 570px;
+}
+.knowyoueat-modal .modal-dialog .modal-content {
+  border-radius: 20px;
+  border: none;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body {
+  padding: 54px 30px;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .close-btn {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  border: none;
+  background: #fff;
+  padding: 0;
+  font-size: 25px;
+  line-height: 14px;
+  font-weight: 600;
+  outline: none;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item {
+  transition: transform 0.25s ease-in-out;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item .knowwhat-wrapper .knowwhat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item:nth-child(1) .knowwhat-icon {
+  background: #ecf0ff;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item:nth-child(2) .knowwhat-icon {
+  background: #ebffeb;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item:nth-child(3) .knowwhat-icon {
+  background: #ecfffb;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item:nth-child(4) .knowwhat-icon {
+  background: #fff3f7;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item:nth-child(5) .knowwhat-icon {
+  background: #e8ffe5;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-item:nth-child(6) .knowwhat-icon {
+  background: #e8ffe5;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-prev,
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-next {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  opacity: 1;
+  border-radius: 50px;
+  border: none;
+  top: 50%;
+  transform: translate(0%, -110%);
+  margin: 2rem;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-prev .carousel-control-prev-icon,
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-prev .carousel-control-next-icon,
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-next .carousel-control-prev-icon,
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-next .carousel-control-next-icon {
+  background: url("../../assets/images/right-arrow.svg") no-repeat 50%/40% 100%;
+}
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-prev .carousel-control-next-icon,
+.knowyoueat-modal .modal-dialog .modal-content .modal-body .knowyoueat-carousel .carousel-control-next .carousel-control-next-icon {
+  transform: rotate(180deg);
+}

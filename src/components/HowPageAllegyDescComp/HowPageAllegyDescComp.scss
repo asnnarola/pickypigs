@@ -3,6 +3,9 @@
         padding: 45px 40px 50px 50px;
         box-shadow: 0px 5px 12px 0px #00000014;
         border-radius: 10px;
+        background: #fff;
+        position: relative;
+        z-index: 1;
 
         .tags-btn {
             padding: 5px 20px;
@@ -27,11 +30,13 @@
                 color: #cb007b;
             }
         }
+
         .arrow {
             position: absolute;
             font-size: 7px;
             width: 3em;
             height: 3em;
+
             &::before {
                 content: '""';
                 margin: auto;
@@ -41,15 +46,16 @@
                 border-style: solid;
             }
         }
+
         .allergen-btn-wrapper {
             .allergen-btn {
                 max-width: 90px;
                 min-width: 90px;
                 border: none;
-                background: transparent;
+                background: #fff;
                 box-shadow: none;
                 outline: none;
-                transition: all 0.25s;
+                transition: all 0.35s;
                 min-height: 110px;
                 box-shadow: 0px 4px 9px 0px #0000000d;
                 border-radius: 15px;
@@ -57,14 +63,16 @@
                 .allergen-icon {
                     width: 42px;
                     height: 42px;
-                    background: #f6f6f6;
-                    border-radius: 15px;
+                    // background: #f6f6f6;
+                    // border-radius: 15px;
                     transition: ease 0.5s;
+
                     img {
                         width: 42px;
                         // filter: invert(71%) sepia(0%) saturate(4591%) hue-rotate(86deg) brightness(82%) contrast(87%);
                     }
                 }
+
                 p {
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -74,9 +82,15 @@
                 }
 
                 &:hover {
+                    box-shadow: 0px 5px 24px 0px #0000001c;
+
                     .allergen-icon {
-                        background: #fff;
-                        box-shadow: 0px 5px 24px 0px #0000001c;
+                        img {
+                            filter: invert(20%) sepia(98%) saturate(3481%) hue-rotate(309deg) brightness(75%) contrast(118%);
+                        }
+                    }
+                    p{
+                        color: #cb007b;
                     }
                 }
             }

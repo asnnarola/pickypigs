@@ -1,0 +1,51 @@
+.location-input-wrapper {
+  width: calc(25% + 5px);
+  position: relative;
+  top: -4px;
+}
+.location-input-wrapper .location-button {
+  position: relative;
+  top: 4px;
+}
+.location-input-wrapper .location-button button {
+  border: none;
+  background: #fff;
+  outline: none;
+}
+.location-input-wrapper .MuiAutocomplete-root {
+  width: 100%;
+  padding-left: 7px;
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiFormLabel-root {
+  color: #232323;
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot {
+  padding-right: 25px;
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot .MuiAutocomplete-input {
+  font-size: 15px !important;
+  color: #232323 !important;
+  font-family: "Brandon Text Medium" !important;
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot .MuiAutocomplete-endAdornment .MuiAutocomplete-clearIndicator {
+  padding: 4px;
+  margin-right: -7px;
+  background: #fff;
+  margin-top: -10px;
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot .MuiAutocomplete-endAdornment .MuiAutocomplete-clearIndicator svg.MuiSvgIcon-root {
+  color: #232323;
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot .MuiAutocomplete-endAdornment .MuiAutocomplete-popupIndicator {
+  transform: rotate(0deg);
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot .MuiAutocomplete-endAdornment .MuiAutocomplete-popupIndicator .MuiIconButton-label svg.MuiSvgIcon-root {
+  font-size: 30px;
+  position: relative;
+  top: -6px !important;
+  background: #fff !important;
+  color: #232323;
+}
+.location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot:before, .location-input-wrapper .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root.MuiAutocomplete-inputRoot:after {
+  display: none;
+}

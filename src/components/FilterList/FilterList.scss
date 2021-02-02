@@ -4,9 +4,12 @@
 
     .fr-wrapper {
         background-image: url('../../assets/images/Pattern.png');
-        background-size: cover;
-        background-position: top center;
+        // background-size: cover;
+        background-size: auto;
+        background-position: 25% 30%;
+        // background-position: top center;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         padding: 8rem 0 7rem;
 
         .restaurant-find {
@@ -52,7 +55,7 @@
                 }
 
                 .fr-input {
-                    max-width: calc(100% - 210px);
+                    max-width: calc(100% - 180px);
                     width: 100%;
 
                     .fr-search-box {
@@ -228,6 +231,7 @@
                         label {
                             padding-top: 2px;
                             padding-left: 5px;
+                            cursor: pointer;
                         }
                     }
                 }

@@ -1,3 +1,6 @@
+.main-layout .ff-section .container {
+  padding-right: 1rem !important;
+}
 .main-layout .ff-section .filterfeature-wrapper .slick-list {
   max-height: 150px;
 }
@@ -6,8 +9,11 @@
   justify-content: center;
   align-items: center;
   outline: none !important;
-  margin-left: 0.4px;
+  margin-left: 0;
   border-radius: 10px;
+  min-width: 95px;
+  width: 95px !important;
+  margin-right: 7.5px;
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper {
   min-width: 90px;
@@ -18,7 +24,6 @@
   align-items: center;
   display: flex !important;
   flex-direction: column;
-  justify-content: center;
   background: #fff;
   border-radius: 15px;
   box-shadow: 0px 2px 8px 1px #0000000d;
@@ -31,12 +36,21 @@
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper .filter-icon {
   width: 42px;
   height: 42px;
+  min-height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper a.text-link {
   font-family: "Brandon Text Medium";
+}
+.main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 17px;
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper.active {
   border: 1px solid #cb007b;
@@ -46,6 +60,11 @@
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper.active .text-link {
   color: #cb007b !important;
+}
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide {
+    margin-right: 17.5px;
+  }
 }
 @media screen and (min-width: 1200px) and (max-width: 2400px) {
   .main-layout .ff-section .filter-container {
@@ -95,7 +114,7 @@
   box-shadow: 0px 3px 14px 0px #00000017;
 }
 .main-layout .categories-main .categories-wrapper .slick-list .slick-track .slick-slide.slick-current .categories-subwrapper .text-link {
-  background: linear-gradient(0deg, #CB007B, #FF75BA);
+  background: linear-gradient(0deg, #cb007b, #ff75ba);
   color: #fff !important;
   justify-content: space-between;
   padding-left: 20px;
@@ -116,9 +135,11 @@
 }
 .main-layout .categories-main .categories-wrapper .slick-prev:before {
   content: url("../../assets/images/right-arrow.svg");
+  line-height: 0;
 }
 .main-layout .categories-main .categories-wrapper .slick-next:before {
   content: url("../../assets/images/left-arrow.svg");
+  line-height: 0;
 }
 .main-layout .section5 .whatmenu-wrap {
   background: #fff;
@@ -130,6 +151,16 @@
   overflow: hidden;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+.main-layout .section5 .whatmenu-wrap .whatmenu-details {
+  min-height: 240px;
+}
+.main-layout .section5 .whatmenu-wrap .whatmenu-details .whatmenu-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 .main-layout .section5 .whatmenu-wrap .whatmenu-details .whatmenu-price span {
   font-family: "BrandonTextWeb-Regular";
@@ -145,58 +176,17 @@
 }
 .main-layout .section5 .whatmenu-wrap .whatmenu-details .whatmenu-intro {
   font-family: "BrandonTextWeb-Regular";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 .main-layout .section5 .whatmenu-wrap .whatmenu-details .whatmeu-types .whatmenu-list {
-  background: #F6F6F6;
+  background: #f6f6f6;
   width: 36px;
   height: 36px;
   border-radius: 50px;
-}
-.main-layout .section6 .knowwhat-section {
-  margin-top: 7rem;
-  padding-top: 9rem;
-  margin-bottom: 3rem;
-}
-.main-layout .section6 .knowwhat-section .knowwhatbg-img {
-  position: absolute;
-  left: 47%;
-  top: 0;
-  max-width: 720px;
-}
-.main-layout .section6 .knowwhat-section .know-borderstyle {
-  max-width: 200px;
-  height: 6px;
-  width: 100%;
-  background: #FFD5E2;
-  border-radius: 42px;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main .knowwhat-wrapper {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 5px 12px 0px #00000014;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main .knowwhat-wrapper .knowwhat-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main:nth-child(1) .knowwhat-icon {
-  background: #ECF0FF;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main:nth-child(2) .knowwhat-icon {
-  background: #EBFFEB;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main:nth-child(3) .knowwhat-icon {
-  background: #EBFFEB;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main:nth-child(4) .knowwhat-icon {
-  background: #ECFFFB;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main:nth-child(5) .knowwhat-icon {
-  background: #FFF3F7;
-}
-.main-layout .section6 .knowwhat-section .knowwhat-main:nth-child(6) .knowwhat-icon {
-  background: #E8FFE5;
 }
 .main-layout .section7.joinus-section {
   padding-top: 21rem;
@@ -222,17 +212,17 @@
   border-radius: 50px;
 }
 .main-layout .section7.joinus-section .joinus-wrapper .joinus-main:nth-child(1) .joinus-icon {
-  background: #E8FFE5;
+  background: #e8ffe5;
 }
 .main-layout .section7.joinus-section .joinus-wrapper .joinus-main:nth-child(2) .joinus-icon {
-  background: #ECFFFB;
+  background: #ecfffb;
 }
 .main-layout .section7.joinus-section .joinus-wrapper .joinus-main:nth-child(3) .joinus-icon {
-  background: #FFF3F7;
+  background: #fff3f7;
 }
 .main-layout h1.sectionhead-txt {
   font-size: 3rem;
-  font-family: "Brandon Text";
+  font-family: "Brandon Text Medium";
   font-weight: 600;
   line-height: 1.35;
 }
@@ -303,4 +293,9 @@
 
 .dropdown-check-list.visible .items {
   display: block;
+}
+
+.patternimg-wrapper {
+  max-width: 710px;
+  margin: -6.5% auto 0px;
 }
