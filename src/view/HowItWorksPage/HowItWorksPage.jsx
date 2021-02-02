@@ -2,7 +2,7 @@ import React from 'react'
 
 import pattern_img from "../../assets/images/Pattern.png"
 import OurVisionComponent from '../../components/OurVisionComponent/OurVisionComponent';
-import video_img from "../../assets/images/how/video-img.jpg"
+import video_img from "../../assets/images/how/video-img.png"
 import how_img_1 from "../../assets/images/how/work-img1.jpg"
 
 import how_img_2 from "../../assets/images/how/work-img2.jpg"
@@ -30,8 +30,9 @@ function HowItWorksPage() {
             <br />
             <br />
             <br />
+            <div className="gradient-bg" style={{height:'100vh',position:'absolute',top:0,right:0,width:'100%'}}></div>
             {/* How section 1 start */}
-            <section className="how-section">
+            <section className="how-section position-relative">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12 mb-2">

@@ -47,7 +47,7 @@ const HowPageAllegyDescComp = () => {
                                                     <div className="allergen-icon d-flex align-items-center justify-content-center mb-2">
                                                         <img src={data.image} className="img-fluid" />
                                                     </div>
-                                                    <p className="mb-0 f-12 txt-lightgray">{data.name}</p>
+                                                    <p className="mb-0 f-14">{data.name}</p>
 
                                                 </button>
 
@@ -83,7 +83,7 @@ const HowPageAllegyDescComp = () => {
                                             </div>
                                             <div className="col-sm-12">
                                                 <div className="row">
-                                                    <div className="col-sm-12 mt-2 pl-0 pr-0 mb-2">
+                                                    <div className="col-sm-12 mt-1 pl-0 pr-0 mb-1">
                                                         <div className="border mt-4 mb-4">
                                                         </div>
                                                     </div>

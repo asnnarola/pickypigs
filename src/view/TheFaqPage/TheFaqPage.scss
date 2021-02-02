@@ -1,4 +1,8 @@
-.the_faq_page_container{
+.the_faq_page_container {
+    .gradient-bg {
+        background: linear-gradient(220deg, #EFFFF7 -70%, white 100%);
+    }
+
     .header-txt {
         color: #2E482B;
         font-size: 48px;
@@ -19,6 +23,7 @@
     .light-pink-bg {
         background: #FFF3F7;
     }
+
     // FAQ Page Content css start
     .faq-section {
         .searchfaq-input {
@@ -103,4 +108,4 @@
     }
 
     // FAQ Page Content css end
-}    
+}

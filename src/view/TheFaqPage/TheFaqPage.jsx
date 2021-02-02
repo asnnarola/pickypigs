@@ -18,8 +18,9 @@ function TheFaqPage() {
             <br />
             <br />
             <br />
+            <div className="gradient-bg" style={{height:'100vh',position:'absolute',top:0,right:0,width:'100%'}}></div>
             {/* Faq Page content start */}
-            <section className="faq-section">
+            <section className="faq-section position-relative">
                 <div className="container">
                     <h1 className="header-txt text-center brandon-Bold text-uppercase">
                         FAQ

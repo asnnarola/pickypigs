@@ -1,0 +1,202 @@
+@import url(http://db.onlinewebfonts.com/c/d365bd25dab9cb26c8171719170dfe81?family=Brandon+Text);
+@import url(http://db.onlinewebfonts.com/c/749ba57b431f4eba8b31eb57d5aab83e?family=Brandon+Text+Medium);
+@import url(http://db.onlinewebfonts.com/c/47b83f8dbd3bf93e0df5674b32c6a7e4?family=BrandonTextWeb-Regular);
+html,
+body {
+  font-family: "BrandonTextWeb-Regular" !important;
+  height: 100%;
+}
+
+.MuiFormLabel-root,
+.MuiAutocomplete-popper {
+  font-family: "BrandonTextWeb-Regular" !important;
+}
+
+body {
+  color: #232323;
+  overflow-x: hidden;
+}
+
+.zindex-1 {
+  z-index: 1;
+}
+
+.f-11 {
+  font-size: 11px;
+}
+
+.f-12 {
+  font-size: 12px;
+}
+
+.f-14 {
+  font-size: 14px;
+}
+
+.f-15 {
+  font-size: 15px;
+}
+
+.pink-txt {
+  color: #cb007b !important;
+}
+
+.line-height-1_75 {
+  line-height: 1.75;
+}
+
+.bg-pink {
+  background: #cb007b;
+}
+
+.h-80 {
+  height: 80px;
+}
+
+.brandon-regular {
+  font-family: "BrandonTextWeb-Regular" !important;
+}
+
+.brandon-Medium {
+  font-family: "Brandon Text Medium" !important;
+}
+
+.brandon-Bold {
+  font-family: "Brandon Text" !important;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.text-dark {
+  color: #232323 !important;
+}
+
+.txt-lightgray {
+  color: #919191;
+}
+
+.txt-darkgreen {
+  color: #2e482b;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+hr {
+  border-color: #d9d9d9 !important;
+}
+
+.light-white-hr {
+  border-color: #d9d9d957 !important;
+}
+
+.border-radius-20 {
+  border-radius: 20px !important;
+}
+
+.w-120 {
+  width: 120px;
+}
+
+.w-150 {
+  width: 150px;
+}
+
+.h-36 {
+  height: 36px;
+}
+
+.h-40 {
+  height: 40px;
+}
+
+.theme-pink-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, #cb007b, #ff75ba);
+  border: none !important;
+  transition: background 0.5s !important;
+}
+.theme-pink-btn:hover {
+  background: linear-gradient(90deg, #cb007b, #ff75ba);
+}
+.theme-pink-btn:focus {
+  box-shadow: 0 0 0 0.2rem #d00b812e !important;
+}
+.theme-pink-btn.w-160 {
+  width: 160px;
+}
+
+.lightgray-btn {
+  border: 1px solid #c1c1c1 !important;
+  background: #fff !important;
+  color: #c1c1c1 !important;
+  border-radius: 20px !important;
+}
+.lightgray-btn:hover {
+  background: #c1c1c1 !important;
+  color: #fff !important;
+}
+.lightgray-btn:focus {
+  box-shadow: 0 0 0 0.2rem #ececec !important;
+}
+
+.darkgray-btn {
+  border: 1px solid #919191 !important;
+  background: #fff !important;
+  color: #919191 !important;
+  border-radius: 20px !important;
+}
+.darkgray-btn:hover {
+  background: #919191 !important;
+  color: #fff !important;
+}
+.darkgray-btn:focus {
+  box-shadow: 0 0 0 0.2rem #ececec !important;
+}
+
+.pinkline-btn {
+  border: 1px solid #cb007b;
+  color: #cb007b !important;
+  background: #fff;
+  outline: none !important;
+  font-size: 14px;
+  font-family: "BrandonTextWeb-Regular";
+}
+.pinkline-btn:hover {
+  background: linear-gradient(2deg, #cb007b, #ff75ba);
+  color: #fff !important;
+  border: 1px solid #fb6bb5 !important;
+}
+.pinkline-btn:focus {
+  box-shadow: 0 0 0 0.2rem #d00b812e !important;
+}
+
+.graytxt-btn {
+  color: #919191 !important;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+.graytxt-btn:hover {
+  background: #919191 !important;
+  color: #fff !important;
+}
+.graytxt-btn:focus {
+  box-shadow: 0 0 0 0.2rem #ececec !important;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}

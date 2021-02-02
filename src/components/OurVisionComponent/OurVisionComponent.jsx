@@ -49,7 +49,7 @@ const OurVisionComponent = () => {
                     <div className="row">
                         <div className="col-sm-12 pl-0 pr-0">
                             <div className="ourmission-wrapper">
-                                <h1 className="sectionhead-txt text-uppercase text-white brandon-Bold">Our Mission </h1>
+                                <h1 className="sectionhead-txt text-uppercase text-white brandon-Medium fw-600">Our Mission </h1>
                                 <p className="ourmission-subtxt f-15 line-height-1_75 text-white">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein <br className="d-lg-block d-none" /> Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist, dass es mehr oder weniger die</p>
                                 <div className="row mt-4 pt-2 jusitify-content-betwen">
                                     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 ourmission-main mb-2">
@@ -101,7 +101,7 @@ const OurVisionComponent = () => {
                     <br />
                     <div className="row">
                         <div className="col-sm-12 pl-0 pr-0">
-                            <h1 className="sectionhead-txt text-uppercase text-white brandon-Bold">WOULD YOU LIKE TO JOIN US? </h1>
+                            <h1 className="sectionhead-txt text-uppercase text-white brandon-Medium fw-600">WOULD YOU LIKE TO JOIN US? </h1>
                             <p className="join-subtxt f-15 line-height-1_75 text-white mb-4 pb-2">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein <br className="d-lg-block d-none" /> Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist, dass es mehr oder weniger die</p>
                         </div>
                     </div>

@@ -34,7 +34,7 @@ function Home({ coords }) {
                         <div className="row align-items-center">
                             <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                                 <div className="fr-wrapper">
-                                    <h1 className="brandon-Bold text-uppercase mb-4 pb-2 sectionhead-txt">
+                                    <h1 className="brandon-Medium text-uppercase mb-4 pb-2 sectionhead-txt">
                                         FIND YOUR FAVOURITE
                                 <br className="d-md-none d-lg-block" /> RESTAURANTS AND DISHES
                             </h1>
