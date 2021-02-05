@@ -123,7 +123,7 @@ const SignupMobilePage = ({ handleClose }) => {
                 <div className="row">
                     <div className="col-sm-12 mb-3">
                         <h3 className="brandon-Bold">{isLoginPage ? "Sign in" : "Sign up"}</h3>
-                        <p className="f-15"><span className="pr-2">{isLoginPage ? "Don't have an account?" : "Have an account?"}</span>
+                        <p className="f-15"><span className="pr-2 brandon-Medium">{isLoginPage ? "Don't have an account?" : "Have an account?"}</span>
                             {isLoginPage ? <Link  to="/" className="pink-txt brandon-Medium" onClick={() => setLoginPage(false)}>Create account</Link> : <Link to="/" className="pink-txt brandon-Medium" onClick={() => setLoginPage(true)}>Sign in</Link>}
                         </p>
                     </div>
