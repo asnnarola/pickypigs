@@ -14,6 +14,7 @@ import "./Signup.scss"
 import { useDispatch,useSelector} from 'react-redux';
 import { facebookLogin, googleLogin,registerUser } from '../../redux/actions/generalActions';
 import SocialButton from '../../components/SocialButton';
+import CustomLoadingComp from '../../components/CustomLoadingComp/CustomLoadingComp';
 
 const phoneRegex = RegExp(
     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
@@ -126,9 +127,15 @@ const Signup = (props) => {
             setConfirmType("password")
         }
     }
-  
+    let loading = useSelector((state)=>{
+        return state.general.isLoading
+    });
 
     return (
+        <React.Fragment>
+        {loading?
+        <CustomLoadingComp/>
+        :
         <div className="row">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-left">
                 <div className="hello-msg">
@@ -274,6 +281,8 @@ const Signup = (props) => {
                 </React.Fragment>
             </div>
         </div>
+        }
+        </React.Fragment>
     )
 }
 

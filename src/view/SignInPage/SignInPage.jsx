@@ -10,9 +10,10 @@ import useAppState from '../../context/useAppState';
 import showpassword from "../../assets/images/eye_icon.svg";
 import closeicon from "../../assets/images/close.svg";
 import "./SignInPage.scss"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { facebookLogin, getLogin,googleLogin, showSignUpPopup } from '../../redux/actions/generalActions';
 import SocialButton from '../../components/SocialButton';
+import CustomLoadingComp from '../../components/CustomLoadingComp/CustomLoadingComp';
 
 
 const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
@@ -101,9 +102,20 @@ const SignInPage = (props) => {
         
         dispatch(getLogin(obj,history))
     }
+
+    let loading = useSelector((state)=>{
+        return state.general.isLoading
+    });
+
+
+
     
 
     return (
+        <React.Fragment>
+        {loading?
+        <CustomLoadingComp/>
+        :
         <div className="row">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-left">
                 <div className="hello-msg">
@@ -236,6 +248,8 @@ const SignInPage = (props) => {
                 </React.Fragment>
             </div>
         </div>
+        }
+        </React.Fragment>
     )
 }
 
