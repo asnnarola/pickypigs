@@ -63,8 +63,8 @@ const Header = (props) => {
             <Navbar.Collapse id="basic-navbar-nav" className="menu-list">
                 <Nav className="mr-auto">
                     <NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/who">Who</NavLink>
-                    <NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/faq">What</NavLink>
-                    <NavLink className="menu-link" activeStyle={{color:'#cb007b'}} to="/how">How</NavLink>
+                    <NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/how">What</NavLink>
+                    {/* <NavLink className="menu-link" activeStyle={{color:'#cb007b'}} to="/how">How</NavLink> */}
                 </Nav>
                 {   token&&emailVerified==="true"&&role==="user"
                     ?

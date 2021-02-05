@@ -206,7 +206,7 @@ const Signup = (props) => {
                                             <div className="form-group">
                                                 <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" >
                                                     Sign up
-                                            </button>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

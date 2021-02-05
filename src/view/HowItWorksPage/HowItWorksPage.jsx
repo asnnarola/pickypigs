@@ -57,7 +57,7 @@ function HowItWorksPage() {
                             <div className="howvideo-wrapper">
                                 <ReactPlayer
                                     light={video_img}
-                                    playIcon={play_icon}
+                                    playIcon={<img src={play_icon} className="img-fluid play_icon"  alt="icon" />}
                                     className="w-100 h-100"
                                     controls
                                     url='https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4' />
@@ -73,7 +73,7 @@ function HowItWorksPage() {
                     <FirstOverlapedCardComp img={how_img_3} detail={detail_1} />
                 </div>
             </section>
-            
+
             <WhyWeMadePickyPigComp />
             <HowPageAllegyDescComp />
 

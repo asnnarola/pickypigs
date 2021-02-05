@@ -10,6 +10,7 @@ import containers from './state';
 import Hidden from '@material-ui/core/Hidden';
 import AlertSystemPage from './view/AlertSystemPage/AlertSystemPage';
 import ResetPasswordPage from './view/ResetPasswordPage/ResetPasswordPage';
+import LoadonTop from './components/LoadonTop';
 
 // const Login = lazy(() => import('./view/Login/Login'));
 // const Signup = lazy(() => import('./view/Signup/Signup'));
@@ -21,6 +22,7 @@ function App() {
         <div>
           <AlertSystemPage/>
         </div>
+        <LoadonTop/>
         {/* <Switch>
           <Route exact path="/login" render={(props) => <Login {...props} />} />
           <Route exact path="/signup" render={(props) => <Signup {...props} />} />

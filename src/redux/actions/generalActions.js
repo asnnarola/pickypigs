@@ -233,10 +233,16 @@ export const sendJoinUsMessage=(data)=>{
           let dataURL=`/frontend/homePage/join_us`
           let response = await Axios.post(dataURL,JSON.stringify(data),config );
           dispatch({type:"SEND_JOINUS_SUCCESS",payload:response.data});
+          dispatch(setAlert('Message Send Successfuly', 'success'));
          
       }
       catch(error){
         dispatch({type:"SEND_JOINUS_FAILURE",payload:error});
+        if (error.response) {
+          dispatch(setAlert(`${error.response.data.message}`, 'error'));
+        } else {
+          dispatch(setAlert('Something went wrong!', 'error'));
+        }
       }
   }
 };
