@@ -228,7 +228,7 @@ const Signup = (props) => {
                     </div>
 
                     <div className="row">
-                        <div className="col-sm-12">
+                        <div className="col-sm-12 pl-xl-4 pr-xl-4">
                             <div className="socail-login d-flex justify-content-between align-items-center mt-3">
                                 <GoogleLogin
                                     clientId={GOOGLE_CLIENT_ID}

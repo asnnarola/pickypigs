@@ -1,4 +1,4 @@
-.SignInPage-modal .modal-dialog {
+.signup-modal .modal-dialog {
   max-width: 770px;
   display: -ms-flexbox;
   display: flex;
@@ -6,17 +6,17 @@
   align-items: center;
 }
 @media screen and (min-width: 576px) {
-  .SignInPage-modal .modal-dialog {
+  .signup-modal .modal-dialog {
     min-height: calc(100% - (1.75rem * 2));
   }
 }
-.SignInPage-modal .modal-dialog .modal-content {
+.signup-modal .modal-dialog .modal-content {
   border-radius: 20px;
   border: none !important;
   box-shadow: 0px 1px 18px 0px #0000002b;
   overflow: hidden;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-left {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-left {
   background-image: url("../../assets/images/signup-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,29 +24,29 @@
   flex: 0 0 370px;
   max-width: 370px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-left .hello-msg {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-left .hello-msg {
   padding: 75px 50px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-left .hello-msg h1 {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-left .hello-msg h1 {
   font-size: 48px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right {
   flex: 0 0 400px;
   max-width: 400px;
   padding: 2rem 50px 1rem 65px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .trans_button {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .trans_button {
   background-color: transparent;
   border: none;
   padding: 0px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .trans_button:focus {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .trans_button:focus {
   outline: none;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .trans_button:hover {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .trans_button:hover {
   text-decoration: underline;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .modalclose-icon {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .modalclose-icon {
   position: absolute;
   width: 13px;
   height: 13px;
@@ -60,7 +60,7 @@
   box-shadow: none;
   border: none;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-input {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-input {
   height: calc(1.5em + .75rem + 9px);
   border: none;
   border-bottom: 2px solid #919191;
@@ -71,13 +71,13 @@
   font-size: 15px;
   position: relative;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-input:focus {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-input:focus {
   border-color: #FF75BA;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-btn {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .signup-btn {
   height: 50px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block {
   position: absolute;
   top: 0px;
   right: 0;
@@ -87,7 +87,7 @@
   padding-left: 10px;
   cursor: pointer;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block.show:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block.show:before {
   content: "";
   position: absolute;
   top: 0px;
@@ -99,15 +99,15 @@
   margin-top: 12.5px;
   margin-right: -4px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block img {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .form-group .showpassword-block img {
   filter: invert(88%) sepia(0%) saturate(1183%) hue-rotate(192deg) brightness(81%) contrast(65%);
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right form .forgot-block .forgot-link {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right form .forgot-block .forgot-link {
   border-bottom: 2px solid #232323;
   text-decoration: none;
   font-size: 14px;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .or-txt {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .or-txt {
   color: #ccc;
   width: 50px;
   text-align: center;
@@ -116,7 +116,7 @@
   margin-top: -31px;
   background: #fff;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn {
   border: 1px solid #232323 !important;
   background: #fff;
   border-radius: 25px !important;
@@ -138,7 +138,7 @@
   opacity: 1 !important;
   font-family: "Brandon Text Medium" !important;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn:before {
   content: "";
   position: absolute;
   left: 10px;
@@ -149,25 +149,25 @@
   background-position: center;
   transition: all 0.25s;
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnFacebook:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnFacebook:before {
   background-image: url(../../assets/images/FB-black.svg);
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnFacebook:hover:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnFacebook:hover:before {
   background-image: url(../../assets/images/FB-white.svg);
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnGoogle:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnGoogle:before {
   background-image: url(../../assets/images/Google-black.svg);
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnGoogle:hover:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnGoogle:hover:before {
   background-image: url(../../assets/images/Google-white.svg);
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnApple:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnApple:before {
   background-image: url(../../assets/images/apple-black.svg);
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnApple:hover:before {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn.btnApple:hover:before {
   background-image: url(../../assets/images/apple-white.svg);
 }
-.SignInPage-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn:hover {
+.signup-modal .modal-dialog .modal-content .modal-body .signup-right .socail-login .socail-btn:hover {
   background: #232323 !important;
   color: #fff !important;
 }
