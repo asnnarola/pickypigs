@@ -11,6 +11,7 @@ const CustomDropdown = ({ placeholder,clearAll, labelKey = "name", valueKey = "_
     // }
     // console.log('Hiiiiiiiiiii out', state);
     return (
+        <div>
         <Picky
             buttonProps={{
                 className: 'testing'
@@ -34,41 +35,39 @@ const CustomDropdown = ({ placeholder,clearAll, labelKey = "name", valueKey = "_
                 labelKey,
                 valueKey,
                 multiple,
+                getIsSelected 
             }) => {
                 return (
-                    <div className="filter-listcheck">
+                    <div key={item} className="filter-listcheck">
                         
-                        {isSelected?
-                       <div className="clearall-link">
+                        {value&&value.length>0?
+                       <div className="clearall-link mr-3">
                        <button onClick={clearAll}>
                            Clear all
                        </button>
                    </div>
                         :null}
                         <Form>
-                            {['checkbox'].map((type) => (
-                                <div key={`custom-inline-${type}`} className="mb-2">
+                                <div className="mb-2">
                                     <Form.Check
                                         key={item[valueKey]} // required
-                                        onClick={() => selectValue(item)}
+                                        onChange={() => selectValue(item)}
                                         custom
                                         inline
                                         checked={isSelected}
                                         label={item}
                                         className="filterdrop-checkbox"
-                                        type={"checkbox"}
+                                        type="checkbox"
                                         id={item}
                                     />
                                 </div>
-                            ))}
                         </Form>
+
                     </div>
                 );
             }}
-
-           
-
         />
+        </div>
     )
 }
 
