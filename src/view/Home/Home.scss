@@ -230,16 +230,20 @@
                             }
 
                             &.active {
-                                border: 1px solid #cb007b;
+                                // border: 1px solid #cb007b;
+                                background: linear-gradient(0deg,#cb007b,#ff75ba);
 
                                 .filter-icon {
                                     img {
-                                        filter: invert(20%) sepia(98%) saturate(3481%) hue-rotate(309deg) brightness(75%) contrast(118%);
+                                        // filter: invert(20%) sepia(98%) saturate(3481%) hue-rotate(309deg) brightness(75%) contrast(118%);
+                                    	filter: brightness(100);
                                     }
                                 }
 
                                 .text-link {
-                                    color: #cb007b !important;
+                                    // color: #cb007b !important;
+                                    color: #fff !important;
+
                                 }
                             }
                         }
