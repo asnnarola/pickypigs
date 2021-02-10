@@ -53,13 +53,13 @@
   line-height: 17px;
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper.active {
-  border: 1px solid #cb007b;
+  background: linear-gradient(0deg,#cb007b,#ff75ba);
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper.active .filter-icon img {
-  filter: invert(20%) sepia(98%) saturate(3481%) hue-rotate(309deg) brightness(75%) contrast(118%);
+  filter: brightness(100);
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper.active .text-link {
-  color: #cb007b !important;
+  color: #fff !important;
 }
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
   .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide {
