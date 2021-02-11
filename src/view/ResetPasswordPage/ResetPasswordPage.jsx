@@ -14,17 +14,20 @@ const ResetPasswordPage = () => {
 
     return (
         <>
-            <React.Fragment>
-            {loading?
-            <CustomLoadingComp/>
-            :
+            
             <section className="resetPasswordPage-container gradient-bg">
                 <div className="container">
                     <ResetPasswordComp />
                 </div>
+                <React.Fragment>
+                    {loading?
+                        <CustomLoadingComp/>
+                    :
+                        null
+                    }
+                </React.Fragment>
             </section>
-          }
-          </React.Fragment>
+         
     
         </>
     )

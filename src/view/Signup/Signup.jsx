@@ -15,6 +15,7 @@ import { useDispatch,useSelector} from 'react-redux';
 import { facebookLogin, googleLogin,registerUser } from '../../redux/actions/generalActions';
 import SocialButton from '../../components/SocialButton';
 import CustomLoadingComp from '../../components/CustomLoadingComp/CustomLoadingComp';
+import Tick from '../../assets/images/check.svg' 
 
 const phoneRegex = RegExp(
     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
@@ -130,12 +131,10 @@ const Signup = (props) => {
     let loading = useSelector((state)=>{
         return state.general.isLoading
     });
-
+    
+    
     return (
-        <React.Fragment>
-        {loading?
-        <CustomLoadingComp/>
-        :
+        
         <div className="row">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-left">
                 <div className="hello-msg">
@@ -150,14 +149,15 @@ const Signup = (props) => {
                         </button>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-sm-12 mb-3">
-                        <h3 className="brandon-Bold">Sign up</h3>
-                        <p className="f-15"><span className="pr-2">Have an account?</span>
-                            <button className="pink-txt brandon-Medium trans_button" onClick={()=>{props.gotoLogin()}} >Sign In</button>
-                        </p>
+              
+                    <div className="row">
+                        <div className="col-sm-12 mb-3">
+                            <h3 className="brandon-Bold">Sign up</h3>
+                            <p className="f-15"><span className="pr-2">Have an account?</span>
+                                <button className="pink-txt brandon-Medium trans_button" onClick={()=>{props.gotoLogin()}} >Sign In</button>
+                            </p>
+                        </div>
                     </div>
-                </div>
               
                     <Formik
                         initialValues={{ name: '', email: '', password: '',phone:'', confirmPassword: '' }}
@@ -186,7 +186,7 @@ const Signup = (props) => {
                                                 <div className="error pink-txt f-11">{(touched.email && errors.email && errors.email)}</div>
                                             </div>
                                             <div className="form-group">
-                                                <Field name="phone" placeholder="Phone no" className="form-control signup-input" />
+                                                <Field name="phone" placeholder="Phone" className="form-control signup-input" />
                                                 {touched.phone && errors.phone && <div className="error pink-txt f-11">{errors.phone}</div>}
                                             </div>
                                             <div className="form-group position-relative">
@@ -214,6 +214,13 @@ const Signup = (props) => {
                                                 <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" >
                                                     Sign up
                                                 </button>
+                                                <React.Fragment>
+                                                    {loading?
+                                                        <CustomLoadingComp/>
+                                                    :
+                                                        null
+                                                    }
+                                                </React.Fragment>
                                             </div>
                                         </div>
                                     </div>
@@ -221,68 +228,68 @@ const Signup = (props) => {
                             )}
                     </Formik>
                   
-               <React.Fragment>
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <div className="form-group mt-2 pt-2">
-                                <div className="border-separate">
+                    <React.Fragment>
+                        <div className="row">
+                            <div className="col-sm-12">
+                                <div className="form-group mt-2 pt-2">
+                                    <div className="border-separate">
+                                    </div>
+                                </div>
+                                <div className="or-txt f-15">
+                                    <span>or</span>
                                 </div>
                             </div>
-                            <div className="or-txt f-15">
-                                <span>or</span>
-                            </div>
                         </div>
-                    </div>
 
-                    <div className="row">
-                        <div className="col-sm-12 pl-xl-4 pr-xl-4">
-                            <div className="socail-login d-flex justify-content-between align-items-center mt-3">
-                                <GoogleLogin
-                                    clientId={GOOGLE_CLIENT_ID}
-                                    onSuccess={googleResponse}
-                                    className="btnApple socail-btn"
-                                    icon={false}
-                                >
-                                    {/* <span>Google</span> */}
-                                    <span></span>
-                                </GoogleLogin>
-                                <SocialButton
-                                    style={{backgroundColor:'transparent',border:'none'}}
-                                     provider={"facebook"}
-                                     appId={FACEBOOK_APP_ID}
-                                     onLoginSuccess={handleSocialLogin}
-                                     onLoginFailure={handleSocialLoginFailure}
+                        <div className="row">
+                            <div className="col-sm-12 pl-xl-4 pr-xl-4">
+                                <div className="socail-login d-flex justify-content-between align-items-center mt-3">
+                                    <GoogleLogin
+                                        clientId={GOOGLE_CLIENT_ID}
+                                        onSuccess={googleResponse}
+                                        className="btnApple socail-btn"
+                                        icon={false}
                                     >
-                                        <div className="btnFacebook socail-btn"></div>
-                                    </SocialButton>
+                                        {/* <span>Google</span> */}
+                                        <span></span>
+                                    </GoogleLogin>
                                     <SocialButton
                                         style={{backgroundColor:'transparent',border:'none'}}
-                                        provider={"google"}
-                                        appId={GOOGLE_CLIENT_ID}
+                                        provider={"facebook"}
+                                        appId={FACEBOOK_APP_ID}
                                         onLoginSuccess={handleSocialLogin}
                                         onLoginFailure={handleSocialLoginFailure}
-                                    >
-                                        <div className="btnGoogle socail-btn"></div>
-                                    </SocialButton>
+                                        >
+                                            <div className="btnFacebook socail-btn"></div>
+                                        </SocialButton>
+                                        <SocialButton
+                                            style={{backgroundColor:'transparent',border:'none'}}
+                                            provider={"google"}
+                                            appId={GOOGLE_CLIENT_ID}
+                                            onLoginSuccess={handleSocialLogin}
+                                            onLoginFailure={handleSocialLoginFailure}
+                                        >
+                                            <div className="btnGoogle socail-btn"></div>
+                                        </SocialButton>
+                                </div>
+                                <div className="terms-block text-center mt-4 txt-lightgray">
+                                    <p>By proceeding you agree to the<br />
+                                        <Link to="/#" className="pink-txt pr-1 brandon-Medium">Terms</Link>and
+                                        <Link to="/#" className="pink-txt pl-1 brandon-Medium">Privacy Policy</Link>
+                                    </p>
+                                </div>
+                                {/* <Modal show={popup} onHide={handlePopup} className="signup-modal">
+                                    <Modal.Body className="p-0">
+                                                <p>Signup successfully !</p>
+                                    </Modal.Body>
+                                </Modal> */}
                             </div>
-                            <div className="terms-block text-center mt-4 txt-lightgray">
-                                <p>By proceeding you agree to the<br />
-                                    <Link to="/#" className="pink-txt pr-1 brandon-Medium">Terms</Link>and
-                                    <Link to="/#" className="pink-txt pl-1 brandon-Medium">Privacy Policy</Link>
-                                </p>
-                            </div>
-                            {/* <Modal show={popup} onHide={handlePopup} className="signup-modal">
-                                <Modal.Body className="p-0">
-                                            <p>Signup successfully !</p>
-                                </Modal.Body>
-                            </Modal> */}
                         </div>
-                    </div>
-                </React.Fragment>
+                    </React.Fragment>
+                
             </div>
         </div>
-        }
-        </React.Fragment>
+        
     )
 }
 

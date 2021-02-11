@@ -34,10 +34,7 @@ const ForgotPasswordPage = (props) => {
         return state.general.isLoading
     });
     return (
-        <React.Fragment>
-        {loading?
-        <CustomLoadingComp/>
-        :
+        
         <div className="row">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-left">
                 <div className="hello-msg">
@@ -92,6 +89,13 @@ const ForgotPasswordPage = (props) => {
                                                 <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25 " type="submit" >
                                                     RESET PASSWORD
                                                 </button>
+                                                <React.Fragment>
+                                                    {loading?
+                                                        <CustomLoadingComp/>
+                                                    :
+                                                        null
+                                                    }
+                                                </React.Fragment>
                                             </div>
                                             
                                         </div>
@@ -102,8 +106,7 @@ const ForgotPasswordPage = (props) => {
                
             </div>
         </div>
-        }
-        </React.Fragment>
+        
     )
 }
 

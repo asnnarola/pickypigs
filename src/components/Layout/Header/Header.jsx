@@ -11,6 +11,7 @@ import SignInPage from '../../../view/SignInPage/SignInPage'
 import { useDispatch, useSelector } from 'react-redux';
 import {showSignUpPopup,showSignInPopup, logoutUser} from '../../../redux/actions/generalActions'
 import ForgotPasswordPage from '../../../view/ForgotPasswordPage/ForgotPasswordPage'
+import RegistrationSuccessScreen from '../../RegistrationSuccessScreen/RegistrationSuccessScreen'
 
 const Header = (props) => {
     const dispatch=useDispatch();
@@ -24,6 +25,9 @@ const Header = (props) => {
     const [forgotPassword, setForgotPassword] = useState(false);
     const handleCloseForgotPassword = () => setForgotPassword(false);
 
+    const [registration, setRegistration] = useState(false);
+    const handleCloseRegistration = () => setRegistration(false);
+
     const signUpSuccess = useSelector((state) => state.general.isSignedUp);
     const signUpModal = useSelector((state) => state.general.showSignUpPopup);
     useEffect(() => {
@@ -35,6 +39,12 @@ const Header = (props) => {
     useEffect(() => {
         setShowLogIn(signInModal);
       },[signInSuccess,signInModal])
+
+    const registerSuccess = useSelector((state) => state.general.isRegisterSuccess);
+    const registerModal = useSelector((state) => state.general.showSignUpSuccessPopup);
+    useEffect(() => {
+            setRegistration(registerModal);
+      },[registerModal])  
     
     const token = localStorage.getItem("access_token");
     const emailVerified = localStorage.getItem("isEmailVerified");
@@ -131,6 +141,14 @@ const Header = (props) => {
                         <ForgotPasswordPage 
                             gotoLogin={() => { setForgotPassword(false); setShowLogIn(true); }} 
                             onHide={handleCloseForgotPassword} show={forgotPassword} 
+                        />
+                    </Modal.Body>
+                </Modal>
+
+                <Modal centered show={registration} onHide={handleCloseRegistration} className="RegistrationSuccessScreen-modal">
+                    <Modal.Body className="p-0 position-relative">
+                        <RegistrationSuccessScreen 
+                            onHide={handleCloseRegistration} show={registration} 
                         />
                     </Modal.Body>
                 </Modal>

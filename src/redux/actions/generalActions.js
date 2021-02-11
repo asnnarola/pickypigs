@@ -12,6 +12,7 @@ export const registerUser = (user,history) => {
   return async (dispatch) => {
       try {
           dispatch({type : "REGISTER_USER_REQUEST"});
+          dispatch(registrationSuccess(false));
           let config = {
               headers : {
                   'Content-Type' : 'application/json'
@@ -21,9 +22,9 @@ export const registerUser = (user,history) => {
           let response = await Axios.post(dataURL, JSON.stringify(user) , config);
           dispatch({type : "REGISTER_USER_SUCCESS" , payload : response.data});
           history.push('/');
-          await dispatch(setAlert('REGISTER_USER_SUCCESS.Please Verify The Mail Id', 'success'));
-          await dispatch(showSignUpPopup(false));
-
+          dispatch(setAlert('REGISTER_USER_SUCCESS.Please Verify The Mail Id', 'success'));
+          dispatch(showSignUpPopup(false));
+          dispatch(registrationSuccess(true));
 
       }
       catch (error) {
@@ -33,6 +34,7 @@ export const registerUser = (user,history) => {
           } else {
             dispatch(setAlert('Something went wrong!', 'error'));
           }
+          dispatch(registrationSuccess(false));
 
       }
   }
@@ -300,3 +302,10 @@ export const showSignInPopup = (data) => (dispatch) => {
     payload: data,
   });
 };
+
+export const registrationSuccess = (data) => (dispatch) => {
+  dispatch({
+    type: "SHOW_SIGNUPSUCCESS_POPUP",
+    payload: data,
+  });
+};;
