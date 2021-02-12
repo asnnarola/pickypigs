@@ -19,12 +19,9 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 import MyfilterListExample from './MyfilterListExample';
 import { getAllAllergyData,getAllDietaryData,getAllLifestyleData,getAllRestaurantFeaturesData} from '../../redux/actions/allergyAction';
+import SearchResultDisplayComp from '../SearchResultDisplayComp/SearchResultDisplayComp';
 
 
-const alergy_information = ["Egg", "Milk", "Celery", "Mustard", "Lupin", "Nuts", "Peanuts", "Sesame", "Molluscs", "Crustaceans", "Fish", "Cereals (Wheat)", "Soya", "Sulphur dioxide"];
-const dietary_preference = ["Gluten Free", "Dairy Free", "Meat Lover", "Fodmap", "Low Sugar", "Low Carb", "Plant Based", "Vegetarian", "Pescatarian", "Keto"];
-const lifestyle_choice = ["Pregnant", "Vegan", "Halal", "Kosher", "Organic", "Locally Sourced"];
-const restaurant_features = ["Pet Friendly", "Child friendly", "Live music", "Outside sitting", "Disabled access", "Reservations needed", "Bring your own", "Large parties accepted", "Private dining room", "Table service", "Bar service", "Holding bar", "R20", "Take away"];
 
 function FilterList({ filterIcon = "false" }) {
     const dispatch = useDispatch();
@@ -134,7 +131,7 @@ function FilterList({ filterIcon = "false" }) {
                         )}
                     </Dropdown.Menu>
                 </Dropdown> */}
-                <div className="fr-input d-flex justify-content-between align-items-center">
+                <div className="fr-input d-flex justify-content-between align-items-center position-relative">
                     <input onChange={handleSearch} className="w-100 fr-search-box rl-fl-searchbox brandon-regular" placeholder="Search for restaurant or dish" />
                     <Button variant="primary" onClick={getAllRestaurant} className="fr-search-btn theme-pink-btn">
                         <img src={serachwhite} className="img-fluid" alt="serachwhite" />
@@ -142,6 +139,9 @@ function FilterList({ filterIcon = "false" }) {
                     {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
                     </Button>}
+                    <div className="position-absolute" style={{bottom:10,left:0}}>
+                        <SearchResultDisplayComp/>
+                    </div>
                 </div>
             </div>
 

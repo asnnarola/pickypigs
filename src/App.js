@@ -24,13 +24,12 @@ function App() {
         </div>
         <LoadonTop/>
         {/* <Switch>
-          <Route exact path="/login" render={(props) => <Login {...props} />} />
-          <Route exact path="/signup" render={(props) => <Signup {...props} />} />
+            <Route exact path="/login" render={(props) => <Login {...props} />} />
+            <Route exact path="/signup" render={(props) => <Signup {...props} />} />
           <Routes />
         </Switch> */}
         <Hidden only={['xs','sm']}>
             <Switch>
-              {/* <Route exact path="/login" render={(props) => <Login {...props} />} /> */}
               {/* <Route exact path="/signup" render={(props) => <Signup {...props} />} /> */}
               <Route exact path="/reset_password/:token" render={(props) => <ResetPasswordPage {...props} />} />
 

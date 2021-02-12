@@ -15,6 +15,7 @@ const RestaurantDiscPage = lazy(() => import("./view/RestaurantDiscPage/Restaura
 const RestaurantSingleDiscInfoPage = lazy(() => import("./view/RestaurantSingleDiscInfoPage/RestaurantSingleDiscInfoPage"));
 const UserDetailPage = lazy(() => import("./view/UserDetailPage/UserDetailPage"));
 const Verify = lazy(() => import("./view/Signup/verify"));
+const AdminLoginPage = lazy(() => import('./view/AdminLoginPage/AdminLoginPage'));
 
 
 export const routesCode = [
@@ -29,7 +30,8 @@ export const routesCode = [
     { path: "/restaurant_disc", exact: true, component: RestaurantDiscPage },
     { path: "/restaurant_disc_info", exact: true, component: RestaurantSingleDiscInfoPage },
     { path: "/user_detail", exact: true, component: UserDetailPage },
-    { path: "/verify/:token", exact: true, component: Verify }
+    { path: "/verify/:token", exact: true, component: Verify },
+    { path: "/restaurant_login", exact: true, component: AdminLoginPage }
     // { path: "*", component: 404Page },
 ];
 

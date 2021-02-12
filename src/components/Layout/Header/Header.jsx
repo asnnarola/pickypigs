@@ -12,6 +12,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {showSignUpPopup,showSignInPopup, logoutUser} from '../../../redux/actions/generalActions'
 import ForgotPasswordPage from '../../../view/ForgotPasswordPage/ForgotPasswordPage'
 import RegistrationSuccessScreen from '../../RegistrationSuccessScreen/RegistrationSuccessScreen'
+import AdminLoginPage from '../../../view/AdminLoginPage/AdminLoginPage'
+import SignUpModalComp from '../../SignUpModalComp/SignUpModalComp'
+import { showAdminSignUpPopup } from '../../../redux/actions/restaurantAdminAction'
 
 const Header = (props) => {
     const dispatch=useDispatch();
@@ -48,6 +51,16 @@ const Header = (props) => {
             setRegistration(registerModal);
       },[registerModal])  
     
+
+    const [showAdminSignUp, setAdminSignUp] = useState(false);
+    const handleCloseAdminSignUp = () => dispatch(showAdminSignUpPopup(false));
+    const adminSignUpSuccess = useSelector((state) => state.restaurantAdmin.isAdminSignedUp);
+    const adminSignUpModal = useSelector((state) => state.restaurantAdmin.showAdminSignUpPopup);
+    useEffect(() => {
+        setAdminSignUp(adminSignUpModal);
+      },[adminSignUpSuccess,adminSignUpModal])
+
+
     const token = localStorage.getItem("access_token");
     const emailVerified = localStorage.getItem("isEmailVerified");
     const role = localStorage.getItem("role");
@@ -57,9 +70,9 @@ const Header = (props) => {
         window.addEventListener('scroll', () => {
             let ele = document.getElementById("navbar")
             if (window.scrollY !== 0) {
-                ele.classList.add("navsticky")
+                ele&&ele.classList.add("navsticky")
             } else {
-                ele.classList.remove("navsticky")
+                ele&&ele.classList.remove("navsticky")
             }
         });
     }, [])
@@ -119,8 +132,8 @@ const Header = (props) => {
                                         Partner with us
                                 </Button>
                                 <ul>
-                                    <li><a href="https://pickypigsrestaurantsadmin.herokuapp.com/login" target="_blank" >Sign In</a></li>
-                                    <li><a href="https://pickypigsrestaurantsadmin.herokuapp.com/login" target="_blank">Sign Up</a></li>
+                                    <li><NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/restaurant_login">Sign In</NavLink></li>
+                                    <li><NavLink onClick={()=>{setAdminSignUp(true)}} className="menu-link mr-lg-5"  to="/restaurant_login">Sign Up</NavLink></li>
                                 </ul>
                             </li>
 	                    </div>
@@ -168,6 +181,16 @@ const Header = (props) => {
                         />
                     </Modal.Body>
                 </Modal>
+
+                <Modal centered show={showAdminSignUp} onHide={()=>{setAdminSignUp(false)}} className="SignUpModalComp-modal">
+                    <Modal.Body className="p-0 position-relative">
+                        <SignUpModalComp 
+                            onHide={()=>{setAdminSignUp(false)}} show={showAdminSignUp} 
+                        />
+                    </Modal.Body>
+                </Modal>
+
+
 
             </Navbar.Collapse>
             </div>
