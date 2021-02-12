@@ -22,7 +22,7 @@ export const registerUser = (user,history) => {
           let response = await Axios.post(dataURL, JSON.stringify(user) , config);
           dispatch({type : "REGISTER_USER_SUCCESS" , payload : response.data});
           history.push('/');
-          dispatch(setAlert('REGISTER_USER_SUCCESS.Please Verify The Mail Id', 'success'));
+          // dispatch(setAlert('Registration Successful.Please Verify Mail', 'success'));
           dispatch(showSignUpPopup(false));
           dispatch(registrationSuccess(true));
 
