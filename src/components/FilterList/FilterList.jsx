@@ -18,6 +18,7 @@ import PlacesAutocomplete, {
     getLatLng,
 } from 'react-places-autocomplete';
 import MyfilterListExample from './MyfilterListExample';
+import { getAllAllergyData,getAllDietaryData,getAllLifestyleData,getAllRestaurantFeaturesData} from '../../redux/actions/allergyAction';
 
 
 const alergy_information = ["Egg", "Milk", "Celery", "Mustard", "Lupin", "Nuts", "Peanuts", "Sesame", "Molluscs", "Crustaceans", "Fish", "Cereals (Wheat)", "Soya", "Sulphur dioxide"];
@@ -40,11 +41,20 @@ function FilterList({ filterIcon = "false" }) {
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
 
-    // useEffect(() => {
+    useEffect(() => {
+        dispatch(getAllAllergyData())
+        dispatch(getAllDietaryData())
+        dispatch(getAllLifestyleData())
+        dispatch(getAllRestaurantFeaturesData())
 
-    //     getMyLocation()
+    },[dispatch])
 
-    // }, [])
+    let allAllergy_data = useSelector((state)=>{
+        return state.allergy
+    });
+
+    let {isLoading,allergy_Data,dietary_Data,lifestyle_Data,restaurantFeatures_Data}=allAllergy_data;
+
 
     const clearAllAllergy=()=>{
         setAllergenValue([])
@@ -109,7 +119,6 @@ function FilterList({ filterIcon = "false" }) {
                 <MyfilterListExample />
 
 
-
                 {/* <Dropdown className="fr-location mr-2">
                     <Dropdown.Toggle className="d-flex justify-content-between align-items-center w-100" variant="Secondary" id="dropdown-basic">
                         <span className="d-flex align-items-center">
@@ -135,14 +144,15 @@ function FilterList({ filterIcon = "false" }) {
                     </Button>}
                 </div>
             </div>
+
             <div className="fr-category-select d-flex justify-content-between align-items-center mt-3 flex-wrap pr-4">
-                <CustomDropdown placeholder={"Allergen"} clearAll={clearAllAllergy} options={alergy_information} value={allergenValue} onChangeData={setAllergenValue} />
+                <CustomDropdown placeholder={"Allergen"} clearAll={clearAllAllergy} options={allergy_Data&&allergy_Data.data} value={allergenValue} onChangeData={setAllergenValue} />
 
-                <CustomDropdown placeholder={"Dietary Preference"} clearAll={clearAllDietary} options={dietary_preference} value={dietaryValue} onChangeData={setDietaryValue} />
+                <CustomDropdown placeholder={"Dietary Preference"} clearAll={clearAllDietary} options={dietary_Data&&dietary_Data.data} value={dietaryValue} onChangeData={setDietaryValue} />
 
-                <CustomDropdown placeholder={"Lifestyle Choices"} clearAll={clearAllLifeStyle} options={lifestyle_choice} value={lifeStyleValue} onChangeData={setLifeStyleValue} />
+                <CustomDropdown placeholder={"Lifestyle Choices"} clearAll={clearAllLifeStyle} options={lifestyle_Data&&lifestyle_Data.data} value={lifeStyleValue} onChangeData={setLifeStyleValue} />
 
-                <CustomDropdown placeholder={"Restaurant Features"} clearAll={clearAllFeature} options={restaurant_features} value={featuresValue} onChangeData={setFeaturesValue} />
+                <CustomDropdown placeholder={"Restaurant Features"} clearAll={clearAllFeature} options={restaurantFeatures_Data&&restaurantFeatures_Data.data} value={featuresValue} onChangeData={setFeaturesValue} />
 
 
             </div>

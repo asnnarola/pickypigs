@@ -16,6 +16,8 @@ import RegistrationSuccessScreen from '../../RegistrationSuccessScreen/Registrat
 const Header = (props) => {
     const dispatch=useDispatch();
     const history = useHistory();
+    const [showDropDown, setShowDropDown] = useState(false);
+
     const [showSignUp, setShowSignUp] = useState(false);
     const handleCloseSignUp = () => dispatch(showSignUpPopup(false));
 
@@ -107,7 +109,21 @@ const Header = (props) => {
                             </div>
                             <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                         </div>
-                        <Button variant="outline-success" className="mr-3 theme-light-btn pt-2 pb-2 pl-4 pr-4 radius-50">Partner with us</Button>
+                           
+                        <div id="nav">
+                            <li>
+                                <Button 
+                                    onClick={()=>{setShowDropDown(!showDropDown)}} variant="outline-success" 
+                                    className="mr-3 theme-light-btn pt-2 pb-2 pl-4 pr-4 radius-50 position-relative"
+                                >
+                                        Partner with us
+                                </Button>
+                                <ul>
+                                    <li><a href="https://pickypigsrestaurantsadmin.herokuapp.com/login" target="_blank" >Sign In</a></li>
+                                    <li><a href="https://pickypigsrestaurantsadmin.herokuapp.com/login" target="_blank">Sign Up</a></li>
+                                </ul>
+                            </li>
+	                    </div>
                         <Button onClick={()=>{setShowLogIn(true)}}  variant="outline-success" className="outline-success theme-light-btn pt-2 pb-2 pl-4 pr-4 ">
                             Login
                             <svg className="user-icon ml-2" fill="#333" xmlns="http://www.w3.org/2000/svg" width="10.672" height="14" viewBox="0 0 10.672 14">

@@ -38,7 +38,7 @@ const CustomDropdown = ({ placeholder,clearAll, labelKey = "name", valueKey = "_
                 getIsSelected 
             }) => {
                 return (
-                    <div key={item} className="filter-listcheck">
+                    <div key={item._id} className="filter-listcheck">
                         
                         {value&&value.length>0?
                        <div className="clearall-link mr-3">
@@ -50,15 +50,15 @@ const CustomDropdown = ({ placeholder,clearAll, labelKey = "name", valueKey = "_
                         <Form>
                                 <div className="mb-2">
                                     <Form.Check
-                                        key={item[valueKey]} // required
+                                        key={item._id} // required
                                         onChange={() => selectValue(item)}
                                         custom
                                         inline
                                         checked={isSelected}
-                                        label={item}
+                                        label={item.name}
                                         className="filterdrop-checkbox"
                                         type="checkbox"
-                                        id={item}
+                                        id={item._id}
                                     />
                                 </div>
                         </Form>
