@@ -6,8 +6,9 @@ import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import showpassword from "../../assets/images/eye_icon.svg";
 import closeicon from "../../assets/images/close.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {registerRestaurant} from '../../redux/actions/restaurantAdminAction'
+import CustomLoadingComp from "../CustomLoadingComp/CustomLoadingComp";
 
 const phoneRegex = RegExp(
     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
@@ -82,6 +83,9 @@ const SignUpModalComp = (props) => {
             setConfirmType("password")
         }
     }
+    let loading = useSelector((state)=>{
+        return state.restaurantAdmin.isSignupLoading
+    })
     return (
         <>
             <section>
@@ -180,7 +184,14 @@ const SignUpModalComp = (props) => {
                                                         <div className="form-group">
                                                             <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" >
                                                                 Sign up
-                                            </button>
+                                                            </button>
+                                                            <React.Fragment>
+                                                                {loading&&loading?
+                                                                    <CustomLoadingComp/>
+                                                                :
+                                                                    null
+                                                                }
+                                                            </React.Fragment>
                                                         </div>
                                                     </div>
                                                 </div>

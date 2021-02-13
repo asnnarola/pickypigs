@@ -1,7 +1,10 @@
 
 
 const initialState = {
-    isLoading : false,
+    isLoginLoading : false,
+    isSignupLoading : false,
+    isForgotPasswordLoading : false,
+    isResetPasswordLoading : false,
     errorMessage:'',
     login_Data:{},
     forgot_Password:{},
@@ -17,21 +20,21 @@ const initialState = {
         case "GET_ADMINLOGIN_REQUEST":
           return {
             ...state,
-            isLoading :true,
+            isLoginLoading :true,
           };
         case "GET_ADMINLOGIN_SUCCESS":
           localStorage.setItem('access_token',payload.token);
           localStorage.setItem('role','restaurant_admin');
           return {
             ...state,
-            isLoading:false,
+            isLoginLoading:false,
             login_Data:payload,
           };   
   
         case "GET_ADMINLOGIN_FAILURE":
           return {
             ...state,
-            isLoading:false,
+            isLoginLoading:false,
             errorMessage:payload
           };
   
@@ -49,20 +52,20 @@ const initialState = {
         case "FORGOT_PASSWORD_REQUEST":    
             return {
               ...state,
-              isLoading :true,
+              isForgotPasswordLoading :true,
             };
   
         case "FORGOT_PASSWORD_SUCCESS":
           return {
             ...state,
-            isLoading:false,
+            isForgotPasswordLoading:false,
             forgot_Password:payload,
           };    
   
         case "FORGOT_PASSWORD_FAILURE":
           return {
             ...state,
-            isLoading:false,
+            isForgotPasswordLoading:false,
             forgot_Password:{},
             errorMessage:payload
           }; 
@@ -71,20 +74,20 @@ const initialState = {
         case "RESET_PASSWORD_REQUEST":    
             return {
               ...state,
-              isLoading :true,
+              isResetPasswordLoading :true,
             };
   
         case "RESET_PASSWORD_SUCCESS":
           return {
             ...state,
-            isLoading:false,
+            isResetPasswordLoading:false,
             reset_Password:payload,
           };    
   
         case "RESET_PASSWORD_FAILURE":
           return {
             ...state,
-            isLoading:false,
+            isResetPasswordLoading:false,
             reset_Password:{},
             errorMessage:payload
           };    
@@ -94,21 +97,21 @@ const initialState = {
         case "REGISTER_RESTAURANT_REQUEST":    
             return {
               ...state,
-              isLoading :true,
+              isSignupLoading :true,
               isAdminSignedUp : false,
             };
   
         case "REGISTER_RESTAURANT_SUCCESS":
           return {
             ...state,
-            isLoading:false,
+            isSignupLoading:false,
             isAdminSignedUp : false,
           };    
   
         case "REGISTER_RESTAURANT_FAILURE":
           return {
             ...state,
-            isLoading:false,
+            isSignupLoading:false,
             isAdminSignedUp : false,
 
           };     

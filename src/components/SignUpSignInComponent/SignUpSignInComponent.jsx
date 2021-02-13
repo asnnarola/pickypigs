@@ -63,7 +63,7 @@ const SignUpSignInComponent = () => {
         return state.general.forgot_Password
     });
     let loading = useSelector((state)=>{
-        return state.restaurantAdmin.isLoading
+        return state.restaurantAdmin.isLoginLoading
     });
 
 

@@ -134,7 +134,7 @@ const Header = (props) => {
                                     </Button>
                                     <ul>
                                         <li><NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/restaurant_login">Sign In</NavLink></li>
-                                        <li><NavLink onClick={()=>{setAdminSignUp(true)}} className="menu-link mr-lg-5"  to="/restaurant_login">Sign Up</NavLink></li>
+                                        <li><NavLink onClick={()=>{dispatch(showAdminSignUpPopup(true))}} className="menu-link mr-lg-5"  to="/restaurant_login">Sign Up</NavLink></li>
                                     </ul>
                                 </li>
                             </div>
@@ -186,10 +186,10 @@ const Header = (props) => {
                     </Modal.Body>
                 </Modal>
 
-                <Modal centered show={showAdminSignUp} onHide={()=>{setAdminSignUp(false)}} className="SignUpModalComp-modal">
+                <Modal centered show={showAdminSignUp} onHide={handleCloseAdminSignUp} className="SignUpModalComp-modal">
                     <Modal.Body className="p-0 position-relative">
                         <SignUpModalComp 
-                            onHide={()=>{setAdminSignUp(false)}} show={showAdminSignUp} 
+                            onHide={handleCloseAdminSignUp} show={showAdminSignUp} 
                         />
                     </Modal.Body>
                 </Modal>
