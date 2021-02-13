@@ -139,9 +139,9 @@ function FilterList({ filterIcon = "false" }) {
                     {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
                     </Button>}
-                    <div className="position-absolute" style={{bottom:10,left:0}}>
+                    {/* <div className="position-absolute" style={{bottom:10,left:0}}>
                         <SearchResultDisplayComp/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
