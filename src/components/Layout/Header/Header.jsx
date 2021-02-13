@@ -108,7 +108,11 @@ const Header = (props) => {
                             <button type="button" className="btn btn-secondary dropdown-toggle userprofile-dropbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div className="user-name">
                                     <img src={logo} className="userprofile-img img-fluid mr-2" alt="logo" />
+                                    {userEmail&&userEmail?
                                     <span>{userEmail.substring(0, userEmail.lastIndexOf("@"))}</span>
+                                    :
+                                    <span>Hello</span>
+                                    }
                                 </div>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right">

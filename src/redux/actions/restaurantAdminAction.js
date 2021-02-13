@@ -46,7 +46,11 @@ export const getAdminLogin=(data)=>{
             dispatch({type:"GET_ADMINLOGIN_SUCCESS",payload:response.data});
             dispatch(setAlert('Admin LogIn Success', 'success'));
             if(response){
-                window.location=`${RESTAURANT_ADMIN_URL}/login/${response.data.token}`;
+              window.open(
+                `${RESTAURANT_ADMIN_URL}/login/${response.data.token}`,
+                '_self', // <- This is what makes it open in a new window.
+                'replace=true'
+              );
             }
             // const token = localStorage.getItem("access_token");
             // if (token) axios.defaults.headers.common = { "x-access-token": token };
@@ -54,6 +58,27 @@ export const getAdminLogin=(data)=>{
         catch(error){
           dispatch({type:"GET_ADMINLOGIN_FAILURE",payload:error});
           dispatch(setAlert('Wrong Credential', 'error'));
+        }
+    }
+  };
+
+  export const forgotAdminPassword=(data)=>{
+    return async(dispatch)=>{
+        try{
+            dispatch({type:"FORGOT_ADMINPASSWORD_REQUEST"});
+            let config= {
+                headers:{
+                 "Content-Type":"application/json"
+                 }
+             }
+            let dataURL=`/auth/forgot_password`
+            let response = await Axios.post(dataURL,JSON.stringify(data),config );
+            dispatch({type:"FORGOT_ADMINPASSWORD_SUCCESS",payload:response.data});
+            dispatch(setAlert(`${response.data.message}`, 'success'));
+        }
+        catch(error){
+          dispatch({type:"FORGOT_ADMINPASSWORD_FAILURE",payload:error});
+          dispatch(setAlert('Something Went Wrong', 'error'));
         }
     }
   };

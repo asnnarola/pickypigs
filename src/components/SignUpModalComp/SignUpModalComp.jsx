@@ -176,10 +176,12 @@ const SignUpModalComp = (props) => {
                                                             </div>
                                                             <div className="error pink-txt f-11">{(touched.confirmPassword && errors.confirmPassword && errors.confirmPassword) }</div>
                                                         </div>
-                                                        <div className="form-group">
-                                                            <Field type="checkbox" name="isAgreeToTerms"  className=""/>
-                                                            <label>Agree to terms</label>
-                                                            {touched.isAgreeToTerms && errors.isAgreeToTerms && <div className="error pink-txt f-11">{errors.isAgreeToTerms}</div>}
+                                                        <div className="form-group pink-checkbox">
+                                                            <div className="d-flex align-items-center">
+                                                                <Field type="checkbox" name="isAgreeToTerms" id="customCheck1" className="custom-check-box"/>
+                                                                <label className="ml-2 mb-0">Agree to terms</label>
+                                                            </div>
+                                                            {touched.isAgreeToTerms && errors.isAgreeToTerms && <div className="error pink-txt f-11 mt-2">{errors.isAgreeToTerms}</div>}
                                                         </div>
                                                         <div className="form-group">
                                                             <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25" type="submit" >

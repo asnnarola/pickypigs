@@ -3,12 +3,11 @@ import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch,useSelector} from "react-redux";
 import showpassword from "../../assets/images/eye_icon.svg";
-import { forgotPassword, getLogin } from "../../redux/actions/generalActions";
 import './SignUpSignInComponent.scss';
 import SignUpModalComp from "../SignUpModalComp/SignUpModalComp";
 import { useHistory } from "react-router-dom";
 import CustomLoadingComp from "../CustomLoadingComp/CustomLoadingComp";
-import { getAdminLogin, showAdminSignUpPopup } from "../../redux/actions/restaurantAdminAction";
+import { getAdminLogin, showAdminSignUpPopup,forgotAdminPassword } from "../../redux/actions/restaurantAdminAction";
 
 const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,24})/);
 
@@ -47,7 +46,7 @@ const SignUpSignInComponent = () => {
         let obj = {
             email: input.email,
         }
-        dispatch(forgotPassword(obj))
+        dispatch(forgotAdminPassword(obj))
     }
     const handlePassword = () => {
         let ele = document.getElementById("password")
@@ -60,7 +59,7 @@ const SignUpSignInComponent = () => {
         }
     }
     let forgotPasswordData = useSelector((state)=>{
-        return state.general.forgot_Password
+        return state.restaurantAdmin.forgot_Password
     });
     let loading = useSelector((state)=>{
         return state.restaurantAdmin.isLoginLoading
@@ -134,7 +133,7 @@ const SignUpSignInComponent = () => {
                                                 <div className="error pink-txt f-11">{(touched.password && errors.password && errors.password) || error}</div>
                                             </div>
                                             <div className="forgot-block text-center mt-3 mb-2">
-                                                <button onClick={() =>{setLoginPage(false)}} className="forgot-link trans_button">
+                                                <button onClick={() =>{setLoginPage(false)}} className="forgot-link trans_button" type="button">
                                                     <span>Forgot Password ?</span>
                                                 </button>
                                             </div>
@@ -193,7 +192,7 @@ const SignUpSignInComponent = () => {
                                                     <div className="error pink-txt f-11">{errors.email}</div>}
                                             </div>
                                             <div className="forgot-block text-center mt-3 mb-2">
-                                                <button onClick={() =>{setLoginPage(true)}} className="forgot-link trans_button">
+                                                <button type="button" onClick={() =>{setLoginPage(true)}} className="forgot-link trans_button">
                                                     <span>Sign In ?</span>
                                                 </button>
                                             </div>

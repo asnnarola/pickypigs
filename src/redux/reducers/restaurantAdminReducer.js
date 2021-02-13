@@ -23,8 +23,6 @@ const initialState = {
             isLoginLoading :true,
           };
         case "GET_ADMINLOGIN_SUCCESS":
-          localStorage.setItem('access_token',payload.token);
-          localStorage.setItem('role','restaurant_admin');
           return {
             ...state,
             isLoginLoading:false,
@@ -38,31 +36,23 @@ const initialState = {
             errorMessage:payload
           };
   
-        //logout user
-        case "LOGOUT_USER_REQUEST":
-          localStorage.removeItem('access_token');
-          localStorage.removeItem('role');
-  
-           return{
-              ...state,
-              isLoading:false,
-           } 
+         
   
         //FORGOT_PASSWORD
-        case "FORGOT_PASSWORD_REQUEST":    
+        case "FORGOT_ADMINPASSWORD_REQUEST":    
             return {
               ...state,
               isForgotPasswordLoading :true,
             };
   
-        case "FORGOT_PASSWORD_SUCCESS":
+        case "FORGOT_ADMINPASSWORD_SUCCESS":
           return {
             ...state,
             isForgotPasswordLoading:false,
             forgot_Password:payload,
           };    
   
-        case "FORGOT_PASSWORD_FAILURE":
+        case "FORGOT_ADMINPASSWORD_FAILURE":
           return {
             ...state,
             isForgotPasswordLoading:false,

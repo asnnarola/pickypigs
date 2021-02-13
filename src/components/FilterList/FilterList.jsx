@@ -34,7 +34,9 @@ function FilterList({ filterIcon = "false" }) {
     const [lifeStyleValue, setLifeStyleValue] = useState([])
     const [allergenValue, setAllergenValue] = useState([])
     const [featuresValue, setFeaturesValue] = useState([])
+    const [userTextFocus, setUserTextFocus] = useState(false)
     const [userSearchText, setUserSearchText] = useState("")
+
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
 
@@ -132,18 +134,30 @@ function FilterList({ filterIcon = "false" }) {
                     </Dropdown.Menu>
                 </Dropdown> */}
                 <div className="fr-input d-flex justify-content-between align-items-center position-relative">
-                    <input onChange={handleSearch} className="w-100 fr-search-box rl-fl-searchbox brandon-regular" placeholder="Search for restaurant or dish" />
+                    <input 
+                        type="text" 
+                        value={userSearchText} 
+                        onChange={handleSearch} 
+                        onFocus={()=>{setUserTextFocus(true)}}
+                        onBlur={()=>{setUserTextFocus(false)}} 
+                        className="w-100 fr-search-box rl-fl-searchbox brandon-regular" 
+                        placeholder="Search for restaurant or dish" 
+                    />
                     <Button variant="primary" onClick={getAllRestaurant} className="fr-search-btn theme-pink-btn">
                         <img src={serachwhite} className="img-fluid" alt="serachwhite" />
                     </Button>
                     {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
                     </Button>}
-                    {/* <div className="position-absolute" style={{bottom:10,left:0}}>
-                        <SearchResultDisplayComp/>
-                    </div> */}
+                    {userSearchText&&userTextFocus&&
+                        <div className="position-absolute" style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:1}}>
+                            <SearchResultDisplayComp searchtext={userSearchText} data={allergy_Data&&allergy_Data.data}/>
+                        </div>
+                    }
+                    
                 </div>
             </div>
+            {/* {userSearchText} || {JSON.stringify()} */}
 
             <div className="fr-category-select d-flex justify-content-between align-items-center mt-3 flex-wrap pr-4">
                 <CustomDropdown placeholder={"Allergen"} clearAll={clearAllAllergy} options={allergy_Data&&allergy_Data.data} value={allergenValue} onChangeData={setAllergenValue} />

@@ -167,7 +167,7 @@ const SignInPage = (props) => {
                                                 <div className="error pink-txt f-11">{(touched.password && errors.password && errors.password)}</div>
                                             </div>
                                             <div className="forgot-block mt-3 mb-3">
-                                                <button  className="forgot-link trans_button" onClick={()=>{props.openForgotPass()}}>
+                                                <button type="button" className="forgot-link trans_button" onClick={()=>{props.openForgotPass()}}>
                                                     <span>Forgot Password</span>
                                                 </button>
                                             </div>
