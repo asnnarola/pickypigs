@@ -92,15 +92,18 @@ const Header = (props) => {
                     <NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/how">What</NavLink>
                     {/* <NavLink className="menu-link" activeStyle={{color:'#cb007b'}} to="/how">How</NavLink> */}
                 </Nav>
-                {   token&&emailVerified==="true"&&role==="user"
-                    ?
-                    <Form inline className="navright-btn userlogin-after ">
-                        <div className="search-topnav mr-5 position-relative">
-                            <div className="search-navicon">
-                                <img src={search_icon} className="img-fluid" alt="search_icon" />
+                
+                <Form inline className="navright-btn userlogin-after ">
+                    {current_page!=="/restaurant_login"&&
+                            <div className="search-topnav mr-5 position-relative">
+                                <div className="search-navicon">
+                                    <img src={search_icon} className="img-fluid" alt="search_icon" />
+                                </div>
+                                <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                             </div>
-                            <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
-                        </div>
+                        }
+                    {   token&&emailVerified==="true"&&role==="user"
+                    ?
                         <div className="btn-group userprofile-dropdown">
                             <button type="button" className="btn btn-secondary dropdown-toggle userprofile-dropbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div className="user-name">
@@ -114,16 +117,9 @@ const Header = (props) => {
                                 <button className="dropdown-item" type="button" onClick={()=>{dispatch(logoutUser(history))}}>Logout</button>
                             </div>
                         </div>
-                    </Form>
                     :
-                    <Form inline className="navright-btn ">
-                        <div className="search-topnav mr-5 position-relative">
-                            <div className="search-navicon">
-                                <img src={search_icon} className="img-fluid" alt="search_icon" />
-                            </div>
-                            <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
-                        </div>
-                         <div className="partner-nav-dropdown">  
+                        <React.Fragment>
+                        <div className="partner-nav-dropdown">  
                             <div id="nav">
                                 <li>
                                     <Button 
@@ -148,8 +144,13 @@ const Header = (props) => {
                             </Button>
                         }
                         {/* <img src={cart} className="img-fluid" alt="cart" /> */}
-                    </Form>
-                }
+
+                        </React.Fragment>
+                    }
+                </Form>
+                
+                    
+                
                 <Modal centered show={showSignUp} onHide={handleCloseSignUp} className="signup-modal">
                     <Modal.Body className="p-0 position-relative">
                         <Signup  
