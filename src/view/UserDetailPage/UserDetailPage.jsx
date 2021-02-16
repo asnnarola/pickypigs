@@ -67,7 +67,7 @@ const UserDetailPage = () => {
                                     </form>
                                 </div>
                                 {userProfile_Data&&userProfile_Data.userDetail?
-                                    <h5 className="username-txt">{userProfile_Data.userDetail.name}</h5>
+                                    <h5 className="username-txt text-capitalize">{userProfile_Data.userDetail.name}</h5>
                                 :
                                     <h5 className="username-txt">Unknown User</h5>
                                 }    
