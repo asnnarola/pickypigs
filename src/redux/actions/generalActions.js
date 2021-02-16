@@ -2,8 +2,6 @@ import axios from 'axios';
 import Axios from './axios';
 import {setAlert} from './alertAction';
 import { API_KEY,GOOGLE_PLACE_API_URL,EDAMAM_APP_ID,EDAMAM_APP_KEY} from '../../shared/constant';
-const token = localStorage.getItem("access_token");
-// if (token) axios.defaults.headers.common = { "x-access-token": token };
 
 
 
@@ -54,8 +52,10 @@ export const getLogin=(data,history)=>{
           let response = await Axios.post(dataURL,JSON.stringify(data),config );
           dispatch({type:"GET_LOGIN_SUCCESS",payload:response.data});
           history.push('/');
-          await dispatch(showSignInPopup(false));
-          await dispatch(setAlert('LogIn Success', 'success'));
+          dispatch(showSignInPopup(false));
+          dispatch(setAlert('LogIn Success', 'success'));
+          const token = localStorage.getItem("access_token");
+          if (token) axios.defaults.headers.common = { "x-access-token": token };
          
       }
       catch(error){
@@ -82,7 +82,6 @@ export const googleLogin=(data,history,show,page)=>{
           let dataURL=`/auth/google`
           let response = await Axios.post(dataURL,JSON.stringify(data),config );
           dispatch({type:"GOOGLE_LOGIN_SUCCESS",payload:response.data});
-          history.push('/');
           if(page==="signIn"){
              dispatch(showSignInPopup(show));
              dispatch(showSignInPopup(!show));
@@ -90,7 +89,10 @@ export const googleLogin=(data,history,show,page)=>{
             dispatch(showSignUpPopup(show));
             dispatch(showSignUpPopup(!show));
           }
-          await dispatch(setAlert('LogIn Success', 'success'));
+          dispatch(setAlert('LogIn Success', 'success'));
+          const token = localStorage.getItem("access_token");
+          if (token) axios.defaults.headers.common = { "x-access-token": token };
+          history.push('/');
          
       }
       catch(error){
@@ -126,7 +128,9 @@ export const facebookLogin=(data,history,show,page)=>{
             dispatch(showSignUpPopup(show));
             dispatch(showSignUpPopup(!show));
           }
-          await dispatch(setAlert('LogIn Success', 'success'));
+          dispatch(setAlert('LogIn Success', 'success'));
+          const token = localStorage.getItem("access_token");
+          if (token) axios.defaults.headers.common = { "x-access-token": token };
          
       }
       catch(error){
@@ -147,8 +151,9 @@ export const logoutUser=(history)=>{
   return async(dispatch)=>{
       try{
           await dispatch({type:"LOGOUT_USER_REQUEST"});
-          await dispatch(setAlert('LogOut Success', 'success'));
+          dispatch(setAlert('LogOut Success', 'success'));
           history.push('/') ;
+          axios.defaults.headers.common = { "x-access-token": "" };
       }
       catch(error){
           console.error(error);
@@ -176,9 +181,9 @@ export const forgotPassword=(data)=>{
           let response = await Axios.post(dataURL,JSON.stringify(data),config );
           dispatch({type:"FORGOT_PASSWORD_SUCCESS",payload:response.data});
           if (response.data.message==="Reset link was sent to your email address") {
-            await dispatch(setAlert(`${response.data.message}`, 'success'));
+            dispatch(setAlert(`${response.data.message}`, 'success'));
           } else {
-          await dispatch(setAlert(`${response.data.message}`, 'error'));
+          dispatch(setAlert(`${response.data.message}`, 'error'));
           }
       }
       catch(error){
@@ -206,7 +211,7 @@ export const resetPassword=(data,history)=>{
           let dataURL=`/auth/reset_password`
           let response = await Axios.post(dataURL,JSON.stringify(data),config );
           dispatch({type:"RESET_PASSWORD_SUCCESS",payload:response.data});
-          await dispatch(setAlert(`${response.data.message}`, 'success'));
+          dispatch(setAlert(`${response.data.message}`, 'success'));
           history.push('/');
       }
       catch(error){
@@ -229,7 +234,6 @@ export const sendJoinUsMessage=(data)=>{
           let config= {
               headers:{
                "Content-Type":"application/json",
-               'x-access-token': `${token&&token}`
                }
            }
           let dataURL=`/frontend/homePage/join_us`

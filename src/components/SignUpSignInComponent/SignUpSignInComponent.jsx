@@ -76,6 +76,7 @@ const SignUpSignInComponent = () => {
             <br />
             <br />
             <br />
+            <section className="SignUpSignInComponent">
             <div className="row justify-content-between">
                 <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <div className="signin-left pt-4 mt-2">
@@ -220,6 +221,7 @@ const SignUpSignInComponent = () => {
                     </div>
                 </div>
             </div>
+            </section>
             <br />
             <br />
             <br />

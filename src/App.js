@@ -9,11 +9,12 @@ import MobileRoutes from './MobileRoutes';
 import containers from './state';
 import Hidden from '@material-ui/core/Hidden';
 import AlertSystemPage from './view/AlertSystemPage/AlertSystemPage';
-import ResetPasswordPage from './view/ResetPasswordPage/ResetPasswordPage';
 import LoadonTop from './components/LoadonTop';
 
 // const Login = lazy(() => import('./view/Login/Login'));
 // const Signup = lazy(() => import('./view/Signup/Signup'));
+
+const ResetPasswordPage = lazy(() => import('./view/ResetPasswordPage/ResetPasswordPage'));
 
 function App() {
   return (

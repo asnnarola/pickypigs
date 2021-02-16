@@ -5,7 +5,6 @@ import nonveg from "../../assets/images/non-veg.svg"
 import veg from "../../assets/images/veg.svg"
 import "./DishBlock.scss"
 import restaurant_P1 from "../../assets/images/restaurant/r1.png"
-import axios from 'axios'
 
 const DishBlock = ({restaurant_Name, restaurant_Pic, kmValue="1", rating="3.1"}) => {
     return (

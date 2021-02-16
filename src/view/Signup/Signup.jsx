@@ -32,7 +32,7 @@ const validationSchema = Yup.object().shape({
     .min(8, 'Seems a bit short(Min 8 characters)...')
     .max(24, 'Please try a shorter password(Max 24 characters)...).')
     .matches(passwordRegExp, 'Password should Have 1 Uppercase,1 Lowercase,1 digit,1 special characte'),  
-    phone: Yup.string().required("Phone Number is required").matches(phoneRegex, "Invalid Phone Number").min(10, "to short").max(10, "Not More Than 10 "),
+    // phone: Yup.string().required("Phone Number is required").matches(phoneRegex, "Invalid Phone Number").min(10, "to short").max(10, "Not More Than 10 "),
     confirmPassword: Yup
         .string().required('Confirm password Required').label('Confirm password')
         .test('passwords-match', 'Passwords must match', function (value) {
@@ -57,7 +57,7 @@ const Signup = (props) => {
         let obj = {
             email: input.email,
             name: input.name,
-            phone: input.phone,
+            // phone: input.phone,
             password: input.password,
             confirmPassword: input.confirmPassword,
             role:"user"
@@ -160,7 +160,7 @@ const Signup = (props) => {
                     </div>
               
                     <Formik
-                        initialValues={{ name: '', email: '', password: '',phone:'', confirmPassword: '' }}
+                        initialValues={{ name: '', email: '', password: '', confirmPassword: '' }}
                         validationSchema={validationSchema}  onSubmit={handleForm}
                     >
                         {({
@@ -185,10 +185,10 @@ const Signup = (props) => {
                                                 <div className="error pink-txt f-11">{errors.email}</div>} */}
                                                 <div className="error pink-txt f-11">{(touched.email && errors.email && errors.email)}</div>
                                             </div>
-                                            <div className="form-group">
+                                            {/* <div className="form-group">
                                                 <Field name="phone" placeholder="Phone" className="form-control signup-input" />
                                                 {touched.phone && errors.phone && <div className="error pink-txt f-11">{errors.phone}</div>}
-                                            </div>
+                                            </div> */}
                                             <div className="form-group position-relative">
                                                 <Field type={type} name="password" placeholder="Password" className="form-control signup-input"
                                                 />

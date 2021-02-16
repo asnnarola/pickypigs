@@ -3,43 +3,37 @@
 const initialState = {
     isLoading : false,
     errorMessage:'',
-    allergy_Data:{},
-    dietary_Data:{},
-    lifestyle_Data:{},
-    restaurantFeatures_Data:{},
+    userProfile_Data:{},
     };
     
-    const allergyReducer = (state = initialState, { type, payload }) => {
+    const userProfileReducer = (state = initialState, { type, payload }) => {
       switch (type) {
         
-        case "GET_ALLERGY_REQUEST":
-        case "GET_DIETARY_REQUEST":
-        case "GET_LIFESTYLE_REQUEST":
+        case "GET_USERPROFILE_REQUEST":
+        case "UPDATE_USERPROFILE_REQUEST":
+        case "UPDATE_USERIMAGE_REQUEST":
         case "GET_RESTAURANTFEATURE_REQUEST":
             return {
                 ...state,
                 isLoading :true,
             };
-        case "GET_ALLERGY_SUCCESS":
+        case "GET_USERPROFILE_SUCCESS":
             return {
                 ...state,
                 isLoading:false,
-                allergy_Data:payload,
-                
-
+                userProfile_Data:payload.userDetail[0],
             };
-        case "GET_DIETARY_SUCCESS":
+            
+        case "UPDATE_USERPROFILE_SUCCESS":
             return{
                 ...state,
                 isLoading:false,
-                dietary_Data:payload,
-
             };
-        case "GET_LIFESTYLE_SUCCESS":            
+
+        case "UPDATE_USERIMAGE_SUCCESS":            
             return{
                 ...state,
                 isLoading:false,
-                lifestyle_Data:payload,
             }  
       
         case "GET_RESTAURANTFEATURE_SUCCESS":            
@@ -48,12 +42,10 @@ const initialState = {
                 isLoading:false,
                 restaurantFeatures_Data:payload,
             }   
-
-       
              
-        case "GET_ALLERGY_FAILURE":
-        case "GET_DIETARY_FAILURE":
-        case "GET_LIFESTYLE_FAILURE":  
+        case "GET_USERPROFILE_FAILURE":
+        case "UPDATE_USERPROFILE_FAILURE":
+        case "UPDATE_USERIMAGE_FAILURE":  
         case "GET_RESTAURANTFEATURE_FAILURE":  
             return {
                 ...state,
@@ -68,5 +60,5 @@ const initialState = {
       }
     };
     
-    export default allergyReducer;
+    export default userProfileReducer;
     

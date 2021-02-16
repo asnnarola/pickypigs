@@ -4,6 +4,7 @@ import googleReducer from "./googleReducer";
 import alertReducer from "./alertReducer";
 import allergyReducer from "./allergyReducer";
 import restaurantAdminReducer from "./restaurantAdminReducer";
+import userProfileReducer from "./userProfileReducer";
 
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
   alert:alertReducer,
   allergy:allergyReducer,
   restaurantAdmin:restaurantAdminReducer,
+  userProfile:userProfileReducer,
  
 });

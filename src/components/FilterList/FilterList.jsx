@@ -151,7 +151,7 @@ function FilterList({ filterIcon = "false" }) {
                     </Button>}
                     {userSearchText&&userTextFocus&&
                         <div className="position-absolute" style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:1}}>
-                            <SearchResultDisplayComp searchtext={userSearchText} data={allergy_Data&&allergy_Data.data}/>
+                            <SearchResultDisplayComp searchtext={userSearchText}/>
                         </div>
                     }
                     

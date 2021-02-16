@@ -62,13 +62,13 @@ import {setAlert} from './alertAction';
     export const getAllRestaurantFeaturesData=()=>{
         return async(dispatch)=>{
             try{
-                dispatch({type:"GET_RESTAURANTfEATURE_REQUEST"});
+                dispatch({type:"GET_RESTAURANTFEATURE_REQUEST"});
                 let dataURL=`/list/restaurant_features_option`
                 let response = await Axios.get(dataURL);
-                dispatch({type:"GET_RESTAURANTfEATURE_SUCCESS",payload:response.data});
+                dispatch({type:"GET_RESTAURANTFEATURE_SUCCESS",payload:response.data});
             }
             catch(error){
-            dispatch({type:"GET_RESTAURANTfEATURE_FAILURE",payload:error});
+            dispatch({type:"GET_RESTAURANTFEATURE_FAILURE",payload:error});
             if (error.response) {
                 dispatch(setAlert(`${error.response.data.message}`, 'danger'));
             } else {
@@ -78,3 +78,7 @@ import {setAlert} from './alertAction';
         }
     };
 
+
+
+
+  
