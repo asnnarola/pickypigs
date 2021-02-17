@@ -1,4 +1,6 @@
 .SearchResultDisplayComp-comp{
+    background-color: transparent;
+
     .autoSearch-outline{
         width:100%;
         height:100%;
@@ -8,6 +10,7 @@
         border-radius: 10px;
         padding: 15px;
         box-shadow: 2px 4px 20px 0px #0000001a;
+        background-color: white;
     }
     .default-text{
         .desc-text{

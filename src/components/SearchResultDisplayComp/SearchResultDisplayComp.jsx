@@ -27,6 +27,7 @@ const SearchResultDisplayComp=(props)=>{
                         <p className="mb-0 desc-text">We could not understand what you mean, try rephrasing the query.</p>
 
                     </div>
+                    <button>ssss</button>
                     <div>
                         {
                             myData&&myData.map((data,index)=>{

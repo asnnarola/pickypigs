@@ -2,6 +2,7 @@ import axios from 'axios';
 import Axios from './axios';
 import {setAlert} from './alertAction';
 import { API_KEY,GOOGLE_PLACE_API_URL,EDAMAM_APP_ID,EDAMAM_APP_KEY} from '../../shared/constant';
+import { getUserProfileDetail } from './userProfileAction';
 
 
 
@@ -56,6 +57,9 @@ export const getLogin=(data,history)=>{
           dispatch(setAlert('LogIn Success', 'success'));
           const token = localStorage.getItem("access_token");
           if (token) axios.defaults.headers.common = { "x-access-token": token };
+          if(response.data.token){
+            dispatch(getUserProfileDetail());
+          }
          
       }
       catch(error){
@@ -93,6 +97,10 @@ export const googleLogin=(data,history,show,page)=>{
           const token = localStorage.getItem("access_token");
           if (token) axios.defaults.headers.common = { "x-access-token": token };
           history.push('/');
+          if(response.data.token){
+            dispatch(getUserProfileDetail());
+          }
+          
          
       }
       catch(error){
@@ -131,6 +139,9 @@ export const facebookLogin=(data,history,show,page)=>{
           dispatch(setAlert('LogIn Success', 'success'));
           const token = localStorage.getItem("access_token");
           if (token) axios.defaults.headers.common = { "x-access-token": token };
+          if(response.data.token){
+            dispatch(getUserProfileDetail());
+          }
          
       }
       catch(error){

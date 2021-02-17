@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Dropdown } from 'react-bootstrap'
 import axios from 'axios';
 import { API_KEY, GOOGLE_MAP_API_URL, HOST_URL, GOOGLE_PLACE_API_URL } from '../../shared/constant';
@@ -22,6 +22,26 @@ import { getAllAllergyData,getAllDietaryData,getAllLifestyleData,getAllRestauran
 import SearchResultDisplayComp from '../SearchResultDisplayComp/SearchResultDisplayComp';
 
 
+function useOutsideAlerter(ref,setUserTextFocus) {
+    useEffect(() => {
+        /**
+         * Alert if clicked on outside of element
+         */
+        function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                // alert("You clicked outside of me!");
+                        setUserTextFocus(false)
+                    }
+        }
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+}
 
 function FilterList({ filterIcon = "false" }) {
     const dispatch = useDispatch();
@@ -35,10 +55,13 @@ function FilterList({ filterIcon = "false" }) {
     const [allergenValue, setAllergenValue] = useState([])
     const [featuresValue, setFeaturesValue] = useState([])
     const [userTextFocus, setUserTextFocus] = useState(false)
-    const [userSearchText, setUserSearchText] = useState("")
+    const [userSearchText, setUserSearchText] = useState("sss")
 
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
+
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef,setUserTextFocus);
 
     useEffect(() => {
         dispatch(getAllAllergyData())
@@ -133,13 +156,13 @@ function FilterList({ filterIcon = "false" }) {
                         )}
                     </Dropdown.Menu>
                 </Dropdown> */}
-                <div className="fr-input d-flex justify-content-between align-items-center position-relative">
+                <div ref={wrapperRef} className="fr-input d-flex justify-content-between align-items-center position-relative">
                     <input 
                         type="text" 
                         value={userSearchText} 
                         onChange={handleSearch} 
                         onFocus={()=>{setUserTextFocus(true)}}
-                        onBlur={()=>{setUserTextFocus(false)}} 
+                        // onBlur={()=>{setUserTextFocus(false)}} 
                         className="w-100 fr-search-box rl-fl-searchbox brandon-regular" 
                         placeholder="Search for restaurant or dish" 
                     />
@@ -149,8 +172,9 @@ function FilterList({ filterIcon = "false" }) {
                     {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
                     </Button>}
-                    {userSearchText&&userTextFocus&&
-                        <div className="position-absolute" style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:1}}>
+                    {userSearchText&&
+                    userTextFocus&&
+                        <div  className="position-absolute"  style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:2,backgroundColor:'transparent'}}>
                             <SearchResultDisplayComp searchtext={userSearchText}/>
                         </div>
                     }

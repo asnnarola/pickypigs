@@ -1,4 +1,4 @@
-.UserProfileDescriptionComponent{
+.UserProfileDescriptionComponent {
     .userform-btn-main {
         margin-top: -2.5rem;
     }
@@ -6,6 +6,7 @@
         color: #919191;
         font-size: 15px;
         min-width: 240px;
+        padding-top: calc(.375rem + 10px);
     }
     .tabs-form-input {
         max-width: 230px;
@@ -15,15 +16,39 @@
         .form-control-plaintext {
             outline: none !important;
             min-height: 50px;
+            padding-top: 12px;
         }
         .form-control {
-            border:none;
+            border: none;
             border-bottom: 1px solid #232323;
             border-radius: 0px;
             padding: 0px;
             min-height: 50px;
             box-shadow: none;
             color: #232323;
+        }
+
+        textarea{
+            &.form-control{
+                min-height: auto;
+                padding: 10px 0px;
+            }
+        }
+
+        &.datepicker-input {
+            .datepicker-control {
+                .MuiInput-formControl {
+                    width: 100%;
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+                    .MuiInputBase-input {
+                        padding-top: 10px;
+                        padding-bottom: 0;
+                    }
+                }
+            }
         }
     }
     .showpassword-block {

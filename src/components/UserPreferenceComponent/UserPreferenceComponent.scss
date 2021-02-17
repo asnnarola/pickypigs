@@ -42,6 +42,9 @@
                 background: #f6f6f6;
                 border-radius: 15px;
                 transition: ease 0.5s;
+                position: relative;
+                z-index: -1;
+
                 img {
                     width: 35px;
                     filter: invert(71%) sepia(0%) saturate(4591%) hue-rotate(86deg) brightness(82%) contrast(87%);
@@ -74,6 +77,12 @@
                     color: #cb007b;
                 }
             }
+
+            span{
+                position: relative;
+                z-index: -1;
+            }
+
         }
     }
 }

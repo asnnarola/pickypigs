@@ -15,6 +15,8 @@ import RegistrationSuccessScreen from '../../RegistrationSuccessScreen/Registrat
 import AdminLoginPage from '../../../view/AdminLoginPage/AdminLoginPage'
 import SignUpModalComp from '../../SignUpModalComp/SignUpModalComp'
 import { showAdminSignUpPopup } from '../../../redux/actions/restaurantAdminAction'
+import {SERVER_URL} from '../../../shared/constant'
+import CustomLoadingComp from '../../CustomLoadingComp/CustomLoadingComp'
 
 const Header = (props) => {
     const dispatch=useDispatch();
@@ -60,11 +62,13 @@ const Header = (props) => {
         setAdminSignUp(adminSignUpModal);
       },[adminSignUpSuccess,adminSignUpModal])
 
+      let User_Data=useSelector((state)=>{
+        return state.userProfile
+    });
+    let {userProfile_Data,isLoading}=User_Data;
+
 
     const token = localStorage.getItem("access_token");
-    const emailVerified = localStorage.getItem("isEmailVerified");
-    const role = localStorage.getItem("role");
-    const userEmail = localStorage.getItem("email");
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -102,14 +106,18 @@ const Header = (props) => {
                                 <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                             </div>
                         }
-                    {   token&&emailVerified==="true"&&role==="user"
+                    {   token&&userProfile_Data&&userProfile_Data.role==="user"
                     ?
                         <div className="btn-group userprofile-dropdown">
                             <button type="button" className="btn btn-secondary dropdown-toggle userprofile-dropbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div className="user-name">
-                                    <img src={logo} className="userprofile-img img-fluid mr-2" alt="logo" />
-                                    {userEmail&&userEmail?
-                                    <span>{userEmail.substring(0, userEmail.lastIndexOf("@"))}</span>
+                                    {userProfile_Data&&userProfile_Data.userDetail?
+                                        <img src={`${SERVER_URL}/${userProfile_Data.userDetail.profileImage}`} className="userprofile-img img-fluid mr-2 border" alt="logo" />
+                                    :       
+                                        <img src={logo} className="userprofile-img img-fluid mr-2" alt="logo" />
+                                    }
+                                    {userProfile_Data&&userProfile_Data.userDetail&&userProfile_Data.userDetail.name?
+                                    <span>{userProfile_Data.userDetail.name}</span>
                                     :
                                     <span>Hello</span>
                                     }
@@ -152,7 +160,6 @@ const Header = (props) => {
                         </React.Fragment>
                     }
                 </Form>
-                
                     
                 
                 <Modal centered show={showSignUp} onHide={handleCloseSignUp} className="signup-modal">

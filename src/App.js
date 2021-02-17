@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter,HashRouter,Route, Switch} from 'react-router-dom';
 import withSplashScreen from './components/withSplashScreen';
 
@@ -10,6 +10,9 @@ import containers from './state';
 import Hidden from '@material-ui/core/Hidden';
 import AlertSystemPage from './view/AlertSystemPage/AlertSystemPage';
 import LoadonTop from './components/LoadonTop';
+import store from './redux/store';
+import { getUserProfileDetail } from './redux/actions/userProfileAction';
+import { useDispatch } from 'react-redux';
 
 // const Login = lazy(() => import('./view/Login/Login'));
 // const Signup = lazy(() => import('./view/Signup/Signup'));
@@ -17,6 +20,14 @@ import LoadonTop from './components/LoadonTop';
 const ResetPasswordPage = lazy(() => import('./view/ResetPasswordPage/ResetPasswordPage'));
 
 function App() {
+    const dispatch=useDispatch();
+    const token = localStorage.getItem("access_token");
+    useEffect(()=>{
+      if(localStorage.access_token){
+        store.dispatch(getUserProfileDetail())
+      }
+    },[dispatch]);
+
   return (
     <AppStateProvider containers={containers}>
       <Suspense fallback={<div></div>}>

@@ -54,7 +54,6 @@ export const updateUserProfileDetail=(data)=>{
   };
 
   export const updateUserProfileImage=(image)=>{
-      console.log(image)
     return async(dispatch)=>{
         try{
             dispatch({type:"UPDATE_USERIMAGE_REQUEST"});

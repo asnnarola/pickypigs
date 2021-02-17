@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick'
 import Breakfast_icon from "../assets/images/filterfeature/Accessible_icon.svg"
@@ -16,7 +16,7 @@ import Fish_icon from "../assets/images/filterfeature/Fish_icon.svg"
 import Cereals_icon from "../assets/images/filterfeature/Cereals_icon.svg"
 import Soya_icon from "../assets/images/filterfeature/Cereals_icon.svg"
 
-const features_information=[{name:"Accessible",image:Accessible_icon},{name:"Veg",image:Veg_icon},{name:"Pet love",image:Petlove_icon},{name:"Non veg",image:Nonveg_icon},{name:"Child love",image:ChildLove_icon},{name:"Nuts",image:Nuts_icon},{name:"Peanuts",image:Peanuts_icon},{name:"Sesame",image:Sesame_icon},{name:"Molluscs",image:Molluscs_icon},{name:"Crustaceans",image:Crustaceans_icon},{name:"Fish",image:Fish_icon},{name:"Cereals (Wheat)",image:Cereals_icon},{name:"Soya",image:Soya_icon},{name:"Sulphur dioxide",image:Nonveg_icon}];
+const features_information = [{ name: "Accessible", image: Accessible_icon }, { name: "Veg", image: Veg_icon }, { name: "Pet love", image: Petlove_icon }, { name: "Non veg", image: Nonveg_icon }, { name: "Child love", image: ChildLove_icon }, { name: "Nuts", image: Nuts_icon }, { name: "Peanuts", image: Peanuts_icon }, { name: "Sesame", image: Sesame_icon }, { name: "Molluscs", image: Molluscs_icon }, { name: "Crustaceans", image: Crustaceans_icon }, { name: "Fish", image: Fish_icon }, { name: "Cereals (Wheat)", image: Cereals_icon }, { name: "Soya", image: Soya_icon }, { name: "Sulphur dioxide", image: Nonveg_icon }];
 
 function FilterByFeature() {
     var settings = {
@@ -51,40 +51,38 @@ function FilterByFeature() {
     };
 
     let [features, setFeatures] = useState([]);
-    const handleFeatures=(e)=>{
+    const handleFeatures = (e) => {
         e.preventDefault();
-        if(features.indexOf(e.target.id) !== -1){
+        if (features.indexOf(e.target.id) !== -1) {
             var Index = features.indexOf(e.target.id);
-            if(Index>-1){
-                setFeatures(features.filter(myfeatures=>myfeatures!==e.target.id));
+            if (Index > -1) {
+                setFeatures(features.filter(myfeatures => myfeatures !== e.target.id));
             }
-        }else{
-            setFeatures([...features,e.target.id]);
+        } else {
+            setFeatures([...features, e.target.id]);
         }
     }
 
     return (
-        <div>
-            <Slider {...settings} className="filterfeature-wrapper">
-                {features_information&&features_information.map((data,index)=>{
-                    return(
-                        <React.Fragment key={index}>
-                            <button  id= {data.name} 
-                             onClick={handleFeatures} 
-                             className={`btn filter-subwrapper ${features.indexOf(data.name)!==-1 && "active"}`}
-                            >
-                                <div className="filter-icon">
-                                    <img src={data.image} className="img-fluid" />
-                                </div>
-                                <p  className="mt-2 text-dark text-link f-14 brandon-Medium">{data.name}</p>
-                            </button>
-                        </React.Fragment>
-                    )
-                })}
-               
-               
-            </Slider>
-        </div>
+        <Slider {...settings} className="filterfeature-wrapper">
+            {features_information && features_information.map((data, index) => {
+                return (
+                    <React.Fragment key={index}>
+                        <button id={data.name}
+                            onClick={handleFeatures}
+                            className={`btn filter-subwrapper ${features.indexOf(data.name) !== -1 && "active"}`}
+                        >
+                            <div className="filter-icon">
+                                <img src={data.image} className="img-fluid" />
+                            </div>
+                            <p className="mt-2 text-dark text-link f-14 brandon-Medium">{data.name}</p>
+                        </button>
+                    </React.Fragment>
+                )
+            })}
+
+
+        </Slider>
     )
 }
 

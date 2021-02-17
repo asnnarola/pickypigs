@@ -95,7 +95,7 @@ const UserProfileDescriptionComponent = (props) => {
                                     <div className="container">
                                         <div className="row mb-5 pb-2">
                                             <div className="col-md-6">
-                                                    <div className="form-group row align-items-center mb-1">
+                                                    <div className="form-group row align-items-start mb-1">
                                                         <label className="col-sm-2 col-form-label tabs-form-label">Full name</label>
                                                         <div className="col-sm-10 tabs-form-input">
                                                             {editForm
@@ -110,7 +110,7 @@ const UserProfileDescriptionComponent = (props) => {
                                                         </div>
                                                     </div>
                                                     {accountType&&accountType==="email"&&
-                                                    <div className="form-group row align-items-center mb-1  ">
+                                                    <div className="form-group row align-items-start mb-1  ">
                                                         <label className="col-sm-2 col-form-label tabs-form-label">Password</label>
                                                         <div className="col-sm-10 tabs-form-input position-relative">
                                                             {editForm
@@ -131,16 +131,16 @@ const UserProfileDescriptionComponent = (props) => {
                                                         </div>
                                                     </div>
                                                     }
-                                                    <div className="form-group row align-items-center mb-1">
+                                                    <div className="form-group row align-items-start mb-1">
                                                         <label className="col-sm-2 col-form-label tabs-form-label">Date of Birth</label>
-                                                        <div className="col-sm-10 tabs-form-input">
+                                                        <div className="col-sm-10 tabs-form-input datepicker-input">
                                                             {editForm
                                                                 ?
                                                                 <p className="form-control-plaintext">{moment(userDetail&&userDetail.dob).format('DD MMMM YYYY')}</p>
                                                                 :
                                                                 <React.Fragment>
                                                                 <TextField id="date" type="date" onChange={e => setFieldValue("dob", e.target.value)} 
-                                                                    className="form-control" name="dob"  value ={moment(values.dob).format("YYYY-MM-DD")}
+                                                                    className="form-control datepicker-control d-flex align-items-center justify-content-center" name="dob"  value ={moment(values.dob).format("YYYY-MM-DD")}
                                                                     InputLabelProps={{ shrink: true, }}
                                                                 />
                                                                 {touched.dob && errors.dob && <div className="error pink-txt f-11">{errors.dob}</div>}
@@ -148,7 +148,7 @@ const UserProfileDescriptionComponent = (props) => {
                                                             }
                                                         </div>
                                                     </div>
-                                                    <div className="form-group row align-items-center mb-1">
+                                                    <div className="form-group row align-items-start mb-1">
                                                         <label className="col-sm-2 col-form-label tabs-form-label">Gender</label>
                                                         <div className="col-sm-10 tabs-form-input">
                                                         {editForm
@@ -170,13 +170,13 @@ const UserProfileDescriptionComponent = (props) => {
                                                 
                                             </div>
                                             <div className="col-md-6">
-                                                <div className="form-group row align-items-center mb-1">
+                                                <div className="form-group row align-items-start mb-1">
                                                     <label className="col-sm-2 col-form-label tabs-form-label">Email</label>
                                                     <div className="col-sm-10 tabs-form-input">
                                                     <Field name="email" type="email" readOnly={true} placeholder="Enter Name here" className="form-control-plaintext" />
                                                     </div>
                                                 </div>
-                                                <div className="form-group row align-items-center mb-1">
+                                                <div className="form-group row align-items-start mb-1">
                                                     <label className="col-sm-2 col-form-label tabs-form-label">Phone number</label>
                                                     <div className="col-sm-10 tabs-form-input">
                                                     {editForm
@@ -198,7 +198,7 @@ const UserProfileDescriptionComponent = (props) => {
                                                         {/* <Field name="phone" readOnly={true} placeholder="Enter here" className="form-control-plaintext" /> */}
                                                     </div> 
                                                 </div>
-                                                <div className="form-group row align-items-center mb-1">
+                                                <div className="form-group row align-items-start mb-1">
                                                     <label className="col-sm-2 col-form-label tabs-form-label">Address</label>
                                                     <div className="col-sm-10 tabs-form-input">
                                                     {editForm
