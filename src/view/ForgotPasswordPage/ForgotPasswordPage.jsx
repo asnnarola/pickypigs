@@ -13,6 +13,7 @@ import { Modal } from 'react-bootstrap';
 import "./ForgotPasswordPage.scss"
 import { useDispatch,useSelector} from 'react-redux';
 import { forgotPassword } from '../../redux/actions/generalActions';
+import CustomLoadingComp from '../../components/CustomLoadingComp/CustomLoadingComp';
 
 
 
@@ -29,8 +30,11 @@ const ForgotPasswordPage = (props) => {
         }
         dispatch(forgotPassword(obj))
     }
-  
+    let loading = useSelector((state)=>{
+        return state.general.isLoading
+    });
     return (
+        
         <div className="row">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-left">
                 <div className="hello-msg">
@@ -85,6 +89,13 @@ const ForgotPasswordPage = (props) => {
                                                 <button className="pinkline-btn signup-btn btn mt-4 w-100 text-uppercase border-radius-25 " type="submit" >
                                                     RESET PASSWORD
                                                 </button>
+                                                <React.Fragment>
+                                                    {loading?
+                                                        <CustomLoadingComp/>
+                                                    :
+                                                        null
+                                                    }
+                                                </React.Fragment>
                                             </div>
                                             
                                         </div>
@@ -95,6 +106,7 @@ const ForgotPasswordPage = (props) => {
                
             </div>
         </div>
+        
     )
 }
 

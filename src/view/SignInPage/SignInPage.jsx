@@ -10,9 +10,10 @@ import useAppState from '../../context/useAppState';
 import showpassword from "../../assets/images/eye_icon.svg";
 import closeicon from "../../assets/images/close.svg";
 import "./SignInPage.scss"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { facebookLogin, getLogin,googleLogin, showSignUpPopup } from '../../redux/actions/generalActions';
 import SocialButton from '../../components/SocialButton';
+import CustomLoadingComp from '../../components/CustomLoadingComp/CustomLoadingComp';
 
 
 const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
@@ -101,9 +102,17 @@ const SignInPage = (props) => {
         
         dispatch(getLogin(obj,history))
     }
+
+    let loading = useSelector((state)=>{
+        return state.general.isLoading
+    });
+
+
+
     
 
     return (
+        
         <div className="row">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 signup-left">
                 <div className="hello-msg">
@@ -158,7 +167,7 @@ const SignInPage = (props) => {
                                                 <div className="error pink-txt f-11">{(touched.password && errors.password && errors.password)}</div>
                                             </div>
                                             <div className="forgot-block mt-3 mb-3">
-                                                <button  className="forgot-link trans_button" onClick={()=>{props.openForgotPass()}}>
+                                                <button type="button" className="forgot-link trans_button" onClick={()=>{props.openForgotPass()}}>
                                                     <span>Forgot Password</span>
                                                 </button>
                                             </div>
@@ -172,7 +181,13 @@ const SignInPage = (props) => {
                                 </Form>
                             )}
                     </Formik>
-                 
+                    <React.Fragment>
+                                                    {loading?
+                                                        <CustomLoadingComp/>
+                                                    :
+                                                        null
+                                                    }
+                                                </React.Fragment>
                     
                <React.Fragment>
                     <div className="row">
@@ -236,6 +251,7 @@ const SignInPage = (props) => {
                 </React.Fragment>
             </div>
         </div>
+       
     )
 }
 

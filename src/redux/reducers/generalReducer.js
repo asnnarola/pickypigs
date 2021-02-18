@@ -10,8 +10,11 @@ const initialState = {
   isSignedUp : false,
   showSignUpPopup: false,
   showSignInPopup: false,
+  showSignUpSuccessPopup: false,
   forgot_Password:{},
-  reset_Password:{}
+  reset_Password:{},
+  isRegisterSuccess : false,
+
   };
   
   const generalReducer = (state = initialState, { type, payload }) => {
@@ -30,6 +33,11 @@ const initialState = {
         return {
           ...state,
           showSignInPopup: payload,
+        };  
+      case "SHOW_SIGNUPSUCCESS_POPUP":
+        return {
+          ...state,
+          showSignUpSuccessPopup: payload,
         };   
 
       case "GET_NUTRITION_DATA_REQUEST":
@@ -43,6 +51,7 @@ const initialState = {
           isLoading :true,
           isSignedIn : false,
           isSignedUp : false,
+          isRegisterSuccess : false,
         };
 
       case "GET_LOGIN_SUCCESS":
@@ -91,8 +100,9 @@ const initialState = {
       case "REGISTER_USER_SUCCESS":
             return {
                 ...state,
-                loading: false,
-                isSignedUp : true,
+                isLoading: false,
+                isSignedUp : false,
+                isRegisterSuccess : true,
 
             };  
 
@@ -122,6 +132,7 @@ const initialState = {
           errorMessage:payload,
           isSignedIn : false,
           isSignedUp : false,
+          isRegisterSuccess : false,
         };
 
         //FORGOT_PASSWORD

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Dropdown } from 'react-bootstrap'
 import axios from 'axios';
 import { API_KEY, GOOGLE_MAP_API_URL, HOST_URL, GOOGLE_PLACE_API_URL } from '../../shared/constant';
@@ -18,12 +18,30 @@ import PlacesAutocomplete, {
     getLatLng,
 } from 'react-places-autocomplete';
 import MyfilterListExample from './MyfilterListExample';
+import { getAllAllergyData,getAllDietaryData,getAllLifestyleData,getAllRestaurantFeaturesData} from '../../redux/actions/allergyAction';
+import SearchResultDisplayComp from '../SearchResultDisplayComp/SearchResultDisplayComp';
 
 
-const alergy_information = ["Egg", "Milk", "Celery", "Mustard", "Lupin", "Nuts", "Peanuts", "Sesame", "Molluscs", "Crustaceans", "Fish", "Cereals (Wheat)", "Soya", "Sulphur dioxide"];
-const dietary_preference = ["Gluten Free", "Dairy Free", "Meat Lover", "Fodmap", "Low Sugar", "Low Carb", "Plant Based", "Vegetarian", "Pescatarian", "Keto"];
-const lifestyle_choice = ["Pregnant", "Vegan", "Halal", "Kosher", "Organic", "Locally Sourced"];
-const restaurant_features = ["Pet Friendly", "Child friendly", "Live music", "Outside sitting", "Disabled access", "Reservations needed", "Bring your own", "Large parties accepted", "Private dining room", "Table service", "Bar service", "Holding bar", "R20", "Take away"];
+function useOutsideAlerter(ref,setUserTextFocus) {
+    useEffect(() => {
+        /**
+         * Alert if clicked on outside of element
+         */
+        function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                // alert("You clicked outside of me!");
+                        setUserTextFocus(false)
+                    }
+        }
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+}
 
 function FilterList({ filterIcon = "false" }) {
     const dispatch = useDispatch();
@@ -36,15 +54,29 @@ function FilterList({ filterIcon = "false" }) {
     const [lifeStyleValue, setLifeStyleValue] = useState([])
     const [allergenValue, setAllergenValue] = useState([])
     const [featuresValue, setFeaturesValue] = useState([])
-    const [userSearchText, setUserSearchText] = useState("")
+    const [userTextFocus, setUserTextFocus] = useState(false)
+    const [userSearchText, setUserSearchText] = useState("sss")
+
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
 
-    // useEffect(() => {
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef,setUserTextFocus);
 
-    //     getMyLocation()
+    useEffect(() => {
+        dispatch(getAllAllergyData())
+        dispatch(getAllDietaryData())
+        dispatch(getAllLifestyleData())
+        dispatch(getAllRestaurantFeaturesData())
 
-    // }, [])
+    },[dispatch])
+
+    let allAllergy_data = useSelector((state)=>{
+        return state.allergy
+    });
+
+    let {isLoading,allergy_Data,dietary_Data,lifestyle_Data,restaurantFeatures_Data}=allAllergy_data;
+
 
     const clearAllAllergy=()=>{
         setAllergenValue([])
@@ -109,7 +141,6 @@ function FilterList({ filterIcon = "false" }) {
                 <MyfilterListExample />
 
 
-
                 {/* <Dropdown className="fr-location mr-2">
                     <Dropdown.Toggle className="d-flex justify-content-between align-items-center w-100" variant="Secondary" id="dropdown-basic">
                         <span className="d-flex align-items-center">
@@ -125,24 +156,41 @@ function FilterList({ filterIcon = "false" }) {
                         )}
                     </Dropdown.Menu>
                 </Dropdown> */}
-                <div className="fr-input d-flex justify-content-between align-items-center">
-                    <input onChange={handleSearch} className="w-100 fr-search-box rl-fl-searchbox brandon-regular" placeholder="Search for restaurant or dish" />
+                <div ref={wrapperRef} className="fr-input d-flex justify-content-between align-items-center position-relative">
+                    <input 
+                        type="text" 
+                        value={userSearchText} 
+                        onChange={handleSearch} 
+                        onFocus={()=>{setUserTextFocus(true)}}
+                        // onBlur={()=>{setUserTextFocus(false)}} 
+                        className="w-100 fr-search-box rl-fl-searchbox brandon-regular" 
+                        placeholder="Search for restaurant or dish" 
+                    />
                     <Button variant="primary" onClick={getAllRestaurant} className="fr-search-btn theme-pink-btn">
                         <img src={serachwhite} className="img-fluid" alt="serachwhite" />
                     </Button>
                     {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
                     </Button>}
+                    {userSearchText&&
+                    userTextFocus&&
+                        <div  className="position-absolute"  style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:2,backgroundColor:'transparent'}}>
+                            <SearchResultDisplayComp searchtext={userSearchText}/>
+                        </div>
+                    }
+                    
                 </div>
             </div>
+            {/* {userSearchText} || {JSON.stringify()} */}
+
             <div className="fr-category-select d-flex justify-content-between align-items-center mt-3 flex-wrap pr-4">
-                <CustomDropdown placeholder={"Allergen"} clearAll={clearAllAllergy} options={alergy_information} value={allergenValue} onChangeData={setAllergenValue} />
+                <CustomDropdown placeholder={"Allergen"} clearAll={clearAllAllergy} options={allergy_Data&&allergy_Data.data} value={allergenValue} onChangeData={setAllergenValue} />
 
-                <CustomDropdown placeholder={"Dietary Preference"} clearAll={clearAllDietary} options={dietary_preference} value={dietaryValue} onChangeData={setDietaryValue} />
+                <CustomDropdown placeholder={"Dietary Preference"} clearAll={clearAllDietary} options={dietary_Data&&dietary_Data.data} value={dietaryValue} onChangeData={setDietaryValue} />
 
-                <CustomDropdown placeholder={"Lifestyle Choices"} clearAll={clearAllLifeStyle} options={lifestyle_choice} value={lifeStyleValue} onChangeData={setLifeStyleValue} />
+                <CustomDropdown placeholder={"Lifestyle Choices"} clearAll={clearAllLifeStyle} options={lifestyle_Data&&lifestyle_Data.data} value={lifeStyleValue} onChangeData={setLifeStyleValue} />
 
-                <CustomDropdown placeholder={"Restaurant Features"} clearAll={clearAllFeature} options={restaurant_features} value={featuresValue} onChangeData={setFeaturesValue} />
+                <CustomDropdown placeholder={"Restaurant Features"} clearAll={clearAllFeature} options={restaurantFeatures_Data&&restaurantFeatures_Data.data} value={featuresValue} onChangeData={setFeaturesValue} />
 
 
             </div>

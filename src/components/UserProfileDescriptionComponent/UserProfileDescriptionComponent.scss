@@ -1,27 +1,84 @@
-.userform-btn-main {
-    margin-top: -2.5rem;
-}
-.tabs-form-label {
-    color: #919191;
-    font-size: 15px;
-    min-width: 240px;
-}
-.tabs-form-input {
-    max-width: 230px;
-    min-width: 230px;
-    font-size: 15px;
-    color: #232323;
-    .form-control-plaintext {
-        outline: none !important;
-        min-height: 50px;
+.UserProfileDescriptionComponent {
+    .userform-btn-main {
+        margin-top: -2.5rem;
     }
-    .form-control {
-        border:none;
-        border-bottom: 1px solid #232323;
-        border-radius: 0px;
-        padding: 0px;
-        min-height: 50px;
-        box-shadow: none;
+    .tabs-form-label {
+        color: #919191;
+        font-size: 15px;
+        min-width: 240px;
+        padding-top: calc(.375rem + 10px);
+    }
+    .tabs-form-input {
+        max-width: 230px;
+        min-width: 230px;
+        font-size: 15px;
         color: #232323;
+        .form-control-plaintext {
+            outline: none !important;
+            min-height: 50px;
+            padding-top: 12px;
+        }
+        .form-control {
+            border: none;
+            border-bottom: 1px solid #232323;
+            border-radius: 0px;
+            padding: 0px;
+            min-height: 50px;
+            box-shadow: none;
+            color: #232323;
+        }
+
+        textarea{
+            &.form-control{
+                min-height: auto;
+                padding: 10px 0px;
+            }
+        }
+
+        &.datepicker-input {
+            .datepicker-control {
+                .MuiInput-formControl {
+                    width: 100%;
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+                    .MuiInputBase-input {
+                        padding-top: 10px;
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+    .showpassword-block {
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background: #fff;
+        padding-left: 10px;
+        cursor: pointer;
+
+        &.show {
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                width: 21px;
+                height: 1.5px;
+                background: #a3a3a3;
+                transform: rotate(45deg);
+                margin-top: 12.5px;
+                margin-right: -4px;
+            }
+        }
+
+        img {
+            // filter: invert(50%) sepia(68%) saturate(8%) hue-rotate(60deg) brightness(100%) contrast(94%);
+            filter: invert(88%) sepia(0%) saturate(1183%) hue-rotate(192deg) brightness(81%) contrast(65%);
+        }
     }
 }

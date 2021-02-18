@@ -11,10 +11,18 @@ import SignInPage from '../../../view/SignInPage/SignInPage'
 import { useDispatch, useSelector } from 'react-redux';
 import {showSignUpPopup,showSignInPopup, logoutUser} from '../../../redux/actions/generalActions'
 import ForgotPasswordPage from '../../../view/ForgotPasswordPage/ForgotPasswordPage'
+import RegistrationSuccessScreen from '../../RegistrationSuccessScreen/RegistrationSuccessScreen'
+import AdminLoginPage from '../../../view/AdminLoginPage/AdminLoginPage'
+import SignUpModalComp from '../../SignUpModalComp/SignUpModalComp'
+import { showAdminSignUpPopup } from '../../../redux/actions/restaurantAdminAction'
+import {SERVER_URL} from '../../../shared/constant'
+import CustomLoadingComp from '../../CustomLoadingComp/CustomLoadingComp'
 
 const Header = (props) => {
     const dispatch=useDispatch();
     const history = useHistory();
+    const [showDropDown, setShowDropDown] = useState(false);
+
     const [showSignUp, setShowSignUp] = useState(false);
     const handleCloseSignUp = () => dispatch(showSignUpPopup(false));
 
@@ -23,6 +31,9 @@ const Header = (props) => {
     
     const [forgotPassword, setForgotPassword] = useState(false);
     const handleCloseForgotPassword = () => setForgotPassword(false);
+
+    const [registration, setRegistration] = useState(false);
+    const handleCloseRegistration = () => setRegistration(false);
 
     const signUpSuccess = useSelector((state) => state.general.isSignedUp);
     const signUpModal = useSelector((state) => state.general.showSignUpPopup);
@@ -35,22 +46,41 @@ const Header = (props) => {
     useEffect(() => {
         setShowLogIn(signInModal);
       },[signInSuccess,signInModal])
+
+    const registerSuccess = useSelector((state) => state.general.isRegisterSuccess);
+    const registerModal = useSelector((state) => state.general.showSignUpSuccessPopup);
+    useEffect(() => {
+            setRegistration(registerModal);
+      },[registerModal])  
     
+
+    const [showAdminSignUp, setAdminSignUp] = useState(false);
+    const handleCloseAdminSignUp = () => dispatch(showAdminSignUpPopup(false));
+    const adminSignUpSuccess = useSelector((state) => state.restaurantAdmin.isAdminSignedUp);
+    const adminSignUpModal = useSelector((state) => state.restaurantAdmin.showAdminSignUpPopup);
+    useEffect(() => {
+        setAdminSignUp(adminSignUpModal);
+      },[adminSignUpSuccess,adminSignUpModal])
+
+      let User_Data=useSelector((state)=>{
+        return state.userProfile
+    });
+    let {userProfile_Data,isLoading}=User_Data;
+
+
     const token = localStorage.getItem("access_token");
-    const emailVerified = localStorage.getItem("isEmailVerified");
-    const role = localStorage.getItem("role");
-    const userEmail = localStorage.getItem("email");
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
             let ele = document.getElementById("navbar")
             if (window.scrollY !== 0) {
-                ele.classList.add("navsticky")
+                ele&&ele.classList.add("navsticky")
             } else {
-                ele.classList.remove("navsticky")
+                ele&&ele.classList.remove("navsticky")
             }
         });
     }, [])
+    const current_page = props.location.pathname;
 
     return (
         <Navbar bg="transparent" id="navbar" expand="lg" className=" main-header">
@@ -66,20 +96,31 @@ const Header = (props) => {
                     <NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/how">What</NavLink>
                     {/* <NavLink className="menu-link" activeStyle={{color:'#cb007b'}} to="/how">How</NavLink> */}
                 </Nav>
-                {   token&&emailVerified==="true"&&role==="user"
-                    ?
-                    <Form inline className="navright-btn userlogin-after ">
-                        <div className="search-topnav mr-5 position-relative">
-                            <div className="search-navicon">
-                                <img src={search_icon} className="img-fluid" alt="search_icon" />
+                
+                <Form inline className="navright-btn userlogin-after ">
+                    {current_page!=="/restaurant_login"&&
+                            <div className="search-topnav mr-5 position-relative">
+                                <div className="search-navicon">
+                                    <img src={search_icon} className="img-fluid" alt="search_icon" />
+                                </div>
+                                <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                             </div>
-                            <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
-                        </div>
+                        }
+                    {   token&&userProfile_Data&&userProfile_Data.role==="user"
+                    ?
                         <div className="btn-group userprofile-dropdown">
                             <button type="button" className="btn btn-secondary dropdown-toggle userprofile-dropbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div className="user-name">
-                                    <img src={logo} className="userprofile-img img-fluid mr-2" alt="logo" />
-                                    <span>{userEmail.substring(0, userEmail.lastIndexOf("@"))}</span>
+                                    {userProfile_Data&&userProfile_Data.userDetail?
+                                        <img src={`${SERVER_URL}/${userProfile_Data.userDetail.profileImage}`} className="userprofile-img img-fluid mr-2 border" alt="logo" />
+                                    :       
+                                        <img src={logo} className="userprofile-img img-fluid mr-2" alt="logo" />
+                                    }
+                                    {userProfile_Data&&userProfile_Data.userDetail&&userProfile_Data.userDetail.name?
+                                    <span>{userProfile_Data.userDetail.name}</span>
+                                    :
+                                    <span>Hello</span>
+                                    }
                                 </div>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right">
@@ -88,25 +129,39 @@ const Header = (props) => {
                                 <button className="dropdown-item" type="button" onClick={()=>{dispatch(logoutUser(history))}}>Logout</button>
                             </div>
                         </div>
-                    </Form>
                     :
-                    <Form inline className="navright-btn ">
-                        <div className="search-topnav mr-5 position-relative">
-                            <div className="search-navicon">
-                                <img src={search_icon} className="img-fluid" alt="search_icon" />
+                        <React.Fragment>
+                        <div className="partner-nav-dropdown">  
+                            <div id="nav">
+                                <li>
+                                    <Button 
+                                        onClick={()=>{setShowDropDown(!showDropDown)}} variant="outline-success" 
+                                        className="theme-light-btn pt-2 pb-2 pl-4 pr-4 radius-50 position-relative"
+                                    >
+                                            Partner with us
+                                    </Button>
+                                    <ul>
+                                        <li><NavLink className="menu-link mr-lg-5" activeStyle={{color:'#cb007b'}} to="/restaurant_login">Sign In</NavLink></li>
+                                        <li><NavLink onClick={()=>{dispatch(showAdminSignUpPopup(true))}} className="menu-link mr-lg-5"  to="/restaurant_login">Sign Up</NavLink></li>
+                                    </ul>
+                                </li>
                             </div>
-                            <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
                         </div>
-                        <Button variant="outline-success" className="mr-3 theme-light-btn pt-2 pb-2 pl-4 pr-4 radius-50">Partner with us</Button>
-                        <Button onClick={()=>{setShowLogIn(true)}}  variant="outline-success" className="outline-success theme-light-btn pt-2 pb-2 pl-4 pr-4 ">
-                            Login
-                            <svg className="user-icon ml-2" fill="#333" xmlns="http://www.w3.org/2000/svg" width="10.672" height="14" viewBox="0 0 10.672 14">
-                                <path id="Path_372" data-name="Path 372" d="M5.336.264H4V-1.064a1.959,1.959,0,0,0-.268-1A1.986,1.986,0,0,0,3-2.8a1.959,1.959,0,0,0-1-.268H-2A1.959,1.959,0,0,0-3-2.8a1.986,1.986,0,0,0-.728.728,1.959,1.959,0,0,0-.268,1V.264H-5.336V-1.064A3.273,3.273,0,0,1-4.88-2.752a3.257,3.257,0,0,1,1.2-1.192A3.258,3.258,0,0,1-2-4.4H2a3.258,3.258,0,0,1,1.68.456,3.257,3.257,0,0,1,1.2,1.192,3.273,3.273,0,0,1,.456,1.688ZM0-5.736A3.916,3.916,0,0,1-2.016-6.28a3.985,3.985,0,0,1-1.44-1.432A3.952,3.952,0,0,1-4-9.732a3.952,3.952,0,0,1,.544-2.02,3.985,3.985,0,0,1,1.44-1.432A3.873,3.873,0,0,1,0-13.736a3.873,3.873,0,0,1,2.016.552,3.985,3.985,0,0,1,1.44,1.432A3.952,3.952,0,0,1,4-9.732a3.952,3.952,0,0,1-.544,2.02A3.985,3.985,0,0,1,2.016-6.28,3.916,3.916,0,0,1,0-5.736ZM0-7.064a2.573,2.573,0,0,0,1.344-.368,2.609,2.609,0,0,0,.96-.952,2.652,2.652,0,0,0,.36-1.348A2.652,2.652,0,0,0,2.3-11.08a2.609,2.609,0,0,0-.96-.952A2.573,2.573,0,0,0,0-12.4a2.573,2.573,0,0,0-1.344.368,2.609,2.609,0,0,0-.96.952,2.652,2.652,0,0,0-.36,1.348A2.652,2.652,0,0,0-2.3-8.384a2.609,2.609,0,0,0,.96.952A2.573,2.573,0,0,0,0-7.064Z" transform="translate(5.336 13.736)" />
-                            </svg>
-                        </Button>
+                        {current_page!=="/restaurant_login"&&
+                            <Button onClick={()=>{setShowLogIn(true)}}  variant="outline-success" className="ml-3 outline-success theme-light-btn pt-2 pb-2 pl-4 pr-4 ">
+                                Login
+                                <svg className="user-icon ml-2" fill="#333" xmlns="http://www.w3.org/2000/svg" width="10.672" height="14" viewBox="0 0 10.672 14">
+                                    <path id="Path_372" data-name="Path 372" d="M5.336.264H4V-1.064a1.959,1.959,0,0,0-.268-1A1.986,1.986,0,0,0,3-2.8a1.959,1.959,0,0,0-1-.268H-2A1.959,1.959,0,0,0-3-2.8a1.986,1.986,0,0,0-.728.728,1.959,1.959,0,0,0-.268,1V.264H-5.336V-1.064A3.273,3.273,0,0,1-4.88-2.752a3.257,3.257,0,0,1,1.2-1.192A3.258,3.258,0,0,1-2-4.4H2a3.258,3.258,0,0,1,1.68.456,3.257,3.257,0,0,1,1.2,1.192,3.273,3.273,0,0,1,.456,1.688ZM0-5.736A3.916,3.916,0,0,1-2.016-6.28a3.985,3.985,0,0,1-1.44-1.432A3.952,3.952,0,0,1-4-9.732a3.952,3.952,0,0,1,.544-2.02,3.985,3.985,0,0,1,1.44-1.432A3.873,3.873,0,0,1,0-13.736a3.873,3.873,0,0,1,2.016.552,3.985,3.985,0,0,1,1.44,1.432A3.952,3.952,0,0,1,4-9.732a3.952,3.952,0,0,1-.544,2.02A3.985,3.985,0,0,1,2.016-6.28,3.916,3.916,0,0,1,0-5.736ZM0-7.064a2.573,2.573,0,0,0,1.344-.368,2.609,2.609,0,0,0,.96-.952,2.652,2.652,0,0,0,.36-1.348A2.652,2.652,0,0,0,2.3-11.08a2.609,2.609,0,0,0-.96-.952A2.573,2.573,0,0,0,0-12.4a2.573,2.573,0,0,0-1.344.368,2.609,2.609,0,0,0-.96.952,2.652,2.652,0,0,0-.36,1.348A2.652,2.652,0,0,0-2.3-8.384a2.609,2.609,0,0,0,.96.952A2.573,2.573,0,0,0,0-7.064Z" transform="translate(5.336 13.736)" />
+                                </svg>
+                            </Button>
+                        }
                         {/* <img src={cart} className="img-fluid" alt="cart" /> */}
-                    </Form>
-                }
+
+                        </React.Fragment>
+                    }
+                </Form>
+                    
+                
                 <Modal centered show={showSignUp} onHide={handleCloseSignUp} className="signup-modal">
                     <Modal.Body className="p-0 position-relative">
                         <Signup  
@@ -134,6 +189,24 @@ const Header = (props) => {
                         />
                     </Modal.Body>
                 </Modal>
+
+                <Modal centered show={registration} onHide={handleCloseRegistration} className="RegistrationSuccessScreen-modal">
+                    <Modal.Body className="p-0 position-relative">
+                        <RegistrationSuccessScreen 
+                            onHide={handleCloseRegistration} show={registration} 
+                        />
+                    </Modal.Body>
+                </Modal>
+
+                <Modal centered show={showAdminSignUp} onHide={handleCloseAdminSignUp} className="SignUpModalComp-modal">
+                    <Modal.Body className="p-0 position-relative">
+                        <SignUpModalComp 
+                            onHide={handleCloseAdminSignUp} show={showAdminSignUp} 
+                        />
+                    </Modal.Body>
+                </Modal>
+
+
 
             </Navbar.Collapse>
             </div>

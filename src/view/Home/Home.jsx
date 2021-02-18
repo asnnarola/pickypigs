@@ -24,9 +24,17 @@ import OurVisionComponent from '../../components/OurVisionComponent/OurVisionCom
 import KnowWhatYouEatComponent from '../../components/KnowWhatYouEatComponent/KnowWhatYouEatComponent';
 import pattern_img from "../../assets/images/Pattern.png"
 import WorkWithUsFooterComp from '../../components/WorkWithUsFooterComp/WorkWithUsFooterComp'
+import DiscDescriptionComp from '../../components/DiscDescriptionComp/DiscDescriptionComp';
 
 
 function Home({ coords }) {
+
+    // const myRedirect=()=>{
+    //     window.open(
+    //         'https://support.wwf.org.uk/earth_hour/index.php?type=individual',
+    //         '_blank' // <- This is what makes it open in a new window.
+    //       );
+    // }
     return (
         <>
             <div className="HomeSecond_container ">
@@ -143,7 +151,7 @@ function Home({ coords }) {
                 <ExploreCategories />
 
                 {/* WHAT ON THE MENU? section start */}
-                <section className="section5 mt-5 pt-2 mb-5 ">
+                <section className="mt-5 pt-2 mb-5 ">
                     <div className="container">
                         <div className="row mb-4 pb-3">
                             <div className="col-sm-12">
@@ -154,285 +162,15 @@ function Home({ coords }) {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <div className="whatmenu-wrap mb-4">
-                                        <div className="whatmenu-img">
-                                            <img src={restaurant_P2} className="img-fluid w-100" />
+                            {[restaurant_P1,restaurant_P2,restaurant_P3,restaurant_P4,restaurant_P5,restaurant_P6,restaurant_P7,restaurant_P8].map((data,index)=>{
+                                return(
+                                    <React.Fragment key={index}>
+                                        <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                                            <DiscDescriptionComp discpick={data}/>
                                         </div>
-                                        <div className="whatmenu-details p-3">
-                                            <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                            <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                                <span className="txt-lightgray">£ 5.00</span>
-                                                <div className="whatmenu-daydetail txt-lightgray">
-                                                    <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                        <li className="ml-2 ml-xs-0">Lunch</li>
-                                                        <li className="dot-icon ml-2"></li>
-                                                        <li className="ml-2">Dinner</li>
-                                                    </ul>
-                                                </div>
-                                            </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                            <div className="whatmeu-types d-flex">
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon1} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon2} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon3} className="img-fluid" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <div className="whatmenu-wrap mb-4">
-                                        <div className="whatmenu-img">
-                                            <img src={restaurant_P3} className="img-fluid w-100" />
-                                        </div>
-                                        <div className="whatmenu-details p-3">
-                                            <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                            <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                                <span className="txt-lightgray">£ 5.00</span>
-                                                <div className="whatmenu-daydetail txt-lightgray">
-                                                    <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                        <li className="ml-2 ml-xs-0">Lunch</li>
-                                                        <li className="dot-icon ml-2"></li>
-                                                        <li className="ml-2">Dinner</li>
-                                                    </ul>
-                                                </div>
-                                            </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                            <div className="whatmeu-types d-flex">
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon1} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon2} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon3} className="img-fluid" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <div className="whatmenu-wrap">
-                                        <div className="whatmenu-img">
-                                            <img src={restaurant_P4} className="img-fluid w-100" />
-                                        </div>
-                                        <div className="whatmenu-details p-3">
-                                            <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                            <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                                <span className="txt-lightgray">£ 5.00</span>
-                                                <div className="whatmenu-daydetail txt-lightgray">
-                                                    <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                        <li className="ml-2 ml-xs-0">Lunch</li>
-                                                        <li className="dot-icon ml-2"></li>
-                                                        <li className="ml-2">Dinner</li>
-                                                    </ul>
-                                                </div>
-                                            </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                            <div className="whatmeu-types d-flex">
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon1} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon2} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon3} className="img-fluid" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <div className="whatmenu-wrap mb-4">
-                                        <div className="whatmenu-img">
-                                            <img src={restaurant_P5} className="img-fluid w-100" />
-                                        </div>
-                                        <div className="whatmenu-details p-3">
-                                            <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                            <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                                <span className="txt-lightgray">£ 5.00</span>
-                                                <div className="whatmenu-daydetail txt-lightgray">
-                                                    <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                        <li className="ml-2 ml-xs-0">Lunch</li>
-                                                        <li className="dot-icon ml-2"></li>
-                                                        <li className="ml-2">Dinner</li>
-                                                    </ul>
-                                                </div>
-                                            </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                            <div className="whatmeu-types d-flex">
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon1} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon2} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon3} className="img-fluid" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <div className="whatmenu-wrap mb-4">
-                                        <div className="whatmenu-img">
-                                            <img src={restaurant_P6} className="img-fluid w-100" />
-                                        </div>
-                                        <div className="whatmenu-details p-3">
-                                            <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                            <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                                <span className="txt-lightgray">£ 5.00</span>
-                                                <div className="whatmenu-daydetail txt-lightgray">
-                                                    <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                        <li className="ml-2 ml-xs-0">Lunch</li>
-                                                        <li className="dot-icon ml-2"></li>
-                                                        <li className="ml-2">Dinner</li>
-                                                    </ul>
-                                                </div>
-                                            </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                            <div className="whatmeu-types d-flex">
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon1} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon2} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon3} className="img-fluid" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>                            <div className="whatmenu-wrap mb-4">
-                                    <div className="whatmenu-img">
-                                        <img src={restaurant_P7} className="img-fluid w-100" />
-                                    </div>
-                                    <div className="whatmenu-details p-3">
-                                        <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                        <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                            <span className="txt-lightgray">£ 5.00</span>
-                                            <div className="whatmenu-daydetail txt-lightgray">
-                                                <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                    <li className="ml-2 ml-xs-0">Lunch</li>
-                                                    <li className="dot-icon ml-2"></li>
-                                                    <li className="ml-2">Dinner</li>
-                                                </ul>
-                                            </div>
-                                        </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                        <div className="whatmeu-types d-flex">
-                                            <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                <img src={whatmenuicon1} className="img-fluid" />
-                                            </div>
-                                            <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                <img src={whatmenuicon2} className="img-fluid" />
-                                            </div>
-                                            <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                <img src={whatmenuicon3} className="img-fluid" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <div className="whatmenu-wrap mb-4">
-                                        <div className="whatmenu-img">
-                                            <img src={restaurant_P8} className="img-fluid w-100" />
-                                        </div>
-                                        <div className="whatmenu-details p-3">
-                                            <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                            <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                                <span className="txt-lightgray">£ 5.00</span>
-                                                <div className="whatmenu-daydetail txt-lightgray">
-                                                    <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                        <li className="ml-2 ml-xs-0">Lunch</li>
-                                                        <li className="dot-icon ml-2"></li>
-                                                        <li className="ml-2">Dinner</li>
-                                                    </ul>
-                                                </div>
-                                            </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                            <div className="whatmeu-types d-flex">
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon1} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon2} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon3} className="img-fluid" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                <Link to="/restaurant_disc_info" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <div className="whatmenu-wrap mb-4">
-                                        <div className="whatmenu-img">
-                                            <img src={restaurant_P2} className="img-fluid w-100" />
-                                        </div>
-                                        <div className="whatmenu-details p-3">
-                                            <p className="whatmenu-label f-15 mb-2 brandon-Medium">Lebanese Falafel Salad</p>
-                                            <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                                <span className="txt-lightgray">£ 5.00</span>
-                                                <div className="whatmenu-daydetail txt-lightgray">
-                                                    <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
-                                                        <li className="ml-2 ml-xs-0">Lunch</li>
-                                                        <li className="dot-icon ml-2"></li>
-                                                        <li className="ml-2">Dinner</li>
-                                                    </ul>
-                                                </div>
-                                            </div><p className="f-14 whatmenu-intro txt-lightgray">Es simplemente el texto de relleno de las
-                                    imprentas y archivos de texto. LoremIpsum ha sido el texto de relleno</p>
-
-                                            <div className="whatmeu-types d-flex">
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon1} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon2} className="img-fluid" />
-                                                </div>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={whatmenuicon3} className="img-fluid" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
+                                    </React.Fragment>
+                                )
+                            })}
                         </div>
                     </div>
                 </section>
