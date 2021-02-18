@@ -2,6 +2,7 @@
     padding-top: 0rem !important;
     background: #fff !important;
     margin-top: 82px !important;
+
     &::before {
         content: "";
         position: absolute;
@@ -14,15 +15,18 @@
         background-size: 100% 100%;
         background-position: top center;
     }
+
     h1 {
         &.allrestaurant-label {
             font-size: 48px;
         }
     }
+
     .allrestaurant-wrapper {
         background: #fff;
         background-color: #fff;
         border-radius: 10px;
+
         .allrestaurant-filter {
             &.allrsfilter-sticky {
                 position: fixed;
@@ -33,14 +37,18 @@
                 right: 0;
                 margin-bottom: 0px !important;
                 background: #fff;
-                height: 81px;
+                height: 80px;
+
                 .allrestaurant-nav {
                     border: none !important;
                     height: 80px;
                     margin-left: auto;
                     margin-right: auto;
+                    padding-left: 15px !important;
+                    padding-right: 15px !important;
                 }
             }
+
             nav {
                 &.navbar {
                     background: #fff;
@@ -52,7 +60,7 @@
                         height: 40px;
                         background: #fff;
                         border-radius: 50px;
-                        box-shadow: 0px 0px 0px 4px #0000000a;
+                        box-shadow: 0px 0px 4px 3px #0000000a;
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -73,20 +81,22 @@
                                 color: #919191;
                             }
                         }
+
                         select {
                             &.custom-select {
                                 padding: 0 2rem 0 10px;
                                 border: none;
                                 outline: none !important;
-                                background: #fff url("../../assets/images/down-arrow.svg") no-repeat right 0rem
-                                    center/10px 10px;
+                                background: #fff url("../../assets/images/down-arrow.svg") no-repeat right 0rem center/10px 10px;
                                 cursor: pointer;
                                 color: #232323;
+
                                 &:focus {
                                     box-shadow: 0 0 0 0.2rem #cb007b3d !important;
                                 }
                             }
                         }
+
                         .filtershort-lightbtn {
                             background: #fff;
                             border: 1px solid #cb007b;
@@ -99,6 +109,7 @@
                             justify-content: space-between;
                             align-items: center;
                             padding: 10px 20px !important;
+
                             &:focus {
                                 box-shadow: 0 0 0 0.2rem #cb007b3d !important;
                             }
