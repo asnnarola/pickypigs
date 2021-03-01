@@ -43,11 +43,11 @@ const HowPageAllegyDescComp = () => {
                                         return (
                                             <React.Fragment key={index}>
 
-                                                <button onClick={(e) => { handleClick(e); setModalData(data) }} className="allergen-btn d-flex flex-column justify-content-center mr-4 mb-4 p-0 align-items-center">
+                                                <button onClick={(e) => { handleClick(e); setModalData(data) }} className="allergen-btn d-flex flex-column justify-content-start mr-4 mb-4 p-0 align-items-center">
                                                     <div className="allergen-icon d-flex align-items-center justify-content-center mb-2">
                                                         <img src={data.image} className="img-fluid" />
                                                     </div>
-                                                    <p className="mb-0 f-14">{data.name}</p>
+                                                    <p className="mb-0 f-14 brandon-Medium">{data.name}</p>
 
                                                 </button>
 
