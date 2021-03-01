@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import whatmenuicon1 from "../../assets/images/micon1.svg"
 import whatmenuicon2 from "../../assets/images/micon2.svg"
 import whatmenuicon3 from "../../assets/images/micon3.svg"
@@ -7,10 +6,11 @@ import "./DiscDescriptionComp.scss"
 
 
 const DiscDescriptionComp=(props)=>{
+    
+
     return(
         <React.Fragment>
             <section className="section5">
-                <Link to="/restaurant_disc_info" style={{textDecoration:'none',color:'initial'}}>
                     <div className="whatmenu-wrap">
                         <div className="whatmenu-img">
                             <img src={props.discpick} className="img-fluid w-100" />
@@ -42,7 +42,6 @@ const DiscDescriptionComp=(props)=>{
                             </div>
                         </div>
                     </div>
-                </Link>
             </section>
 
         </React.Fragment>

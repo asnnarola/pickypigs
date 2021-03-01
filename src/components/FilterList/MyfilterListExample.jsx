@@ -207,7 +207,7 @@ export default function MyfilterListExample() {
 
             const parts = parse(
               option.structured_formatting.main_text,
-              matches.map((match) => [match.offset, match.offset + match.length]),
+              matches&&matches.map((match) => [match.offset, match.offset + match.length]),
             );
 
             return (
@@ -219,7 +219,7 @@ export default function MyfilterListExample() {
                   <div className="justify-content-center align-items-center d-flex">
                   <img src={nearlocation} alt="Near_Me" className="img-fluid mr-3"/>
                   <Grid item xs  >
-                    {parts.map((part, index) => (
+                    {parts&&parts.map((part, index) => (
                       <span key={index} style={{ fontWeight: part.highlight ? 700 : 400 }}>
                         {part.text}
                       </span>

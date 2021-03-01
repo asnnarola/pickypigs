@@ -95,42 +95,42 @@ function Home({ coords }) {
                         </div>
                         <div className="row">
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
                                 </Link>
                             </div>
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
                                 </Link>
                             </div>
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} />
                                 </Link>
                             </div>
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
                                 </Link>
                             </div>
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
                                 </Link>
                             </div>
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
                                 </Link>
                             </div>
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
                                 </Link>
                             </div>
                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_disc" style={{ textDecoration: 'none', color: 'initial' }}>
+                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
                                     <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
                                 </Link>
                             </div>
@@ -166,7 +166,9 @@ function Home({ coords }) {
                                 return(
                                     <React.Fragment key={index}>
                                         <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                            <DiscDescriptionComp discpick={data}/>
+                                            <Link to={'/restaurant_dish_info/' + `6038be6fa939c26054ac8e2e`} style={{textDecoration:'none',color:'initial'}}>
+                                                <DiscDescriptionComp discpick={data}/>
+                                            </Link>
                                         </div>
                                     </React.Fragment>
                                 )

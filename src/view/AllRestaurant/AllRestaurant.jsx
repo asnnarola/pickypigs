@@ -51,7 +51,7 @@ const AllRestaurant = () => {
                                     {resturantData.map((data, index) => {
                                         return (
                                             <div key={index} className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                                <Link to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                                <Link to="/restaurant_dish" style={{textDecoration:'none',color:'initial'}}>    
                                                     <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={data.image} kmValue={data.dist} rating={data.stars} />
                                                 </Link>
                                             </div>

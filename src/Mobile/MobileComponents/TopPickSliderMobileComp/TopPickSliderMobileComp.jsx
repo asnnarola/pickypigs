@@ -28,7 +28,7 @@ const TopPickSliderMobileComp=()=>{
                     {resturantData&&resturantData.map((data, index) => {
                          return (
                              <div key={index} >
-                                 <Link to='/restaurant_disc_info' style={{textDecoration:'none',color:'initial'}}>
+                                 <Link to='/restaurant_dish_info' style={{textDecoration:'none',color:'initial'}}>
                                     <div className="pr-3" style={{position:'relative'}}>
                                         <img src={data.image} className="img_fluid w-100"   alt="disc_img"/>
                                         <div style={{position:'absolute',bottom:0}}>
