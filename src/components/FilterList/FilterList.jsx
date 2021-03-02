@@ -55,7 +55,7 @@ function FilterList({ filterIcon = "false" }) {
     const [allergenValue, setAllergenValue] = useState([])
     const [featuresValue, setFeaturesValue] = useState([])
     const [userTextFocus, setUserTextFocus] = useState(false)
-    const [userSearchText, setUserSearchText] = useState("sss")
+    const [userSearchText, setUserSearchText] = useState("")
 
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
