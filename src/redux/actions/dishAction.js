@@ -16,7 +16,7 @@ export const getSelectedDiscInfoData=(selectedId)=>{
             if (error.response) {
               dispatch(setAlert(`${error.response.data.message}`, 'error'));
             } else {
-              dispatch(setAlert('Something wwnt wrong!', 'error'));
+              dispatch(setAlert('Something Weny wrong!', 'error'));
             }
         }
     }

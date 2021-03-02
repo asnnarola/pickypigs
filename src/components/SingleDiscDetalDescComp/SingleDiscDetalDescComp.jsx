@@ -32,7 +32,7 @@ const SingleDiscDetalDescComp = (props) => {
                                         return(
                                             <React.Fragment key={index}>
                                                 <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                    <img src={`${SERVER_URL}/${data.url}`} className="img-fluid" alt="img"/>
+                                                    <img src={`${SERVER_URL}/${data.url}`} className="img-fluid" alt="img" title={data.name}/>
                                                 </div>
                                             </React.Fragment>  
                                         )
