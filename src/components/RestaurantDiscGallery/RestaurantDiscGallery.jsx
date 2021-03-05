@@ -7,12 +7,13 @@ import restaurant_P5 from "../../assets/images/restaurant/r5.png"
 import restaurant_P6 from "../../assets/images/restaurant/r6.png"
 import restaurant_P7 from "../../assets/images/restaurant/r7.png"
 import restaurant_P8 from "../../assets/images/restaurant/r8.png"
+import {SERVER_URL} from '../../shared/constant'
 
 import { Player } from 'video-react';
 import "../../../node_modules/video-react/dist/video-react.css";
 import "./RestaurantDiscGallery.scss";
 
-const RestaurantDiscGallery = () => {
+const RestaurantDiscGallery = (props) => {
 
     let resturantData = [{ "image": restaurant_P1, "type": "food" }, { "image": restaurant_P2, "type": "food" }, { "image": restaurant_P3, "type": "food" }, { "image": restaurant_P4, "type": "food" }, { "image": restaurant_P5, "type": "ambience" }, { "image": restaurant_P6, "type": "ambience" }, { "image": restaurant_P7, "type": "ambience" }, { "image": restaurant_P8, "type": "ambience" }, { "image": restaurant_P1, "type": "food" }, { "image": restaurant_P2, "type": "food" }, { "image": restaurant_P3, "type": "ambience" }, { "image": restaurant_P4, "type": "ambience" }, { "image": restaurant_P5, "type": "food" }, { "image": restaurant_P6, "type": "ambience" }, { "image": restaurant_P7, "type": "food" }, { "image": restaurant_P8, "type": "food" }];
     let [value, setValue] = useState('all');
@@ -61,41 +62,129 @@ const RestaurantDiscGallery = () => {
                                                     <h4 className="text-uppercase mb-4 brandon-Bold txt-darkgreen"><b>ALL</b></h4>
                                                 </div>
                                             </div>
-                                            {resturantData.map((data, index) => {
-                                                return (
-                                                    <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
-                                                        <div className="rsdish-gallery">
-                                                            <img src={data.image} alt="" className="img-fluid" />
+                                            <React.Fragment>
+                                                <React.Fragment>
+                                                    {props.food&&props.food.length>0?
+                                                        <React.Fragment>
+                                                            {props.food&&props.food.map((data, index) => {
+                                                                return (
+                                                                    <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
+                                                                        <div className="rsdish-gallery">
+                                                                            <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                            }
+                                                        </React.Fragment>
+                                                    :
+                                                        null
+                                                    }
+                                                </React.Fragment>
+                                                <React.Fragment>
+                                                    {props.ambience&&props.ambience.length>0?
+                                                        <React.Fragment>
+                                                            {props.ambience&&props.ambience.map((data, index) => {
+                                                                return (
+                                                                    <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
+                                                                        <div className="rsdish-gallery">
+                                                                            <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                            }
+                                                        </React.Fragment>
+                                                    :
+                                                        null
+                                                    }
+                                                </React.Fragment>
+                                            </React.Fragment>
+                                            <React.Fragment>
+                                                {props.food&&props.food.length>0||props.ambience&&props.ambience.length>0?
+                                                    null
+                                                :
+                                                    <React.Fragment>
+                                                        <div className="w-100 d-flex align-items-center justify-content-center">
+                                                            <p>Something Went Wrong...Unable to Fetch Image</p>
                                                         </div>
-                                                    </div>
-                                                )
-                                            })
-                                            }
+                                                    </React.Fragment>
+
+                                                }
+                                            </React.Fragment>
                                         </div>
 
                                         :
 
-                                        value !== "all" && value !== "videos" ?
+                                        value !== "all" && value !== "videos" && value !== "ambience" ?
 
                                             <div className="row">
-                                                {
-                                                    resturantData.filter((data) => {
-                                                        return data.type === value
-                                                    }).map((data, index) => {
-                                                        return (
-                                                            <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
-                                                                <div className="rsdish-gallery">
-                                                                    <img src={data.image} alt="" className="img-fluid" />
+                                                <div className="col-sm-12 pl-0 pr-0">
+                                                    <div className="col-sm-12 pl-0 pr-0">
+                                                        <h4 className="text-uppercase mb-4 brandon-Bold txt-darkgreen"><b>Foods</b></h4>
+                                                    </div>
+                                                </div>
+                                                {props.food&&props.food.length>0?
+                                                    <React.Fragment>
+                                                        {props.food&&props.food.map((data, index) => {
+                                                            return (
+                                                                <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
+                                                                    <div className="rsdish-gallery">
+                                                                        <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        )
-                                                    })
+                                                            )
+                                                        })
+                                                        }
+                                                    </React.Fragment>
+                                                :
+                                                    <React.Fragment>
+                                                        <div className="w-100 d-flex align-items-center justify-content-center">
+                                                            <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                        </div>
+                                                    </React.Fragment>
                                                 }
                                             </div>
+                                            :
+
+                                            value !== "all" && value !== "videos" && value !== "food" ?
+    
+                                                <div className="row">
+                                                    <div className="col-sm-12 pl-0 pr-0">
+                                                        <div className="col-sm-12 pl-0 pr-0">
+                                                            <h4 className="text-uppercase mb-4 brandon-Bold txt-darkgreen"><b>Ambience</b></h4>
+                                                        </div>
+                                                    </div>
+                                                    {props.ambience&&props.ambience.length>0?
+                                                        <React.Fragment>
+                                                            {props.ambience&&props.ambience.map((data, index) => {
+                                                                return (
+                                                                    <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
+                                                                        <div className="rsdish-gallery">
+                                                                            <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                            }
+                                                        </React.Fragment>
+                                                    :
+                                                        <React.Fragment>
+                                                            <div className="w-100 d-flex align-items-center justify-content-center">
+                                                                <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                            </div>
+                                                        </React.Fragment>
+                                                    }
+                                                </div>
 
                                             :
 
                                             <div className="row">
+                                                <div className="col-sm-12 pl-0 pr-0">
+                                                    <div className="col-sm-12 pl-0 pr-0">
+                                                        <h4 className="text-uppercase mb-4 brandon-Bold txt-darkgreen"><b>Videos</b></h4>
+                                                    </div>
+                                                </div>
                                                 <div className="col-sm-12 col-md-6 col-lg-3 col-xl-3">
                                                     <Player
                                                         playsInline
@@ -115,3 +204,4 @@ const RestaurantDiscGallery = () => {
 }
 
 export default RestaurantDiscGallery;
+

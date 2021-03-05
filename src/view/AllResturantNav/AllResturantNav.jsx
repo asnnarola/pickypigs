@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Nav, Form, Navbar, Modal, Collapse } from 'react-bootstrap'
-import { withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import search_icon from "../../assets/images/search_icon.svg"
 import filtershorticonpink from "../../assets/images/filtershort-pinkicon.svg"
 import menuline from "../../assets/images/menu-line.svg"
@@ -8,7 +8,7 @@ import FilterList from '../../components/FilterList/FilterList';
 import AllRestaurantFilterModal from '../AllRestaurantFilterModal/AllRestaurantFilterModal';
 import './AllResturantNav.scss';
 
-const AllResturantNav = () => {
+const AllResturantNav = (props) => {
 
     const [openSearchBar, setOpenSearchBar] = useState(false);
     const [filterModalShow, setFilterModalShow] = useState(false)
@@ -28,11 +28,12 @@ const AllResturantNav = () => {
 
     return (
         <>
+        <section className="AllResturantNav">
             <Navbar bg="light" variant="light" className="align-items-center pl-0 pr-0 pb-3 allrestaurant-nav container">
-                <Navbar.Brand href="#home" className="pt-0 pb-0 menurestaurant-btn">
+                <NavLink to="/" className="pt-0 pb-0 menurestaurant-btn">
                     <img src={menuline} className="img-fluid" alt="menuline" />
-                </Navbar.Brand>
-                <h4 className="brandon-Bold restaurant-no mb-0">520 Restaurants</h4>
+                </NavLink>
+                <h4 className="brandon-Bold restaurant-no mb-0">{props.totalrestaurant}&nbsp;Restaurants</h4>
                 <div className="ml-auto d-flex shortby-btn">
                     <div className="d-none" id="selected_search_bar">
                         <div className="search-topnav mr-5 position-relative">
@@ -47,7 +48,7 @@ const AllResturantNav = () => {
                                 <div className="row">
                                     <div className="col-sm-12">
                                         <div className="fr-wrapper fr-rl-wrapper">
-                                            <FilterList filterIcon={true} />
+                                            <FilterList showautosuggestion={false}/>
                                         </div>
                                     </div>
                                 </div>
@@ -73,6 +74,7 @@ const AllResturantNav = () => {
                 </div>
 
             </Navbar>
+        </section>
         </>
     )
 }

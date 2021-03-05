@@ -5,6 +5,10 @@ import alertReducer from "./alertReducer";
 import allergyReducer from "./allergyReducer";
 import restaurantAdminReducer from "./restaurantAdminReducer";
 import userProfileReducer from "./userProfileReducer";
+import dishReducer from "./dishReducer";
+import homePageReducer from "./homePageReducer";
+import restaurantSearchPageReducer from "./restaurantSearchPageReducer";
+
 
 
 export default combineReducers({
@@ -15,5 +19,7 @@ export default combineReducers({
   allergy:allergyReducer,
   restaurantAdmin:restaurantAdminReducer,
   userProfile:userProfileReducer,
- 
+  dishes:dishReducer,
+  homePage:homePageReducer,
+  restaurantSearch:restaurantSearchPageReducer,
 });

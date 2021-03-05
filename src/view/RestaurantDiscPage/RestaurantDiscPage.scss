@@ -79,4 +79,37 @@
             }
         }
     }
+    .breadcrumb-wrapper {
+        ol {
+            &.breadcrumb {
+                padding: 0px;
+                background: #fff;
+
+                .breadcrumb-item {
+                    a {
+                        color: #232323;
+                        text-decoration: none;
+                    }
+
+                    &.active {
+                        color: #c1c1c1;
+                    }
+                }
+            }
+        }
+
+        .rsbanner-wrapper {
+            height: 260px;
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                height: 260px;
+                object-fit: cover;
+            }
+        }
+    }
 }

@@ -89,7 +89,7 @@ const RestaurantList = () => {
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="fr-wrapper fr-rl-wrapper">
-                                <FilterList filterIcon={true} />
+                                <FilterList showautosuggestion={false} />
                             </div>
                         </div>
                     </div>
@@ -104,42 +104,42 @@ const RestaurantList = () => {
                             <div className="rl-list-slider">
                                 <Slider {...settings}>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
                                         </MyLink>
                                     </div>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
                                         </MyLink>
                                     </div>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} />
                                         </MyLink>
                                     </div>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
                                         </MyLink>
                                     </div>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
                                         </MyLink>
                                     </div>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
                                         </MyLink>
                                     </div>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
                                         </MyLink>
                                     </div>
                                     <div className="col-sm-12">
-                                        <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                        <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                            <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
                                         </MyLink>
                                     </div>
@@ -186,7 +186,7 @@ const RestaurantList = () => {
                                             resturantData.slice(0, visible).map((data, index) => {
                                                     return (
                                                         <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                                            <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                                            <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                                                 <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={data.image} kmValue={10} rating={4.5} />
                                                             </MyLink>
                                                         </div>
@@ -196,7 +196,7 @@ const RestaurantList = () => {
                                                 resturantData.map((data, index) => {
                                                     return (
                                                         <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                                           <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                                           <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                                                 <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={data.image} kmValue={10} rating={4.5} />
                                                             </MyLink>
                                                         </div>
@@ -221,19 +221,19 @@ const RestaurantList = () => {
                                     <h1>bbbbbb</h1>
                                     <div className="row">
                                         <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                            <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                            <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                                 <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
                                             </MyLink>
 
                                         </div>
                                         <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                            <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                            <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                                 <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.3} />
                                             </MyLink>
 
                                         </div>
                                         <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                            <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                            <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                                 <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.3} />
                                             </MyLink>
 
@@ -249,7 +249,7 @@ const RestaurantList = () => {
                                     <h1>ccccccc</h1>
                                     <div className="row">
                                         <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                            <MyLink to="/restaurant_disc" style={{textDecoration:'none',color:'initial'}}>    
+                                            <MyLink to="/restaurant_dish/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
                                                 <DishBlock restaurant_Name={"Shasha's Kitchen"} restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
                                             </MyLink>
                                         </div>

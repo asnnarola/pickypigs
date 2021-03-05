@@ -4,7 +4,7 @@ import Ingredientsicon from "../../assets/images/dishinfo_img/Ingredients-icon.s
 import { useDispatch,useSelector } from "react-redux";
 import { getNutritionData } from "../../redux/actions/generalActions";
 
-const SingleDiscIngredientTableComp = () => {
+const SingleDiscIngredientTableComp = (props) => {
     let ingredient = [{ "serving": 36.9, "ingredient": "raw broccoli", "allergies": "", "amend": "no" }, { "serving": 12.9, "ingredient": "cheese", "allergies": "dairy", "amend": "yes" }, { "serving": 15.5, "ingredient": "potatoes", "allergies": "", "amend": "yes" }, { "serving": 20.5, "ingredient": "lenties", "allergies": "", "amend": "yes" }, { "serving": 15.5, "ingredient": "olives", "allergies": "", "amend": "yes" }, { "serving": 50.5, "ingredient": "peanuts", "allergies": "peanuts", "amend": "yes" }, { "serving": 15.5, "ingredient": "housing dressing", "allergies": "", "amend": "yes" }]
     const dispatch=useDispatch();
 
@@ -61,17 +61,44 @@ const SingleDiscIngredientTableComp = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {ingredient.map((data, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <th scope="row">{data.serving}</th>
-                                        <td>{data.ingredient}</td>
-                                        <td>{data.allergies}</td>
-                                        <td>{data.amend}</td>
+                            {props.ingredient&&props.ingredient.length>0?
+                                <React.Fragment>
+                                    {props.ingredient&&props.ingredient.map((data, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <th scope="row">{data.qty} %</th>
+                                                <td>{data.item}</td>
+                                                <td>
+                                                    {data.allergeiesList&&data.allergeiesList.length>0?
+                                                    <React.Fragment>
+                                                        {data.allergeiesList&&data.allergeiesList.map((data2,index2)=>{
+                                                            return(
+                                                                <React.Fragment key={index2}>
+                                                                    {(index2 ? ' , ' : '')+data2.name}
+                                                                </React.Fragment>
+                                                            )
+                                                        })}
+                                                    </React.Fragment>
+                                                   :
+                                                   <React.Fragment>
+                                                       -na-
+                                                   </React.Fragment>
+                                                    }
+                                                </td>
+                                                <td>{data.customisable?"Yes":"No"}</td>
+                                            </tr>
+                                        )
+                                    })
+                                    }
+                                </React.Fragment>
+                            :
+                                <React.Fragment>
+                                    <tr >
+                                        <td colSpan="4" className="text-center">No Data Available</td>
                                     </tr>
-                                )
-                            })
+                                </React.Fragment>
                             }
+                            
                         </tbody>
                     </table>
                 </div>
