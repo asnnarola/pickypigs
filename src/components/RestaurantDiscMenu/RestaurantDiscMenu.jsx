@@ -23,7 +23,8 @@ const scroll = Scroll.animateScroll;
 const scrollSpy = Scroll.scrollSpy;
 const ScrollLink = Scroll.ScrollLink
 
-const RestaurantDiscMenu = (props) => {
+const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
+    
     let menudata = [{ "type": "buns", restaurant: [{ "name": "Denny's Benny Famil", "desc": "freshly made every day with avocados, lime & coriander with trealy Farm choriz", "tags": ["CUSTOMISABLE", "ve", "v", "gf"], "price": 17.80 }] }]
     let resturantData = [{ "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }];
     var settings = {
@@ -64,12 +65,31 @@ const RestaurantDiscMenu = (props) => {
                                 <div className="col-md-3 tab-filter">
                                     <ul style={{ position: 'sticky', top: 110, }}>
                                         <li >
-                                            <Link to="section-1" activeClass="tabfilter-active bg-prime" spy={true} smooth={true} offset={-110}  >
+                                            <Link to="section-1" activeClass="tabfilter-active " spy={true} smooth={true} offset={-110}  >
                                                 <h6 className="mb-1 brandon-Bold "><b>Top Picks</b></h6>
-                                                <p className="mb-0">6 Options</p>
+                                                <p className="mb-0">{menutab_toppicks&&menutab_toppicks.length} options</p>
                                             </Link>
                                         </li>
-                                        <li>
+                                        {lefttabmenu_data&&lefttabmenu_data.length>0?
+                                            <React.Fragment>
+                                                {lefttabmenu_data&&lefttabmenu_data.map((data,index)=>{
+                                                    return(
+                                                        <React.Fragment key={index}>
+                                                            <li>
+                                                                <Link to={data._id} activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
+                                                                    <h6 className="mb-1 brandon-Bold "><b>{data.name?data.name:''}</b></h6>
+                                                                    <p className="mb-0">15 Options</p>
+                                                                </Link>
+                                                            </li>
+                                                        </React.Fragment>
+                                                    )
+                                                })}
+
+                                            </React.Fragment>
+                                        :
+                                            null
+                                        }
+                                        {/* <li>
                                             <Link to="section-2" activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
                                                 <h6 className="mb-1 brandon-Bold "><b>Breakfast</b></h6>
                                                 <p className="mb-0">15 Options</p>
@@ -98,46 +118,66 @@ const RestaurantDiscMenu = (props) => {
                                                 <h6 className="mb-1 brandon-Bold"><b>Vegan</b></h6>
                                                 <p className="mb-0">611 RESTAURANTS</p>
                                             </Link>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </div>
                                 <div className="col-md-9 discmenu-content">
-                                    <Element className="row" name="section-1">
+                                    <Element className="row flex-column" name="section-1">
                                         <div className="col-sm-12">
                                             <div className="col-sm-12">
                                                 <h4 className="text-uppercase mb-4 brandon-Bold txt-darkgreen"><b>Top Picks</b></h4>
                                             </div>
                                         </div>
-                                        <div className="col-sm-12">
-                                            <div className="restaurantlist-slider">
-                                                <Slider {...settings}>
-                                                    <div className="col-sm-12">
-                                                        <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                    <div className="col-sm-12">
-                                                        <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                    <div className="col-sm-12">
-                                                         <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                    <div className="col-sm-12">
-                                                        <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                    <div className="col-sm-12">
-                                                        <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                    <div className="col-sm-12">
-                                                        <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                    <div className="col-sm-12">
-                                                        <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                    <div className="col-sm-12">
-                                                        <RestaurantDiscSquareCardComp/>
-                                                    </div>
-                                                </Slider>
+                                        {menutab_toppicks&&menutab_toppicks.length>0?
+                                            <div className="col-sm-12">
+                                                <div className="restaurantlist-slider">
+                                                <React.Fragment>
+                                                    {menutab_toppicks&&menutab_toppicks.length>=3?
+                                                        <React.Fragment>
+                                                            <Slider {...settings}>
+                                                                {menutab_toppicks&&menutab_toppicks.map((data,index)=>{
+                                                                    return(
+                                                                        <React.Fragment key={index}>
+                                                                            <div className="col-sm-12">
+                                                                                <RestaurantDiscSquareCardComp 
+                                                                                    name={data.name?data.name:'Unknown'}
+                                                                                    image={data.image?data.image:''}
+                                                                                    price={data.price?data.price:''}
+                                                                                    priceUnit={data.priceUnit?data.priceUnit:''}
+                                                                                />
+                                                                            </div>
+                                                                        </React.Fragment>
+                                                                    )
+                                                                })}
+                                                            </Slider>
+                                                        </React.Fragment>
+                                                    :
+                                                        <React.Fragment>
+                                                            <div className="row">
+                                                                {menutab_toppicks&&menutab_toppicks.map((data,index)=>{
+                                                                    return(
+                                                                        <React.Fragment key={index}>
+                                                                            <div className="col-sm-4">
+                                                                                <RestaurantDiscSquareCardComp 
+                                                                                    name={data.name?data.name:'Unknown'}
+                                                                                    image={data.image?data.image:''}
+                                                                                    price={data.price?data.price:''}
+                                                                                    priceUnit={data.priceUnit?data.priceUnit:''}
+                                                                                />
+                                                                            </div>
+                                                                        </React.Fragment>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                        </React.Fragment>
+                                                    }
+                                                </React.Fragment>
                                             </div>
-                                        </div>
+                                            </div>
+                                        :
+                                            <p>No Data Available</p>
+                                        }
+                                        
                                     </Element>
                                     <div className="row mt-3">
                                         <div className="col-sm-12">
@@ -146,64 +186,31 @@ const RestaurantDiscMenu = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <Element name="section-2" className="pt-4">
-                                        <div className="row">
-                                            <div className="col-sm-12">
-                                                <div className="col-sm-12">
-                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Breakfast</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <MenuAccordianCommonComp value={menudata} />
-                                    </Element>
-                                    <Element name="section-3" className="pt-3">
-                                        <div className="row">
-                                            <div className="col-sm-12">
-                                                <div className="col-sm-12">
-                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Lunch</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <MenuAccordianCommonComp/>
-                                        </div>
-                                    </Element>
-                                    <Element name="section-4" className="pt-3">
-                                        <div className="row">
-                                            <div className="col-sm-12">
-                                                <div className="col-sm-12">
-                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Dinner</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <MenuAccordianCommonComp  />
-                                        </div>
-                                    </Element>
-                                    <Element name="section-5" className="pt-3">
-                                        <div className="row">
-                                            <div className="col-sm-12">
-                                                <div className="col-sm-12">
-                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Drinks</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <MenuAccordianCommonComp  />
-                                        </div>
-                                    </Element>
-                                    <Element name="section-6" className="pt-3">
-                                        <div className="row">
-                                            <div className="col-sm-12">
-                                                <div className="col-sm-12">
-                                                    <h4 className="brandon-Bold txt-darkgreen text-uppercase">Vegan</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <MenuAccordianCommonComp  />
-                                        </div>
-                                    </Element>
+                                    {lefttabmenu_data&&lefttabmenu_data.length>0?
+                                            <React.Fragment>
+                                                {lefttabmenu_data&&lefttabmenu_data.map((data,index)=>{
+                                                    return(
+                                                        <React.Fragment key={index}>
+                                                            <Element name={data._id} className="pt-4">
+                                                                <div className="row">
+                                                                    <div className="col-sm-12">
+                                                                        <div className="col-sm-12">
+                                                                            <h4 className="brandon-Bold txt-darkgreen text-uppercase">{data.name?data.name:''}</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <MenuAccordianCommonComp menuid={data._id} value={menudata} />
+                                                            </Element>
+                                                           
+                                                        </React.Fragment>
+                                                    )
+                                                })}
+
+                                            </React.Fragment>
+                                        :
+                                            null
+                                        }
+
                                 </div>
                             </div>
                         </div>

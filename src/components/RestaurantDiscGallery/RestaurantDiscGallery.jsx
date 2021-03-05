@@ -21,6 +21,7 @@ const RestaurantDiscGallery = (props) => {
     return (
         <>
             <section>
+                {/* {JSON.stringify(props.food)} */}
                 <div className="rsdishtabmain-content">
                     <div className="row">
                         <div className="col-lg-3 rsdish-filter">
@@ -28,19 +29,19 @@ const RestaurantDiscGallery = (props) => {
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "all" ? 'rsdish-active' : null}`} onClick={() => { setValue("all") }}>
                                         <h6 class="mb-1 brandon-Bold "><b>All</b></h6>
-                                        <small className="txt-lightgray">(159)</small>
+                                        <small className="txt-lightgray">{(props.food&&props.food.length) + (props.ambience&&props.ambience.length)}</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "food" ? 'rsdish-active' : null}`} onClick={() => { setValue("food") }}>
                                         <h6 class="mb-1 brandon-Bold "><b>Food</b></h6>
-                                        <small className="txt-lightgray">(159)</small>
+                                        <small className="txt-lightgray">{props.food&&props.food.length}</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "ambience" ? 'rsdish-active' : null}`} onClick={() => { setValue("ambience") }}>
                                         <h6 class="mb-1 brandon-Bold"><b>Ambience</b></h6>
-                                        <small className="txt-lightgray">(159)</small>
+                                        <small className="txt-lightgray">{props.ambience&&props.ambience.length}</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
@@ -70,7 +71,7 @@ const RestaurantDiscGallery = (props) => {
                                                                 return (
                                                                     <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
                                                                         <div className="rsdish-gallery">
-                                                                            <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                            <img src={`${SERVER_URL}/${data.url}`} alt="" className="img-fluid" />
                                                                         </div>
                                                                     </div>
                                                                 )
@@ -88,7 +89,7 @@ const RestaurantDiscGallery = (props) => {
                                                                 return (
                                                                     <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
                                                                         <div className="rsdish-gallery">
-                                                                            <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                            <img src={`${SERVER_URL}/${data.url}`} alt="" className="img-fluid" />
                                                                         </div>
                                                                     </div>
                                                                 )
@@ -130,7 +131,7 @@ const RestaurantDiscGallery = (props) => {
                                                             return (
                                                                 <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
                                                                     <div className="rsdish-gallery">
-                                                                        <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                        <img src={`${SERVER_URL}/${data.url}`} alt="" className="img-fluid" />
                                                                     </div>
                                                                 </div>
                                                             )
@@ -161,7 +162,7 @@ const RestaurantDiscGallery = (props) => {
                                                                 return (
                                                                     <div key={index} className="col-sm-4 col-md-4 col-lg-3 col-xl-2 pl-0 pr-0 gallery-imgblock">
                                                                         <div className="rsdish-gallery">
-                                                                            <img src={`${SERVER_URL}/${data.image}`} alt="" className="img-fluid" />
+                                                                            <img src={`${SERVER_URL}/${data.url}`} alt="" className="img-fluid" />
                                                                         </div>
                                                                     </div>
                                                                 )

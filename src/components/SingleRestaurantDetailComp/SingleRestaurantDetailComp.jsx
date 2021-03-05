@@ -10,8 +10,14 @@ import nonveg from "../../assets/images/non-veg.svg"
 import veg from "../../assets/images/veg.svg";
 import clockicon from "../../assets/images/restaurant-dish/clock-icon.svg";
 import moment from 'moment';
+import Dummy_Icon from "../../assets/images/dummy_icon.svg"
+import {SERVER_URL} from '../../shared/constant'
+import Dummy_Image from "../../assets/images/restaurant_default.jpg"
 
-const SingleRestaurantDetailComp = ({restaurant_distance,restaurant_location,restaurant_name,restaurant_cuisine}) => {
+
+let defaultIcon=[{name:"Unknown",image:Dummy_Icon},{name:"Unknown",image:Dummy_Icon}]
+
+const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restaurant_location,restaurant_name,restaurant_cuisine,restaurant_feature,restaurant_time}) => {
     const [open, setOpen] = useState(false);
     let myDay=moment().format('dddd');
     let myTime=moment();
@@ -40,8 +46,13 @@ const SingleRestaurantDetailComp = ({restaurant_distance,restaurant_location,res
 
                 <div className="row">
                     <div className="col-sm-12">
-                        <div className="rsbanner-wrapper">
-                            <img src={restaurant_banner} alt={"restaurant_banner"} className="w-100 img-fluid" />
+                        <div className="rsbanner-wrapper" style={{height:240}}>
+                        {restaurant_image?
+                            <img src={`${SERVER_URL}/${restaurant_image}`}  alt={restaurant_name?restaurant_name:'unknown'} className="img-fluid w-100" style={{height:240}} />
+                        :
+                            <img src={Dummy_Image} alt={restaurant_name?restaurant_name:'unknown'}  className="img-fluid w-100" style={{height:240}}/>
+                        }
+                            {/* <img src={restaurant_banner} alt={"restaurant_banner"} className="w-100 img-fluid" /> */}
                         </div>
                     </div>
                 </div>
@@ -71,7 +82,7 @@ const SingleRestaurantDetailComp = ({restaurant_distance,restaurant_location,res
                                         {restaurant_cuisine&&restaurant_cuisine.map((data,index)=>{
                                             return(
                                                 <React.Fragment key={index}>
-                                                    {index?",":''}{data.name}
+                                                    {index?",":''}{data.name?data.name:'Na'}
                                                 </React.Fragment>
                                             )
                                         })}
@@ -82,16 +93,33 @@ const SingleRestaurantDetailComp = ({restaurant_distance,restaurant_location,res
                                     <p className="txt-lightgray mb-2"><span>-</span></p>
                                 </React.Fragment>
                             }
+                            
                             <div className="foodtypes-wrap d-flex">
-                                <div className="food-types mr-3 d-flex justify-content-center align-items-center">
-                                    <img src={accessible_icon} alt={"accessible_icon"} className="img-fluid" />
-                                </div>
-                                <div className="food-types mr-3 d-flex justify-content-center align-items-center">
-                                    <img src={nonveg} alt={"nonveg"} className="img-fluid" />
-                                </div>
-                                <div className="food-types d-flex justify-content-center align-items-center">
-                                    <img src={veg} alt={"veg"} className="img-fluid" />
-                                </div>
+                                {restaurant_feature&&restaurant_feature.length>0?
+                                    <React.Fragment>
+                                        {restaurant_feature&&restaurant_feature.map((data,index)=>{
+                                            return(
+                                                <React.Fragment key={index}>
+                                                    <div className="food-types mr-3 d-flex justify-content-center align-items-center">
+                                                        <img src={`${SERVER_URL}/${data.image}`} alt={"icon"} width="16px" className="img-fluid" title={data.name?data.name:'na'} />
+                                                    </div>
+                                                </React.Fragment>
+                                            )
+                                        })}
+                                    </React.Fragment>
+                                    :
+                                    <React.Fragment>
+                                        {defaultIcon&&defaultIcon.map((data,index)=>{
+                                            return(
+                                                <React.Fragment key={index}>
+                                                    <div className="food-types mr-3 d-flex justify-content-center align-items-center">
+                                                        <img src={data.image} alt={"icon"} className="img-fluid" width="16px" title={data.name} />
+                                                    </div>
+                                                </React.Fragment>
+                                            )
+                                        })}
+                                    </React.Fragment>
+                                }
                             </div>
                         </div>
                     </div>

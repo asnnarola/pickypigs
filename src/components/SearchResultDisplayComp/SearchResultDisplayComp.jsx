@@ -51,15 +51,15 @@ const SearchResultDisplayComp=(props)=>{
                                                                 <div class="card mb-3" >
                                                                     <div class="row g-0">
                                                                         <div class="col-md-4">
-                                                                        {data.image?
-                                                                            <img src={`${SERVER_URL}/${data.image}`} alt={data.name} className="img-fluid w-100" />
+                                                                        {data.restaurantProfilePhoto?
+                                                                            <img src={`${SERVER_URL}/${data.restaurantProfilePhoto}`} alt={data.name?data.name:'Na'} className="img-fluid w-100" />
                                                                         :
                                                                             <img src={Dummy_Image} alt={"restaurant_name"} className="img-fluid w-100" />
                                                                         }
                                                                         </div>
                                                                         <div class="col-md-8">
                                                                         <div class="card-body">
-                                                                            <h5 class="card-title">{data.name}</h5>
+                                                                            <h5 class="card-title">{data.name?data.name:'Na'}</h5>
                                                                         </div>
                                                                         </div>
                                                                     </div>
@@ -92,7 +92,7 @@ const SearchResultDisplayComp=(props)=>{
                                                                     <div class="row g-0">
                                                                         <div class="col-md-4">
                                                                         {data.image?
-                                                                            <img src={`${SERVER_URL}/${data.image}`} alt={data.name} className="img-fluid w-100" />
+                                                                            <img src={`${SERVER_URL}/${data.image}`} alt={data.name?data.name:'Na'} className="img-fluid w-100" />
                                                                         :
                                                                             <img src={Dummy_Image} alt={"restaurant_name"} className="img-fluid w-100" />
                                                                         }

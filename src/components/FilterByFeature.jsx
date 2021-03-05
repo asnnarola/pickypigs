@@ -26,16 +26,17 @@ function FilterByFeature() {
     const dispatch=useDispatch();
     var settings = {
         arrows: false,
-        // centerMode: true,
+        infinite: true,
         swipeToSlide: true,
         centerPadding: '5px',
         slidesToShow: 13,
-        slidesToScroll: 1,
+        slidesToScroll:2.5,
         responsive: [
             {
                 breakpoint: 768,
                 settings: {
                     arrows: false,
+                    infinite: true,
                     swipeToSlide: true,
                     // centerMode: true,
                     centerPadding: '40px',
@@ -46,6 +47,7 @@ function FilterByFeature() {
                 breakpoint: 480,
                 settings: {
                     arrows: false,
+                    infinite: true,
                     swipeToSlide: true,
                     // centerMode: true,
                     centerPadding: '40px',
@@ -94,7 +96,7 @@ function FilterByFeature() {
                                 <div className="filter-icon">
                                     <img src={`${SERVER_URL}/${data.image}`} className="img-fluid" />
                                 </div>
-                                <p className="mt-2 text-dark text-link f-14 brandon-Medium">{data.name}</p>
+                                <p className="mt-2 text-dark text-link f-14 brandon-Medium text-capitalize">{data.name?data.name:''}</p>
                             </button>
                         </React.Fragment>
                     )

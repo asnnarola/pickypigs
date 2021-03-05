@@ -1,10 +1,12 @@
-import React, { useContext,useState } from "react";
+import React, { useContext,useEffect,useState } from "react";
 import { Accordion, Card } from 'react-bootstrap';
 import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
 import AccordionContext from 'react-bootstrap/AccordionContext';
 import dishimg from "../../assets/images/restaurant-dish/dish-img.png";
 import Diningtable from "../../assets/images/restaurant-dish/diningtable.svg";
 import "./MenuAccordianCommonComp.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategorySubcategoryDishesList } from "../../redux/actions/restaurantMenuTabAction";
 
 function ContextAwareToggle({ children, eventKey, callback }) {
     const currentEventKey = useContext(AccordionContext);
@@ -32,18 +34,47 @@ function ContextAwareToggle({ children, eventKey, callback }) {
     );
 }
 
-const MenuAccordianCommonComp = (props) => {
-
+const MenuAccordianCommonComp = ({menuid}) => {
+    const dispatch=useDispatch();
     const [subCate1,setSubCate1]=useState(true);
     const [subCate2,setSubCate2]=useState(false);
     const [subCate3,setSubCate3]=useState(false);
 
+    useEffect(()=>{
+        dispatch(getCategorySubcategoryDishesList({menuId:menuid}))
+    },[dispatch,menuid]);
+    const MenuTab_data=useSelector((state)=>{
+        return state.restaurantMenuTab
+    })
+    let {menuTabCategory_Data}=MenuTab_data;
     return (
         <>
+        {/* {JSON.stringify(menuTabCategory_Data&&menuTabCategory_Data)} */}
             <div className="row">
                 <div className="col-sm-12">
                     <div className="col-sm-12">
                         <Accordion defaultActiveKey="0" className="menudisc-accordian mt-3">
+                            {/* {menuTabCategory_Data&&menuTabCategory_Data.length>0?
+                                <React.Fragment>
+                                    {menuTabCategory_Data&&menuTabCategory_Data.map((data,index)=>{
+                                        return(
+                                            <React.Fragment key={index}>
+                                                <Card>
+                                                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                                                        <ContextAwareToggle eventKey="1">{data.categoryName?data.categoryName:'Unknown'}</ContextAwareToggle>
+                                                    </Accordion.Toggle>
+                                                    <Accordion.Collapse eventKey="1">
+                                                        <Card.Body>Hello! I'm the body</Card.Body>
+                                                    </Accordion.Collapse>
+                                                </Card>
+                                            </React.Fragment>
+                                        )
+                                    })}
+                                    
+                                </React.Fragment>
+                                :
+                                null
+                            } */}
                             <Card>
                                 <Accordion.Toggle as={Card.Header} eventKey="0" className="txt-darkgreen flex-wrap align-items-center brandon-Bold card-header d-flex justify-content-between">
                                     <ContextAwareToggle eventKey="0">buns</ContextAwareToggle>

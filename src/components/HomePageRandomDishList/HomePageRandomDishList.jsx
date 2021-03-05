@@ -50,7 +50,7 @@ const HomePageRandomDishList=()=>{
                                                             <Link to={'/restaurant_dish_info/' + data._id} style={{textDecoration:'none',color:'initial'}}>
                                                                 <DiscDescriptionComp
                                                                     dish_name={data.name?data.name:''}
-                                                                    dish_image={data.image?`${SERVER_URL}/${data.image}`:''}
+                                                                    dish_image={data.image?data.image:''}
                                                                     dish_priceunit={data.priceUnit?data.priceUnit:''}
                                                                     dish_price={data.price?data.price:'-'}
                                                                     dish_description={data.description?data.description:''}

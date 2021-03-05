@@ -8,7 +8,7 @@ import userProfileReducer from "./userProfileReducer";
 import dishReducer from "./dishReducer";
 import homePageReducer from "./homePageReducer";
 import restaurantSearchPageReducer from "./restaurantSearchPageReducer";
-
+import restaurantMenuTabReducer from "./restaurantMenuTabReducer";
 
 
 export default combineReducers({
@@ -22,4 +22,5 @@ export default combineReducers({
   dishes:dishReducer,
   homePage:homePageReducer,
   restaurantSearch:restaurantSearchPageReducer,
+  restaurantMenuTab:restaurantMenuTabReducer,
 });
