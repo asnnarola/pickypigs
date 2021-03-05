@@ -24,7 +24,8 @@ import OurVisionComponent from '../../components/OurVisionComponent/OurVisionCom
 import KnowWhatYouEatComponent from '../../components/KnowWhatYouEatComponent/KnowWhatYouEatComponent';
 import pattern_img from "../../assets/images/Pattern.png"
 import WorkWithUsFooterComp from '../../components/WorkWithUsFooterComp/WorkWithUsFooterComp'
-import DiscDescriptionComp from '../../components/DiscDescriptionComp/DiscDescriptionComp';
+import HomePageRandomRestaurantList from '../../components/HomePageRandomRestaurantList/HomePageRandomRestaurantList';
+import HomePageRandomDishList from '../../components/HomePageRandomDishList/HomePageRandomDishList';
 
 
 function Home({ coords }) {
@@ -46,9 +47,9 @@ function Home({ coords }) {
                                 <div className="fr-wrapper">
                                     <h1 className="brandon-Medium text-uppercase mb-4 pb-2 sectionhead-txt">
                                         FIND YOUR FAVOURITE
-                                <br className="d-md-none d-lg-block" /> RESTAURANTS AND DISHES
-                            </h1>
-                                    <FilterList filterIcon={false} />
+                                        <br className="d-md-none d-lg-block" /> RESTAURANTS AND DISHES
+                                    </h1>
+                                    <FilterList showautosuggestion={true} />
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -81,101 +82,22 @@ function Home({ coords }) {
                 </section>
 
                 {/* FIND A RESTAURANT YOU WILL LOVE section start */}
-                <section className="section3 mb-5 pt-5">
-                    <div className="container">
-                        <div className="row mb-4 pb-3">
-                            <div className="col-sm-12">
-                                <div className="fn-restaurant-detail d-flex justify-content-between align-items-end">
-                                    <h1 className="sectionhead-txt">
-                                        FIND A RESTAURANT <br className="d-lg-block d-none" /> YOU WILL LOVE
-                                </h1>
-                                    <Link to="/restaurant_list" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} variant="" className="theme-light-btn w-140 h-48 f-14">VIEW ALL</Link>{' '}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} />
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
-                                </Link>
-                            </div>
-                            <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                <Link to="/restaurant_dish" style={{ textDecoration: 'none', color: 'initial' }}>
-                                    <DishBlock restaurant_Name={"The Barrio Brothers Express"} restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <React.Fragment>
+                    <HomePageRandomRestaurantList/>
+                </React.Fragment>
+
 
                 {/* EXPLORE OUR CATEGORIES section start */}
-                {/* <section className="mt-5 pt-5 mb-5 pb-5">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <h1 className="sectionhead-txt text-center">EXPLORE OUR CATEGORIES</h1>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
-                <ExploreCategories />
+                <React.Fragment>
+                    <ExploreCategories />
+                </React.Fragment>
+
 
                 {/* WHAT ON THE MENU? section start */}
-                <section className="mt-5 pt-2 mb-5 ">
-                    <div className="container">
-                        <div className="row mb-4 pb-3">
-                            <div className="col-sm-12">
-                                <div className="whatmenu-wrapper d-flex justify-content-between align-items-end">
-                                    <h1 className="sectionhead-txt text-center">WHAT ON THE MENU?</h1>
-                                    <Link to="/restaurant_list" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} type="button" className="theme-light-btn w-140 h-48 f-14 btn btn-">VIEW ALL</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            {[restaurant_P1,restaurant_P2,restaurant_P3,restaurant_P4,restaurant_P5,restaurant_P6,restaurant_P7,restaurant_P8].map((data,index)=>{
-                                return(
-                                    <React.Fragment key={index}>
-                                        <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
-                                            <Link to={'/restaurant_dish_info/' + `6038be6fa939c26054ac8e2e`} style={{textDecoration:'none',color:'initial'}}>
-                                                <DiscDescriptionComp discpick={data}/>
-                                            </Link>
-                                        </div>
-                                    </React.Fragment>
-                                )
-                            })}
-                        </div>
-                    </div>
-                </section>
+                <React.Fragment>
+                    <HomePageRandomDishList />
+                </React.Fragment>
+
 
                 <section className="">
                     <KnowWhatYouEatComponent />

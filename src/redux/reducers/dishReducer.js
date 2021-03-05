@@ -1,88 +1,60 @@
 
 
 const initialState = {
-    isLoading : false,
+    isResturantLoading : false,
+    isDishLoading : false,
     errorMessage:'',
-    menu_Data:null,
-    selectedDiscInfo_Data:{},
+    selectedDiscInfo_Data:null,
+    selectedRestaurantDetail_Data:null,
     };
     
     const dishReducer = (state = initialState, { type, payload }) => {
       switch (type) {
-        
-        case "GET_ALLMENU_REQUEST":
-        case "ADD_MENU_REQUEST":
-        case "GET_SELECTEDDISCINFO_REQUEST":
-        case "UPDATE_MENU_REQUEST":
-        case "DELETE_MENU_REQUEST":
-        case "HIDE_MENU_REQUEST":
-        case "DUPLICATE_MENU_REQUEST":
-        case "REDO_MENU_REQUEST":
+          
+        //getSelectedRestaurantDetailInfoData
+        case "GET_SELECTEDRESTAURANTDETAILINFO_REQUEST":
             return {
                 ...state,
-                isLoading :true,
+                isResturantLoading :true,
             };
-        case "GET_ALLMENU_SUCCESS":
-            return {
-                ...state,
-                isLoading:false,
-            menu_Data:payload,
-    
-            };
-        case "ADD_MENU_SUCCESS":
+              
+        case "GET_SELECTEDRESTAURANTDETAILINFO_SUCCESS":            
             return{
                 ...state,
-                isLoading:false,
-            };        
+                isResturantLoading:false,
+                selectedRestaurantDetail_Data: payload.restaurantDetail[0]
+            }  
+      
+        case "GET_SELECTEDRESTAURANTDETAILINFO_FAILURE":  
+            return {
+                ...state,
+                isResturantLoading:false,
+                errorMessage:payload
+            };
+
+        //getSelectedDiscInfoData
+        case "GET_SELECTEDDISCINFO_REQUEST":
+            return {
+                ...state,
+                isDishLoading :true,
+            };
+              
         case "GET_SELECTEDDISCINFO_SUCCESS":            
             return{
                 ...state,
-                isLoading:false,
+                isDishLoading:false,
                 selectedDiscInfo_Data: payload.dishDetails[0]
             }  
       
-        case "UPDATE_MENU_SUCCESS":            
-            return{
-                ...state,
-                isLoading:false
-            }   
-
-        case "DELETE_MENU_SUCCESS":            
-            return{
-                ...state,
-                isLoading:false
-            }  
-
-        case "HIDE_MENU_SUCCESS":
-            return{
-                ...state,
-                isLoading:false,
-            };
-        case "DUPLICATE_MENU_SUCCESS":
-            return{
-                ...state,
-                isLoading:false,
-            }; 
-        case "REDO_MENU_SUCCESS":
-            return{
-                ...state,
-                isLoading:false,
-            };             
-             
-        case "GET_ALLMENU_FAILURE":
-        case "ADD_MENU_FAILURE":
         case "GET_SELECTEDDISCINFO_FAILURE":  
-        case "UPDATE_MENU_FAILURE":  
-        case "DELETE_MENU_FAILURE": 
-        case "HIDE_MENU_FAILURE": 
-        case "DUPLICATE_MENU_FAILURE": 
-        case "REDO_MENU_FAILURE": 
             return {
                 ...state,
-                isLoading:false,
+                isDishLoading:false,
                 errorMessage:payload
             };
-  
+
+        
+      
         default:
           return state;
       }

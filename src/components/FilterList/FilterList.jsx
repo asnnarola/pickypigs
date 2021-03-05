@@ -20,6 +20,8 @@ import PlacesAutocomplete, {
 import MyfilterListExample from './MyfilterListExample';
 import { getAllAllergyData,getAllDietaryData,getAllLifestyleData,getAllRestaurantFeaturesData} from '../../redux/actions/allergyAction';
 import SearchResultDisplayComp from '../SearchResultDisplayComp/SearchResultDisplayComp';
+import { Redirect, useHistory } from 'react-router-dom';
+import { getSearchedRestaurantsList } from '../../redux/actions/restaurantSearchPageAction';
 
 
 function useOutsideAlerter(ref,setUserTextFocus) {
@@ -43,8 +45,9 @@ function useOutsideAlerter(ref,setUserTextFocus) {
     }, [ref]);
 }
 
-function FilterList({ filterIcon = "false" }) {
+function FilterList(props) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [places, setPlaces] = useState(null)
     const [selectedPlace, setSelectedPlace] = useState(null)
     const [allergen, setAllergen] = useState([])
@@ -59,6 +62,7 @@ function FilterList({ filterIcon = "false" }) {
 
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
+    const [submitting, setSubmitting] = useState(false)
 
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef,setUserTextFocus);
@@ -114,12 +118,18 @@ function FilterList({ filterIcon = "false" }) {
     const geoLocation = useSelector((state) => state.googledata.location_data);
 
     const getAllRestaurant = () => {
-        const location = window.navigator && window.navigator.geolocation
-        if (location) {
-            location.getCurrentPosition((position) => {
-                dispatch(getRestaurantSearchData(geoLocation.lat, geoLocation.lng, userSearchText));
-            });
+        if(allergenValue.length<=0&&dietaryValue.length<=0&&lifeStyleValue.length<=0&&featuresValue.length<=0&&userSearchText===''){
+            history.push('/restaurant_list');
+        }else{
+              setSubmitting(true)
         }
+
+        // const location = window.navigator && window.navigator.geolocation
+        // if (location) {
+        //     location.getCurrentPosition((position) => {
+        //         dispatch(getRestaurantSearchData(geoLocation.lat, geoLocation.lng, userSearchText));
+        //     });
+        // }
     }
 
     const handleSearch = (e) => {
@@ -127,19 +137,20 @@ function FilterList({ filterIcon = "false" }) {
     }
 
 
-
-    // ssssssssssss
-
-
-
     return (
         <div className="restaurant-find w-100 p-2 p-xl-3">
+            {/* {JSON.stringify(submitting)} */}
             {/* {JSON.stringify(userSearchDetails&&userSearchDetails)} */}
+            {submitting&&
+               <Redirect
+                to={{
+                    pathname: "/allrestaurant",
+                    search: `?search=${userSearchText}`,
+                    state: {allergendata: allergenValue,}
+                }}
+                />}
             <div className="fr-search d-flex align-items-center  pb-3">
-
-               
                 <MyfilterListExample />
-
 
                 {/* <Dropdown className="fr-location mr-2">
                     <Dropdown.Toggle className="d-flex justify-content-between align-items-center w-100" variant="Secondary" id="dropdown-basic">
@@ -169,15 +180,21 @@ function FilterList({ filterIcon = "false" }) {
                     <Button variant="primary" onClick={getAllRestaurant} className="fr-search-btn theme-pink-btn">
                         <img src={serachwhite} className="img-fluid" alt="serachwhite" />
                     </Button>
-                    {filterIcon && <Button className="filtershort-btn ml-2 p-0">
+                    {/* {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
-                    </Button>}
-                    {userSearchText&&
-                    userTextFocus&&
-                        <div  className="position-absolute"  style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:2,backgroundColor:'transparent'}}>
-                            <SearchResultDisplayComp searchtext={userSearchText}/>
-                        </div>
+                    </Button>} */}
+                    {props.showautosuggestion&&props.showautosuggestion?
+                    <React.Fragment>
+                        {userSearchText&&userSearchText!==" "&&userTextFocus&&
+                            <div  className="position-absolute"  style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:2,backgroundColor:'transparent'}}>
+                                <SearchResultDisplayComp searchtext={userSearchText}/>
+                            </div>
+                        }
+                    </React.Fragment>
+                    :
+                    null
                     }
+                    
                     
                 </div>
             </div>

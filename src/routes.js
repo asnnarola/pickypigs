@@ -27,7 +27,7 @@ export const routesCode = [
 
     { path: "/restaurant_list", exact: true, component: RestaurantList },
     { path: "/allrestaurant", exact: true, component: AllRestaurant },
-    { path: "/restaurant_dish", exact: true, component: RestaurantDiscPage },
+    { path: "/restaurant_dish/:restId", exact: true, component: RestaurantDiscPage },
     { path: "/restaurant_dish_info/:dishId", exact: true, component: RestaurantSingleDiscInfoPage },
     { path: "/user_detail", exact: true, component: UserDetailPage },
     { path: "/verify/:token", exact: true, component: Verify },

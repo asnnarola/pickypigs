@@ -65,7 +65,11 @@ export const getLogin=(data,history)=>{
       catch(error){
         dispatch({type:"GET_LOGIN_FAILURE",payload:error});
         if (error.response) {
-          dispatch(setAlert('Wrong Credential', 'error'));
+          if(error.response.data.message=="Email is not verified."){
+            dispatch(setAlert('Email is not verified.', 'error'));
+          }else{
+            dispatch(setAlert('Wrong Credential', 'error'));
+          }
         } else {
           dispatch(setAlert('Something went wrong!', 'error'));
         }

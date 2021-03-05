@@ -75,31 +75,97 @@ const ExploreCategories = () => {
                   <div className="categories-icon">
                     <img src={Breakfast_icon} alt={"Breakfast_icon"} className="img-fluid" />
                   </div>
-                  <Link to="#" className="mt-3 text-dark text-link">Breakfast</Link>
+                    <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"breakfast"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Breakfast
+                  </Link>
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
                     <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
                   </div>
-                  <Link to="#" className="mt-3 text-dark text-link">Lunch</Link>
+                  <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"lunch"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Lunch
+                  </Link>
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
                     <img src={Dinner_icon} alt={"Dinner_icon"} className="img-fluid" />
                   </div>
-                  <Link to="#" className="mt-3 text-dark text-link">Dinner</Link>
+                  <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"dinner"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Dinner
+                  </Link>
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
                     <img src={Drinks_icon} alt={"Drinks_icon"} className="img-fluid" />
                   </div>
-                  <Link to="#" className="mt-3 text-dark text-link">Drinks</Link>
+                  <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"dessert"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Dessert
+                  </Link>
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
                     <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
                   </div>
-                  <Link to="#" className="mt-3 text-dark text-link">Lunch</Link>
+                  <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"buffet"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Buffet
+                  </Link>
+                </div>
+                <div className="categories-subwrapper">
+                  <div className="categories-icon">
+                    <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
+                  </div>
+                  <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"drinks"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Drinks
+                  </Link>
+                </div>
+                <div className="categories-subwrapper">
+                  <div className="categories-icon">
+                    <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
+                  </div>
+                  <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"nibble"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Nibble
+                  </Link>
+                </div>
+                <div className="categories-subwrapper">
+                  <div className="categories-icon">
+                    <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
+                  </div>
+                  <Link to={{
+                        pathname: "/allrestaurant",
+                        search: `?menu=${"setmenu"}`,
+                      }} 
+                    className="mt-3 text-dark text-link">
+                    Set Menu
+                  </Link>
                 </div>
               </Slider>
             </div>

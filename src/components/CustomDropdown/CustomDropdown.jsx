@@ -51,10 +51,10 @@ const CustomDropdown = ({ placeholder,clearAll, labelKey = "name", valueKey = "_
                                 <div className="mb-2">
                                     <Form.Check
                                         key={item._id} // required
-                                        onChange={() => selectValue(item)}
+                                        onChange={() => selectValue(item._id)}
                                         custom
                                         inline
-                                        checked={isSelected}
+                                        checked={value&&value.indexOf(item._id) !== -1}
                                         label={item.name}
                                         className="filterdrop-checkbox"
                                         type="checkbox"

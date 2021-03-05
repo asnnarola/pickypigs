@@ -25,7 +25,7 @@ const RestaurantSingleDiscInfoPage = () => {
     });
 
     let myLoading = useSelector((state) => {
-        return state.dishes.isLoading
+        return state.dishes.isDishLoading
     });
 
     return (
@@ -48,7 +48,7 @@ const RestaurantSingleDiscInfoPage = () => {
                                 <li class="breadcrumb-item"><Link to="/">Home</Link></li>
                                 <li class="breadcrumb-item"><Link to="/">Restaurants</Link></li>
                                 <li class="breadcrumb-item" aria-current="page"><Link to="/">The Barrio Brothers Express</Link></li>
-                                <li class="breadcrumb-item active" aria-current="page">Dish info</li>
+                                <li class="breadcrumb-item active" aria-current="page">{selectedDiscInfo_data&&selectedDiscInfo_data.name?selectedDiscInfo_data.name:'Unknown'}</li>
                             </ol>
                         </nav>
                     </div>

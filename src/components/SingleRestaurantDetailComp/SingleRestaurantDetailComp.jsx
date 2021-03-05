@@ -11,7 +11,7 @@ import veg from "../../assets/images/veg.svg";
 import clockicon from "../../assets/images/restaurant-dish/clock-icon.svg";
 import moment from 'moment';
 
-const SingleRestaurantDetailComp = () => {
+const SingleRestaurantDetailComp = ({restaurant_distance,restaurant_location,restaurant_name,restaurant_cuisine}) => {
     const [open, setOpen] = useState(false);
     let myDay=moment().format('dddd');
     let myTime=moment();
@@ -36,15 +36,7 @@ const SingleRestaurantDetailComp = () => {
     return (
         <>
             <div className="container">
-                <div className="breadcrumb-wrapper">
-                    <nav aria-label="breadcrumb">
-                        <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="#">Home</a></li>
-                            <li className="breadcrumb-item"><a href="#">Library</a></li>
-                            <li className="breadcrumb-item active" aria-current="page">Data</li>
-                        </ol>
-                    </nav>
-                </div>
+                
 
                 <div className="row">
                     <div className="col-sm-12">
@@ -58,18 +50,38 @@ const SingleRestaurantDetailComp = () => {
                 <div className="row mt-4">
                     <div className="col-md-9 rs-maindetails">
                         <div className="rs-name">
-                            <h2 className="mb-2 brandon-Medium">The Barrio Brothers Express</h2>
+                            <h2 className="mb-2 brandon-Medium text-capitalize">{restaurant_name&&restaurant_name?restaurant_name:'Unknown'}</h2>
                             <p className="rs-dediction d-flex flex-wrap align-items-center mb-2">
                                 <span className="rsdediction-location">
                                     <img src={locationgray_icon} alt={"locationgray_icon"} className="img-fluid mr-2" />
                                 </span>
-                                <span className="rsdediction-km"> 1.5 km from you </span>
+                                {restaurant_distance&&restaurant_distance&&restaurant_distance!=="null"?
+                                    <span className="rsdediction-km"> {restaurant_distance} from you </span>
+                                :
+                                    <span className="rsdediction-km"> Not Availabe </span>
+                                }
                                 <span className="rs-bordertyle ml-2 mr-2"></span>
                                 <span className="ml-2 txt-gray">
-                                    Manukau
+                                    {restaurant_location&&restaurant_location?restaurant_location:'Na'}
                                 </span>
                             </p>
-                            <p className="txt-lightgray mb-2"><span>Steak, American, Italian</span></p>
+                            {restaurant_cuisine&&restaurant_cuisine.length>0?
+                                <React.Fragment>
+                                    <p className="txt-lightgray mb-2"><span>
+                                        {restaurant_cuisine&&restaurant_cuisine.map((data,index)=>{
+                                            return(
+                                                <React.Fragment key={index}>
+                                                    {index?",":''}{data.name}
+                                                </React.Fragment>
+                                            )
+                                        })}
+                                    </span></p>
+                                </React.Fragment>
+                            :
+                                <React.Fragment>
+                                    <p className="txt-lightgray mb-2"><span>-</span></p>
+                                </React.Fragment>
+                            }
                             <div className="foodtypes-wrap d-flex">
                                 <div className="food-types mr-3 d-flex justify-content-center align-items-center">
                                     <img src={accessible_icon} alt={"accessible_icon"} className="img-fluid" />
