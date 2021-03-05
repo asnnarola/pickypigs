@@ -36,7 +36,7 @@ function HowItWorksPage() {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12 mb-2">
-                            <h1 className="text-center text-uppercase header-txt brandon-Bold">HOW IT WORKS</h1>
+                            <h1 className="text-center text-uppercase header-txt brandon-Medium position-relative">HOW IT WORKS</h1>
                             <p className="text-center f-15">
                                 This is your ultimate food finding application for FUSS FREE FOOD. Search for the best place for you to dine based <br className="d-none d-xl-block" />
                             on all of your needs, add and remove filters to create a personalised digital menu and even send your own order to <br className="d-none d-xl-block" />
@@ -57,7 +57,7 @@ function HowItWorksPage() {
                             <div className="howvideo-wrapper">
                                 <ReactPlayer
                                     light={video_img}
-                                    playIcon={<img src={play_icon} className="img-fluid play_icon"  alt="icon" />}
+                                    playIcon={<div className="videoplay-bg d-flex align-items-center justify-content-center"><img src={play_icon} className="img-fluid play_icon"  alt="icon" /></div>}
                                     className="w-100 h-100"
                                     controls
                                     url='https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4' />
@@ -66,6 +66,10 @@ function HowItWorksPage() {
                     </div>
                 </div>
             </section>
+            <br />
+            <br />
+            <br />
+            <br />
             <section>
                 <div className="container">
                     <FirstOverlapedCardComp img={how_img_1} detail={detail_1} />

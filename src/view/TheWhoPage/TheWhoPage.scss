@@ -1,4 +1,4 @@
-.the_who_page_container{
+.the_who_page_container {
     .header-txt {
         color: #2E482B;
         font-size: 48px;
@@ -20,7 +20,8 @@
     .light-pink-bg {
         background: #FFF3F7;
     }
-    .gradient-bg{
+
+    .gradient-bg {
         background: linear-gradient(220deg, #EFFFF7 -70%, white 100%);
     }
 
@@ -103,6 +104,8 @@
             padding: 50px 0px 70px;
             border-radius: 20px;
             background: #fff;
+            position: relative;
+            z-index: 1;
 
             .ourmission-container {
                 max-width: 970px !important;
@@ -156,10 +159,11 @@
             }
         }
     }
+
     .patternimg-wrapper {
         max-width: 710px;
         margin: -6.5% auto 0px;
     }
 
     // ourmission section 3 css end
-}    
+}

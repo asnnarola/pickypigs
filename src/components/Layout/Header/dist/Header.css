@@ -83,12 +83,12 @@
   font-size: 16px;
   font-family: "Brandon Text" !important;
 }
-.main-layout nav.main-header .menu-list .navbar-nav .nav-link.menu-link {
+.main-layout nav.main-header .menu-list .navbar-nav a.menu-link {
   color: #232323;
   font-size: 15px;
   font-family: "Brandon Text Medium";
 }
-.main-layout nav.main-header .menu-list .navbar-nav .nav-link.menu-link:hover {
+.main-layout nav.main-header .menu-list .navbar-nav a.menu-link:hover {
   color: #cb007b;
 }
 .main-layout nav.main-header .menu-list .navright-btn .search-topnav {
@@ -155,7 +155,6 @@
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
@@ -169,4 +168,65 @@
   transform: rotate(90deg) scale(0.9);
   position: absolute;
   right: 15px;
+}
+.main-layout .partner-nav-dropdown {
+  /*------------------------------------*\
+      NAV
+  \*------------------------------------*/
+  /*--- DROPDOWN ---*/
+}
+.main-layout .partner-nav-dropdown #nav {
+  list-style: none;
+}
+.main-layout .partner-nav-dropdown #nav li {
+  float: left;
+  position: relative;
+}
+.main-layout .partner-nav-dropdown #nav a {
+  display: block;
+  padding: 5px;
+  color: #000000;
+  background: #ffffff;
+  text-decoration: none;
+}
+.main-layout .partner-nav-dropdown #nav ul {
+  background-color: #ffffff;
+  /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+  list-style: none;
+  position: absolute;
+  left: -9999px;
+  /* Hide off-screen when not needed (this is more accessible than display:none;) */
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.main-layout .partner-nav-dropdown #nav ul li {
+  padding-top: 1px;
+  /* Introducing a padding between the li and the a give the illusion spaced items */
+  float: none;
+}
+.main-layout .partner-nav-dropdown #nav ul a {
+  white-space: nowrap;
+  /* Stop text wrapping and creating multi-line dropdown items */
+}
+.main-layout .partner-nav-dropdown #nav li:hover ul {
+  /* Display the dropdown on hover */
+  right: auto;
+  /* Bring back on-screen when needed */
+  left: 0;
+}
+.main-layout .partner-nav-dropdown #nav li:hover a {
+  /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+  background: #ffffff;
+  text-decoration: underline;
+}
+.main-layout .partner-nav-dropdown #nav li:hover ul a {
+  /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+  text-decoration: none;
+}
+.main-layout .partner-nav-dropdown #nav li:hover ul li a:hover {
+  /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+  background: #ffffff;
+  color: #cb007b;
 }
