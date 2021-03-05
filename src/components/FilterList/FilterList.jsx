@@ -138,7 +138,7 @@ function FilterList(props) {
 
 
     return (
-        <div className="restaurant-find w-100 p-2 p-xl-3">
+        <div className="restaurant-find w-100 p-2 p-xl-3 mb-5">
             {/* {JSON.stringify(submitting)} */}
             {/* {JSON.stringify(userSearchDetails&&userSearchDetails)} */}
             {submitting&&
@@ -186,7 +186,7 @@ function FilterList(props) {
                     {props.showautosuggestion&&props.showautosuggestion?
                     <React.Fragment>
                         {userSearchText&&userSearchText!==" "&&userTextFocus&&
-                            <div  className="position-absolute"  style={{top:73,left:0,minWidth:'100%',background:'white',zIndex:2,backgroundColor:'transparent'}}>
+                            <div  className="position-absolute fr-rsdish-filterwrapper">
                                 <SearchResultDisplayComp searchtext={userSearchText}/>
                             </div>
                         }

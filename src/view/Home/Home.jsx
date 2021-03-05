@@ -44,8 +44,8 @@ function Home({ coords }) {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                                <div className="fr-wrapper">
-                                    <h1 className="brandon-Medium text-uppercase mb-4 pb-2 sectionhead-txt">
+                                <div className="fr-wrapper pt-5 pb-5">
+                                    <h1 className="brandon-Medium text-uppercase mb-4 pb-2 sectionhead-txt pt-5">
                                         FIND YOUR FAVOURITE
                                         <br className="d-md-none d-lg-block" /> RESTAURANTS AND DISHES
                                     </h1>
@@ -53,7 +53,7 @@ function Home({ coords }) {
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                                <div className="mainright-img mt-5 pt-5">
+                                <div className="mainright-img">
                                     <img src={mainimg} className="img-fluid mr-2" />
                                 </div>
                             </div>

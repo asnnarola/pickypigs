@@ -4,11 +4,10 @@
 }
 .fr-section .fr-wrapper {
   background-image: url("../../assets/images/Pattern.png");
-  background-size: auto;
-  background-position: 25% 30%;
+  background-size: 48%;
+  background-position: 25% 5rem;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 8rem 0 7rem;
 }
 .fr-section .fr-wrapper .restaurant-find {
   box-shadow: 2px 4px 20px 0px #0000001a;
@@ -50,6 +49,16 @@
   outline: none;
   max-width: calc(100% - 50px);
   caret-color: #CB007B;
+}
+.fr-section .fr-wrapper .restaurant-find .fr-search .fr-input .fr-search-box::placeholder {
+  color: #919191;
+}
+.fr-section .fr-wrapper .restaurant-find .fr-search .fr-input .fr-rsdish-filterwrapper {
+  top: 73px;
+  left: 0px;
+  min-width: 100%;
+  right: 0;
+  z-index: 1;
 }
 .fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .picky__input {
   background: #ffff;
@@ -111,7 +120,7 @@
   list-style: none !important;
 }
 .fr-section .fr-wrapper .restaurant-find .fr-category-select .filterdropdown .picky__dropdown .filter-listcheck {
-  position: relative;
+  position: static;
   display: flex;
   align-items: center;
 }
