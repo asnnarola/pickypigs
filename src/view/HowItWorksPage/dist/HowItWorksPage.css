@@ -4,13 +4,26 @@
 .how_it_works_container section.howvideo-section .howvideo-wrapper {
   width: 100%;
   height: 625px;
+  outline: none;
 }
 .how_it_works_container section.howvideo-section .howvideo-wrapper .react-player__preview {
   border-radius: 20px;
+  outline: none;
+}
+.how_it_works_container section.howvideo-section .howvideo-wrapper .react-player__preview .videoplay-bg {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+}
+.how_it_works_container section.howvideo-section .howvideo-wrapper .react-player__preview .videoplay-bg .play_icon {
+  width: 30px;
+  height: 30px;
 }
 .how_it_works_container .header-txt {
   color: #2E482B;
   font-size: 48px;
+  font-weight: 600;
 }
 .how_it_works_container .light-blue-bg {
   background: #ECF0FF;

@@ -73,6 +73,8 @@
   padding: 50px 0px 70px;
   border-radius: 20px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 .the_who_page_container .mission-section .ourmission-wrapper .ourmission-container {
   max-width: 970px !important;
