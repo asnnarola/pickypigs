@@ -46,12 +46,12 @@ const SingleDiscIngredientTableComp = (props) => {
                             <div className="Ingredients-img position-absolute">
                                 <img src={Ingredientsicon} alt="" className="img-fluid " />
                             </div>
-                            <h4 class="pl-4 ml-3 mb-0 txt-darkgreen mb-0">Ingredients</h4>
+                            <h4 className="pl-4 ml-3 mb-0 txt-darkgreen mb-0">Ingredients</h4>
                         </div>
                     </div>
                 </div>
                 <div className="table-responsive ingredients-table">
-                    <table class="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th scope="col" className="txt-lightgray fw-400">Serving</th>

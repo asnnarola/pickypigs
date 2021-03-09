@@ -107,8 +107,8 @@ const AllRestaurantFilterModal = (props) => {
                                         <button style={{ position: 'absolute', top: -27, right: 0 }} type="reset" onClick={()=>{setReset(true)}}>Reset All</button>
                                         {JSON.stringify(values)}
                                         <div className="main-accordion-wrapper ">
-                                            <div class="accordion accordion-main " id="accordionExample">
-                                                <div class="accordion-item">
+                                            <div className="accordion accordion-main " id="accordionExample">
+                                                <div className="accordion-item">
                                                     <div className="d-flex justify-content-between align-items-center accordion-header " id="headingOne">
                                                         <div className="w-100 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                             <div className="accordion-title">
@@ -117,8 +117,8 @@ const AllRestaurantFilterModal = (props) => {
                                                             <div className="expand-button position-absolute top-0 right-0"></div>
                                                         </div>
                                                     </div>
-                                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
+                                                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div className="accordion-body">
                                                             <section className="accordion-list__item ">
                                                                 <div className="row">
                                                                     {allergy_Data&&allergy_Data.data.map((data,index) => {
@@ -142,8 +142,8 @@ const AllRestaurantFilterModal = (props) => {
                                         </div>
 
                                         <div className="main-accordion-wrapper ">
-                                            <div class="accordion accordion-main " id="accordionExample">
-                                                <div class="accordion-item">
+                                            <div className="accordion accordion-main " id="accordionExample">
+                                                <div className="accordion-item">
                                                     <div className="d-flex justify-content-between align-items-center accordion-header " id="headingOne">
                                                         <div className="w-100 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                             <div className="accordion-title">
@@ -152,8 +152,8 @@ const AllRestaurantFilterModal = (props) => {
                                                             <div className="expand-button position-absolute top-0 right-0"></div>
                                                         </div>
                                                     </div>
-                                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
+                                                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div className="accordion-body">
                                                             <section className="accordion-list__item ">
                                                                 <div className="form-check custom-control custom-checkbox filter-checkbox mb-4" >
                                                                     <Field type="checkbox" name="toggle" className="form-check-input custom-control-input" id="exampleCheck15" style={{ marginLeft: 2, zIndex: 1, cursor: "pointer" }} />
@@ -162,7 +162,7 @@ const AllRestaurantFilterModal = (props) => {
                                                                     </label>
                                                                 </div>
                                                                 <div className="form-check custom-control custom-checkbox filter-checkbox pl-0">
-                                                                    <Field type="range" name="distance"  class="form-control-range" id="formControlRange" />
+                                                                    <Field type="range" name="distance"  className="form-control-range" id="formControlRange" />
                                                                     <label for="formControlRange" className="ranage-txt" style={{ left: values.distance * 2.45 }}> {values.distance}mi</label>
 
                                                                 </div>

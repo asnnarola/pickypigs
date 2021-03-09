@@ -363,7 +363,7 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                             </div>
                                             {rest_social&&rest_social.isAvailable?
                                                 <React.Fragment>
-                                                    <div class="sharesocial-linkbtn">
+                                                    <div className="sharesocial-linkbtn">
                                                         {rest_social&&rest_social.isFacebook?
                                                             <React.Fragment>
                                                                 <p className="brandon-Medium">Facebook</p>
@@ -385,7 +385,7 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                             null
                                                         }
                                                     </div>
-                                                    <div class="sharesocial-linkbtn">
+                                                    <div className="sharesocial-linkbtn">
                                                         {rest_social&&rest_social.isTwitter?
                                                             <React.Fragment>
                                                                 <p className="brandon-Medium">Twitter</p>
@@ -407,7 +407,7 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                             null
                                                         }
                                                     </div>
-                                                    <div class="sharesocial-linkbtn">
+                                                    <div className="sharesocial-linkbtn">
                                                         {rest_social&&rest_social.isInstagram?
                                                             <React.Fragment>
                                                                 <p className="brandon-Medium">Instagram</p>

@@ -10,6 +10,8 @@ const TermsAndConditionPage = lazy(() => import("./view/TermsAndConditionPage/Te
 const HowItWorksPage = lazy(() => import("./view/HowItWorksPage/HowItWorksPage.jsx"));
 
 const RestaurantList = lazy(() => import("./view/RestaurantList/RestaurantList"));
+const DishtListPage = lazy(() => import("./view/DishtListPage/DishtListPage"));
+
 const AllRestaurant = lazy(() => import("./view/AllRestaurant/AllRestaurant"));
 const RestaurantDiscPage = lazy(() => import("./view/RestaurantDiscPage/RestaurantDiscPage"));
 const RestaurantSingleDiscInfoPage = lazy(() => import("./view/RestaurantSingleDiscInfoPage/RestaurantSingleDiscInfoPage"));
@@ -26,6 +28,7 @@ export const routesCode = [
     { path: "/how",name: "How", exact: true, component: HowItWorksPage },
 
     { path: "/restaurant_list",name: "Restaurants", exact: true, component: RestaurantList },
+    { path: "/dish_list",name: "Restaurants", exact: true, component: DishtListPage },
     { path: "/allrestaurant",name: "All Restaurants", exact: true, component: AllRestaurant },
     { path: "/restaurant/:restId",name: "Restaurants Name", exact: true, component: RestaurantDiscPage },
     { path: "/restaurant_dish_info/:dishId",name: "Dish Name", exact: true, component: RestaurantSingleDiscInfoPage },

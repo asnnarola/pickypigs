@@ -26,7 +26,7 @@ const HomePageRandomDishList=()=>{
                         <div className="col-sm-12">
                             <div className="whatmenu-wrapper d-flex justify-content-between align-items-end">
                                 <h1 className="sectionhead-txt text-center">WHAT ON THE MENU?</h1>
-                                <Link to="/restaurant_list" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} type="button" className="theme-light-btn w-140 h-48 f-14 btn btn-">VIEW ALL</Link>
+                                <Link to="/dish_list" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} type="button" className="theme-light-btn w-140 h-48 f-14 btn btn-">VIEW ALL</Link>
                             </div>
                         </div>
                     </div>

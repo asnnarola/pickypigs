@@ -108,13 +108,13 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                                                                                             <p className="dish-title mb-2">{data3.name?data3.name:"Not Available"}</p>
                                                                                                                             <p className="dish-info">{data3.description?data3.description:"No Description"}</p>
                                                                                                                             <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
-                                                                                                                                {data3.customisable&&<span class="cuisine-label">CUSTOMISABLE</span>}
+                                                                                                                                {data3.customisable&&<span className="cuisine-label">CUSTOMISABLE</span>}
                                                                                                                                 {data3&&data3.allergenList&&data3.allergenList.length>0?
                                                                                                                                     <React.Fragment>
                                                                                                                                         {data3&&data3.allergenList&&data3.allergenList.map((allergy,index)=>{
                                                                                                                                             return(
                                                                                                                                                 <React.Fragment key={index}>
-                                                                                                                                                    <span class="cuisine-label">{allergy.name?allergy.name:''}</span>
+                                                                                                                                                    <span className="cuisine-label">{allergy.name?allergy.name:''}</span>
                                                                                                                                                 </React.Fragment>
                                                                                                                                             )
                                                                                                                                         })}
@@ -127,7 +127,7 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                                                                                                         {data3&&data3.dietaryList&&data3.dietaryList.map((dietry,index)=>{
                                                                                                                                             return(
                                                                                                                                                 <React.Fragment key={index}>
-                                                                                                                                                    <span class="cuisine-label">{dietry.name?dietry.name:''}</span>
+                                                                                                                                                    <span className="cuisine-label">{dietry.name?dietry.name:''}</span>
                                                                                                                                                 </React.Fragment>
                                                                                                                                             )
                                                                                                                                         })}
@@ -207,10 +207,10 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                                     <p className="dish-title mb-2">Denny's Benny Family</p>
                                                                     <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
                                                                     <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
-                                                                        <span class="cuisine-label">CUSTOMISABLE</span>
-                                                                        <span class="cuisine-label">VE</span>
-                                                                        <span class="cuisine-label">V</span>
-                                                                        <span class="cuisine-label">GF</span>
+                                                                        <span className="cuisine-label">CUSTOMISABLE</span>
+                                                                        <span className="cuisine-label">VE</span>
+                                                                        <span className="cuisine-label">V</span>
+                                                                        <span className="cuisine-label">GF</span>
                                                                     </p>
                                                                 </div>
                                                                 <div className="dish-price">
@@ -233,10 +233,10 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                                 <p className="dish-title mb-2">Denny's Benny Family</p>
                                                                 <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
                                                                 <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
-                                                                    <span class="cuisine-label">CUSTOMISABLE</span>
-                                                                    <span class="cuisine-label">VE</span>
-                                                                    <span class="cuisine-label">V</span>
-                                                                    <span class="cuisine-label">GF</span>
+                                                                    <span className="cuisine-label">CUSTOMISABLE</span>
+                                                                    <span className="cuisine-label">VE</span>
+                                                                    <span className="cuisine-label">V</span>
+                                                                    <span className="cuisine-label">GF</span>
                                                                 </p>
                                                             </div>
                                                             <div className="dish-price">
@@ -261,10 +261,10 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                                     <p className="dish-title mb-2">Denny's Benny Family</p>
                                                                     <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
                                                                     <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
-                                                                        <span class="cuisine-label">CUSTOMISABLE</span>
-                                                                        <span class="cuisine-label">VE</span>
-                                                                        <span class="cuisine-label">V</span>
-                                                                        <span class="cuisine-label">GF</span>
+                                                                        <span className="cuisine-label">CUSTOMISABLE</span>
+                                                                        <span className="cuisine-label">VE</span>
+                                                                        <span className="cuisine-label">V</span>
+                                                                        <span className="cuisine-label">GF</span>
                                                                     </p>
                                                                 </div>
                                                                 <div className="dish-price">
@@ -293,10 +293,10 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                                 <p className="dish-title mb-2">Denny's Benny Family</p>
                                                                 <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
                                                                 <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
-                                                                    <span class="cuisine-label">CUSTOMISABLE</span>
-                                                                    <span class="cuisine-label">VE</span>
-                                                                    <span class="cuisine-label">V</span>
-                                                                    <span class="cuisine-label">GF</span>
+                                                                    <span className="cuisine-label">CUSTOMISABLE</span>
+                                                                    <span className="cuisine-label">VE</span>
+                                                                    <span className="cuisine-label">V</span>
+                                                                    <span className="cuisine-label">GF</span>
                                                                 </p>
                                                             </div>
                                                             <div className="dish-price">
@@ -319,10 +319,10 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                             <p className="dish-title mb-2">Denny's Benny Family</p>
                                                             <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
                                                             <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
-                                                                <span class="cuisine-label">CUSTOMISABLE</span>
-                                                                <span class="cuisine-label">VE</span>
-                                                                <span class="cuisine-label">V</span>
-                                                                <span class="cuisine-label">GF</span>
+                                                                <span className="cuisine-label">CUSTOMISABLE</span>
+                                                                <span className="cuisine-label">VE</span>
+                                                                <span className="cuisine-label">V</span>
+                                                                <span className="cuisine-label">GF</span>
                                                             </p>
                                                         </div>
                                                         <div className="dish-price">
@@ -341,10 +341,10 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                             <p className="dish-title mb-2">Denny's Benny Family</p>
                                                             <p className="dish-info">freshly made every day with avocados, lime & coriander with trealy Farm chorizo</p>
                                                             <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-center mt-3 dish-tag">
-                                                                <span class="cuisine-label">CUSTOMISABLE</span>
-                                                                <span class="cuisine-label">VE</span>
-                                                                <span class="cuisine-label">V</span>
-                                                                <span class="cuisine-label">GF</span>
+                                                                <span className="cuisine-label">CUSTOMISABLE</span>
+                                                                <span className="cuisine-label">VE</span>
+                                                                <span className="cuisine-label">V</span>
+                                                                <span className="cuisine-label">GF</span>
                                                             </p>
                                                         </div>
                                                         <div className="dish-price">

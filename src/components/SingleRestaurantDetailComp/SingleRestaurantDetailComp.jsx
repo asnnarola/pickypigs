@@ -39,6 +39,26 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
         }
     }
 
+    function tConv24(time24) {
+        var ts = time24;
+        var H = +ts.substr(0, 2);
+        var h = (H % 12) || 12;
+        h = (h < 10)?("0"+h):h;  // leading 0 at the left for 1 digit hours
+        var ampm = H < 12 ? " AM" : " PM";
+        ts = h + ts.substr(2, 3) + ampm;
+        return ts;
+      };
+
+      function tConvsmaill24(time24) {
+        var ts = time24;
+        var H = +ts.substr(0, 2);
+        var h = (H % 12) || 12;
+        h = (h < 10)?("0"+h):h;  // leading 0 at the left for 1 digit hours
+        var ampm = H < 12 ? " am" : " pm";
+        ts = h + ts.substr(2, 3) + ampm;
+        return ts;
+      };
+
     return (
         <>
             <div className="container">
@@ -130,59 +150,189 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
                                     <img src={clockicon} alt={"clockicon"} className="img-fluid" />
                                 </div>
                                 <div className={`text-left ${open ? "" : null}`}>
-
-                                    <p className="mb-1 text-dark">
-                                        {
-                                        myDay==="Monday"
-                                            ?
-                                            compareData(restaurantTime2,restaurantTime4,myTime)
-                                            :
-                                        myDay==="Wednesday"
-                                            ?
-                                            compareData(restaurantTime2,restaurantTime4,myTime)
-                                            :
-                                        myDay==="Thursday"
-                                            ?
-                                            compareData(restaurantTime2,restaurantTime4,myTime)
-                                            :
-                                        myDay==="Friday"
-                                            ?
-                                            compareData(restaurantTime2,restaurantTime4,myTime)
-                                            :
-                                        myDay==="Saturday"
-                                            ?
-                                            compareData(restaurantTime1,restaurantTime3,myTime)
-                                            :
-                                        myDay==="Sunday"
-                                            ?
-                                            compareData(restaurantTime1,restaurantTime3,myTime)
-                                            : 
-                                            "Today Close"
+                                    {restaurant_time&&restaurant_time.time&&restaurant_time.time.length>0?
+                                        <React.Fragment>
+                                            {restaurant_time&&restaurant_time.time&&restaurant_time.time.map((data,index)=>{
+                                                return(
+                                                    <React.Fragment key={index}>
+                                                        {myDay===data.day?
+                                                            <React.Fragment>
+                                                                {data&&data.isSelected&&data.isSelected?
+                                                                    <React.Fragment>
+                                                                        {data&&data.timeList&&data.timeList.length>0?
+                                                                            <React.Fragment>
+                                                                                {restaurant_time&&restaurant_time.isMultiTime&&restaurant_time.isMultiTime?
+                                                                                    <p className="mb-1 text-dark">
+                                                                                        {compareData( `${moment().format('MMMM Do YYYY')}, ${data&&data.timeList&&data.timeList[0]&&data.timeList[0].startTime&&tConvsmaill24(data.timeList[0].startTime)}` , `${moment().format('MMMM Do YYYY')}, ${data&&data.timeList&&data.timeList[1]&&data.timeList[1].endTime&&tConvsmaill24(data.timeList[1].endTime)}` , myTime)}
+                                                                                    </p>
+                                                                                :    
+                                                                                    <p className="mb-1 text-dark">
+                                                                                        {compareData( `${moment().format('MMMM Do YYYY')}, ${data&&data.timeList&&data.timeList[0]&&data.timeList[0].startTime&&tConvsmaill24(data.timeList[0].startTime)}` , `${moment().format('MMMM Do YYYY')}, ${data&&data.timeList&&data.timeList[0]&&data.timeList[0].endTime&&tConvsmaill24(data.timeList[0].endTime)}` , myTime)}
+                                                                                    </p>
+                                                                                }
+                                                                            </React.Fragment>
+                                                                        :
+                                                                            null
+                                                                        }
+                                                                    </React.Fragment>
+                                                                :
+                                                                    <React.Fragment>
+                                                                        <p className="mb-1 text-dark">Today Close</p>
+                                                                    </React.Fragment>
+                                                                }
+                                                            </React.Fragment>
+                                                        :
+                                                            null
+                                                        }
+                                                    </React.Fragment>
+                                                )
+                                            })}
+                                        </React.Fragment>
+                                    :
+                                        <p>No Data Available</p>
+                                    }                                    
+                                    <div>
+                                        {restaurant_time&&restaurant_time.time&&restaurant_time.time.length>0?
+                                            <React.Fragment>
+                                                {restaurant_time&&restaurant_time.time&&restaurant_time.time.map((data,index)=>{
+                                                    return(
+                                                        <React.Fragment key={index}>
+                                                            {myDay===data.day?
+                                                                <React.Fragment >
+                                                                    <table>
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <p className="txt-lightgray mb-0 brandon-Medium">{data.day}</p>
+                                                                                    </td><td>
+                                                                                    </td><td>
+                                                                                    <React.Fragment>
+                                                                                        {data&&data.isSelected&&data.isSelected?
+                                                                                            <React.Fragment>
+                                                                                                {data&&data.timeList&&data.timeList.length>0?
+                                                                                                    <React.Fragment>
+                                                                                                        {restaurant_time&&restaurant_time.isTime24Hours&&restaurant_time.isTime24Hours?
+                                                                                                            <React.Fragment>
+                                                                                                                <p className="txt-lightgray mb-0 brandon-Medium">
+                                                                                                                    {data&&data.timeList&&data.timeList[0]&&data.timeList[0].startTime?data.timeList[0].startTime:'-'} - {data&&data.timeList&&data.timeList[0]&&data.timeList[0].endTime?data.timeList[0].endTime:'-'}
+                                                                                                                </p>
+                                                                                                                {restaurant_time&&restaurant_time.isMultiTime&&restaurant_time.isMultiTime?
+                                                                                                                    <p className="txt-lightgray mb-0 brandon-Medium">
+                                                                                                                        {data&&data.timeList&&data.timeList[1]&&data.timeList[1].startTime?data.timeList[1].startTime:'-'} - {data&&data.timeList&&data.timeList[1]&&data.timeList[1].endTime?data.timeList[1].endTime:'-'}
+                                                                                                                    </p>
+                                                                                                                :    
+                                                                                                                    null
+                                                                                                                }
+                                                                                                            </React.Fragment>
+                                                                                                        :
+                                                                                                            <React.Fragment>
+                                                                                                                <p className="txt-lightgray mb-0 brandon-Medium">{data&&data.timeList&&data.timeList[0]&&data.timeList[0].startTime?tConv24(data.timeList[0].startTime):'-'} - {data&&data.timeList&&data.timeList[0]&&data.timeList[0].endTime?tConv24(data.timeList[0].endTime):'-'}</p>
+                                                                                                                {restaurant_time&&restaurant_time.isMultiTime&&restaurant_time.isMultiTime?
+                                                                                                                    <p className="txt-lightgray mb-0 brandon-Medium">{data&&data.timeList&&data.timeList[1]&&data.timeList[1].startTime?tConv24(data.timeList[1].startTime):'-'} - {data&&data.timeList&&data.timeList[1]&&data.timeList[1].endTime?tConv24(data.timeList[1].endTime):'-'}</p>
+                                                                                                                :    
+                                                                                                                    null
+                                                                                                                }
+                                                                                                            </React.Fragment>
+                                                                                                        }
+                                                                                                    </React.Fragment>
+                                                                                                    
+                                                                                                    :
+                                                                                                    null
+                                                                                                }
+                                                                                            </React.Fragment>
+                                                                                            :
+                                                                                            <React.Fragment>
+                                                                                                <p className="txt-lightgray mb-0 brandon-Medium">
+                                                                                                    Closed / Holiday
+                                                                                                </p>
+                                                                                            </React.Fragment>
+                                                                                        }
+                                                                                    </React.Fragment>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                </React.Fragment>
+                                                            :
+                                                                null
+                                                            }
+                                                        </React.Fragment>
+                                                    )
+                                                })}
+                                            </React.Fragment>
+                                        :
+                                            <p>No Data Available</p>
                                         }
-                                    </p>   
-                                    
-                                    <p className="txt-lightgray mb-0 brandon-Medium">{myDay==="Monday"? "Monday 9:00 am - 11:30 pm"
-                                        :myDay==="Tuesday"? "Tuesday Closed / Holiday"
-                                        :myDay==="Wednesday"? "Wednesday 9:00 am - 11:30 pm"
-                                        :myDay==="Thursday"? "Thursday 9:00 am - 11:30 pm"
-                                        :myDay==="Friday"? "Friday 9:00 am to 11:00 pm"
-                                        :myDay==="Saturday"? "Saturday 7:00 am to 12:00 am"
-                                        :"Sunday 7:00 am to 12:00 am"}
-                                    </p>
+
+                                    </div>
                                 </div>
                             </Button>
                             <Collapse in={open}>
                                 <div id="example-collapse-text">
                                     <table>
                                         <tbody>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Sunday"&&"pink-txt brandon-Medium"}`}>Sunday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Sunday"&&"pink-txt brandon-Medium"}`}>7:00 am - 12:30 am</p></td></tr>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Monday"&&"pink-txt brandon-Medium"}`}>Monday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Monday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Tuesday"&&"pink-txt brandon-Medium"}`}>Tuesday</p></td><td><p style={{color:'#f545b0'}} className={`txt-lightgray mb-2 ${myDay==="Tuesday"&&"pink-txt brandon-Medium"}`}>Closed / Holiday</p></td></tr>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Wednesday"&&"pink-txt brandon-Medium"}`}>Wednesday&nbsp;&nbsp;</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Wednesday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Thursday"&&"pink-txt brandon-Medium"}`}>Thursday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Thursday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Friday"&&"pink-txt brandon-Medium"}`}>Friday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Friday"&&"pink-txt brandon-Medium"}`}>9:00 am - 11:30 pm</p></td></tr>
-                                            <tr><td><p className={`txt-lightgray mb-2 ${myDay==="Saturday"&&"pink-txt brandon-Medium"}`}>Saturday</p></td><td><p className={`txt-lightgray mb-2 ${myDay==="Saturday"&&"pink-txt brandon-Medium"}`}>7:00 am - 12:30 am</p></td></tr>
-                                        </tbody>
+                                            {restaurant_time&&restaurant_time.time&&restaurant_time.time.length>0?
+                                                <React.Fragment>
+                                                    {restaurant_time&&restaurant_time.time&&restaurant_time.time.map((data,index)=>{
+                                                        return(
+                                                            <React.Fragment key={index}>
+                                                                <tr>
+                                                                    <td>
+                                                                        <p className={`txt-lightgray mb-2 ${myDay===data.day&&"pink-txt brandon-Medium"}`}>{data.day}</p>
+                                                                        </td><td>
+                                                                        </td><td>
+                                                                        <React.Fragment>
+                                                                            {data&&data.isSelected&&data.isSelected?
+                                                                                <React.Fragment>
+                                                                                    {data&&data.timeList&&data.timeList.length>0?
+                                                                                        <React.Fragment>
+                                                                                            {restaurant_time&&restaurant_time.isTime24Hours&&restaurant_time.isTime24Hours?
+                                                                                                <React.Fragment>
+                                                                                                    <p className={`txt-lightgray mb-2 ${myDay===data.day&&"pink-txt brandon-Medium"}`}>
+                                                                                                        {data&&data.timeList&&data.timeList[0]&&data.timeList[0].startTime?data.timeList[0].startTime:'-'} - {data&&data.timeList&&data.timeList[0]&&data.timeList[0].endTime?data.timeList[0].endTime:'-'}
+                                                                                                    </p>
+                                                                                                    {restaurant_time&&restaurant_time.isMultiTime&&restaurant_time.isMultiTime?
+                                                                                                        <p className={`txt-lightgray mb-2 ${myDay===data.day&&"pink-txt brandon-Medium"}`}>
+                                                                                                            {data&&data.timeList&&data.timeList[1]&&data.timeList[1].startTime?data.timeList[1].startTime:'-'} - {data&&data.timeList&&data.timeList[1]&&data.timeList[1].endTime?data.timeList[1].endTime:'-'}
+                                                                                                        </p>
+                                                                                                    :    
+                                                                                                        null
+                                                                                                    }
+                                                                                                </React.Fragment>
+                                                                                            :
+                                                                                                <React.Fragment>
+                                                                                                    <p className={`txt-lightgray mb-2 ${myDay===data.day&&"pink-txt brandon-Medium"}`}>{data&&data.timeList&&data.timeList[0]&&data.timeList[0].startTime?tConv24(data.timeList[0].startTime):'-'} - {data&&data.timeList&&data.timeList[0]&&data.timeList[0].endTime?tConv24(data.timeList[0].endTime):'-'}</p>
+                                                                                                    {restaurant_time&&restaurant_time.isMultiTime&&restaurant_time.isMultiTime?
+                                                                                                        <p className={`txt-lightgray mb-2 ${myDay===data.day&&"pink-txt brandon-Medium"}`}>{data&&data.timeList&&data.timeList[1]&&data.timeList[1].startTime?tConv24(data.timeList[1].startTime):'-'} - {data&&data.timeList&&data.timeList[1]&&data.timeList[1].endTime?tConv24(data.timeList[1].endTime):'-'}</p>
+                                                                                                    :    
+                                                                                                        null
+                                                                                                    }
+                                                                                                </React.Fragment>
+                                                                                            }
+                                                                                        </React.Fragment>
+                                                                                        
+                                                                                        :
+                                                                                        null
+                                                                                    }
+                                                                                </React.Fragment>
+                                                                                :
+                                                                                <React.Fragment>
+                                                                                    <p className={`txt-lightgray mb-2 ${myDay===data.day&&"pink-txt brandon-Medium"}`}>
+                                                                                        Closed / Holiday
+                                                                                    </p>
+                                                                                </React.Fragment>
+                                                                            }
+                                                                        </React.Fragment>
+                                                                    </td>
+                                                                </tr>
+                                                            </React.Fragment>
+                                                        )
+                                                    })}
+                                                </React.Fragment>
+                                            :
+                                                <p>No Data Available</p>
+                                            }
+                                         </tbody>
                                     </table>
                                 </div>
                             </Collapse>

@@ -47,17 +47,17 @@ const SearchResultDisplayComp = (props) => {
                                                 return (
                                                     <React.Fragment key={index}>
                                                         <Link to={'/restaurant/' + data._id} className="text-decoration-none">
-                                                            <div class="fr-rsdish-viewmain d-flex align-items-center mt-1 mb-1 p-2">
-                                                                <div class="fr-rsdish-img mr-3">
+                                                            <div className="fr-rsdish-viewmain d-flex align-items-center mt-1 mb-1 p-2">
+                                                                <div className="fr-rsdish-img mr-3">
                                                                     {data.restaurantProfilePhoto ?
                                                                         <img src={`${SERVER_URL}/${data.restaurantProfilePhoto}`} alt={data.name?data.name:'Na'} className="img-fluid" />
                                                                         :
                                                                         <img src={Dummy_Image} alt={"restaurant_name"} className="img-fluid" />
                                                                     }
                                                                 </div>
-                                                                <div class="fr-rsdish-name">
-                                                                    <h5 class="brandon-Medium mb-0">{data.name?data.name:'Na'}</h5>
-                                                                    {/* <p class="mb-0 txt-lightgray">Surat</p> */}
+                                                                <div className="fr-rsdish-name">
+                                                                    <h5 className="brandon-Medium mb-0">{data.name?data.name:'Na'}</h5>
+                                                                    {/* <p className="mb-0 txt-lightgray">Surat</p> */}
                                                                 </div>
                                                             </div>
                                                         </Link>
@@ -82,17 +82,17 @@ const SearchResultDisplayComp = (props) => {
                                                 return (
                                                     <React.Fragment key={index}>
                                                         <Link to={'/restaurant_dish_info/' + data._id} className="text-decoration-none">
-                                                            <div class="fr-rsdish-viewmain d-flex align-items-center mt-1 mb-1 p-2">
-                                                                <div class="fr-rsdish-img mr-3">
+                                                            <div className="fr-rsdish-viewmain d-flex align-items-center mt-1 mb-1 p-2">
+                                                                <div className="fr-rsdish-img mr-3">
                                                                     {data.image ?
                                                                         <img src={`${SERVER_URL}/${data.image}`} alt={data.name?data.name:'Na'} className="img-fluid" />
                                                                         :
                                                                         <img src={Dummy_Image} alt={"restaurant_name"} className="img-fluid" />
                                                                     }
                                                                 </div>
-                                                                <div class="fr-rsdish-name">
-                                                                    <h5 class="brandon-Medium mb-0">{data.name?data.name:'Na'}</h5>
-                                                                    {/* <p class="mb-0 txt-lightgray">Surat</p> */}
+                                                                <div className="fr-rsdish-name">
+                                                                    <h5 className="brandon-Medium mb-0">{data.name?data.name:'Na'}</h5>
+                                                                    {/* <p className="mb-0 txt-lightgray">Surat</p> */}
                                                                 </div>
                                                             </div>
                                                         </Link>
