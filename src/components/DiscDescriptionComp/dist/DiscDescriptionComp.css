@@ -9,9 +9,6 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.section5 .whatmenu-wrap .whatmenu-details {
-  min-height: 240px;
-}
 .section5 .whatmenu-wrap .whatmenu-details .whatmenu-label {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -39,7 +36,8 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
+  min-height: 42px;
 }
 .section5 .whatmenu-wrap .whatmenu-details .whatmeu-types .whatmenu-list {
   background: #f6f6f6;

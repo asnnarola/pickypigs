@@ -1,0 +1,89 @@
+.menudisc-accordian .card {
+  box-shadow: 0px 3px 16px 0px #00000010;
+  margin-bottom: 20px;
+  border-radius: 15px !important;
+  border: none;
+}
+.menudisc-accordian .card .card-header {
+  background: #fff;
+  background: #fff;
+  margin: 30px 30px 0px;
+  padding: 0px 0px 20px;
+  border-bottom: none;
+}
+.menudisc-accordian .card .card-header button {
+  background: #fff !important;
+  background-color: #fff !important;
+  border: none;
+  outline: none !important;
+}
+.menudisc-accordian .card .card-header .accordian-arrow.active {
+  transform: rotate(180deg);
+}
+.menudisc-accordian .card .card-header .accordian-arrow.active svg path {
+  fill: #2e482b;
+}
+.menudisc-accordian .card .card-body {
+  margin: 0px 30px 30px;
+  padding: 20px 0px 0px 0px;
+}
+.menudisc-accordian .card .card-body .sub-cate {
+  border-bottom: 1px solid #d9d9d9;
+  margin: 0px 0px 30px;
+}
+.menudisc-accordian .card .card-body .sub-cate .rstab-btn {
+  background: #fff;
+  border: none;
+  outline: none !important;
+  text-decoration: none;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 0;
+}
+.menudisc-accordian .card .card-body .sub-cate .rstab-btn.active {
+  font-weight: bold;
+}
+.menudisc-accordian .card .card-body .sub-cate .rstab-btn.active:after {
+  position: absolute;
+  bottom: -12px;
+  width: 110%;
+  height: 3px;
+  background: #cb007b;
+  content: "";
+  display: block;
+  left: 0;
+  border-radius: 2px;
+}
+.menudisc-accordian .card .card-body .dishimg-block {
+  width: 49px;
+  height: 49px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+}
+.menudisc-accordian .card .card-body .dishimg-block img {
+  object-fit: cover;
+  width: 49px;
+  height: 49px;
+}
+.menudisc-accordian .card .card-body .dish-details {
+  width: calc(100% - 65px);
+}
+.menudisc-accordian .card .card-body .dish-details .dish-info {
+  font-size: 14px;
+  color: #919191;
+}
+.menudisc-accordian .card .card-body .dish-details .dish-price p {
+  font-size: 14px;
+}
+.menudisc-accordian .card .card-body .dish-details .dish-tag .cuisine-label {
+  border: 1px solid #c1c1c1;
+  border-radius: 25px;
+  padding: 5px 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  color: #c1c1c1;
+}

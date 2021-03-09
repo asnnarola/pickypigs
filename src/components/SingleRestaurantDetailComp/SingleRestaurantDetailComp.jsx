@@ -46,11 +46,11 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
 
                 <div className="row">
                     <div className="col-sm-12">
-                        <div className="rsbanner-wrapper" style={{height:240}}>
+                        <div className="rsbanner-wrapper">
                         {restaurant_image?
-                            <img src={`${SERVER_URL}/${restaurant_image}`}  alt={restaurant_name?restaurant_name:'unknown'} className="img-fluid w-100" style={{height:240}} />
+                            <img src={`${SERVER_URL}/${restaurant_image}`}  alt={restaurant_name?restaurant_name:'unknown'} className="img-fluid w-100" />
                         :
-                            <img src={Dummy_Image} alt={restaurant_name?restaurant_name:'unknown'}  className="img-fluid w-100" style={{height:240}}/>
+                            <img src={Dummy_Image} alt={restaurant_name?restaurant_name:'unknown'}  className="img-fluid w-100"/>
                         }
                             {/* <img src={restaurant_banner} alt={"restaurant_banner"} className="w-100 img-fluid" /> */}
                         </div>

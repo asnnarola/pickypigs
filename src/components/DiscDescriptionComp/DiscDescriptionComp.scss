@@ -12,7 +12,7 @@
         }
 
         .whatmenu-details {
-            min-height: 240px;
+            // min-height: 240px;
             .whatmenu-label {
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -50,7 +50,8 @@
                 text-overflow: ellipsis;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
-                -webkit-line-clamp: 4;
+                -webkit-line-clamp: 2;
+                min-height: 42px;
             }
 
             .whatmeu-types {
