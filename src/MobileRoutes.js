@@ -18,7 +18,7 @@ export const routesCode = [
     // { path: "/", exact: true, component: HomeMobilePage },
     // { path: "/restaurant_list", exact: true, component: RestaurantList },
     // { path: "/allrestaurant", exact: true, component: AllRestaurant },
-    { path: "/restaurant_dish", exact: true, component: RestaurantDiscMobilePage },
+    { path: "/restaurant", exact: true, component: RestaurantDiscMobilePage },
     { path: "/restaurant_dish_info", exact: true, component: RestaurantDiscInfoMobilePage },
     { path: "/user_detail", exact: true, component: UserProfileMobilePage },
     { path: "/allergy_mobile", exact: true, component: AllergyFilterMobilePage },

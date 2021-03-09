@@ -22,16 +22,16 @@ const DishBlock = ({ restaurant_name, restaurant_pic, kmvalue, rating, restauran
                         </svg>
                         <span className="view-txt text-white brandon-Medium">{rating}</span>
                     </div> */}
-                {restaurant_pic ?
-                    <img src={`${SERVER_URL}/${restaurant_pic}`} alt={restaurant_name} className="img-fluid w-100" />
+                    {restaurant_pic?
+                        <img src={`${SERVER_URL}/${restaurant_pic}`} alt={restaurant_name?restaurant_name:'unknown'} className="img-fluid w-100" />
                     :
-                    <img src={Dummy_Image} alt={restaurant_name} className="img-fluid w-100" />
-                }
-
-            </div>
-            <div className="restaurant-details brandon-Medium">
-                {restaurant_name ?
-                    <p className="mb-2">{restaurant_name}</p>
+                        <img src={Dummy_Image} alt={restaurant_name?restaurant_name:'unknown'} className="img-fluid w-100" />
+                    }
+                    
+                </div>
+                <div className="restaurant-details brandon-Medium">
+                    {restaurant_name?
+                        <p className="mb-2">{restaurant_name}</p>
                     :
                     <p className="mb-2">Unknown</p>
                 }

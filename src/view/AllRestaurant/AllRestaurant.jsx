@@ -32,10 +32,10 @@ const AllRestaurant = (props) => {
     const [lifestyle, setLifestyle] = useState([])
     const [dietary, setDietary] = useState([])
     const [features, setfeatures] = useState([])
-    const [shortBy, setShortBy] = useState('')
+    const [shortBy, setShortBy] = useState('popularity')
     const [openSearchBar, setOpenSearchBar] = useState(false);
     const [filterModalShow, setFilterModalShow] = useState(false)
-
+    const [filterData,setFilterData]= useState({});
 
     const filterModalClose = () => {
         setFilterModalShow(false)
@@ -105,6 +105,7 @@ const AllRestaurant = (props) => {
             {/* {JSON.stringify(props.location.state&&props.location.state.allergendata)} */}
 
             {/* {JSON.stringify(parsed.search)} */}
+            {JSON.stringify(filterData)}
 
             <section className="fr-section allrestaurant-section">
                 <div className="container">
@@ -152,7 +153,7 @@ const AllRestaurant = (props) => {
                                                     <Form.Group controlId="exampleForm.SelectCustom">
                                                         <Form.Label className="mr-2">Short By:</Form.Label>
                                                         <Form.Control as="select" custom>
-                                                            <option value="popularity">Popularity</option>
+                                                            <option selected value="popularity">Popularity</option>
                                                             <option value="relevance">Relevance</option>
                                                             <option value="priceh2l">Price High to Low</option>
                                                             <option value="pricel2h">Price Low to High</option>
@@ -163,7 +164,13 @@ const AllRestaurant = (props) => {
                                                 <button className="filtershort-btn ml-2 p-0 filtershort-lightbtn" onClick={() => { setFilterModalShow(true) }}>
                                                     Filters<img width="20" src={filtershorticonpink} className="img-fluid" alt="filterIcon" />
                                                 </button>
-                                                <AllRestaurantFilterModal show={filterModalShow} onHide={filterModalClose} />
+                                                <AllRestaurantFilterModal 
+                                                    show={filterModalShow} 
+                                                    onHide={filterModalClose} 
+                                                    name="filterData"
+                                                    onChangeData={(value) => { setFilterData( value); }}
+                                                    value={filterData}
+                                                />
                                             </div>
                                         </Navbar>
                                     </section>
@@ -187,7 +194,7 @@ const AllRestaurant = (props) => {
                                                             return(
                                                                 <React.Fragment key={index}>
                                                                     <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                                                        <Link to={'/restaurant_dish/'+data._id} style={{ textDecoration: 'none', color: 'initial' }}>
+                                                                        <Link to={'/restaurant/'+data._id} style={{ textDecoration: 'none', color: 'initial' }}>
                                                                             <DishBlock 
                                                                                 restaurant_name={data.name?data.name:''} 
                                                                                 restaurant_pic={data.restaurantProfilePhoto?data.restaurantProfilePhoto:''} 

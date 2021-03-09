@@ -45,10 +45,10 @@ const RestaurantSingleDiscInfoPage = () => {
                     <div className="breadcrumb-wrapper">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                                <li class="breadcrumb-item"><Link to="/">Restaurants</Link></li>
-                                <li class="breadcrumb-item" aria-current="page"><Link to="/">The Barrio Brothers Express</Link></li>
-                                <li class="breadcrumb-item active" aria-current="page">{selectedDiscInfo_data&&selectedDiscInfo_data.name?selectedDiscInfo_data.name:'Unknown'}</li>
+                                <li class="breadcrumb-item text-capitalize"><Link to="/">Home</Link></li>
+                                <li class="breadcrumb-item text-capitalize"><Link to="/restaurant_list">Restaurants</Link></li>
+                                <li class="breadcrumb-item text-capitalize" aria-current="page"><Link to={'/restaurant/'+(selectedDiscInfo_data&&selectedDiscInfo_data.restaurantId?selectedDiscInfo_data.restaurantId:'')}>{selectedDiscInfo_data&&selectedDiscInfo_data.restaurantName?selectedDiscInfo_data.restaurantName:'Unknown'}</Link></li>
+                                <li class="breadcrumb-item active text-capitalize" aria-current="page">{selectedDiscInfo_data&&selectedDiscInfo_data.name?selectedDiscInfo_data.name:'Unknown'}</li>
                             </ol>
                         </nav>
                     </div>

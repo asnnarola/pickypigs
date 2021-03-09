@@ -46,17 +46,17 @@ const SearchResultDisplayComp = (props) => {
                                             searchSuggestion_Data && searchSuggestion_Data.restaurant_search_resp && searchSuggestion_Data.restaurant_search_resp.slice(0, 3).map((data, index) => {
                                                 return (
                                                     <React.Fragment key={index}>
-                                                        <Link to={'/restaurant_dish/' + data._id} className="text-decoration-none">
+                                                        <Link to={'/restaurant/' + data._id} className="text-decoration-none">
                                                             <div class="fr-rsdish-viewmain d-flex align-items-center mt-1 mb-1 p-2">
                                                                 <div class="fr-rsdish-img mr-3">
-                                                                    {data.image ?
-                                                                        <img src={`${SERVER_URL}/${data.image}`} alt={data.name} className="img-fluid" />
+                                                                    {data.restaurantProfilePhoto ?
+                                                                        <img src={`${SERVER_URL}/${data.restaurantProfilePhoto}`} alt={data.name?data.name:'Na'} className="img-fluid" />
                                                                         :
                                                                         <img src={Dummy_Image} alt={"restaurant_name"} className="img-fluid" />
                                                                     }
                                                                 </div>
                                                                 <div class="fr-rsdish-name">
-                                                                    <h5 class="brandon-Medium mb-0">{data.name}</h5>
+                                                                    <h5 class="brandon-Medium mb-0">{data.name?data.name:'Na'}</h5>
                                                                     {/* <p class="mb-0 txt-lightgray">Surat</p> */}
                                                                 </div>
                                                             </div>
@@ -85,13 +85,13 @@ const SearchResultDisplayComp = (props) => {
                                                             <div class="fr-rsdish-viewmain d-flex align-items-center mt-1 mb-1 p-2">
                                                                 <div class="fr-rsdish-img mr-3">
                                                                     {data.image ?
-                                                                        <img src={`${SERVER_URL}/${data.image}`} alt={data.name} className="img-fluid" />
+                                                                        <img src={`${SERVER_URL}/${data.image}`} alt={data.name?data.name:'Na'} className="img-fluid" />
                                                                         :
                                                                         <img src={Dummy_Image} alt={"restaurant_name"} className="img-fluid" />
                                                                     }
                                                                 </div>
                                                                 <div class="fr-rsdish-name">
-                                                                    <h5 class="brandon-Medium mb-0">{data.name}</h5>
+                                                                    <h5 class="brandon-Medium mb-0">{data.name?data.name:'Na'}</h5>
                                                                     {/* <p class="mb-0 txt-lightgray">Surat</p> */}
                                                                 </div>
                                                             </div>

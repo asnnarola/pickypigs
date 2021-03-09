@@ -13,6 +13,7 @@ import shareicon from "../../../assets/images/restaurant-dish/share-icon.svg";
 import getdirection from "../../../assets/images/restaurant-dish/getdirection.svg";
 import GoogleMapTestComp from "../../../components/GoogleMapTestComp/GoogleMapTestComp";
 import OpentimeMobileComp from "../OpentimeMobileComp/OpentimeMobileComp";
+import { SERVER_URL,API_KEY } from '../../../shared/constant'
 
 
 const RestaurantInfoMobileComponent = () => {
@@ -37,7 +38,7 @@ const RestaurantInfoMobileComponent = () => {
                                 <div className="map-wrapper mb-1 mt-2">
                                     {/* <GoogleMapTestComp/> */}
                                     <GoogleMapTestComp
-                                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWIIb5rlIPoxCKRCQlueENTkj2KcniU1I&v=3.exp&libraries=geometry,drawing,places"
+                                        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
                                         loadingElement={<div style={{ height: `100%` }} />}
                                         containerElement={<div style={{ height: `100%` }} />}
                                         mapElement={<div style={{ height: `100%` }} />}
