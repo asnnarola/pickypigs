@@ -46,7 +46,7 @@ const HomePageRandomDishList=()=>{
                                             randomDishsList_Data.dishesList&&randomDishsList_Data.dishesList.map((data,index)=>{
                                                 return(
                                                     <React.Fragment key={index}>
-                                                        <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2">
+                                                        <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-4">
                                                             <Link to={'/restaurant_dish_info/' + data._id} style={{textDecoration:'none',color:'initial'}}>
                                                                 <DiscDescriptionComp
                                                                     dish_name={data.name?data.name:''}

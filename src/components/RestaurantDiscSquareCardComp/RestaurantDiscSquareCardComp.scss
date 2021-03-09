@@ -1,50 +1,61 @@
-.restdisc-squarecard{
-        .whatmenu-wrap {
-            background   : #fff;
-            border-radius: 10px;
-            box-shadow   : 0px 5px 12px 0px #00000014;
+.restdisc-squarecard {
+    .whatmenu-wrap {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 5px 12px 0px #00000014;
 
-            .whatmenu-img {
-                height                 : 200px;
-                overflow               : hidden;
-                border-top-left-radius : 10px;
-                border-top-right-radius: 10px;
+        .whatmenu-img {
+            height: 200px;
+            overflow: hidden;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .whatmenu-details {
+
+            .whatmenu-label {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                white-space: normal;
+                word-break: break-word;
             }
 
-            .whatmenu-details {
-                .whatmenu-price {
-                    span {
-                        font-family: "BrandonTextWeb-Regular";
-                    }
+            .whatmenu-price {
+                span {
+                    font-family: "BrandonTextWeb-Regular";
+                }
 
-                    .whatmenu-daydetail {
-                        ul {
-                            li {
-                                font-family: "BrandonTextWeb-Regular";
+                .whatmenu-daydetail {
+                    ul {
+                        li {
+                            font-family: "BrandonTextWeb-Regular";
 
-                                &.dot-icon {
-                                    width        : 4px;
-                                    height       : 4px;
-                                    background   : #919191;
-                                    border-radius: 25px;
-                                }
+                            &.dot-icon {
+                                width: 4px;
+                                height: 4px;
+                                background: #919191;
+                                border-radius: 25px;
                             }
                         }
                     }
                 }
+            }
 
-                .whatmenu-intro {
-                    font-family: "BrandonTextWeb-Regular";
-                }
+            .whatmenu-intro {
+                font-family: "BrandonTextWeb-Regular";
+            }
 
-                .whatmeu-types {
-                    .whatmenu-list {
-                        background   : #F6F6F6;
-                        width        : 36px;
-                        height       : 36px;
-                        border-radius: 50px;
-                    }
+            .whatmeu-types {
+                .whatmenu-list {
+                    background: #F6F6F6;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50px;
                 }
             }
         }
+    }
 }

@@ -1,0 +1,47 @@
+.section5 .whatmenu-wrap {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 12px 0px #00000014;
+}
+.section5 .whatmenu-wrap .whatmenu-img {
+  height: 170px;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmenu-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: normal;
+  word-break: break-word;
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmenu-price span {
+  font-family: "BrandonTextWeb-Regular";
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmenu-price .whatmenu-daydetail ul li {
+  font-family: "BrandonTextWeb-Regular";
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmenu-price .whatmenu-daydetail ul li.dot-icon {
+  width: 4px;
+  height: 4px;
+  background: #919191;
+  border-radius: 25px;
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmenu-intro {
+  font-family: "BrandonTextWeb-Regular";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: 42px;
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmeu-types .whatmenu-list {
+  background: #f6f6f6;
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+}

@@ -1,25 +1,15 @@
-.restaurantdisc-wrapper .breadcrumb-wrapper ol.breadcrumb {
-  padding: 0px;
-  background: #fff;
-}
-.restaurantdisc-wrapper .breadcrumb-wrapper ol.breadcrumb .breadcrumb-item a {
-  color: #232323;
-  text-decoration: none;
-}
-.restaurantdisc-wrapper .breadcrumb-wrapper ol.breadcrumb .breadcrumb-item.active {
-  color: #c1c1c1;
-}
-.restaurantdisc-wrapper .breadcrumb-wrapper .rsbanner-wrapper {
-  height: 260px;
-  overflow: hidden;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.restaurantdisc-wrapper .breadcrumb-wrapper .rsbanner-wrapper img {
+.restaurantdisc-wrapper .rsbanner-wrapper {
   height: 260px;
   object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.restaurantdisc-wrapper .rsbanner-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .restaurantdisc-wrapper .rs-maindetails {
   max-width: calc(100% - 340px);
@@ -28,6 +18,13 @@
 .restaurantdisc-wrapper .rs-maindetails .rs-name h2 {
   font-size: 30px;
   color: #2e482b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: normal;
+  word-break: break-word;
 }
 .restaurantdisc-wrapper .rs-maindetails .rs-name .rs-dediction {
   color: #919191;
