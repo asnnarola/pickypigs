@@ -34,6 +34,19 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1;
+            white-space: normal;
+            word-break: break-word;
+
+            span {
+                max-width: calc(100% - 25px);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                white-space: normal;
+                word-break: break-word;
+            }
         }
 
         .location-icon {

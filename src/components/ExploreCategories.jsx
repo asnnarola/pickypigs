@@ -5,6 +5,10 @@ import Breakfast_icon from "../assets/images/category_icon/Breakfast_icon.svg"
 import Lunch_icon from "../assets/images/category_icon/Lunch_icon.svg"
 import Dinner_icon from "../assets/images/category_icon/Dinner_icon.svg"
 import Drinks_icon from "../assets/images/category_icon/Drinks_icon.svg"
+import Buffet_icon from "../assets/images/category_icon/Buffet_icon.png"
+import Dessert_icon from "../assets/images/category_icon/Dessert_icon.png"
+import Nibble_icon from "../assets/images/category_icon/Nibble_icon.png"
+import Setmenu_icon from "../assets/images/category_icon/Setmenu_icon.png"
 
 const ExploreCategories = () => {
   var settings = {
@@ -109,7 +113,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Drinks_icon} alt={"Drinks_icon"} className="img-fluid" />
+                    <img src={Dessert_icon} alt={"Drinks_icon"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",
@@ -121,7 +125,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
+                    <img src={Buffet_icon} alt={"Buffet_icon"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",
@@ -145,7 +149,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
+                    <img src={Nibble_icon} alt={"Lunch_icon"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",
@@ -157,7 +161,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
+                    <img src={Setmenu_icon} alt={"Lunch_icon"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",
