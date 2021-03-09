@@ -63,7 +63,7 @@ const initialState = {
             return{
                 ...state,
                 isLoading:false,
-                menuTabCategory_Data:payload.categoryDetails
+                menuTabCategory_Data:payload
             };  
       
         case "GET_CATEGORYSUBCATEGORYDISH_FAILURE":  

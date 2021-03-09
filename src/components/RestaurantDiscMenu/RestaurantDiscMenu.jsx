@@ -14,6 +14,7 @@ import restaurant_P7 from "../../assets/images/restaurant/r7.png"
 import restaurant_P8 from "../../assets/images/restaurant/r8.png"
 import MenuAccordianCommonComp from "../MenuAccordianCommonComp/MenuAccordianCommonComp";
 import RestaurantDiscSquareCardComp from "../RestaurantDiscSquareCardComp/RestaurantDiscSquareCardComp";
+import { NavLink } from "react-router-dom";
 
 const Link = Scroll.Link;
 const DirectLink = Scroll.DirectLink;
@@ -23,7 +24,7 @@ const scroll = Scroll.animateScroll;
 const scrollSpy = Scroll.scrollSpy;
 const ScrollLink = Scroll.ScrollLink
 
-const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
+const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks,all_menudata}) => {
     
     let menudata = [{ "type": "buns", restaurant: [{ "name": "Denny's Benny Famil", "desc": "freshly made every day with avocados, lime & coriander with trealy Farm choriz", "tags": ["CUSTOMISABLE", "ve", "v", "gf"], "price": 17.80 }] }]
     let resturantData = [{ "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P1, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P2, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P3, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P4, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P5, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P6, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P7, "dist": 1.5, "stars": 4.5 }, { "image": restaurant_P8, "dist": 1.5, "stars": 4.5 }];
@@ -54,8 +55,12 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
             }
         ]
     };
+    const selectedMenuData=(all_menudata,id)=>{
+          return all_menudata&&all_menudata.filter((data)=>data._id == id);
+    }
     return (
         <>
+        {/* {JSON.stringify(all_menudata&&all_menudata)} */}
             <section className="restaurant-discmenu">
                 <div>
                     {/* restaurantlist-tab content Start */}
@@ -76,9 +81,9 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
                                                     return(
                                                         <React.Fragment key={index}>
                                                             <li>
-                                                                <Link to={data._id} activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
-                                                                    <h6 className="mb-1 brandon-Bold "><b>{data.name?data.name:''}</b></h6>
-                                                                    <p className="mb-0">15 Options</p>
+                                                                <Link to={data._id}   isDynamic={true} activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
+                                                                    <h6 className="mb-1 brandon-Bold "><b>{data.menuName?data.menuName:''}</b></h6>
+                                                                    <p className="mb-0">{data.countDishes?data.countDishes:'0'} Options</p>
                                                                 </Link>
                                                             </li>
                                                         </React.Fragment>
@@ -112,13 +117,8 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
                                                 <h6 className="mb-1 brandon-Bold"><b>Drinks</b></h6>
                                                 <p className="mb-0">56 OPTIONS</p>
                                             </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="section-6" activeClass="tabfilter-active" spy={true} smooth={true} offset={-90}>
-                                                <h6 className="mb-1 brandon-Bold"><b>Vegan</b></h6>
-                                                <p className="mb-0">611 RESTAURANTS</p>
-                                            </Link>
-                                        </li> */}
+                                        </li>*/}
+                                    
                                     </ul>
                                 </div>
                                 <div className="col-md-9 discmenu-content">
@@ -139,12 +139,14 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
                                                                     return(
                                                                         <React.Fragment key={index}>
                                                                             <div className="col-sm-12">
-                                                                                <RestaurantDiscSquareCardComp 
-                                                                                    name={data.name?data.name:'Unknown'}
-                                                                                    image={data.image?data.image:''}
-                                                                                    price={data.price?data.price:''}
-                                                                                    priceUnit={data.priceUnit?data.priceUnit:''}
-                                                                                />
+                                                                                <NavLink to={'/restaurant_dish_info/'+data._id} style={{ textDecoration: 'none', color: 'initial' }}>
+                                                                                    <RestaurantDiscSquareCardComp 
+                                                                                        name={data.name?data.name:'Unknown'}
+                                                                                        image={data.image?data.image:''}
+                                                                                        price={data.price?data.price:''}
+                                                                                        priceUnit={data.priceUnit?data.priceUnit:''}
+                                                                                    />
+                                                                                </NavLink>
                                                                             </div>
                                                                         </React.Fragment>
                                                                     )
@@ -158,12 +160,16 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
                                                                     return(
                                                                         <React.Fragment key={index}>
                                                                             <div className="col-sm-4">
+                                                                            <NavLink to={'/restaurant_dish_info/'+data._id} style={{ textDecoration: 'none', color: 'initial' }}>
+
                                                                                 <RestaurantDiscSquareCardComp 
                                                                                     name={data.name?data.name:'Unknown'}
                                                                                     image={data.image?data.image:''}
                                                                                     price={data.price?data.price:''}
                                                                                     priceUnit={data.priceUnit?data.priceUnit:''}
                                                                                 />
+                                                                                </NavLink>
+
                                                                             </div>
                                                                         </React.Fragment>
                                                                     )
@@ -195,11 +201,11 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
                                                                 <div className="row">
                                                                     <div className="col-sm-12">
                                                                         <div className="col-sm-12">
-                                                                            <h4 className="brandon-Bold txt-darkgreen text-uppercase">{data.name?data.name:''}</h4>
+                                                                            <h4 className="brandon-Bold txt-darkgreen text-uppercase">{data.menuName?data.menuName:''}</h4>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <MenuAccordianCommonComp menuid={data._id} value={menudata} />
+                                                                <MenuAccordianCommonComp menuid={data._id}  value={selectedMenuData(all_menudata,data._id)} />
                                                             </Element>
                                                            
                                                         </React.Fragment>
@@ -207,10 +213,10 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks}) => {
                                                 })}
 
                                             </React.Fragment>
-                                        :
-                                            null
-                                        }
-
+                                    :
+                                        null
+                                    }
+                               
                                 </div>
                             </div>
                         </div>

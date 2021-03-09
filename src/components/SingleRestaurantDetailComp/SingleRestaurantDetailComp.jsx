@@ -72,13 +72,13 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
                                     <span className="rsdediction-km"> Not Availabe </span>
                                 }
                                 <span className="rs-bordertyle ml-2 mr-2"></span>
-                                <span className="ml-2 txt-gray">
+                                <span className="ml-2 txt-gray text-capitalize">
                                     {restaurant_location&&restaurant_location?restaurant_location:'Na'}
                                 </span>
                             </p>
                             {restaurant_cuisine&&restaurant_cuisine.length>0?
                                 <React.Fragment>
-                                    <p className="txt-lightgray mb-2"><span>
+                                    <p className="txt-lightgray mb-2 text-capitalize"><span>
                                         {restaurant_cuisine&&restaurant_cuisine.map((data,index)=>{
                                             return(
                                                 <React.Fragment key={index}>

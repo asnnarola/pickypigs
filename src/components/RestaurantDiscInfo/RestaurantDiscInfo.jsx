@@ -43,7 +43,29 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                         <div className="rs-infosubwrap pt-1">
                                             <p className="brandon-Medium text-uppercase mb-2">Book a table</p>
                                             {rest_booking&&rest_booking.isAvailable?
-                                                <p className="txt-lightgray mb-2">Reserve your table</p>
+                                                <React.Fragment>
+                                                    <p className="txt-lightgray mb-2">Reserve your table</p>
+                                                    {rest_booking&&rest_booking.isWebsite?
+                                                        <React.Fragment>
+                                                            {rest_booking&&rest_booking.websiteUrl&&rest_booking.websiteUrl.length>0?
+                                                                <React.Fragment>
+                                                                    {rest_booking&&rest_booking.websiteUrl&&rest_booking.websiteUrl.map((data,index)=>{
+                                                                        return(
+                                                                            <React.Fragment key={index}>
+                                                                                <span className="cuisine-label">{data?data:'Na'}</span>
+                                                                            </React.Fragment>
+                                                                        )
+                                                                    })}
+                                                                </React.Fragment>
+                                                            :
+                                                                null
+                                                            }
+                                                            
+                                                        </React.Fragment>
+                                                    :
+                                                        null
+                                                    }
+                                                </React.Fragment>
                                             :
                                                 <p className="txt-lightgray mb-2">Not Available</p>
                                             }

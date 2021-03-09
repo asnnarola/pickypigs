@@ -48,7 +48,7 @@ const HomePageRandomRestaurantList=()=>{
                                                     return(
                                                         <React.Fragment key={index}>
                                                             <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                                                                <Link to={'/restaurant_dish/'+data._id} style={{ textDecoration: 'none', color: 'initial' }}>
+                                                                <Link to={'/restaurant/'+data._id} style={{ textDecoration: 'none', color: 'initial' }}>
                                                                     <DishBlock 
                                                                         restaurant_name={data.name?data.name:''} 
                                                                         restaurant_pic={data.restaurantProfilePhoto?data.restaurantProfilePhoto:''} 

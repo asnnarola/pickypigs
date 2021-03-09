@@ -19,17 +19,17 @@ const AdminLoginPage = lazy(() => import('./view/AdminLoginPage/AdminLoginPage')
 
 
 export const routesCode = [
-    { path: "/", exact: true, component: Home },
-    { path: "/who", exact: true, component: TheWhoPage },
-    { path: "/faq", exact: true, component: TheFaqPage },
-    { path: "/terms", exact: true, component: TermsAndConditionPage },
-    { path: "/how", exact: true, component: HowItWorksPage },
+    { path: "/",name: "Home", exact: true, component: Home },
+    { path: "/who",name: "Who", exact: true, component: TheWhoPage },
+    { path: "/faq",name: "Faq", exact: true, component: TheFaqPage },
+    { path: "/terms",name: "Terms", exact: true, component: TermsAndConditionPage },
+    { path: "/how",name: "How", exact: true, component: HowItWorksPage },
 
-    { path: "/restaurant_list", exact: true, component: RestaurantList },
-    { path: "/allrestaurant", exact: true, component: AllRestaurant },
-    { path: "/restaurant_dish/:restId", exact: true, component: RestaurantDiscPage },
-    { path: "/restaurant_dish_info/:dishId", exact: true, component: RestaurantSingleDiscInfoPage },
-    { path: "/user_detail", exact: true, component: UserDetailPage },
+    { path: "/restaurant_list",name: "Restaurants", exact: true, component: RestaurantList },
+    { path: "/allrestaurant",name: "All Restaurants", exact: true, component: AllRestaurant },
+    { path: "/restaurant/:restId",name: "Restaurants Name", exact: true, component: RestaurantDiscPage },
+    { path: "/restaurant_dish_info/:dishId",name: "Dish Name", exact: true, component: RestaurantSingleDiscInfoPage },
+    { path: "/user_detail",name: "Profile", exact: true, component: UserDetailPage },
     { path: "/verify/:token", exact: true, component: Verify },
     { path: "/restaurant_login", exact: true, component: AdminLoginPage }
     // { path: "*", component: 404Page },

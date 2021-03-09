@@ -46,7 +46,7 @@ const SearchResultDisplayComp = (props) => {
                                             searchSuggestion_Data && searchSuggestion_Data.restaurant_search_resp && searchSuggestion_Data.restaurant_search_resp.slice(0, 3).map((data, index) => {
                                                 return (
                                                     <React.Fragment key={index}>
-                                                        <Link to={'/restaurant_dish/' + data._id} className="text-decoration-none">
+                                                        <Link to={'/restaurant/' + data._id} className="text-decoration-none">
                                                             <div class="fr-rsdish-viewmain d-flex align-items-center mt-1 mb-1 p-2">
                                                                 <div class="fr-rsdish-img mr-3">
                                                                     {data.restaurantProfilePhoto ?
