@@ -11,6 +11,7 @@ const initialState = {
   showSignUpPopup: false,
   showSignInPopup: false,
   showSignUpSuccessPopup: false,
+  showVerificationPopup:false,
   forgot_Password:{},
   reset_Password:{},
   isRegisterSuccess : false,
@@ -39,6 +40,12 @@ const initialState = {
           ...state,
           showSignUpSuccessPopup: payload,
         };   
+
+      case "SHOW_VERIFICATION_POPUP":
+        return {
+          ...state,
+          showVerificationPopup: payload,
+        };    
 
       case "GET_NUTRITION_DATA_REQUEST":
       case "SEND_JOINUS_REQUEST":

@@ -327,4 +327,11 @@ export const registrationSuccess = (data) => (dispatch) => {
     type: "SHOW_SIGNUPSUCCESS_POPUP",
     payload: data,
   });
-};;
+};
+
+export const showVerificationPopup = (data) => (dispatch) => {
+  dispatch({
+    type: "SHOW_VERIFICATION_POPUP",
+    payload: data,
+  });
+};

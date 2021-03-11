@@ -8,6 +8,7 @@ import restaurant_P6 from "../../assets/images/restaurant/r6.png"
 import restaurant_P7 from "../../assets/images/restaurant/r7.png"
 import restaurant_P8 from "../../assets/images/restaurant/r8.png"
 import {SERVER_URL} from '../../shared/constant'
+import no_Data_Image from "../../assets/images/no_data_found.png"
 
 import { Player } from 'video-react';
 import "../../../node_modules/video-react/dist/video-react.css";
@@ -28,25 +29,25 @@ const RestaurantDiscGallery = (props) => {
                             <ul className="rsdish-ul" style={{ position: 'sticky', top: 110, }}>
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "all" ? 'rsdish-active' : null}`} onClick={() => { setValue("all") }}>
-                                        <h6 class="mb-1 brandon-Bold "><b>All</b></h6>
+                                        <h6 className="mb-1 brandon-Bold "><b>All</b></h6>
                                         <small className="txt-lightgray">{(props.food&&props.food.length) + (props.ambience&&props.ambience.length)}</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "food" ? 'rsdish-active' : null}`} onClick={() => { setValue("food") }}>
-                                        <h6 class="mb-1 brandon-Bold "><b>Food</b></h6>
+                                        <h6 className="mb-1 brandon-Bold "><b>Food</b></h6>
                                         <small className="txt-lightgray">{props.food&&props.food.length}</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "ambience" ? 'rsdish-active' : null}`} onClick={() => { setValue("ambience") }}>
-                                        <h6 class="mb-1 brandon-Bold"><b>Ambience</b></h6>
+                                        <h6 className="mb-1 brandon-Bold"><b>Ambience</b></h6>
                                         <small className="txt-lightgray">{props.ambience&&props.ambience.length}</small>
                                     </button>
                                 </li>
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "videos" ? 'rsdish-active' : null}`} onClick={() => { setValue("videos") }}>
-                                        <h6 class="mb-1 brandon-Bold"><b>videos</b></h6>
+                                        <h6 className="mb-1 brandon-Bold"><b>videos</b></h6>
                                         <small className="txt-lightgray">(159)</small>
                                     </button>
                                 </li>
@@ -107,7 +108,7 @@ const RestaurantDiscGallery = (props) => {
                                                 :
                                                     <React.Fragment>
                                                         <div className="w-100 d-flex align-items-center justify-content-center">
-                                                            <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                            <img src={no_Data_Image} className="img-fluid" alt="img"/>
                                                         </div>
                                                     </React.Fragment>
 
@@ -141,7 +142,7 @@ const RestaurantDiscGallery = (props) => {
                                                 :
                                                     <React.Fragment>
                                                         <div className="w-100 d-flex align-items-center justify-content-center">
-                                                            <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                            <img src={no_Data_Image} className="img-fluid" alt="img"/>
                                                         </div>
                                                     </React.Fragment>
                                                 }
@@ -172,7 +173,7 @@ const RestaurantDiscGallery = (props) => {
                                                     :
                                                         <React.Fragment>
                                                             <div className="w-100 d-flex align-items-center justify-content-center">
-                                                                <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                                <img src={no_Data_Image} className="img-fluid" alt="img"/>
                                                             </div>
                                                         </React.Fragment>
                                                     }

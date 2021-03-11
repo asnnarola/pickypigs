@@ -9,10 +9,10 @@ const SingleReviewMobileComp=()=>{
             <div className="singleReviewMobile-content">
                <div className="rs-infoblock">
                     <div>
-                        <div class="media">
-                            <img src={img1} class="img-fluid rounded-circle mr-3" width="60px" height="60px" alt="user_img"/>
+                        <div className="media">
+                            <img src={img1} className="img-fluid rounded-circle mr-3" width="60px" height="60px" alt="user_img"/>
                             <div className="media-body">
-                                <h5 class="mt-0">Joe</h5>
+                                <h5 className="mt-0">Joe</h5>
                                 <p>4/5</p>
                             </div>
                         </div>

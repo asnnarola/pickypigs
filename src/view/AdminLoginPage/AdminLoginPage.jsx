@@ -95,7 +95,7 @@ const AdminLoginPage = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12">
-                            <div class="patternimg-wrapper">
+                            <div className="patternimg-wrapper">
                                 <img src={pattern_img} className="img-fluid" />
                             </div>
                         </div>

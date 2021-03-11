@@ -29,33 +29,37 @@ const AlertSystemPage=()=>{
 
     return(
         <>
-        <section >
-            {
-                alertInfo.length > 0 ?
-                    <React.Fragment>
-                        {
-                            alertInfo.map(alert => {
-                                return (
-                                    <React.Fragment key={alert.id}>
-                                        {/* <div  className={`alert alert-${alert.color} alert-dismissible animated slideInDown fixed-top m-3`}>
-                                            <button className="close">
-                                                <i className="fa fa-times-circle"/>
-                                            </button>
-                                            <small>{alert.message}</small>
-                                        </div> */}
-                                        <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open}  onClose={handleClose}  key={"top" + "right"}>
-                                            <Alert severity={alert.color}> {alert.message}  </Alert>                                               
-                                        </Snackbar>
-                                    </React.Fragment>
-                                    
-                                )
-                            })
-                        }
+            {false?
+                <section >
+                    {
+                        alertInfo.length > 0 ?
+                            <React.Fragment>
+                                {
+                                    alertInfo.map(alert => {
+                                        return (
+                                            <React.Fragment key={alert.id}>
+                                                {/* <div  className={`alert alert-${alert.color} alert-dismissible animated slideInDown fixed-top m-3`}>
+                                                    <button className="close">
+                                                        <i className="fa fa-times-circle"/>
+                                                    </button>
+                                                    <small>{alert.message}</small>
+                                                </div> */}
+                                                <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open}  onClose={handleClose}  key={"top" + "right"}>
+                                                    <Alert severity={alert.color}> {alert.message}  </Alert>                                               
+                                                </Snackbar>
+                                            </React.Fragment>
+                                            
+                                        )
+                                    })
+                                }
 
-                         
-                    </React.Fragment> : null
+                                
+                            </React.Fragment> : null
+                    }
+                </section>
+            :
+            null
             }
-        </section>
         </>
     )
 }

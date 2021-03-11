@@ -36,7 +36,7 @@ const CaloriesInformationMobileModal=(props)=>{
                             <p className="mb-1 brandon-Medium">Total Fat</p><p className="mb-1 brandon-Medium">20.84 g</p>
                         </div>
                         <div className="table-responsive rscategory-detail">
-                            <table class="table">
+                            <table className="table">
                                 <tbody>
                                     <tr>
                                         <td scope="col" colSpan="3" className="txt-lightgray fw-400 text-right pl-0 pr-0 border-top-0 pt-1 pb-1 text-right">% Daily Values *</td>

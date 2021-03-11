@@ -27,3 +27,28 @@ export const getSearchedRestaurantsList=(data)=>{
     }
 };
 
+export const getSearchedDishList=(data)=>{
+    return async(dispatch)=>{
+        try{
+            dispatch({type:"GET_SEARCHEDDISHLIST_REQUEST"});
+            let config = {
+                headers : {
+                    'Content-Type' : 'application/json'
+                }
+            };
+            let dataURL=`/frontend/restaurant_search_page/disheslist`
+            let response = await Axios.post(dataURL, JSON.stringify(data) , config);
+            dispatch({type:"GET_SEARCHEDDISHLIST_SUCCESS",payload:response.data});
+        }
+      
+        catch(error){
+            dispatch({type:"GET_SEARCHEDDISHLIST_FAILURE",payload:error});
+            if (error.response) {
+              dispatch(setAlert(`${error.response.data.message}`, 'error'));
+            } else {
+              dispatch(setAlert('Something Went wrong!', 'error'));
+            }
+        }
+    }
+};
+

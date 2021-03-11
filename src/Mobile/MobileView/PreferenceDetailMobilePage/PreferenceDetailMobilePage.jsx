@@ -69,7 +69,7 @@ const PreferenceDetailMobilePage=()=>{
                 <div>
                     <h4>My Preference</h4>
                 </div>
-                <div class="accordion" id="accordionExample1">
+                <div className="accordion" id="accordionExample1">
                     <div className="border-bottom  pb-3 mb-3">
                         <div className="p-0" id="headingOne">
                             <div className="mb-0">
@@ -101,7 +101,7 @@ const PreferenceDetailMobilePage=()=>{
                     </div>
                 </div>
 
-                <div class="accordion" id="accordionExample2">
+                <div className="accordion" id="accordionExample2">
                     <div className="border-bottom pb-3 mb-3">
                         <div className="p-0" id="headingTwo">
                             <div className="mb-0">
@@ -134,7 +134,7 @@ const PreferenceDetailMobilePage=()=>{
                     </div>
                 </div>
 
-                <div class="accordion" id="accordionExample3">
+                <div className="accordion" id="accordionExample3">
                     <div className="border-bottom pb-3 mb-3">
                         <div className="p-0" id="headingThree">
                             <div className="mb-0">
@@ -168,7 +168,7 @@ const PreferenceDetailMobilePage=()=>{
                     </div>
                 </div>
 
-                <div class="accordion" id="accordionExample4">
+                <div className="accordion" id="accordionExample4">
                     <div className="border-bottom pb-3 mb-3">
                         <div className="p-0" id="headingFour">
                             <div className="mb-0">
@@ -202,7 +202,7 @@ const PreferenceDetailMobilePage=()=>{
                     </div>
                 </div>
 
-                <div class="accordion" id="accordionExample5">
+                <div className="accordion" id="accordionExample5">
                     <div className=" pb-3 mb-3">
                         <div className="p-0" id="headingFive">
                             <div className="mb-0">
@@ -222,7 +222,7 @@ const PreferenceDetailMobilePage=()=>{
                                 <label>Near You (Optional)</label>
                             </div>
                             <div className="pl-0">
-                                <input type="range" value={distance} onChange={(e)=>{setDistance(e.target.value)}}  class="form-control-range" id="formControlRange"/>
+                                <input type="range" value={distance} onChange={(e)=>{setDistance(e.target.value)}}  className="form-control-range" id="formControlRange"/>
                                 <label htmlFor="formControlRange" className="ranage-txt" style={{position:'absolute',left:distance*(width/115)}}>{distance}mi</label>
                             </div>
                         </div>
@@ -230,7 +230,7 @@ const PreferenceDetailMobilePage=()=>{
                 </div>
 
                 <div className="d-flex justify-content-center mb-3" style={{position:'sticky',bottom:10}}>
-                    <button className="p-2 pl-4 pr-4 rounded-pill mr-3">Cancle</button>
+                    <button className="p-2 pl-4 pr-4 rounded-pill mr-3">Cancel</button>
                     <button className="p-2 pl-4 pr-4 rounded-pill">Save</button>
                 </div>
 

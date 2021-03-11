@@ -11,7 +11,6 @@ import dropdownarrow from "../../assets/images/dropdown-arrow.svg"
 import CustomDropdown from '../CustomDropdown/CustomDropdown';
 import "./FilterList.scss"
 import { useDispatch, useSelector } from "react-redux";
-import { getRestaurantSearchData } from '../../redux/actions/generalActions';
 
 import PlacesAutocomplete, {
     geocodeByAddress,
@@ -20,7 +19,7 @@ import PlacesAutocomplete, {
 import MyfilterListExample from './MyfilterListExample';
 import { getAllAllergyData,getAllDietaryData,getAllLifestyleData,getAllRestaurantFeaturesData} from '../../redux/actions/allergyAction';
 import SearchResultDisplayComp from '../SearchResultDisplayComp/SearchResultDisplayComp';
-import { Redirect, useHistory } from 'react-router-dom';
+import { NavLink, Redirect, useHistory,Link } from 'react-router-dom';
 import { getSearchedRestaurantsList } from '../../redux/actions/restaurantSearchPageAction';
 
 
@@ -62,7 +61,6 @@ function FilterList(props) {
 
     const [userSearchDetails, setUserSearchDetails] = useState("")
     const [address, setAddress] = useState()
-    const [submitting, setSubmitting] = useState(false)
 
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef,setUserTextFocus);
@@ -94,6 +92,31 @@ function FilterList(props) {
     const clearAllFeature=()=>{
         setFeaturesValue([])
     }
+    useEffect(()=>{
+        if(props.myallergydata){
+            setAllergenValue(props.myallergydata)
+        }
+    },[props.myallergydata]);
+    useEffect(()=>{
+        if(props.mydietarydata){
+            setDietaryValue(props.mydietarydata)
+        }
+    },[props.mydietarydata]);
+    useEffect(()=>{
+        if(props.mylifestyledata){
+            setLifeStyleValue(props.mylifestyledata)
+        }
+    },[props.mylifestyledata]);
+    useEffect(()=>{
+        if(props.myfeaturedata){
+            setFeaturesValue(props.myfeaturedata)
+        }
+    },[props.myfeaturedata]);
+    useEffect(()=>{
+        if(props.mysearchdata){
+            setUserSearchText(props.mysearchdata)
+        }
+    },[props.mysearchdata]);
 
     // const getMyLocation = () => {
     //     const location = window.navigator && window.navigator.geolocation
@@ -117,20 +140,7 @@ function FilterList(props) {
 
     const geoLocation = useSelector((state) => state.googledata.location_data);
 
-    const getAllRestaurant = () => {
-        if(allergenValue.length<=0&&dietaryValue.length<=0&&lifeStyleValue.length<=0&&featuresValue.length<=0&&userSearchText===''){
-            history.push('/restaurant_list');
-        }else{
-              setSubmitting(true)
-        }
-
-        // const location = window.navigator && window.navigator.geolocation
-        // if (location) {
-        //     location.getCurrentPosition((position) => {
-        //         dispatch(getRestaurantSearchData(geoLocation.lat, geoLocation.lng, userSearchText));
-        //     });
-        // }
-    }
+    
 
     const handleSearch = (e) => {
         setUserSearchText(e.target.value)
@@ -139,16 +149,9 @@ function FilterList(props) {
 
     return (
         <div className="restaurant-find w-100 p-2 p-xl-3 mb-5">
-            {/* {JSON.stringify(submitting)} */}
+            {JSON.stringify(props.mydata)}
             {/* {JSON.stringify(userSearchDetails&&userSearchDetails)} */}
-            {submitting&&
-               <Redirect
-                to={{
-                    pathname: "/allrestaurant",
-                    search: `?search=${userSearchText}`,
-                    state: {allergendata: allergenValue,}
-                }}
-                />}
+          
             <div className="fr-search d-flex align-items-center  pb-3">
                 <MyfilterListExample />
 
@@ -177,22 +180,33 @@ function FilterList(props) {
                         className="w-100 fr-search-box rl-fl-searchbox brandon-regular" 
                         placeholder="Search for restaurant or dish" 
                     />
-                    <Button variant="primary" onClick={getAllRestaurant} className="fr-search-btn theme-pink-btn">
-                        <img src={serachwhite} className="img-fluid" alt="serachwhite" />
-                    </Button>
+                    {(allergenValue.length<=0&&dietaryValue.length<=0&&lifeStyleValue.length<=0&&featuresValue.length<=0&&userSearchText==='')?
+                        <NavLink  to="/restaurant_list" className="fr-search-btn theme-pink-btn">
+                            <img src={serachwhite} className="img-fluid" alt="serachwhite" />
+                        </NavLink>
+                        :
+                        <Link  to={{pathname: "/allrestaurant",
+                                search: `?search=${userSearchText}`,
+                                state: {allergendata: allergenValue,dietarydata: dietaryValue,lifestyledata: lifeStyleValue,featuredata: featuresValue,}
+                            }}
+                         className="fr-search-btn theme-pink-btn">
+                            <img src={serachwhite} className="img-fluid" alt="serachwhite" />
+                        </Link>
+                    }
+                    
                     {/* {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />
                     </Button>} */}
                     {props.showautosuggestion&&props.showautosuggestion?
-                    <React.Fragment>
-                        {userSearchText&&userSearchText!==" "&&userTextFocus&&
-                            <div  className="position-absolute fr-rsdish-filterwrapper">
-                                <SearchResultDisplayComp searchtext={userSearchText}/>
-                            </div>
-                        }
-                    </React.Fragment>
+                        <React.Fragment>
+                            {userSearchText&&userSearchText!==" "&&userTextFocus&&
+                                <div  className="position-absolute fr-rsdish-filterwrapper">
+                                    <SearchResultDisplayComp searchtext={userSearchText}/>
+                                </div>
+                            }
+                        </React.Fragment>
                     :
-                    null
+                        null
                     }
                     
                     

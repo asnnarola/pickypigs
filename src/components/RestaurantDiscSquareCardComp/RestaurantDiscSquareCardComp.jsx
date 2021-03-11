@@ -18,7 +18,7 @@ const RestaurantDiscSquareCardComp=({name,price,priceUnit,image})=>{
                     <div className="whatmenu-details p-3">
                         <p className="whatmenu-label f-15 mb-2 brandon-Medium">{name?name:'Unknown'}</p>
                         <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                            <span className="txt-lightgray">{priceUnit?priceUnit:'£'} {price?price:'Na'}</span>
+                            <span className="txt-lightgray">{priceUnit?priceUnit:'£'} {price?price.toFixed(2):'Na'}</span>
                         </div>
                     </div>
                 </div>

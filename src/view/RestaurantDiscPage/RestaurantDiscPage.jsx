@@ -25,8 +25,8 @@ const RestaurantDiscPage = () => {
     let restaurantId=params.restId;
 
     let [tabs, setTabs] = useState({
-        tab1: false,
-        tab2: true,
+        tab1: true,
+        tab2: false,
         tab3: false,
     });
     const [searchData,setSearchData]=useState('');
@@ -96,8 +96,8 @@ const RestaurantDiscPage = () => {
                         <div className="breadcrumb-wrapper">
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li class="breadcrumb-item text-capitalize"><Link to="/">Home</Link></li>
-                                    <li class="breadcrumb-item text-capitalize"><Link to="/restaurant_list">Restaurants</Link></li>
+                                    <li className="breadcrumb-item text-capitalize"><Link to="/">Home</Link></li>
+                                    <li className="breadcrumb-item text-capitalize"><Link to="/restaurant_list">Restaurants</Link></li>
                                     <li className="breadcrumb-item text-capitalize active" aria-current="page">{restaurant_data&&restaurant_data.name?restaurant_data.name:'Unknown'}</li>
                                 </ol>
                             </nav>
@@ -113,7 +113,7 @@ const RestaurantDiscPage = () => {
                             restaurant_distance={restaurant_data&&restaurant_data.distance&&restaurant_data.distance.text?restaurant_data.distance.text:''} 
                             restaurant_cuisine={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.cuisineTypeList?restaurant_data.restaurantFeatures.cuisineTypeList:[]}
                             restaurant_feature={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList?restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList:[]}
-                            restaurant_time={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.openingTimings?restaurant_data.restaurantDetails.openingTimings:''}
+                            restaurant_time={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.openingTimings?restaurant_data.restaurantDetails.openingTimings:{}}
                      />
                     {/* <small>{JSON.stringify(tabs)}</small> */}
                     <div className="container" >

@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 // const Signup = lazy(() => import('./view/Signup/Signup'));
 
 const ResetPasswordPage = lazy(() => import('./view/ResetPasswordPage/ResetPasswordPage'));
+const EmailVerificationPage = lazy(() => import('./view/EmailVerificationPage/EmailVerificationPage'));
 
 function App() {
     const dispatch=useDispatch();
@@ -44,7 +45,7 @@ function App() {
             <Switch>
               {/* <Route exact path="/signup" render={(props) => <Signup {...props} />} /> */}
               <Route exact path="/reset_password/:token" render={(props) => <ResetPasswordPage {...props} />} />
-
+              <Route exact path="/auth/email_verification/:token" render={(props) => <EmailVerificationPage {...props} />} />
               <Routes />
             </Switch>
         </Hidden>
@@ -52,6 +53,8 @@ function App() {
             <Switch>
               {/* <Route exact path="/login" render={(props) => <Login {...props} />} /> */}
               {/* <Route exact path="/signup" render={(props) => <Signup {...props} />} /> */}
+              <Route exact path="/reset_password/:token" render={(props) => <ResetPasswordPage {...props} />} />
+              <Route exact path="/auth/email_verification/:token" render={(props) => <EmailVerificationPage {...props} />} />
               <Routes />
             </Switch>
         </Hidden>
@@ -59,6 +62,8 @@ function App() {
             <Switch>
               {/* <Route exact path="/login" render={(props) => <Login {...props} />} /> */}
               {/* <Route exact path="/signup" render={(props) => <Signup {...props} />} /> */}
+              <Route exact path="/reset_password/:token" render={(props) => <ResetPasswordPage {...props} />} />
+              <Route exact path="/auth/email_verification/:token" render={(props) => <EmailVerificationPage {...props} />} />
               <MobileRoutes />
             </Switch>
         </Hidden>

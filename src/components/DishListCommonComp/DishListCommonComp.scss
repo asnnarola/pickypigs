@@ -1,0 +1,14 @@
+.dishListcommoncomp{
+    .filter-morebtn {
+        background: #fff !important;
+        border-color: #cb007b !important;
+        color: #cb007b !important;
+        outline: none;
+        height: calc(100% - 26px);
+        border-radius: 10px;
+        &:focus {
+            box-shadow: 0 0 0 0.2rem #cb007b3d !important;
+        }
+    }
+
+}
