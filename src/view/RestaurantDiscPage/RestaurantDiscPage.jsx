@@ -114,6 +114,7 @@ const RestaurantDiscPage = () => {
                             restaurant_cuisine={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.cuisineTypeList?restaurant_data.restaurantFeatures.cuisineTypeList:[]}
                             restaurant_feature={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList?restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList:[]}
                             restaurant_time={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.openingTimings?restaurant_data.restaurantDetails.openingTimings:{}}
+
                      />
                     {/* <small>{JSON.stringify(tabs)}</small> */}
                     <div className="container" >
@@ -175,7 +176,9 @@ const RestaurantDiscPage = () => {
                                             rest_contact={restaurant_data&&restaurant_data.info?restaurant_data.info:{}}
                                             rest_booking={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.bookings?restaurant_data.restaurantDetails.bookings:{}}
                                             rest_social = {restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.socialMedia?restaurant_data.restaurantDetails.socialMedia:{}}
-                                        />
+                                            rest_applies={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.appliesOfRestaurant?restaurant_data.restaurantFeatures.appliesOfRestaurant:[]}
+
+                                      />
                                     </section>
                                     :
 

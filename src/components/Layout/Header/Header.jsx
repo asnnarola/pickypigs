@@ -162,11 +162,11 @@ const Header = (props) => {
                         <div className="btn-group userprofile-dropdown">
                             <button type="button" className="btn btn-secondary dropdown-toggle userprofile-dropbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div className="user-name">
-                                    {userProfile_Data&&userProfile_Data.userDetail?
+                                    {/* {userProfile_Data&&userProfile_Data.userDetail?
                                         <img src={`${SERVER_URL}/${userProfile_Data.userDetail.profileImage}`} className="userprofile-img img-fluid mr-2 border" alt="logo" />
                                     :       
                                         <img src={logo} className="userprofile-img img-fluid mr-2" alt="logo" />
-                                    }
+                                    } */}
                                     {userProfile_Data&&userProfile_Data.userDetail&&userProfile_Data.userDetail.name?
                                     <span>{userProfile_Data.userDetail.name}</span>
                                     :
