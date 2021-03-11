@@ -95,11 +95,11 @@ const RestaurantList = () => {
     }, [dispatch])
 
     useEffect(() => {
-        dispatch(gettopPicksRestaurantList({search:"",option:"toppick",start:0,length:visible}));
+        dispatch(gettopPicksRestaurantList({userCoordinates: [21.096612,72.650754],search:"",option:"toppick",start:0,length:visible}));
     }, [dispatch,visible])
 
     useEffect(() => {
-        dispatch(getWhatsNewRestaurantList({search:"",option:"new",start:0,length:visible2}));
+        dispatch(getWhatsNewRestaurantList({userCoordinates: [21.096612,72.650754],search:"",option:"new",start:0,length:visible2}));
     }, [dispatch,visible2])
 
     let subscribedRest_Data = useSelector((state)=>{
@@ -199,13 +199,13 @@ const RestaurantList = () => {
                                 <li >
                                     <Link to="section-1" activeClass="tabfilter-active bg-prime" spy={true}  smooth={true}  offset={-50}  >
                                         <h6 className="mb-1 brandon-Bold "><b>Top Picks</b></h6>
-                                        <p className="mb-0">{topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords&&topPicksRestaurant_List.totalRecords} Options</p>
+                                        <p className="mb-0">{topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords?topPicksRestaurant_List.totalRecords:'0'} Options</p>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="section-2" activeClass="tabfilter-active" spy={true}  smooth={true}   offset={-80}>
                                         <h6 className="mb-1 brandon-Bold "><b>What's new</b></h6>
-                                        <p className="mb-0">{whatsNewRestaurant_List&&whatsNewRestaurant_List.totalRecords&&whatsNewRestaurant_List.totalRecords} Options</p>
+                                        <p className="mb-0">{whatsNewRestaurant_List&&whatsNewRestaurant_List.totalRecords?whatsNewRestaurant_List.totalRecords:'0'} Options</p>
                                     </Link>
                                 </li>
                             </ul>

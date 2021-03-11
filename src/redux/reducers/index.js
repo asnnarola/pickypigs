@@ -10,6 +10,9 @@ import homePageReducer from "./homePageReducer";
 import restaurantSearchPageReducer from "./restaurantSearchPageReducer";
 import restaurantMenuTabReducer from "./restaurantMenuTabReducer";
 import restaurantListPageReducer from "./restaurantListPageReducer";
+import dishListPageReducer from "./dishListPageReducer";
+import emailVerificationReducer from "./emailVerificationReducer";
+
 
 
 export default combineReducers({
@@ -25,4 +28,6 @@ export default combineReducers({
   restaurantSearch:restaurantSearchPageReducer,
   restaurantMenuTab:restaurantMenuTabReducer,
   restaurantList:restaurantListPageReducer,
+  dishList:dishListPageReducer,
+  emailVerification:emailVerificationReducer,
 });

@@ -40,7 +40,12 @@ const SearchResultDisplayComp = (props) => {
                                     <React.Fragment>
                                         <div className="fr-rsdish-viewall d-flex align-items-center justify-content-between flex-wrap mb-2">
                                             <p className="brandon-Medium mb-0 f-18">Restaurants</p>
-                                            <Link to={{ pathname: "/allrestaurant", search: `?search=${props.searchtext}` }} variant="" className="f-14 pink-txt">VIEW ALL</Link>
+                                            {searchSuggestion_Data && searchSuggestion_Data.restaurant_search_resp && searchSuggestion_Data.restaurant_search_resp.length >3?
+                                                <Link to={{ pathname: "/allrestaurant", search: `?search=${props.searchtext}` }} variant="" className="f-14 pink-txt">VIEW ALL</Link>
+                                            :
+                                                null
+                                            }
+                                            
                                         </div>
                                         {
                                             searchSuggestion_Data && searchSuggestion_Data.restaurant_search_resp && searchSuggestion_Data.restaurant_search_resp.slice(0, 3).map((data, index) => {
@@ -75,8 +80,12 @@ const SearchResultDisplayComp = (props) => {
                                     <React.Fragment>
                                         <div className="fr-rsdish-viewall d-flex align-items-center justify-content-between flex-wrap mb-2 mt-3">
                                             <p className="brandon-Medium mb-0 f-18">Dishes</p>
-                                            <Link to={{ pathname: "/allrestaurant", search: `?search=${props.searchtext}` }} variant="" className="f-14 pink-txt">VIEW ALL</Link>
-                                        </div>
+                                            {searchSuggestion_Data && searchSuggestion_Data.dish_search_resp && searchSuggestion_Data.dish_search_resp.length >3?
+                                                <Link to={{ pathname: "/allrestaurant", search: `?search=${props.searchtext}` }} variant="" className="f-14 pink-txt">VIEW ALL</Link>
+                                            :
+                                                null
+                                            }
+                                            </div>
                                         {
                                             searchSuggestion_Data && searchSuggestion_Data.dish_search_resp && searchSuggestion_Data.dish_search_resp.slice(0, 3).map((data, index) => {
                                                 return (

@@ -21,7 +21,7 @@ const SingleDiscDetalDescComp = (props) => {
                 <div className="dishinfo-detail">
                     <div className="d-flex align-items-center justify-content-between flex-wrap">
                         <p className="brandon-Medium">{props.name}</p>
-                        <p className="brandon-Medium">{props.priceunit}{props.price}</p>
+                        <p className="brandon-Medium">{props.priceunit}{props.price?parseFloat(props.price).toFixed(2):'Na'}</p>
                     </div>
                     <p className="txt-lightgray dishinfo-txt">{props.description}</p>
                     <div className="whatmeu-types d-flex">

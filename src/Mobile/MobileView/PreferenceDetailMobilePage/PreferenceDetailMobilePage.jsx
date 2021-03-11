@@ -230,7 +230,7 @@ const PreferenceDetailMobilePage=()=>{
                 </div>
 
                 <div className="d-flex justify-content-center mb-3" style={{position:'sticky',bottom:10}}>
-                    <button className="p-2 pl-4 pr-4 rounded-pill mr-3">Cancle</button>
+                    <button className="p-2 pl-4 pr-4 rounded-pill mr-3">Cancel</button>
                     <button className="p-2 pl-4 pr-4 rounded-pill">Save</button>
                 </div>
 

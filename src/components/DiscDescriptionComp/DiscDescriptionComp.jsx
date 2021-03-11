@@ -31,7 +31,7 @@ const DiscDescriptionComp=({dish_name,dish_image,dish_priceunit,dish_price,dish_
                                 <p className="whatmenu-label f-15 mb-2 brandon-Medium">Unknown</p>
                             }
                             <div className="whatmenu-price f-14 d-flex justify-content-between pt-1 pb-1">
-                                <span className="txt-lightgray">{dish_priceunit?dish_priceunit:'$'} {dish_price?dish_price:'00.00'}</span>
+                                <span className="txt-lightgray">{dish_priceunit?dish_priceunit:'$'} {dish_price?dish_price.toFixed(2):'00.00'}</span>
                                 <div className="whatmenu-daydetail txt-lightgray">
                                     <ul className="list-style-none pl-0 d-flex flex-wrap align-items-center mb-2">
                                         <li className="ml-xs-0"></li>

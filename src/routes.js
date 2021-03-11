@@ -34,7 +34,8 @@ export const routesCode = [
     { path: "/restaurant_dish_info/:dishId",name: "Dish Name", exact: true, component: RestaurantSingleDiscInfoPage },
     { path: "/user_detail",name: "Profile", exact: true, component: UserDetailPage },
     { path: "/verify/:token", exact: true, component: Verify },
-    { path: "/restaurant_login", exact: true, component: AdminLoginPage }
+    { path: "/restaurant_login", exact: true, component: AdminLoginPage },
+
     // { path: "*", component: 404Page },
 ];
 

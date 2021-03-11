@@ -113,7 +113,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Dessert_icon} alt={"Drinks_icon"} className="img-fluid" />
+                    <img src={Dessert_icon} alt={"Dessert_icon"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",
@@ -137,7 +137,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Lunch_icon} alt={"Lunch_icon"} className="img-fluid" />
+                    <img src={Drinks_icon} alt={"Drinks"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",
@@ -149,7 +149,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Nibble_icon} alt={"Lunch_icon"} className="img-fluid" />
+                    <img src={Nibble_icon} alt={"Nibble_icon"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",
@@ -161,7 +161,7 @@ const ExploreCategories = () => {
                 </div>
                 <div className="categories-subwrapper">
                   <div className="categories-icon">
-                    <img src={Setmenu_icon} alt={"Lunch_icon"} className="img-fluid" />
+                    <img src={Setmenu_icon} alt={"setmenu_icon"} className="img-fluid" />
                   </div>
                   <Link to={{
                         pathname: "/allrestaurant",

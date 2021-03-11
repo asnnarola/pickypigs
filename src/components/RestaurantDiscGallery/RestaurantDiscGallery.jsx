@@ -8,6 +8,7 @@ import restaurant_P6 from "../../assets/images/restaurant/r6.png"
 import restaurant_P7 from "../../assets/images/restaurant/r7.png"
 import restaurant_P8 from "../../assets/images/restaurant/r8.png"
 import {SERVER_URL} from '../../shared/constant'
+import no_Data_Image from "../../assets/images/no_data_found.png"
 
 import { Player } from 'video-react';
 import "../../../node_modules/video-react/dist/video-react.css";
@@ -107,7 +108,7 @@ const RestaurantDiscGallery = (props) => {
                                                 :
                                                     <React.Fragment>
                                                         <div className="w-100 d-flex align-items-center justify-content-center">
-                                                            <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                            <img src={no_Data_Image} className="img-fluid" alt="img"/>
                                                         </div>
                                                     </React.Fragment>
 
@@ -141,7 +142,7 @@ const RestaurantDiscGallery = (props) => {
                                                 :
                                                     <React.Fragment>
                                                         <div className="w-100 d-flex align-items-center justify-content-center">
-                                                            <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                            <img src={no_Data_Image} className="img-fluid" alt="img"/>
                                                         </div>
                                                     </React.Fragment>
                                                 }
@@ -172,7 +173,7 @@ const RestaurantDiscGallery = (props) => {
                                                     :
                                                         <React.Fragment>
                                                             <div className="w-100 d-flex align-items-center justify-content-center">
-                                                                <p>Something Went Wrong...Unable to Fetch Image</p>
+                                                                <img src={no_Data_Image} className="img-fluid" alt="img"/>
                                                             </div>
                                                         </React.Fragment>
                                                     }

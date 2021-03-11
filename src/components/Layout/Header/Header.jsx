@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {Button, Nav, Form, Navbar, Modal} from 'react-bootstrap'
 import {Link,NavLink,useHistory, withRouter} from 'react-router-dom'
 import "./Header.scss"
@@ -9,7 +9,7 @@ import { useAppState } from '../../../context'
 import Signup from "../../../view/Signup/Signup"
 import SignInPage from '../../../view/SignInPage/SignInPage'
 import { useDispatch, useSelector } from 'react-redux';
-import {showSignUpPopup,showSignInPopup, logoutUser} from '../../../redux/actions/generalActions'
+import {showSignUpPopup,showSignInPopup, logoutUser, showVerificationPopup} from '../../../redux/actions/generalActions'
 import ForgotPasswordPage from '../../../view/ForgotPasswordPage/ForgotPasswordPage'
 import RegistrationSuccessScreen from '../../RegistrationSuccessScreen/RegistrationSuccessScreen'
 import AdminLoginPage from '../../../view/AdminLoginPage/AdminLoginPage'
@@ -17,10 +17,40 @@ import SignUpModalComp from '../../SignUpModalComp/SignUpModalComp'
 import { showAdminSignUpPopup } from '../../../redux/actions/restaurantAdminAction'
 import {SERVER_URL} from '../../../shared/constant'
 import CustomLoadingComp from '../../CustomLoadingComp/CustomLoadingComp'
+import EmailverificationSuccessScreen from '../../EmailverificationSuccessScreen/EmailverificationSuccessScreen'
+import SearchResultDisplayComp from '../../SearchResultDisplayComp/SearchResultDisplayComp'
+
+
+function useOutsideAlerter(ref,setUserTextFocus) {
+    useEffect(() => {
+        /**
+         * Alert if clicked on outside of element
+         */
+        function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                // alert("You clicked outside of me!");
+                        setUserTextFocus(false)
+                    }
+        }
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+}
 
 const Header = (props) => {
     const dispatch=useDispatch();
     const history = useHistory();
+
+    const [headerSearchText, setHeaderSearchText] = useState("")
+    const [headerTextFocus, setHeaderTextFocus] = useState(false)
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef,setHeaderTextFocus);
+
     const [showDropDown, setShowDropDown] = useState(false);
 
     const [showSignUp, setShowSignUp] = useState(false);
@@ -34,6 +64,9 @@ const Header = (props) => {
 
     const [registration, setRegistration] = useState(false);
     const handleCloseRegistration = () => setRegistration(false);
+
+    const [verification, setVerification] = useState(false);
+    const handleCloseVerification = () => setVerification(false);
 
     const signUpSuccess = useSelector((state) => state.general.isSignedUp);
     const signUpModal = useSelector((state) => state.general.showSignUpPopup);
@@ -52,6 +85,12 @@ const Header = (props) => {
     useEffect(() => {
             setRegistration(registerModal);
       },[registerModal])  
+
+
+    const verificationModal = useSelector((state) => state.general.showVerificationPopup);
+    useEffect(() => {
+        setVerification(verificationModal);
+      },[verificationModal])  
     
 
     const [showAdminSignUp, setAdminSignUp] = useState(false);
@@ -98,14 +137,26 @@ const Header = (props) => {
                 </Nav>
                 
                 <Form inline className="navright-btn userlogin-after ">
-                    {current_page!=="/restaurant_login"&&
-                            <div className="search-topnav mr-5 position-relative">
-                                <div className="search-navicon">
+                    {current_page!=="/restaurant_login"&&current_page!=="/allrestaurant"&&
+                        <div ref={wrapperRef} className="search-topnav mr-5 position-relative">
+                            <NavLink to={{ pathname: "/allrestaurant", search: `?search=${headerSearchText}` }} className="search-navicon">
                                     <img src={search_icon} className="img-fluid" alt="search_icon" />
-                                </div>
-                                <Form.Control type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
-                            </div>
-                        }
+                            </NavLink>
+                            <Form.Control value={headerSearchText} onFocus={()=>{setHeaderTextFocus(true)}} onChange={(e)=>{setHeaderSearchText(e.target.value)}}  type="text" className="w-100 search-input brandon-Medium" placeholder="Search for restaurant or dish" />
+                            {true?
+                                <React.Fragment>
+                                    {headerSearchText&&headerSearchText!==" "&&headerTextFocus&&
+                                        <div  className="position-absolute fr-rsdish-filterwrapper">
+                                            <SearchResultDisplayComp searchtext={headerSearchText}/>
+                                        </div>
+                                    }
+                                </React.Fragment>
+                            :
+                                null
+                            }
+                        </div>
+                    }
+                    
                     {   token&&userProfile_Data&&userProfile_Data.role==="user"
                     ?
                         <div className="btn-group userprofile-dropdown">
@@ -205,6 +256,16 @@ const Header = (props) => {
                         />
                     </Modal.Body>
                 </Modal>
+
+                <Modal centered show={verification} onHide={handleCloseVerification} className="EmailverificationSuccessScreen-modal">
+                    <Modal.Body className="p-0 position-relative">
+                        <EmailverificationSuccessScreen 
+                            gotoLogin={() => {dispatch(showVerificationPopup(false));dispatch(showSignInPopup(true));}}
+                            onHide={handleCloseVerification} show={verification} 
+                        />
+                    </Modal.Body>
+                </Modal>
+                
 
 
 
