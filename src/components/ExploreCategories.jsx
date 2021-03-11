@@ -68,7 +68,7 @@ const ExploreCategories = () => {
   //   );
   // }
   return (
-    <section className="mt-5 pt-4 mb-5 pb-5 categories-main">
+    <section className="mt-5 pt-4 mb-5 categories-main zindex-1 position-relative">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 ml-auto mr-auto mt-3">

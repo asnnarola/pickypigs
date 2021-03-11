@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import "./Footer.scss"
 const Footer = () => {
     return (
-        <section className="LoginPageFooter-section">
+        <section className="LoginPageFooter-section position-relative">
             <footer className="footer-section mt-auto bg-pink">
                 <div className="container">
                     <div className="row pl-lg-4">

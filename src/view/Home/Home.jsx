@@ -40,7 +40,7 @@ function Home({ coords }) {
         <>
             <div className="HomeSecond_container ">
                 {/* Home main section start */}
-                <section className="fr-section ">
+                <section className="fr-section position-relative zindex-1">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
@@ -62,7 +62,7 @@ function Home({ coords }) {
                 </section>
 
                 {/* FILTER BY FEATURES section start */}
-                <section className="ff-section pb-4 position-relative ">
+                <section className="ff-section pb-4 zindex-1 position-relative bg-white">
                     <div className="container  pr-0 position-relative ">
                         {/* filter-container */}
                         <div className="row">

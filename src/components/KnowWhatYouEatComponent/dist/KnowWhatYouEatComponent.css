@@ -26,6 +26,26 @@
   height: 60px;
   border-radius: 50px;
 }
+.whatYouEat-container .knowwhat-section .knowwhat-main .knowwhat-wrapper .knowwhat-info h6 {
+  min-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: normal;
+  word-break: break-word;
+}
+.whatYouEat-container .knowwhat-section .knowwhat-main .knowwhat-wrapper .knowwhat-info p {
+  min-height: 44px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+  word-break: break-word;
+}
 .whatYouEat-container .knowwhat-section .knowwhat-main:nth-child(1) .knowwhat-icon {
   background: #ecf0ff;
 }

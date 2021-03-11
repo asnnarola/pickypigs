@@ -4,7 +4,7 @@
         margin-top: 5rem;
 
         .patternimg-block {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             max-width: 710px;
             margin-left: auto;
@@ -24,6 +24,30 @@
                         width: 60px;
                         height: 60px;
                         border-radius: 50px;
+                    }
+
+                    .joinus-info {
+                        h6 {
+                            min-height: 22px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 1;
+                            white-space: normal;
+                            word-break: break-word;
+                        }
+
+                        p {
+                            min-height: 44px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                            white-space: normal;
+                            word-break: break-word;
+                        }
                     }
                 }
 

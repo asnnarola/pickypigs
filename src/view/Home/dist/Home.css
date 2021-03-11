@@ -41,6 +41,13 @@
   align-items: center;
   justify-content: center;
 }
+.main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper .filter-icon img {
+  filter: brightness(0);
+  width: 36px;
+  height: 36px;
+  object-position: center;
+  object-fit: contain;
+}
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper a.text-link {
   font-family: "Brandon Text Medium";
 }
@@ -62,6 +69,9 @@
 }
 .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper.active .text-link {
   color: #fff !important;
+}
+.main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide .filter-subwrapper:hover {
+  box-shadow: 0px 6px 16px 0px #00000017;
 }
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
   .main-layout .ff-section .filterfeature-wrapper .slick-list .slick-track .slick-slide {

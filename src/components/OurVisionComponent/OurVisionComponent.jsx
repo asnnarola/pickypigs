@@ -44,7 +44,7 @@ const OurVisionComponent = () => {
     return (
         <>
             {/* Would you like to join us? start content */}
-            <section className="ourmission-section position-relative">
+            <section className="ourmission-section position-relative zindex-1">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12 pl-0 pr-0">

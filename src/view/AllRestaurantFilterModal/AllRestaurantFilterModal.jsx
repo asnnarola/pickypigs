@@ -71,24 +71,24 @@ const AllRestaurantFilterModal = (props) => {
         <>
             <Modal className="filter-modal bg-white" backdrop="static" {...props} style={{ width: 400, marginLeft: 'auto', right: 0, top: 0 }} aria-labelledby="contained-modal-title-vcenter" >
                 <Modal.Header >
-                    <Modal.Title id="contained-modal-title-vcenter" className="brandon-Bold">
-                        <button onClick={()=>{props.onHide();setReset(false)}}>x</button>
-                        Filters
+                    <Modal.Title id="contained-modal-title-vcenter" className="brandon-Bold filter-title">
+                        <button className="filtermodal-closebtn fw-600 brandon-Medium pl-0 pr-0 mr-3" onClick={()=>{props.onHide();setReset(false)}}>x</button>
+                        <span>Filters</span>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className='wrapper mt-4 pt-2'>
+                    <div className='filtermodal-wrapper mt-4 pt-3'>
                         <ul className='accordion-list'>
                             <Formik enableReinitialize={true} initialValues={!reset?initialValues:initialValues2} validationSchema={validationSchema} onSubmit={onSubmit}>
                                 {({ values, resetForm }) => (
                                     <Form>
-                                        <button style={{ position: 'absolute', top: -27, right: 0 }} type="reset" onClick={()=>{setReset(true)}}>Reset All</button>
-                                        {/* {JSON.stringify(values)} */}
+                                        <button className="clearall-btn" type="reset" onClick={()=>{setReset(true)}}>Clear All</button>
+                                        {JSON.stringify(values)}
                                         <div className="main-accordion-wrapper ">
-                                            <div className="accordion accordion-main " id="accordionExample1">
-                                                <div className="accordion-item">
-                                                    <div className="d-flex justify-content-between align-items-center accordion-header " id="headingOne">
-                                                        <div className="w-100 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <div class="accordion accordion-main " id="accordionExample">
+                                                <div class="accordion-item">
+                                                    <div id="headingOne">
+                                                        <div className="mb-3 w-100 accordion-button d-flex justify-content-between align-items-center accordion-header position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                             <div className="accordion-title">
                                                                 <h5 className="brandon-Bold mb-0">Allergen</h5>
                                                             </div>
@@ -237,15 +237,15 @@ const AllRestaurantFilterModal = (props) => {
                                                     </div>
                                                     <div id="collapseFive" className="accordion-collapse collapse show" aria-labelledby="headingFive" data-bs-parent="#accordionExample5">
                                                         <div className="accordion-body">
-                                                            <section className="accordion-list__item ">
+                                                            <section className="accordion-list__item mb-0 pb-0">
                                                                 <div className="form-check custom-control custom-checkbox filter-checkbox mb-4" >
                                                                     <Field type="checkbox" name="toggle" className="form-check-input custom-control-input" id="exampleCheck15" style={{ marginLeft: 2, zIndex: 1, cursor: "pointer" }} />
                                                                     <label className="form-check-label custom-control-label" htmlFor="exampleCheck15" style={{ zIndex: -1 }}>
                                                                         Near you (optional)
                                                                     </label>
                                                                 </div>
-                                                                <div className="form-check custom-control custom-checkbox filter-checkbox pl-0">
-                                                                    <Field disabled={values.toggle} type="range" name="distance"  className="form-control-range" id="formControlRange" />
+                                                                <div className="form-check custom-control custom-checkbox filter-checkbox pl-0 mb-0">
+                                                                    <Field type="range" disabled={values.toggle} name="distance"  class="form-control-range" id="formControlRange" />
                                                                     <label for="formControlRange" className="ranage-txt" style={{ left: values.distance * 2.45 }}> {values.distance}mi</label>
 
                                                                 </div>

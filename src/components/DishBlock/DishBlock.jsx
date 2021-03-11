@@ -41,14 +41,14 @@ const DishBlock = ({ restaurant_name, restaurant_pic, kmvalue, rating, restauran
                     </span>
                     <span>{kmvalue == "null" ? "Not Available" : `${kmvalue} from you `} </span>
                 </p>
-                <div className="foodtypes-wrap d-flex">
+                <div className="foodtypes-wrap d-flex flex-wrap">
                     {restaurantfeature && restaurantfeature.length > 0 ?
                         <React.Fragment>
                             {restaurantfeature && restaurantfeature.map((data, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <div className="food-types mr-3 d-flex justify-content-center align-items-center">
-                                            <img src={`${SERVER_URL}/${data.image}`} alt={"icon"} width="16px" className="img-fluid" title={data.name} />
+                                        <div className="food-types mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                            <img src={`${SERVER_URL}/${data.image}`} alt={"icon"}  className="img-fluid" title={data.name} />
                                         </div>
                                     </React.Fragment>
                                 )
@@ -59,8 +59,8 @@ const DishBlock = ({ restaurant_name, restaurant_pic, kmvalue, rating, restauran
                             {defaultIcon && defaultIcon.map((data, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <div className="food-types mr-3 d-flex justify-content-center align-items-center">
-                                            <img src={data.image} alt={"icon"} className="img-fluid" width="16px" title={data.name} />
+                                        <div className="food-types mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                            <img src={data.image} alt={"icon"} className="img-fluid" title={data.name} />
                                         </div>
                                     </React.Fragment>
                                 )
