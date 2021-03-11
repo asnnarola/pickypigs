@@ -1,4 +1,3 @@
-
 .accordion-list {
   list-style: none;
   margin: 0;
@@ -8,95 +7,15 @@
   overflow: hidden;
 }
 
-.accordion-item {
-  $self: &;
-
-  &--opened {
-    #{ $self }__icon {
-      transform: rotate(180deg);
-    }
-
-    #{ $self }__inner {
-      max-height: 100rem;
-      transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-      transition-duration: 0.5s;
-      transition-property: max-height;
-    }
-
-    #{ $self }__content {
-      opacity: 1;
-      transform: translateY(0);
-      transition-delay: 0.2s;
-      transition-timing-function: ease-in-out;
-      transition-duration: 0.2s;
-      transition-property: opacity, transform;
-    }
-  }
-
-  &__line {
-    display: block;
-    padding: 0.8rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    z-index: 2;
-    position: relative;
-  }
-
-  &__title {
-    font-size: 1.6rem;
-    margin: 0;
-    font-weight: 700;
-    color: Black;
-  }
-
-  &__icon {
-    width: 1.2rem;
-    height: 1.2rem;
-    transition: transform 0.3s ease-in-out;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAQAAABIkb+zAAABGklEQVR4Ae3RAcZCQRiF4buDfwshBGi+2UQgcIGAVtpSIuS/KyilG+UTcbk6zIH3GQBm3mM6AAAAAAAAAACA+eqf/yZBXcV/2XeCVPYx1FXj/FjGUMd45AQp/1HHGGLZNL+e61jHnKDmv8652YT1IvPfE2LX/Sh27/ycsF60yT/lk58JYn6eU4MJccjnlAmZ/33i0OAH4jg9Qcw/5g9YJpS+m6n0xvzpCfVe+nn59S7kGyYo+YYJWz3fO+E2PaFs9XzPhMy/6fmWCXq+YUJs9HzrhLh+JsQmrnq+bYKeb52g53snXPR88wQ93z9Bz/dP0PP9E/R89wQ93zpBz7dO0POtE/R86wQ93zpBzzdP+MoHAAAAAAAAAADAExTnTW20AtjhAAAAAElFTkSuQmCC);
-    opacity: 0.6;
-  }
-
-  &__inner {
-    max-height: 0;
-    overflow: hidden;
-    text-transform: cubic-bezier(0.95, 0.05, 0.795, 0.035);
-    transition-duration: 0.5s;
-    transition-property: max-height;
-    z-index: 1;
-    position: relative;
-  }
-
-  &__content {
-    opacity: 0;
-    transform: translateY(-1rem);
-    transition-timing-function: linear, ease;
-    transition-duration: 0.1s;
-    transition-property: opacity, transform;
-    transition-delay: 0.5s;
-    padding: 0 1.2rem 1.2rem;
-  }
-
-  &__paragraph {
-    margin: 0;
-    font-size: 1rem;
-    color: Gray;
-    font-weight: 300;
-    line-height: 1.3;
-  }
-}
-
 .filter-modal {
-  padding: 0;
+  padding: 0 !important;
   box-shadow: -5px 0px 18px 0px #0000001c;
+
   .modal-dialog {
     margin: 0px !important;
     height: 100%;
   }
+
   .modal-content {
     border: none;
     border-radius: 0px;
@@ -110,7 +29,17 @@
       border-bottom: none;
 
       .modal-title {
-        order: 2;
+        max-width: calc(100% - 90px);
+        width: 100%;
+
+        &.filter-title {
+          .filtermodal-closebtn {
+            border: none;
+            background: transparent;
+            line-height: 1;
+          }
+        }
+
       }
 
       .close {
@@ -139,12 +68,28 @@
 
     .modal-body {
       padding: 0;
-      .wrapper {
+
+      .filtermodal-wrapper {
+
+        .clearall-btn {
+          position: absolute;
+          right: 0;
+          top: -30px;
+          color: #CB007B;
+          border: none;
+          border-bottom: 1px solid #CB007B;
+          outline: none;
+          background: transparent;
+          padding: 0;
+          font-size: 15px;
+        }
+
         .accordion-list__item {
-          border-bottom: 2px #d9d9d9;
-          border-bottom-style: dashed;
+          // border-bottom: 2px #d9d9d9;
+          // border-bottom-style: dashed;
           padding-bottom: 10px;
           margin-bottom: 20px;
+
           h3 {
             &.react-sanfona-item-title {
               text-transform: uppercase;
@@ -153,6 +98,7 @@
               box-shadow: none !important;
               font-family: "Brandon Text" !important;
               padding: 15px 0px 15px 0px;
+
               &:after {
                 content: "";
                 position: absolute;
@@ -192,25 +138,28 @@
 
             .custom-control-input {
               &:checked {
-                & ~ .custom-control-label {
+                &~.custom-control-label {
                   &::before {
                     background-color: #fff;
-                    border-color: #cb007b;
+                    // border-color: #cb007b;
                     color: #cb007b;
                   }
+
                   &::after {
                     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.898' height='7.014' viewBox='0 0 9.898 7.014'%3E%3Cpath id='Path_411' data-name='Path 411' d='M-8.169-3.752l5.362-5.362.826.826L-8.169-2.1l-3.71-3.71.826-.826Z' transform='translate(11.879 9.114)' fill='%23cb007b'/%3E%3C/svg%3E%0A");
                   }
                 }
               }
+
               &:focus {
-                & ~ .custom-control-label {
+                &~.custom-control-label {
                   &::before {
                     box-shadow: none !important;
                   }
                 }
               }
             }
+
             label {
               padding-left: 3px;
               color: #232323;
@@ -221,10 +170,12 @@
                 height: 18px;
                 border-color: #919191;
               }
+
               &::after {
                 width: 18px;
                 height: 18px;
               }
+
               &.ranage-txt {
                 width: 60px;
                 -webkit-appearance: none;
@@ -241,6 +192,7 @@
                 // left: 3px;
               }
             }
+
             input#formControlRange {
               background: #cb007b;
               border: solid 1px #cb007b;
@@ -251,6 +203,7 @@
               -webkit-appearance: none;
               margin-top: 10px;
             }
+
             input[type="range"] {
               &::-webkit-slider-thumb {
                 width: 60px;
@@ -267,35 +220,41 @@
             }
           }
         }
-          // Accordion Css start
-  .main-accordion-wrapper {
 
-    .accordion-main {
-        padding: 0px 0px 0px 10px;
-        .accordion-item {
-            .accordion-header {
+        // Accordion Css start
+        .main-accordion-wrapper {
+          border-bottom: 2px #d9d9d9;
+          border-bottom-style: dashed;
+
+          .accordion-main {
+            padding: 0px 0px 0px 10px;
+
+            .accordion-item {
+              .accordion-header {
                 .accordion-title {
-                    h5 {
-                        font-size: 16px;
-                        word-break: break-all;
-                        text-transform: uppercase;
-                        color: #2E482B;
-                    }
-                }
-                .custom_edit_button {
-                    border: none;
-                    border-bottom: 1px solid #919191;
-                    background: transparent;
-                    color: #919191;
-                    font-size: 13px;
+                  h5 {
+                    font-size: 16px;
+                    word-break: break-all;
                     text-transform: uppercase;
-                    padding: 0;
-                    outline: none;
-                    // font-weight: 500;
-                    font-family: "Brandon Text Medium" !important;
+                    color: #2E482B;
+                  }
                 }
-            }
-            .accordion-button .expand-button:after {
+
+                .custom_edit_button {
+                  border: none;
+                  border-bottom: 1px solid #919191;
+                  background: transparent;
+                  color: #919191;
+                  font-size: 13px;
+                  text-transform: uppercase;
+                  padding: 0;
+                  outline: none;
+                  // font-weight: 500;
+                  font-family: "Brandon Text Medium" !important;
+                }
+              }
+
+              .accordion-button .expand-button:after {
                 position: absolute;
                 content: "";
                 width: 24px;
@@ -307,43 +266,50 @@
                 background-repeat: no-repeat;
                 transition: ease 0.25s;
                 transform: rotate(180deg);
-            }
-            .accordion-button.collapsed .expand-button:after {
+              }
+
+              .accordion-button.collapsed .expand-button:after {
                 transform: rotate(0deg);
-            }
-            .accordion-collapse {
+              }
+
+              .accordion-collapse {
                 .rs-info-block {
-                    min-height: 60px;
-                    h5 {
-                        &.accordion-label {
-                            font-size: 13px;
-                            color: #919191;
-                            text-transform: uppercase;
-                        }
+                  min-height: 60px;
+
+                  h5 {
+                    &.accordion-label {
+                      font-size: 13px;
+                      color: #919191;
+                      text-transform: uppercase;
                     }
-                    .form-control-inputtext {
-                        padding-left: 0;
-                        border: none;
-                        border-bottom: 1px solid #c8c7cc;
-                        border-radius: 0px;
-                        box-shadow: none;
-                        outline: none;
-                        font-family: "Brandon Text Medium" !important;
-                        &:focus {
-                            border-bottom: 1px solid#CB007B;
-                        }
+                  }
+
+                  .form-control-inputtext {
+                    padding-left: 0;
+                    border: none;
+                    border-bottom: 1px solid #c8c7cc;
+                    border-radius: 0px;
+                    box-shadow: none;
+                    outline: none;
+                    font-family: "Brandon Text Medium" !important;
+
+                    &:focus {
+                      border-bottom: 1px solid#CB007B;
                     }
-                    .form-control-plaintext {
-                        outline: none;
-                        font-size: 15px;
-                        font-family: "Brandon Text Medium" !important;
-                    }
+                  }
+
+                  .form-control-plaintext {
+                    outline: none;
+                    font-size: 15px;
+                    font-family: "Brandon Text Medium" !important;
+                  }
                 }
+              }
             }
+          }
         }
-    }
-  }
-  // Accordion Css end
+
+        // Accordion Css end
       }
     }
 
@@ -353,6 +319,7 @@
         height: 40px;
         font-size: 15px;
       }
+
       .cancel-btn {
         width: 120px;
         height: 40px;

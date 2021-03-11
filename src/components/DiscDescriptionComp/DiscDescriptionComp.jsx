@@ -58,14 +58,14 @@ const DiscDescriptionComp=({dish_name,dish_image,dish_priceunit,dish_price,dish_
                                 </div>
                             </div><p className="f-14 whatmenu-intro txt-lightgray">{dish_description?dish_description:'Description Not Available'}</p>
 
-                            <div className="whatmeu-types d-flex">
+                            <div className="whatmeu-types d-flex flex-wrap">
                                 {dish_allergy&&dish_allergy.length>0?
                                     <React.Fragment>
                                         {dish_allergy&&dish_allergy.map((data,index)=>{
                                             return(
                                                 <React.Fragment key={index}>
-                                                    <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                        <img src={`${SERVER_URL}/${data.image}`} alt={"icon"} width="16px" className="img-fluid" title={data.name} />
+                                                    <div className="whatmenu-list mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                                        <img src={`${SERVER_URL}/${data.image}`} alt={"icon"} className="img-fluid" title={data.name} />
                                                     </div>
                                                 </React.Fragment>
                                             )
@@ -76,8 +76,8 @@ const DiscDescriptionComp=({dish_name,dish_image,dish_priceunit,dish_price,dish_
                                         {defaultIcon&&defaultIcon.map((data,index)=>{
                                             return(
                                                 <React.Fragment key={index}>
-                                                    <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
-                                                        <img src={data.image} alt={"icon"} className="img-fluid" width="16px" title={data.name} />
+                                                    <div className="whatmenu-list mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                                        <img src={data.image} alt={"icon"} className="img-fluid" title={data.name} />
                                                     </div>
                                                 </React.Fragment>
                                             )

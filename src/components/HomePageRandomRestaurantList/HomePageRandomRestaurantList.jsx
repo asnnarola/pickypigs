@@ -19,7 +19,7 @@ const HomePageRandomRestaurantList=()=>{
     return(
         <React.Fragment>
             
-                <section className="section3 mb-5 pt-5">
+                <section className="section3 mb-5 pt-5 rs-love-section position-relative zindex-1">
                     <div className="container">
                         <div className="row mb-4 pb-3">
                             <div className="col-sm-12">

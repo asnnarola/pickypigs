@@ -21,7 +21,7 @@ const KnowWhatYouEatComponent = () => {
     return (
         <>
             {/* Know what you section start */}
-            <section className="whatYouEat-container position-relative">
+            <section className="whatYouEat-container position-relative zindex-1">
                 <div className="container position-relative knowwhat-section">
                     <div className="knowwhatbg-img">
                         <img src={knowwhatimg} className="img-fluid" />
@@ -41,7 +41,7 @@ const KnowWhatYouEatComponent = () => {
                                     <img src={fussfood} className="img-fluid" />
                                 </div>
                                 <div className="knowwhat-info pt-1">
-                                    <h6 className="text-uppercase pb-1 brandon-Bold"><b>Fuss free food</b></h6>
+                                    <h6 className="text-uppercase brandon-Bold"><b>Fuss free food</b></h6>
                                     <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ const KnowWhatYouEatComponent = () => {
                                     <img src={personalise} className="img-fluid" />
                                 </div>
                                 <div className="knowwhat-info pt-1">
-                                    <h6 className="text-uppercase pb-1 brandon-Bold"><b>PERSONALISE</b></h6>
+                                    <h6 className="text-uppercase brandon-Bold"><b>PERSONALISE</b></h6>
                                     <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ const KnowWhatYouEatComponent = () => {
                                     <img src={allergen} className="img-fluid" />
                                 </div>
                                 <div className="knowwhat-info pt-1">
-                                    <h6 className="text-uppercase pb-1 brandon-Bold"><b>ALLERGIES</b></h6>
+                                    <h6 className="text-uppercase brandon-Bold"><b>ALLERGIES</b></h6>
                                     <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@ const KnowWhatYouEatComponent = () => {
                                     <img src={ingredients} className="img-fluid" />
                                 </div>
                                 <div className="knowwhat-info pt-1">
-                                    <h6 className="text-uppercase pb-1 brandon-Bold"><b>INGREDIENTS</b></h6>
+                                    <h6 className="text-uppercase brandon-Bold"><b>INGREDIENTS</b></h6>
                                     <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@ const KnowWhatYouEatComponent = () => {
                                     <img src={nutritionFacts} className="img-fluid" />
                                 </div>
                                 <div className="knowwhat-info pt-1">
-                                    <h6 className="text-uppercase pb-1 brandon-Bold"><b>CALORIE AND MACRO</b></h6>
+                                    <h6 className="text-uppercase brandon-Bold"><b>CALORIE AND MACRO</b></h6>
                                     <p className="f-15 mb-1">Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein</p>
                                 </div>
                             </div>

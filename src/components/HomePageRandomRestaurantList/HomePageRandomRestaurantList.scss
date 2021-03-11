@@ -1,3 +1,5 @@
 .section3 {
-    .fn-restaurant-detail {}
+    &.rs-love-section {
+        background: linear-gradient(180deg, white, transparent);
+    }
 }

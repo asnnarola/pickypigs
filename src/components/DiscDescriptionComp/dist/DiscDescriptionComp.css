@@ -4,10 +4,16 @@
   box-shadow: 0px 5px 12px 0px #00000014;
 }
 .section5 .whatmenu-wrap .whatmenu-img {
-  height: 170px;
+  height: 180px;
   overflow: hidden;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+.section5 .whatmenu-wrap .whatmenu-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 .section5 .whatmenu-wrap .whatmenu-details .whatmenu-label {
   overflow: hidden;
@@ -20,6 +26,18 @@
 }
 .section5 .whatmenu-wrap .whatmenu-details .whatmenu-price span {
   font-family: "BrandonTextWeb-Regular";
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmenu-price .whatmenu-daydetail {
+  max-width: calc(100% - 90px);
+  text-align: right;
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmenu-price .whatmenu-daydetail ul {
+  height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 .section5 .whatmenu-wrap .whatmenu-details .whatmenu-price .whatmenu-daydetail ul li {
   font-family: "BrandonTextWeb-Regular";
@@ -41,7 +59,19 @@
 }
 .section5 .whatmenu-wrap .whatmenu-details .whatmeu-types .whatmenu-list {
   background: #f6f6f6;
+  min-width: 36px;
   width: 36px;
   height: 36px;
   border-radius: 50px;
+  transition: ease 0.25s;
+  overflow: hidden;
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmeu-types .whatmenu-list img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  object-position: center;
+}
+.section5 .whatmenu-wrap .whatmenu-details .whatmeu-types .whatmenu-list:hover {
+  box-shadow: 0px 0px 0px 2px #00000017;
 }

@@ -20,7 +20,7 @@ const HomePageRandomDishList=()=>{
     let {isLoading,randomDishsList_Data}=randomDishData;
     return(
         <React.Fragment>
-            <section className="HomePageRandomDishList mb-5 pt-5">
+            <section className="HomePageRandomDishList mb-5 pt-5 zindex-1 position-relative">
                 <div className="container">
                     <div className="row mb-4 pb-3">
                         <div className="col-sm-12">
