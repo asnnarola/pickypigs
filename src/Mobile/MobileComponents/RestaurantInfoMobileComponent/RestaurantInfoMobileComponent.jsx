@@ -8,12 +8,12 @@ import walleticon from "../../../assets/images/restaurant-dish/wallet-icon.svg";
 import websiteicon from "../../../assets/images/restaurant-dish/website-icon.svg";
 import phoneicon from "../../../assets/images/restaurant-dish/phone-icon.svg";
 import location from "../../../assets/images/restaurant-dish/location.svg";
-import mapimg from "../../../assets/images/restaurant-dish/map-img.jpg";
+// import mapimg from "../../../assets/images/restaurant-dish/map-img.jpg";
 import shareicon from "../../../assets/images/restaurant-dish/share-icon.svg";
 import getdirection from "../../../assets/images/restaurant-dish/getdirection.svg";
 import GoogleMapTestComp from "../../../components/GoogleMapTestComp/GoogleMapTestComp";
 import OpentimeMobileComp from "../OpentimeMobileComp/OpentimeMobileComp";
-import { SERVER_URL,API_KEY } from '../../../shared/constant'
+import { API_KEY } from '../../../shared/constant'
 
 
 const RestaurantInfoMobileComponent = () => {

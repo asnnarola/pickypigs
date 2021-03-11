@@ -78,10 +78,10 @@ export default function MyfilterListExample() {
     const location = window.navigator && window.navigator.geolocation
     if (location) {
       location.getCurrentPosition((position) => {
-        console.log('Lat => ', {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        });
+        // console.log('Lat => ', {
+        //   latitude: position.coords.latitude,
+        //   longitude: position.coords.longitude,
+        // });
         axios.get(
           `${GOOGLE_MAP_API_URL}?latlng=${position.coords.latitude},${position.coords.longitude}&key=${API_KEY}`,
           {
@@ -89,13 +89,13 @@ export default function MyfilterListExample() {
               'content-type': 'application/json',
             }
           }).then(res => {
-            console.log('res sejal => ', res)
+            // console.log('res sejal => ', res)
             // setValue(res.data.results)
             setInputValue(res.data.results[0].formatted_address);
             console.log(res.data.results[0].formatted_address);
           }).catch(err => console.log('err => ', err))
       }, (error) => {
-        console.log('error => ', error);
+        // console.log('error => ', error);
       })
     }
   }
@@ -118,7 +118,7 @@ export default function MyfilterListExample() {
   }, [value, inputValue, fetch]);
 
   const getAddressHandler = () => {
-    console.log("SSSSS")
+    // console.log("SSSSS")
     let active = true;
     if (!autocompleteService.current && window.google) {
       autocompleteService.current = new window.google.maps.places.AutocompleteService();

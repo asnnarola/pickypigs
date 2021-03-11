@@ -35,7 +35,6 @@ const ResetPasswordComp = () => {
     const history = useHistory();
     const [type, setType] = useState("password")
     const [confirmType, setConfirmType] = useState("password")
-    const [error, setError] = useState(null)
 	let  mytoken  = params.token;
 
    
@@ -102,7 +101,7 @@ const ResetPasswordComp = () => {
                                                 <div className={`showpassword-block ${type=== "password"?null:"show"}`} id="newPassword" onClick={() => handlePassword()}>
                                                     <img src={showpassword} className="img-fluid" alt="showpassword" />
                                                 </div>
-                                                <div className="error pink-txt f-11">{(touched.newPassword && errors.newPassword && errors.newPassword) || error}</div>
+                                                <div className="error pink-txt f-11">{(touched.newPassword && errors.newPassword && errors.newPassword)}</div>
                                             </div>
                                             <div className="form-group position-relative">
                                                 <Field type={confirmType} name="confirmPassword" placeholder="Confirm new password" className="form-control signup-input"
@@ -110,7 +109,7 @@ const ResetPasswordComp = () => {
                                                 <div className={`showpassword-block ${confirmType=== "password"?null:"show"}`} id="confirmPassword" onClick={handleConfirmPassword}>
                                                     <img src={showpassword} className="img-fluid" alt="showpassword" />
                                                 </div>
-                                                <div className="error pink-txt f-11">{(touched.confirmPassword && errors.confirmPassword && errors.confirmPassword) || error}</div>
+                                                <div className="error pink-txt f-11">{(touched.confirmPassword && errors.confirmPassword && errors.confirmPassword)}</div>
                                             </div>
                                             
                                             <div className="form-group text-center">

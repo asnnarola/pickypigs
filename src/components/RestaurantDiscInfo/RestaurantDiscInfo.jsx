@@ -17,7 +17,7 @@ import {FacebookShareButton,TwitterShareButton} from "react-share";
 import { SERVER_URL,API_KEY } from '../../shared/constant'
 
 
-const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,rest_cost,rest_website,rest_contact,rest_booking,rest_social}) => {
+const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,rest_cost,rest_website,rest_contact,rest_booking,rest_social,rest_applies}) => {
     const shareUrl = window.location.href;
     const shareTitle = "Share Restaurant Location";
 
@@ -86,7 +86,7 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                                 {rest_cuisine&&rest_cuisine.map((data,index)=>{
                                                                     return(
                                                                         <React.Fragment key={index}>
-                                                                            <span className="cuisine-label">{data.name?data.name:'Na'}</span>
+                                                                            <span className="cuisine-label text-capitalize">{data.name?data.name:'Na'}</span>
                                                                         </React.Fragment>
                                                                     )
                                                                 })}
@@ -117,11 +117,31 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                                     <React.Fragment key={index}>
                                                                         <li className="otherinfo-li postion-relative d-flex align-items-center mt-1 mb-2">
                                                                             <img width="15px" src={checkgray} className="img-fluid position-absolute" alt="checkgray" />
-                                                                            <span className="pl-4 txt-lightgray">{data.name?data.name:'Unknown'}</span>
+                                                                            <span className="pl-4 txt-lightgray text-capitalize">{data.name?data.name:'Unknown'}</span>
                                                                         </li>
                                                                     </React.Fragment>
                                                                 )
                                                             })}
+                                                            {rest_applies&&rest_applies.length>0?
+                                                                <React.Fragment>
+                                                                    {rest_applies&&rest_applies.map((data,index)=>{
+                                                                        return(
+                                                                            <React.Fragment key={index}>
+                                                                                {data&&data?
+                                                                                    <li className="otherinfo-li postion-relative d-flex align-items-center mt-1 mb-2">
+                                                                                        <img width="15px" src={checkgray} className="img-fluid position-absolute" alt="checkgray" />
+                                                                                        <span className="pl-4 txt-lightgray text-capitalize">{data?data:''}</span>
+                                                                                    </li>
+                                                                                :
+                                                                                    null
+                                                                                }
+                                                                            </React.Fragment>
+                                                                        )
+                                                                    })}
+                                                                </React.Fragment>
+                                                                :
+                                                                null
+                                                            }
                                                         </React.Fragment>
                                                         :
                                                         <React.Fragment>

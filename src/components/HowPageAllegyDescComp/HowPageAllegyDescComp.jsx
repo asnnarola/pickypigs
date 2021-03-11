@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nonveg_icon from "../../assets/images/filterfeature/Nonveg_icon.svg"
 import { ReactComponent as ChatIcon } from "../../assets/images/filterfeature/Nonveg_icon.svg";
 
 import Popper from '@material-ui/core/Popper';
 import './HowPageAllegyDescComp.scss';
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAllergyData, getAllDietaryData, getAllLifestyleData, getAllRestaurantFeaturesData } from '../../redux/actions/allergyAction';
 
 const alergy_information = [{ name: "Egg", image: Nonveg_icon }, { name: "Milk", image: Nonveg_icon }, { name: "Celery", image: Nonveg_icon }, { name: "Mustard", image: Nonveg_icon }, { name: "Lupin", image: Nonveg_icon }, { name: "Nuts", image: Nonveg_icon }, { name: "Peanuts", image: Nonveg_icon }, { name: "Sesame", image: Nonveg_icon }, { name: "Molluscs", image: Nonveg_icon }, { name: "Crustaceans", image: Nonveg_icon }, { name: "Fish", image: Nonveg_icon }, { name: "Cereals (Wheat)", image: Nonveg_icon }, { name: "Soya", image: Nonveg_icon }, { name: "Sulphur dioxide", image: Nonveg_icon }];
 const dietary_preference = ["Pescatarian", "Vegetarian", "Plant Based", "Low gluten", "Lactose free", "Halal", "Kosher", "Low sugar"];
@@ -21,6 +23,21 @@ const HowPageAllegyDescComp = () => {
         setAnchorEl(event.currentTarget);
         setOpen(true);
     };
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllAllergyData())
+        dispatch(getAllDietaryData())
+        dispatch(getAllLifestyleData())
+        dispatch(getAllRestaurantFeaturesData())
+
+    },[dispatch])
+
+    let allAllergy_data = useSelector((state)=>{
+        return state.allergy
+    });
+
+    let {isLoading,allergy_Data,dietary_Data,lifestyle_Data,restaurantFeatures_Data}=allAllergy_data;
 
 
     return (
