@@ -94,6 +94,34 @@
 .allrestaurant-section .allrestaurant-wrapper .allrestaurant-filter nav.navbar .shortby-btn .filtershort-lightbtn:focus {
   box-shadow: 0 0 0 0.2rem #cb007b3d !important;
 }
+.allrestaurant-section .allrestaurant-wrapper .rstab-subhead {
+  border-bottom: 1px solid #d9d9d9;
+  position: relative;
+  padding-bottom: 5px;
+}
+.allrestaurant-section .allrestaurant-wrapper .rstab-subhead .rstab-lists .rstab-btn {
+  background: #fff;
+  border: none;
+  outline: none !important;
+  text-decoration: none;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 0;
+}
+.allrestaurant-section .allrestaurant-wrapper .rstab-subhead .rstab-lists .rstab-btn.active {
+  color: #cb007b;
+}
+.allrestaurant-section .allrestaurant-wrapper .rstab-subhead .rstab-lists .rstab-btn.active:after {
+  position: absolute;
+  bottom: -16px;
+  width: 110%;
+  height: 3px;
+  background: #cb007b;
+  content: "";
+  display: block;
+  left: 0;
+  border-radius: 2px;
+}
 .allrestaurant-section .AllResturantNav .search-topnav {
   width: 215px;
   transition: all 0.25s;

@@ -77,7 +77,7 @@ const AllRestaurantFilterModal = (props) => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className='filtermodal-wrapper mt-4 pt-3'>
+                    <div className='filtermodal-wrapper mt-4'>
                         <ul className='accordion-list'>
                             <Formik enableReinitialize={true} initialValues={!reset?initialValues:initialValues2} validationSchema={validationSchema} onSubmit={onSubmit}>
                                 {({ values, resetForm }) => (
@@ -88,7 +88,7 @@ const AllRestaurantFilterModal = (props) => {
                                             <div class="accordion accordion-main " id="accordionExample">
                                                 <div class="accordion-item">
                                                     <div id="headingOne">
-                                                        <div className="mb-3 w-100 accordion-button d-flex justify-content-between align-items-center accordion-header position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        <div className="mb-3 mt-3 pt-1 pb-1 w-100 accordion-button d-flex justify-content-between align-items-center accordion-header position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                             <div className="accordion-title">
                                                                 <h5 className="brandon-Bold mb-0">Allergen</h5>
                                                             </div>
@@ -122,7 +122,7 @@ const AllRestaurantFilterModal = (props) => {
                                         <div className="main-accordion-wrapper ">
                                             <div className="accordion accordion-main " id="accordionExample2">
                                                 <div className="accordion-item">
-                                                    <div className="d-flex justify-content-between align-items-center accordion-header " id="headingTwo">
+                                                    <div className="mb-3 mt-3 pt-1 pb-1 w-100 accordion-button d-flex justify-content-between align-items-center accordion-header position-relative" id="headingTwo">
                                                         <div className="w-100 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                                             <div className="accordion-title">
                                                                 <h5 className="brandon-Bold mb-0">Dietary Preference</h5>
@@ -157,7 +157,7 @@ const AllRestaurantFilterModal = (props) => {
                                         <div className="main-accordion-wrapper ">
                                             <div className="accordion accordion-main " id="accordionExample3">
                                                 <div className="accordion-item">
-                                                    <div className="d-flex justify-content-between align-items-center accordion-header " id="headingThree">
+                                                    <div className="mb-3 mt-3 pt-1 pb-1 w-100 accordion-button d-flex justify-content-between align-items-center accordion-header position-relative" id="headingThree">
                                                         <div className="w-100 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                                                             <div className="accordion-title">
                                                                 <h5 className="brandon-Bold mb-0">Lifestyle Choices</h5>
@@ -192,7 +192,7 @@ const AllRestaurantFilterModal = (props) => {
                                         <div className="main-accordion-wrapper ">
                                             <div className="accordion accordion-main " id="accordionExample4">
                                                 <div className="accordion-item">
-                                                    <div className="d-flex justify-content-between align-items-center accordion-header " id="headingFour">
+                                                    <div className="mb-3 mt-3 pt-1 pb-1 w-100 accordion-button d-flex justify-content-between align-items-center accordion-header position-relative" id="headingFour">
                                                         <div className="w-100 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                                             <div className="accordion-title">
                                                                 <h5 className="brandon-Bold mb-0">Restaurant Features</h5>
@@ -227,7 +227,7 @@ const AllRestaurantFilterModal = (props) => {
                                         <div className="main-accordion-wrapper ">
                                             <div className="accordion accordion-main " id="accordionExample5">
                                                 <div className="accordion-item">
-                                                    <div className="d-flex justify-content-between align-items-center accordion-header " id="headingFive">
+                                                    <div className="mb-3 mt-3 pt-1 pb-1 w-100 accordion-button d-flex justify-content-between align-items-center accordion-header position-relative" id="headingFive">
                                                         <div className="w-100 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                                                             <div className="accordion-title">
                                                                 <h5 className="brandon-Bold mb-0">RESTAURANT DISTANCE</h5>

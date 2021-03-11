@@ -40,7 +40,7 @@ function Home({ coords }) {
         <>
             <div className="HomeSecond_container ">
                 {/* Home main section start */}
-                <section className="fr-section position-relative zindex-1">
+                <section className="fr-section position-relative zindex-11">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-sm-12 col-md-12 col-lg-8 col-xl-8">
