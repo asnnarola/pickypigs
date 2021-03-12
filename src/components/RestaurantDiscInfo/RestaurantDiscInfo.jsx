@@ -384,15 +384,15 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                             {rest_social&&rest_social.isAvailable?
                                                 <React.Fragment>
                                                     <div className="sharesocial-linkbtn">
+                                                        <p className="brandon-Medium mb-0">Facebook</p>
                                                         {rest_social&&rest_social.isFacebook?
                                                             <React.Fragment>
-                                                                <p className="brandon-Medium">Facebook</p>
                                                                 {rest_social&&rest_social.facebookUrl&&rest_social.facebookUrl.length>0?
                                                                     <React.Fragment>
                                                                         {rest_social&&rest_social.facebookUrl&&rest_social.facebookUrl.map((data,index)=>{
                                                                             return(
                                                                                 <React.Fragment key={index}>
-                                                                                    <a href={data?data:"www.facebook.com"} target="_blank" >{data?data:"www.facebook.com"}</a>
+                                                                                    <span className="txt-lightgray">{data?data:"www.facebook.com"}</span>
                                                                                 </React.Fragment>
                                                                             )
                                                                         })}
@@ -402,19 +402,19 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                                 }
                                                             </React.Fragment>
                                                         :
-                                                            null
+                                                            <p className="txt-lightgray mb-2">Not Available</p>
                                                         }
                                                     </div>
                                                     <div className="sharesocial-linkbtn">
+                                                        <p className="brandon-Medium mb-0 mt-2">Twitter</p>
                                                         {rest_social&&rest_social.isTwitter?
                                                             <React.Fragment>
-                                                                <p className="brandon-Medium">Twitter</p>
                                                                 {rest_social&&rest_social.twitterUrl&&rest_social.twitterUrl.length>0?
                                                                     <React.Fragment>
                                                                         {rest_social&&rest_social.twitterUrl&&rest_social.twitterUrl.map((data,index)=>{
                                                                             return(
                                                                                 <React.Fragment key={index}>
-                                                                                    <a href={data?data:"www.twitter.com"} target="_blank" >{data?data:"www.twitter.com"}</a>
+                                                                                    <span className="txt-lightgray">{data?data:"www.twitter.com"}</span>
                                                                                 </React.Fragment>
                                                                             )
                                                                         })}
@@ -424,19 +424,19 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                                 }
                                                             </React.Fragment>
                                                         :
-                                                            null
+                                                            <p className="txt-lightgray mb-2">Not Available</p>
                                                         }
                                                     </div>
                                                     <div className="sharesocial-linkbtn">
+                                                        <p className="brandon-Medium mb-0 mt-2">Instagram</p>
                                                         {rest_social&&rest_social.isInstagram?
                                                             <React.Fragment>
-                                                                <p className="brandon-Medium">Instagram</p>
                                                                 {rest_social&&rest_social.instagramUrl&&rest_social.instagramUrl.length>0?
                                                                     <React.Fragment>
                                                                         {rest_social&&rest_social.instagramUrl&&rest_social.instagramUrl.map((data,index)=>{
                                                                             return(
                                                                                 <React.Fragment key={index}>
-                                                                                    <a href={data?data:"www.instagram.com"} target="_blank" >{data?data:"www.instagram.com"}</a>
+                                                                                    <span className="txt-lightgray">{data?data:"www.instagram.com"}</span>
                                                                                 </React.Fragment>
                                                                             )
                                                                         })}
@@ -446,7 +446,7 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                                 }
                                                             </React.Fragment>
                                                         :
-                                                            null
+                                                            <p className="txt-lightgray mb-2">Not Available</p>
                                                         }
                                                     </div>
 
