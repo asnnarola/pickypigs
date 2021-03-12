@@ -201,9 +201,9 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
                                                                 <React.Fragment >
                                                                     <table>
                                                                         <thead>
-                                                                            <tr>
+                                                                            <tr className="vertical-align-top">
                                                                                 <td>
-                                                                                    <p className="txt-lightgray mb-0 brandon-Medium">{data.day}</p>
+                                                                                    <p className="txt-lightgray mb-0 brandon-Medium mr-2">{data.day}</p>
                                                                                     </td><td>
                                                                                     </td><td>
                                                                                     <React.Fragment>
@@ -276,7 +276,7 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
                                                     {restaurant_time&&restaurant_time.time&&restaurant_time.time.map((data,index)=>{
                                                         return(
                                                             <React.Fragment key={index}>
-                                                                <tr>
+                                                                <tr className="vertical-align-top">
                                                                     <td>
                                                                         <p className={`txt-lightgray mb-2 ${myDay===data.day&&"pink-txt brandon-Medium"}`}>{data.day}</p>
                                                                         </td><td>

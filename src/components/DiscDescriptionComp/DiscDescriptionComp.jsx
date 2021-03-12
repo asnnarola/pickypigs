@@ -23,6 +23,7 @@ const DiscDescriptionComp=({dish_name,dish_image,dish_priceunit,dish_price,dish_
                             :
                                 <img src={Dummy_Image} className="img-fluid w-100" />
                             }
+                            <label className="newdish-label">New</label>
                         </div>
                         <div className="whatmenu-details p-3">
                             {dish_name?

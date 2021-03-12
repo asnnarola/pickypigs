@@ -210,6 +210,14 @@
                                 right: 15px;
                             }
                         }
+                        .dropdown-menu{
+                            .dropdown-item{
+                                outline: none !important;
+                                &.active, &:active{
+                                    background-color: #cb007b;
+                                }
+                            }
+                        }
                     }
                 }
             }

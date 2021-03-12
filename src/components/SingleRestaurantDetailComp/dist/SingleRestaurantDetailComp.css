@@ -58,7 +58,7 @@
   border-radius: 20px;
   outline: none !important;
   padding: 15px 20px;
-  height: 80px;
+  min-height: 80px;
   position: relative;
 }
 .restaurantdisc-wrapper .rs-opendropdownwrapper .rs-opendropdown .rs-opendropdown-btn:after {

@@ -60,6 +60,7 @@ function FilterByFeature() {
     let [features, setFeatures] = useState([]);
     const handleFeatures = (e) => {
         e.preventDefault();
+        console.log("ssss")
         if (features.indexOf(e.target.id) !== -1) {
             var Index = features.indexOf(e.target.id);
             if (Index > -1) {
@@ -93,10 +94,10 @@ function FilterByFeature() {
                                 onClick={handleFeatures}
                                 className={`btn filter-subwrapper ${features.indexOf(data._id) !== -1 && "active"}`}
                             >
-                                <div className="filter-icon">
-                                    <img src={`${SERVER_URL}/${data.image}`} className="img-fluid" />
-                                </div>
-                                <p className="mt-2 text-dark text-link f-14 brandon-Medium text-capitalize">{data.name?data.name:''}</p>
+                                <span id={data._id} className="filter-icon" onClick={handleFeatures}>
+                                    <img id={data._id} className="filter-icon" src={`${SERVER_URL}/${data.image}`} className="img-fluid" />
+                                </span>
+                                <p id={data._id} onClick={handleFeatures} className="mt-2 text-dark text-link f-14 brandon-Medium text-capitalize">{data.name?data.name:''}</p>
                             </button>
                         </React.Fragment>
                     )

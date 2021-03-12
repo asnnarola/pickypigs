@@ -20,18 +20,18 @@ const SingleDiscDetalDescComp = (props) => {
                 </div>
                 <div className="dishinfo-detail">
                     <div className="d-flex align-items-center justify-content-between flex-wrap">
-                        <p className="brandon-Medium">{props.name}</p>
-                        <p className="brandon-Medium">{props.priceunit}{props.price?parseFloat(props.price).toFixed(2):'Na'}</p>
+                        <p className="brandon-Medium dish-name">{props.name}</p>
+                        <p className="brandon-Medium dish-price">{props.priceunit}{props.price?parseFloat(props.price).toFixed(2):'Na'}</p>
                     </div>
                     <p className="txt-lightgray dishinfo-txt">{props.description}</p>
-                    <div className="whatmeu-types d-flex">
+                    <div className="whatmeu-types d-flex flex-wrap">
                         {props.allergydetail&&props.allergydetail.length>0?
                             <React.Fragment>
                                 {
                                     props.allergydetail&&props.allergydetail.map((data,index)=>{
                                         return(
                                             <React.Fragment key={index}>
-                                                <div className="whatmenu-list mr-3 d-flex justify-content-center align-items-center">
+                                                <div className="whatmenu-list mr-3 mb-3 d-flex justify-content-center align-items-center">
                                                     <img src={`${SERVER_URL}/${data.image}`} className="img-fluid allergy_icon_image" alt="img" title={data.name}/>
                                                 </div>
                                             </React.Fragment>  

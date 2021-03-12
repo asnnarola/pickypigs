@@ -15,7 +15,7 @@ const DishListCommonComp=({selected_data,datatoshow,handleDataToShow})=>{
                                                         <React.Fragment>
                                                             {selected_data&&selected_data.data&&selected_data.data.slice(0, datatoshow).map((data, index) => {
                                                                 return (
-                                                                    <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-4">
                                                                         <MyLink to={'/restaurant_dish_info/' + data._id} style={{textDecoration:'none',color:'initial'}}>
                                                                             <DiscDescriptionComp
                                                                                 dish_name={data.name?data.name:''}
@@ -35,7 +35,7 @@ const DishListCommonComp=({selected_data,datatoshow,handleDataToShow})=>{
                                                     <React.Fragment>
                                                         {selected_data&&selected_data.data&&selected_data.data.map((data, index) => {
                                                             return (
-                                                                <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                <div key={index} className="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-4">
                                                                     <MyLink to={'/restaurant_dish_info/' + data._id} style={{textDecoration:'none',color:'initial'}}>
                                                                         <DiscDescriptionComp
                                                                             dish_name={data.name?data.name:''}

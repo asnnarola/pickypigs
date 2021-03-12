@@ -69,14 +69,15 @@ const UserDetailPage = () => {
                                 } 
                                     <form>
                                         <div className="form-group">
-                                            <input 
-                                                type="file" 
-                                                accept="image/*" 
-                                                name="uploadedfile"
-                                                className="form-control-file userprofile-control" 
-                                                onChange={ImageUploadHandeler}
-                                            />
-
+                                            <div className="userprofile-btn">
+                                                <input 
+                                                    type="file" 
+                                                    accept="image/*" 
+                                                    name="uploadedfile"
+                                                    className="form-control-file userprofile-control" 
+                                                    onChange={ImageUploadHandeler}
+                                                />
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
