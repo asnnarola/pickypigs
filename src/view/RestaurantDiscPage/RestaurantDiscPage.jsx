@@ -122,8 +122,8 @@ const RestaurantDiscPage = () => {
                             <div className="col-sm-12">
                                 <div className="rstab-subhead d-flex justify-content-between align-items-center flex-wrap">
                                     <div className="rstab-lists d-flex flex-wrap align-items-center">
-                                        <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab1 ? 'active' : null}`} onClick={() => { setTabs({ tab1: true, tab2: false, tab3: false }) }}>Info</button>
-                                        <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab2 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: true, tab3: false }) }}>Menu</button>
+                                        <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab1 ? 'active' : null}`} onClick={() => { setTabs({ tab1: true, tab2: false, tab3: false }) }}>Menu</button>
+                                        <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab2 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: true, tab3: false }) }}>Info</button>
                                         <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab3 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: false, tab3: true }) }}>Gallery</button>
                                     </div>
                                     {tabs.tab2?
@@ -166,32 +166,32 @@ const RestaurantDiscPage = () => {
                                 <br></br>
                                 {tabs.tab1 ?
                                     <section>
-                                        <RestaurantDiscInfo 
-                                            rest_about={restaurant_data&&restaurant_data.about?restaurant_data.about:'' }
-                                            rest_address={restaurant_data&&restaurant_data.address?restaurant_data.address:{}} 
-                                            rest_cuisine={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.cuisineTypeList?restaurant_data.restaurantFeatures.cuisineTypeList:[]}
-                                            rest_other={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList?restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList:[]}
-                                            rest_cost={restaurant_data&&restaurant_data.restaurantFeatures?restaurant_data.restaurantFeatures:{}}
-                                            rest_website={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.website?restaurant_data.restaurantDetails.website:{}}
-                                            rest_contact={restaurant_data&&restaurant_data.info?restaurant_data.info:{}}
-                                            rest_booking={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.bookings?restaurant_data.restaurantDetails.bookings:{}}
-                                            rest_social = {restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.socialMedia?restaurant_data.restaurantDetails.socialMedia:{}}
-                                            rest_applies={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.appliesOfRestaurant?restaurant_data.restaurantFeatures.appliesOfRestaurant:[]}
-
-                                      />
+                                        <RestaurantDiscMenu 
+                                            lefttabmenu_data={menuTabCategory_Data&&menuTabCategory_Data.menuList?menuTabCategory_Data.menuList:[]}
+                                            menutab_toppicks={menuTabTopPick_Data&&menuTabTopPick_Data.dishList?menuTabTopPick_Data.dishList:[]}
+                                            all_menudata={menuTabCategory_Data&&menuTabCategory_Data.menuList?menuTabCategory_Data.menuList:[]}
+                                        />
                                     </section>
-                                    :
+                                    
+                                :
 
                                     tabs.tab2 ?
                                         <section>
-                                            <RestaurantDiscMenu 
-                                                lefttabmenu_data={menuTabCategory_Data&&menuTabCategory_Data.menuList?menuTabCategory_Data.menuList:[]}
-                                                menutab_toppicks={menuTabTopPick_Data&&menuTabTopPick_Data.dishList?menuTabTopPick_Data.dishList:[]}
-                                                all_menudata={menuTabCategory_Data&&menuTabCategory_Data.menuList?menuTabCategory_Data.menuList:[]}
-
-                                        />
-                                            </section>
-                                        :
+                                            <RestaurantDiscInfo 
+                                                rest_about={restaurant_data&&restaurant_data.about?restaurant_data.about:'' }
+                                                rest_address={restaurant_data&&restaurant_data.address?restaurant_data.address:{}} 
+                                                rest_cuisine={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.cuisineTypeList?restaurant_data.restaurantFeatures.cuisineTypeList:[]}
+                                                rest_other={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList?restaurant_data.restaurantFeatures.restaurantFeaturesOptionsList:[]}
+                                                rest_cost={restaurant_data&&restaurant_data.restaurantFeatures?restaurant_data.restaurantFeatures:{}}
+                                                rest_website={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.website?restaurant_data.restaurantDetails.website:{}}
+                                                rest_contact={restaurant_data&&restaurant_data.info?restaurant_data.info:{}}
+                                                rest_booking={restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.bookings?restaurant_data.restaurantDetails.bookings:{}}
+                                                rest_social = {restaurant_data&&restaurant_data.restaurantDetails&&restaurant_data.restaurantDetails.socialMedia?restaurant_data.restaurantDetails.socialMedia:{}}
+                                                rest_applies={restaurant_data&&restaurant_data.restaurantFeatures&&restaurant_data.restaurantFeatures.appliesOfRestaurant?restaurant_data.restaurantFeatures.appliesOfRestaurant:[]}
+                                            />
+                                        </section>
+                                            
+                                    :
 
                                         <section>
                                             <RestaurantDiscGallery 

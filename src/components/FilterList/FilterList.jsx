@@ -146,6 +146,7 @@ function FilterList(props) {
         setUserSearchText(e.target.value)
     }
 
+    const current_page = props.location&&props.location.pathname;
 
     return (
         <div className="restaurant-find w-100 p-2 p-xl-3 mb-5">
@@ -180,19 +181,34 @@ function FilterList(props) {
                         className="w-100 fr-search-box rl-fl-searchbox brandon-regular" 
                         placeholder="Search for restaurant or dish" 
                     />
-                    {(allergenValue.length<=0&&dietaryValue.length<=0&&lifeStyleValue.length<=0&&featuresValue.length<=0&&userSearchText==='')?
-                        <NavLink  to="/restaurant_list" className="fr-search-btn theme-pink-btn">
-                            <img src={serachwhite} className="img-fluid" alt="serachwhite" />
-                        </NavLink>
-                        :
-                        <Link  to={{pathname: "/allrestaurant",
+                    {current_page!=="/allrestaurant"?
+                        <React.Fragment>
+                            {(allergenValue.length<=0&&dietaryValue.length<=0&&lifeStyleValue.length<=0&&featuresValue.length<=0&&userSearchText==='')?
+                                <NavLink  to="/restaurant_list" className="fr-search-btn theme-pink-btn">
+                                    <img src={serachwhite} className="img-fluid" alt="serachwhite" />
+                                </NavLink>
+                                :
+                                <Link  to={{pathname: "/allrestaurant",
+                                        search: `?search=${userSearchText}`,
+                                        state: {allergendata: allergenValue,dietarydata: dietaryValue,lifestyledata: lifeStyleValue,featuredata: featuresValue,}
+                                    }}
+                                className="fr-search-btn theme-pink-btn">
+                                    <img src={serachwhite} className="img-fluid" alt="serachwhite" />
+                                </Link>
+                            }
+                        </React.Fragment>
+                    :
+                        <React.Fragment>
+                            <Link to={{pathname: "/allrestaurant",
                                 search: `?search=${userSearchText}`,
                                 state: {allergendata: allergenValue,dietarydata: dietaryValue,lifestyledata: lifeStyleValue,featuredata: featuresValue,}
-                            }}
-                         className="fr-search-btn theme-pink-btn">
-                            <img src={serachwhite} className="img-fluid" alt="serachwhite" />
-                        </Link>
+                                }}
+                                className="fr-search-btn theme-pink-btn">
+                                <img src={serachwhite} className="img-fluid" alt="serachwhite" />
+                            </Link>
+                        </React.Fragment>
                     }
+                    
                     
                     {/* {filterIcon && <Button className="filtershort-btn ml-2 p-0">
                         <img src={filtershorticon} className="img-fluid" alt="filterIcon" />

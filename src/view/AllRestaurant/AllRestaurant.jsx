@@ -92,7 +92,11 @@ const AllRestaurant = (props) => {
         });
     }, [props.location.state]);
 
-
+        useEffect(()=>{
+            if(props.location.state&&props.location.state.dishes){
+                setFirstTab(false)
+            }
+        },[props.location.state&&props.location.state.dishes]);
     // get Restaurant Data start
 
     useEffect(() => {
@@ -255,8 +259,8 @@ const AllRestaurant = (props) => {
                                     <div className="col-sm-12 mb-5">
                                         <div className="rstab-subhead d-flex justify-content-between align-items-center flex-wrap">
                                             <div className="rstab-lists d-flex flex-wrap align-items-center">
-                                                <button className="rstab-btn mr-5 brandon-Bold active" onClick={() => { setFirstTab(true) }}>Restaurants</button>
-                                                <button className="rstab-btn mr-5 brandon-Bold" onClick={() => { setFirstTab(false) }}>Dishes</button>
+                                                <button className={`rstab-btn mr-5 brandon-Bold  ${firstTab?"active":null}`} onClick={() => { setFirstTab(true) }}>Restaurants</button>
+                                                <button className={`rstab-btn mr-5 brandon-Bold  ${firstTab?null:"active"}`} onClick={() => { setFirstTab(false) }}>Dishes</button>
                                             </div>
                                         </div>
                                     </div>
