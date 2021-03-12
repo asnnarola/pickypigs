@@ -121,6 +121,10 @@ hr {
   text-decoration: none;
 }
 
+.vertical-align-top {
+  vertical-align: top;
+}
+
 .pink-checkbox .custom-check-box {
   width: 20px;
   height: 20px;

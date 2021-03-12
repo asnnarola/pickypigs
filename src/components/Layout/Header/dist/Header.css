@@ -169,6 +169,12 @@
   position: absolute;
   right: 15px;
 }
+.main-layout nav.main-header .menu-list .navright-btn .userprofile-dropdown .dropdown-menu .dropdown-item {
+  outline: none !important;
+}
+.main-layout nav.main-header .menu-list .navright-btn .userprofile-dropdown .dropdown-menu .dropdown-item.active, .main-layout nav.main-header .menu-list .navright-btn .userprofile-dropdown .dropdown-menu .dropdown-item:active {
+  background-color: #cb007b;
+}
 .main-layout .partner-nav-dropdown {
   /*------------------------------------*\
       NAV

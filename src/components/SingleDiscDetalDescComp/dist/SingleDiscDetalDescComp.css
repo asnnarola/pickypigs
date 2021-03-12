@@ -1,0 +1,56 @@
+.dishinfo-imgcontent {
+  background: #fff;
+  box-shadow: 0px 2px 18px 0px #00000012;
+  border-radius: 6px;
+}
+.dishinfo-imgcontent .dishinfo-img {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  overflow: hidden;
+  height: 389px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dishinfo-imgcontent .dishinfo-img img {
+  height: 389px;
+  object-fit: cover;
+}
+.dishinfo-imgcontent .dishinfo-detail {
+  padding: 20px 20px 20px;
+}
+.dishinfo-imgcontent .dishinfo-detail .dish-name {
+  max-width: calc(100% - 100px);
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 24px;
+  white-space: normal;
+  word-break: break-word;
+}
+.dishinfo-imgcontent .dishinfo-detail .dishinfo-txt {
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 24px;
+  white-space: normal;
+  word-break: break-word;
+}
+.dishinfo-imgcontent .dishinfo-detail .whatmeu-types .whatmenu-list {
+  background: #f6f6f6;
+  width: 42px;
+  height: 42px;
+  border-radius: 50px;
+}
+.dishinfo-imgcontent .dishinfo-detail .whatmeu-types .allergy_icon_image {
+  width: 60%;
+  height: 18px;
+  object-fit: contain;
+  object-position: center;
+}
