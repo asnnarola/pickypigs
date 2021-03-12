@@ -83,7 +83,7 @@ const AllRestaurantFilterModal = (props) => {
                                 {({ values, resetForm }) => (
                                     <Form>
                                         <button className="clearall-btn" type="reset" onClick={()=>{setReset(true)}}>Clear All</button>
-                                        {JSON.stringify(values)}
+                                        {/* {JSON.stringify(values)} */}
                                         <div className="main-accordion-wrapper ">
                                             <div class="accordion accordion-main " id="accordionExample">
                                                 <div class="accordion-item">
