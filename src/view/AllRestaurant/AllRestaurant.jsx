@@ -169,7 +169,7 @@ const AllRestaurant = (props) => {
                                     {/* <AllResturantNav totalrestaurant={searchedRestaurantsList_Data&&searchedRestaurantsList_Data.totalRecords?searchedRestaurantsList_Data.totalRecords:"All"}/> */}
                                     <section className="AllResturantNav">
                                         <Navbar bg="light" variant="light" className="align-items-center pl-0 pr-0 pb-3 allrestaurant-nav container">
-                                            <NavLink to="/" className="pt-0 pb-0 menurestaurant-btn">
+                                            <NavLink to="/" className="pt-0 pb-0 menurestaurant-btn mr-3">
                                                 <img src={menuline} className="img-fluid" alt="menuline" />
                                             </NavLink>
                                             {firstTab ?
