@@ -62,6 +62,7 @@ const RestaurantSingleDiscInfoPage = () => {
                                 priceunit={selectedDiscInfo_data&&selectedDiscInfo_data.priceUnit?selectedDiscInfo_data.priceUnit:'$'}
                                 description={selectedDiscInfo_data&&selectedDiscInfo_data.description?selectedDiscInfo_data.description:'Not Available'}
                                 allergydetail={selectedDiscInfo_data&&selectedDiscInfo_data.allergensDetail?selectedDiscInfo_data.allergensDetail:[]}
+                                dish_new_tag={selectedDiscInfo_data&&selectedDiscInfo_data.new?selectedDiscInfo_data.new:false}
                             />
                         </div>
                         <div className="col-md-7 rsdiscinfo-rightcontent">

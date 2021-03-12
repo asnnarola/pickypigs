@@ -135,6 +135,7 @@ const RestaurantDiscMenu = ({lefttabmenu_data,menutab_toppicks,all_menudata}) =>
                                                                                         image={data.image?data.image:''}
                                                                                         price={data.price?data.price:''}
                                                                                         priceUnit={data.priceUnit?data.priceUnit:''}
+                                                                                        dish_new_tag={data.new?data.new:false}
                                                                                     />
                                                                                 </NavLink>
                                                                             </div>

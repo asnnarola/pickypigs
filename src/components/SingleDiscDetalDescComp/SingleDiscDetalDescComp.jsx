@@ -11,11 +11,16 @@ const SingleDiscDetalDescComp = (props) => {
     return (
         <>
             <div className="dishinfo-imgcontent">
-                <div className="dishinfo-img">
+                <div className="dishinfo-img position-relative">
                     {props.itemimage&&props.itemimage?
                         <img src={`${SERVER_URL}/${props.itemimage}`} alt="Dish_image" className="img-fluid w-100" />
                     :
                         <img src={dishimg1} alt="" className="img-fluid w-100" />
+                    }
+                    {props.dish_new_tag&&props.dish_new_tag?
+                        <label className="newdish-label">New</label>
+                    :
+                        null
                     }
                 </div>
                 <div className="dishinfo-detail">

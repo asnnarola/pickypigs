@@ -126,7 +126,7 @@ const RestaurantDiscPage = () => {
                                         <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab2 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: true, tab3: false }) }}>Info</button>
                                         <button className={`rstab-btn mr-5 brandon-Bold text-uppercase ${tabs.tab3 ? 'active' : null}`} onClick={() => { setTabs({ tab1: false, tab2: false, tab3: true }) }}>Gallery</button>
                                     </div>
-                                    {tabs.tab2?
+                                    {tabs.tab1?
                                     <div className="ml-auto filter-formlist">
                                         <div className="ml-auto d-flex shortby-btn align-items-center">
                                             <form>

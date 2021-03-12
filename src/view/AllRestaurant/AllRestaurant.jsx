@@ -343,6 +343,8 @@ const AllRestaurant = (props) => {
                                                                                         dish_description={data.dishDescription ? data.dishDescription : ''}
                                                                                         dish_menu={data.menuList ? data.menuList : []}
                                                                                         dish_allergy={data.allergensList ? data.allergensList : []}
+                                                                                        dish_new_tag={data.new?data.new:false}
+
                                                                                     />
                                                                                 </Link>
                                                                             </div>

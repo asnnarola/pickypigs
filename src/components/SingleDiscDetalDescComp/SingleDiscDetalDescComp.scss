@@ -16,6 +16,18 @@
             height: 389px;
             object-fit: cover;
         }
+        .newdish-label {
+            color: #fff;
+            top: 15px;
+            right: 15px;
+            background: #cb007b;
+            padding: 5px 7px 5px;
+            text-transform: capitalize;
+            font-size: 15px;
+            line-height: 1;
+            position: absolute;
+            border-radius: 5px;
+        }
     }
 
     .dishinfo-detail {

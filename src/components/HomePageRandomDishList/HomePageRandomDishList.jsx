@@ -56,6 +56,7 @@ const HomePageRandomDishList=()=>{
                                                                     dish_description={data.description?data.description:''}
                                                                     dish_menu={data.menusDetail?data.menusDetail:[]}
                                                                     dish_allergy={data.allergensList?data.allergensList:[]}
+                                                                    dish_new_tag={data.new?data.new:false}
                                                                />
                                                             </Link>
                                                         </div>

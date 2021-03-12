@@ -138,8 +138,13 @@ const MenuAccordianCommonComp = ({value,menuid}) => {
                                                                                                                                
                                                                                                                             </p>
                                                                                                                         </div>
-                                                                                                                        <div className="dish-price">
+                                                                                                                        <div className="dish-price position-relative">
                                                                                                                             <p>{data3.priceUnit?data3.priceUnit:"$"}{data3.price?data3.price.toFixed(2):"-"}</p>
+                                                                                                                            {data3.new&&data3.new?
+                                                                                                                                <label className="newdish-label">New</label>
+                                                                                                                            :
+                                                                                                                                null
+                                                                                                                            }
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                     <div className="d-block">

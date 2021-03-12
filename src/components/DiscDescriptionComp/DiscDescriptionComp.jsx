@@ -11,19 +11,23 @@ import "./DiscDescriptionComp.scss"
 
 let defaultIcon=[{name:"Unknown",image:Dummy_Icon},{name:"Unknown",image:Dummy_Icon}]
 
-const DiscDescriptionComp=({dish_name,dish_image,dish_priceunit,dish_price,dish_menu,dish_description,dish_allergy})=>{
+const DiscDescriptionComp=({dish_name,dish_image,dish_priceunit,dish_price,dish_menu,dish_description,dish_allergy,dish_new_tag})=>{
     
     return(
         <React.Fragment>
             <section className="section5">
                     <div className="whatmenu-wrap">
-                        <div className="whatmenu-img">
+                        <div className="whatmenu-img position-relative">
                             {dish_image?
                                 <img src={`${SERVER_URL}/${dish_image}`} className="img-fluid w-100" />
                             :
                                 <img src={Dummy_Image} className="img-fluid w-100" />
                             }
-                            <label className="newdish-label">New</label>
+                            {dish_new_tag&&dish_new_tag?
+                                <label className="newdish-label">New</label>
+                            :
+                                null
+                            }
                         </div>
                         <div className="whatmenu-details p-3">
                             {dish_name?
