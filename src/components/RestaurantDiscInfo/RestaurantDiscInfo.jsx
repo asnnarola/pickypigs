@@ -248,18 +248,18 @@ const RestaurantDiscInfo = ({rest_about,rest_address,rest_cuisine,rest_other,res
                                                         <p className="txt-lightgray mb-2 d-flex flex-wrap align-items-start position-relative">
                                                             <span className="txt-lightgray mopo-number position-absolute">Mo:</span>
                                                             {rest_contact&&rest_contact.mobileNumber?
-                                                                <span className="pl-5 mb-2">+91 {rest_contact.mobileNumber}</span>
+                                                                <span className="pl-5 mb-2">{rest_contact.mobileNumber}</span>
                                                             :
-                                                                null
+                                                                <span className="pl-5 mb-2">Not Available</span>
                                                             }
                                                         </p>
                                                         <p className="txt-lightgray mb-0 d-flex flex-wrap align-items-start position-relative">
                                                             <span className="txt-lightgray mopo-number position-absolute">Ph:</span>
-                                                            {rest_contact&&rest_contact.phoneNumber?
-                                                                <span className="pl-5 mb-2">+44 {rest_contact.phoneNumber}</span>
+                                                            {/* {rest_contact&&rest_contact.phoneNumber?
+                                                                <span className="pl-5 mb-2">{rest_contact.phoneNumber}</span>
                                                             :
                                                                 null
-                                                            }
+                                                            } */}
                                                             {rest_booking&&rest_booking.isCall?
                                                                 <React.Fragment>
                                                                     {rest_booking&&rest_booking.phoneNumber&&rest_booking.phoneNumber.length>0?

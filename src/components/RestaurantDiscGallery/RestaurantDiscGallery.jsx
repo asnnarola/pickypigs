@@ -48,7 +48,7 @@ const RestaurantDiscGallery = (props) => {
                                 <li className="rsdish-li">
                                     <button className={`d-flex flex-wrap justify-content-between align-items-center ${value === "videos" ? 'rsdish-active' : null}`} onClick={() => { setValue("videos") }}>
                                         <h6 className="mb-1 brandon-Bold"><b>videos</b></h6>
-                                        <small className="txt-lightgray">(159)</small>
+                                        <small className="txt-lightgray">(1)</small>
                                     </button>
                                 </li>
                             </ul>

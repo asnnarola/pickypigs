@@ -143,12 +143,14 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
                             </div>
                         </div>
                     </div>
+                  
                     <div className="col-md-3 rs-opendropdownwrapper">
                         <div className="rs-opendropdown w-100 position-relative">
                             <Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open} className={`d-flex rs-opendropdown-btn w-100 ${open?"active":null}`}>
                                 <div className="rs-timeimg mr-3">
                                     <img src={clockicon} alt={"clockicon"} className="img-fluid" />
                                 </div>
+                                
                                 <div className={`text-left ${open ? "" : null}`}>
                                     {restaurant_time&&restaurant_time.time&&restaurant_time.time.length>0?
                                         <React.Fragment>
@@ -189,7 +191,7 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
                                             })}
                                         </React.Fragment>
                                     :
-                                        <p>No Data Available</p>
+                                        <p className="mb-1 text-dark">Closed/Data Unavailable</p>
                                     }                                    
                                     <div>
                                         {restaurant_time&&restaurant_time.time&&restaurant_time.time.length>0?
@@ -261,7 +263,7 @@ const SingleRestaurantDetailComp = ({restaurant_image,restaurant_distance,restau
                                                 })}
                                             </React.Fragment>
                                         :
-                                            <p>No Data Available</p>
+                                            <p className="mb-1 text-dark">No Data Available</p>
                                         }
 
                                     </div>

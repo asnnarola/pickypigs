@@ -14,6 +14,7 @@ const phoneRegex = RegExp(
     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
 );
 const passwordRegExp = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,24})/);
+const packages = ["basic","standard","premium"];
 
 const initialValues = {
     name:'',
@@ -153,7 +154,17 @@ const SignUpModalComp = (props) => {
                                                             <div className="error pink-txt f-11">{(touched.email && errors.email && errors.email) }</div>
                                                         </div>
                                                         <div className="form-group">
-                                                            <Field name="package" className="form-control signup-input" placeholder="Package" />
+                                                            <Field as="select" name="package" className="text-capitalize form-control signup-input">
+                                                                <option value="">Select Package</option>
+                                                                {packages && packages.map((data, index)=>{
+                                                                    return(
+                                                                        <React.Fragment key={index}>
+                                                                            <option className="text-capitalize" value={data}>{data}</option>
+                                                                        </React.Fragment>
+                                                                    )
+                                                                })}
+                                                            </Field>
+                                                            {/* <Field name="package" className="form-control signup-input" placeholder="Package" /> */}
                                                             {touched.package && errors.package && <div className="error pink-txt f-11">{errors.package}</div>}
                                                         </div>
                                                         

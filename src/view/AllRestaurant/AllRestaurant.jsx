@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import DishBlock from '../../components/DishBlock/DishBlock';
 import './AllRestaurant.scss';
 import FilterList from '../../components/FilterList/FilterList'
@@ -26,6 +26,26 @@ import DiscDescriptionComp from '../../components/DiscDescriptionComp/DiscDescri
 
 
 
+function useOutsideAlerter(ref,setOpenSearchBar) {
+    useEffect(() => {
+        /**
+         * Alert if clicked on outside of element
+         */
+        function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                // alert("You clicked outside of me!");
+                        setOpenSearchBar(false)
+                    }
+        }
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+}
 
 const AllRestaurant = (props) => {
     const dispatch = useDispatch();
@@ -47,6 +67,9 @@ const AllRestaurant = (props) => {
     const [distance, setDistance] = useState('')
     const [nearby, setNearby] = useState(false)
     const [firstTab, setFirstTab] = useState(true)
+
+    const searchRef = useRef(null);
+    useOutsideAlerter(searchRef,setOpenSearchBar);
 
     const filterModalClose = () => {
         setFilterModalShow(false)
@@ -188,10 +211,11 @@ const AllRestaurant = (props) => {
                                             {/* <h4 className="brandon-Bold restaurant-no mb-0">
                                                 {searchedRestaurantsList_Data&&searchedRestaurantsList_Data.totalRecords?searchedRestaurantsList_Data.totalRecords:"0"}&nbsp;Restaurants
                                             </h4> */}
-                                            <div className="ml-auto d-flex shortby-btn">
+                                            <div ref={searchRef} className="ml-auto d-flex shortby-btn">
                                                 <div className="d-none" id="selected_search_bar">
                                                     <div type="button" className="search-topnav mr-5 position-relative d-flex" onClick={() => setOpenSearchBar(!openSearchBar)}>
-                                                        <span className="w-100  brandon-Medium mt-1">Search for restaurant or dish&nbsp;</span>
+                                                        <span className="w-100  brandon-Medium mt-1 border-bottom">{parsed && parsed.search ? parsed.search : 'Search for restaurant or dish'}</span>
+                                                        <span>&nbsp;</span>
                                                         <div className="search-navicon" >
                                                             <img src={search_icon} className="img-fluid ml-2" alt="search_icon" />
                                                         </div>
