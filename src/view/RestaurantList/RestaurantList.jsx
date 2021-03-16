@@ -253,14 +253,14 @@ const RestaurantList = () => {
                                                         })}
                                                     </React.Fragment>
                                                 }
-                                                {topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords>(visible+1) ?
+                                                {topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords<=visible ?
+                                                    null
+                                                    :
                                                     <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                                         <button onClick={loadMore.bind(this)} className="btn filter-morebtn w-100" style={{ maxHeight: 270 }}>
                                                             <h4 className="brandon-Bold"><b>+{topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords&&topPicksRestaurant_List.totalRecords - visible} MORE</b></h4>
                                                         </button>
                                                     </div>
-                                                    :
-                                                    null
                                                 }
                                             </React.Fragment>
                                         :
@@ -315,14 +315,14 @@ const RestaurantList = () => {
                                                         })}
                                                     </React.Fragment>
                                                 }
-                                                {topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords>(visible2+1) ?
+                                                {topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords<=visible2 ?
+                                                    null
+                                                    :
                                                     <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                                         <button onClick={loadMore2.bind(this)} className="btn filter-morebtn w-100" style={{ maxHeight: 270 }}>
                                                             <h4 className="brandon-Bold"><b>+{topPicksRestaurant_List&&topPicksRestaurant_List.totalRecords&&topPicksRestaurant_List.totalRecords - visible2} MORE</b></h4>
                                                         </button>
                                                     </div>
-                                                    :
-                                                    null
                                                 }
                                             </React.Fragment>
                                         :
@@ -330,11 +330,7 @@ const RestaurantList = () => {
                                         }
                                     </div>
                                 </Element>
-                                <div className="row mt-3">
-                                    <div className="col-sm-12">
-                                        <hr className="borderstyle-dotted" />
-                                    </div>
-                                </div>
+                                
                                 
                             </div>
                         </div>

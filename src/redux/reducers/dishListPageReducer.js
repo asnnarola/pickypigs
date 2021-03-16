@@ -13,6 +13,7 @@ const initialState = {
     drinksMenuDish_List:null,
     nibbleMenuDish_List:null,
     setmenuMenuDish_List:null,
+    subscribedDishDetail_Data:null,
 
     };
     
@@ -20,6 +21,7 @@ const initialState = {
       switch (type) {
           
         //getSelectedRestaurantDetailInfoData
+        case "GET_SUBSCRIBEDDISHLISTDATA_REQUEST":
         case "GET_FAVOURITEDISHLISTDATA_REQUEST":
         case "GET_WHATSNEWDISHLIST_REQUEST":
         case "GET_BREAKFASTMENUDISHLIST_REQUEST":
@@ -34,6 +36,13 @@ const initialState = {
                 ...state,
                 isLoading :true,
             };
+
+        case "GET_SUBSCRIBEDDISHLISTDATA_SUCCESS":            
+            return{
+                ...state,
+                isLoading:false,
+                subscribedDishDetail_Data: payload
+            }    
               
         case "GET_FAVOURITEDISHLISTDATA_SUCCESS":            
             return{
@@ -94,7 +103,9 @@ const initialState = {
                 ...state,
                 isLoading:false,
                 setmenuMenuDish_List: payload
-            }              
+            }       
+
+        case "GET_SUBSCRIBEDDISHLISTDATA_FAILURE":      
         case "GET_FAVOURITEDISHLISTDATA_FAILURE":  
         case "GET_WHATSNEWDISHLIST_FAILURE":  
         case "GET_BREAKFASTMENUDISHLIST_FAILURE":  

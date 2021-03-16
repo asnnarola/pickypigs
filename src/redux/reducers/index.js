@@ -12,6 +12,7 @@ import restaurantMenuTabReducer from "./restaurantMenuTabReducer";
 import restaurantListPageReducer from "./restaurantListPageReducer";
 import dishListPageReducer from "./dishListPageReducer";
 import emailVerificationReducer from "./emailVerificationReducer";
+import globalPreferenceFilterReducer from "./globalPreferenceFilterReducer";
 
 
 
@@ -30,4 +31,5 @@ export default combineReducers({
   restaurantList:restaurantListPageReducer,
   dishList:dishListPageReducer,
   emailVerification:emailVerificationReducer,
+  myPreference:globalPreferenceFilterReducer
 });

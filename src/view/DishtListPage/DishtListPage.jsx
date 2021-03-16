@@ -17,7 +17,7 @@ import {Link as MyLink} from 'react-router-dom';
 import {getBreakfastMenuDishList, getFavouriteDishListData, 
         getWhatsNewDishList,getLunchMenuDishList,getDinnerMenuDishList,
         getDessertMenuDishList,getBuffetMenuDishList,getDrinksMenuDishList,
-        getNibbleMenuDishList,getSetmenuMenuDishList} from '../../redux/actions/dishListPageAction';
+        getNibbleMenuDishList,getSetmenuMenuDishList, getSubscribedDishListData} from '../../redux/actions/dishListPageAction';
 import CustomLoadingComp from '../../components/CustomLoadingComp/CustomLoadingComp';
 import DiscDescriptionComp from '../../components/DiscDescriptionComp/DiscDescriptionComp';
 import DishListCommonComp from '../../components/DishListCommonComp/DishListCommonComp';
@@ -32,7 +32,6 @@ const ScrollLink = Scroll.ScrollLink
 
 const DishtListPage = () => {
     const dispatch=useDispatch();
-    let resturantData = [{ "image": restaurant_P1, "type": "food" }, { "image": restaurant_P2, "type": "food" }, { "image": restaurant_P3, "type": "food" }, { "image": restaurant_P4, "type": "food" }, { "image": restaurant_P5, "type": "ambience" }, { "image": restaurant_P6, "type": "ambience" }, { "image": restaurant_P7, "type": "ambience" }, { "image": restaurant_P8, "type": "ambience" }, { "image": restaurant_P1, "type": "food" }, { "image": restaurant_P2, "type": "food" }, { "image": restaurant_P3, "type": "ambience" }, { "image": restaurant_P4, "type": "ambience" }, { "image": restaurant_P5, "type": "food" }, { "image": restaurant_P6, "type": "ambience" }, { "image": restaurant_P7, "type": "food" }, { "image": restaurant_P8, "type": "food" }];
     let [visible, setVisible] = useState(5);
     let [visible2, setVisible2] = useState(5);
     let [visible3, setVisible3] = useState(5);
@@ -48,7 +47,7 @@ const DishtListPage = () => {
         arrows: true,
         centerMode: true,
         centerPadding: '0px',
-        slidesToShow: 3.951,
+        slidesToShow: 3.975,
         slidesToScroll: 1,
         responsive: [
             {
@@ -93,7 +92,10 @@ const DishtListPage = () => {
     //         });
     // }, [])
 
-   
+    useEffect(() => {
+        dispatch(getSubscribedDishListData());
+    }, [dispatch])
+
     useEffect(() => {
         dispatch(getFavouriteDishListData({search:"",option:"favorite",styleOfmenu:"",start:0,length:visible}));
     }, [dispatch,visible])
@@ -137,7 +139,10 @@ const DishtListPage = () => {
     let dishRelated_Data = useSelector((state)=>{
         return state.dishList
     });
-    let {isLoading,favouriteDishDetail_Data,whatsNewDish_List,breakfastMenuDish_List,
+    let {isLoading,
+        subscribedDishDetail_Data={},
+        favouriteDishDetail_Data,
+        whatsNewDish_List,breakfastMenuDish_List,
         lunchMenuDish_List,
         dinnerMenuDish_List,
         dessertMenuDish_List,
@@ -173,53 +178,69 @@ const DishtListPage = () => {
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="rl-list-slider">
-                                <Slider {...settings}>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P1} kmValue={1.5} rating={4.5} />
-                                        </MyLink>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P2} kmValue={1.5} rating={4.5} />
-                                        </MyLink>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P3} kmValue={1.5} rating={4.5} />
-                                        </MyLink>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P4} kmValue={1.5} rating={4.5} />
-                                        </MyLink>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P5} kmValue={1.5} rating={4.5} />
-                                        </MyLink>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P6} kmValue={1.5} rating={4.5} />
-                                        </MyLink>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P7} kmValue={1.5} rating={4.2} />
-                                        </MyLink>
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <MyLink to="/restaurant/602cdb19a906cd356498c676" style={{textDecoration:'none',color:'initial'}}>    
-                                           <DishBlock restaurant_Name={"The Barrio Express"} restaurant_Pic={restaurant_P8} kmValue={1.5} rating={4.3} />
-                                        </MyLink>
-                                    </div>
-                                </Slider>
+                                {subscribedDishDetail_Data&&subscribedDishDetail_Data.data&&subscribedDishDetail_Data.data.length>0?
+                                    <React.Fragment>
+                                        {subscribedDishDetail_Data&&subscribedDishDetail_Data.data&&subscribedDishDetail_Data.data.length<=3?
+                                            <React.Fragment>
+                                                {subscribedDishDetail_Data&&subscribedDishDetail_Data.data&&subscribedDishDetail_Data.data.map((data,index)=>{
+                                                    return(
+                                                        <React.Fragment key={index}>
+                                                            <div className="col-sm-3">
+                                                                <MyLink to={'/restaurant_dish_info/' + data._id} style={{ textDecoration: 'none', color: 'initial' }}>
+                                                                    <DiscDescriptionComp
+                                                                        dish_name={data.name?data.name:''}
+                                                                        dish_image={data.image?data.image:''}
+                                                                        dish_priceunit={data.priceUnit?data.priceUnit:''}
+                                                                        dish_price={data.price?data.price:'-'}
+                                                                        dish_description={data.description?data.description:''}
+                                                                        dish_menu={data.menuList?data.menuList:[]}
+                                                                        dish_allergy={data.allergenList?data.allergenList:[]}
+                                                                        dish_new_tag={data.new?data.new:false}
+                                                                    />
+                                                                </MyLink>
+                                                            </div>
+                                                        </React.Fragment>
+                                                    )
+                                                })}
+                                            </React.Fragment>
+                                        :
+                                            <React.Fragment>
+                                                <Slider {...settings}>
+                                                    {subscribedDishDetail_Data&&subscribedDishDetail_Data.data&&subscribedDishDetail_Data.data.map((data,index)=>{
+                                                        return(
+                                                            <React.Fragment key={index}>
+                                                                <div className="col-sm-12">
+                                                                    <MyLink to={'/restaurant_dish_info/' + data._id} style={{ textDecoration: 'none', color: 'initial' }}>
+                                                                        <DiscDescriptionComp
+                                                                            dish_name={data.name?data.name:''}
+                                                                            dish_image={data.image?data.image:''}
+                                                                            dish_priceunit={data.priceUnit?data.priceUnit:''}
+                                                                            dish_price={data.price?data.price:'-'}
+                                                                            dish_description={data.description?data.description:''}
+                                                                            dish_menu={data.menuList?data.menuList:[]}
+                                                                            dish_allergy={data.allergenList?data.allergenList:[]}
+                                                                            dish_new_tag={data.new?data.new:false}
+                                                                        />
+                                                                    </MyLink>
+                                                                </div>
+                                                            </React.Fragment>
+                                                        )
+                                                    })}
+                                                </Slider>
+                                            </React.Fragment>
+                                        }
+
+                                    </React.Fragment>
+                                    :
+                                    <p>No Restaurants Available</p>
+                                }
+                              
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            
 
             {/* restaurantlist-tab content Start */}
             <section className="dishtListPage-tabfilter">

@@ -1,6 +1,33 @@
 import Axios from './axios';
 import {setAlert} from './alertAction';
 
+
+export const getSubscribedDishListData=()=>{
+  return async(dispatch)=>{
+      try{
+          dispatch({type:"GET_SUBSCRIBEDDISHLISTDATA_REQUEST"});
+          let config= {
+            headers:{
+             "Content-Type":"application/json"
+             }
+          }
+          let dataURL=`/frontend/restaurant_search_page/green_slider_dishes`
+          let response = await Axios.post(dataURL,config );
+          dispatch({type:"GET_SUBSCRIBEDDISHLISTDATA_SUCCESS",payload:response.data});
+      }
+    
+      catch(error){
+          dispatch({type:"GET_SUBSCRIBEDDISHLISTDATA_FAILURE",payload:error});
+          if (error.response) {
+            dispatch(setAlert(`${error.response.data.message}`, 'error'));
+          } else {
+            dispatch(setAlert('Something Went wrong!', 'error'));
+          }
+      }
+  }
+};
+
+
 export const getFavouriteDishListData=(data)=>{
   return async(dispatch)=>{
       try{

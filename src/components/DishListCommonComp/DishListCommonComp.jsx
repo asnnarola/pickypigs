@@ -54,14 +54,14 @@ const DishListCommonComp=({selected_data,datatoshow,handleDataToShow})=>{
                                                         })}
                                                     </React.Fragment>
                                                 }
-                                                {selected_data&&selected_data.totalRecords>(datatoshow+1) ?
+                                                {selected_data&&selected_data.totalRecords<=datatoshow?
+                                                    null
+                                                    :
                                                     <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                                         <button onClick={()=>handleDataToShow(datatoshow+3)} className="btn filter-morebtn w-100" style={{ maxHeight: 270 }}>
                                                             <h4 className="brandon-Bold"><b>+{selected_data&&selected_data.totalRecords&&selected_data.totalRecords - datatoshow} MORE</b></h4>
                                                         </button>
                                                     </div>
-                                                    :
-                                                    null
                                                 }
                                             </React.Fragment>
                                         :

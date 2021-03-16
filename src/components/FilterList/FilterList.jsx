@@ -21,6 +21,7 @@ import { getAllAllergyData,getAllDietaryData,getAllLifestyleData,getAllRestauran
 import SearchResultDisplayComp from '../SearchResultDisplayComp/SearchResultDisplayComp';
 import { NavLink, Redirect, useHistory,Link } from 'react-router-dom';
 import { getSearchedRestaurantsList } from '../../redux/actions/restaurantSearchPageAction';
+import { updatePreferenceFilter } from '../../redux/actions/globalPreferenceFilterAction';
 
 
 function useOutsideAlerter(ref,setUserTextFocus) {
@@ -80,18 +81,10 @@ function FilterList(props) {
     let {isLoading,allergy_Data,dietary_Data,lifestyle_Data,restaurantFeatures_Data}=allAllergy_data;
 
 
-    const clearAllAllergy=()=>{
-        setAllergenValue([])
+    const handelClearAll=(key,value)=>{
+        dispatch(updatePreferenceFilter(key,value))
     }
-    const clearAllDietary=()=>{
-        setDietaryValue([])
-    }
-    const clearAllLifeStyle=()=>{
-        setLifeStyleValue([])
-    }
-    const clearAllFeature=()=>{
-        setFeaturesValue([])
-    }
+   
     useEffect(()=>{
         if(props.myallergydata){
             setAllergenValue(props.myallergydata)
@@ -148,6 +141,21 @@ function FilterList(props) {
 
     const current_page = props.location&&props.location.pathname;
 
+    const handelPreference=(key,value)=>{
+        dispatch(updatePreferenceFilter(key,value))
+    }
+    const preferenceData=useSelector((state)=>{
+        return state.myPreference.selectedPreference
+    });
+    let {allergendata=[],dietarydata=[],lifestyledata=[],featuredata=[],}=preferenceData
+
+    useEffect(() => {
+        setAllergenValue(allergendata?allergendata: allergenValue);
+        setDietaryValue(dietarydata?dietarydata: dietaryValue);
+        setLifeStyleValue(lifestyledata?lifestyledata: lifeStyleValue);
+        setFeaturesValue(featuredata? featuredata: featuresValue);
+    }, [preferenceData]);
+
     return (
         <div className="restaurant-find w-100 p-2 p-xl-3 mb-5">
             {JSON.stringify(props.mydata)}
@@ -191,6 +199,7 @@ function FilterList(props) {
                                 <Link  to={{pathname: "/allrestaurant",
                                         search: `?search=${userSearchText}`,
                                         state: {allergendata: allergenValue,dietarydata: dietaryValue,lifestyledata: lifeStyleValue,featuredata: featuresValue,}
+
                                     }}
                                 className="fr-search-btn theme-pink-btn">
                                     <img src={serachwhite} className="img-fluid" alt="serachwhite" />
@@ -202,6 +211,7 @@ function FilterList(props) {
                             <Link to={{pathname: "/allrestaurant",
                                 search: `?search=${userSearchText}`,
                                 state: {allergendata: allergenValue,dietarydata: dietaryValue,lifestyledata: lifeStyleValue,featuredata: featuresValue,}
+
                                 }}
                                 className="fr-search-btn theme-pink-btn">
                                 <img src={serachwhite} className="img-fluid" alt="serachwhite" />
@@ -231,13 +241,13 @@ function FilterList(props) {
             {/* {userSearchText} || {JSON.stringify()} */}
 
             <div className="fr-category-select d-flex justify-content-between align-items-center mt-3 flex-wrap pr-4">
-                <CustomDropdown placeholder={"Allergen"} clearAll={clearAllAllergy} options={allergy_Data&&allergy_Data.data} value={allergenValue} onChangeData={setAllergenValue} />
+                <CustomDropdown placeholder={"Allergen"} clearAll={()=>{handelClearAll("allergendata",[])}} options={allergy_Data&&allergy_Data.data} value={allergendata} onChangeData={(value)=>{handelPreference("allergendata",value);}} />
 
-                <CustomDropdown placeholder={"Dietary Preference"} clearAll={clearAllDietary} options={dietary_Data&&dietary_Data.data} value={dietaryValue} onChangeData={setDietaryValue} />
+                <CustomDropdown placeholder={"Dietary Preference"} clearAll={()=>{handelClearAll("dietarydata",[])}} options={dietary_Data&&dietary_Data.data} value={dietarydata} onChangeData={(value)=>{handelPreference("dietarydata",value);}}/>
 
-                <CustomDropdown placeholder={"Lifestyle Choices"} clearAll={clearAllLifeStyle} options={lifestyle_Data&&lifestyle_Data.data} value={lifeStyleValue} onChangeData={setLifeStyleValue} />
+                <CustomDropdown placeholder={"Lifestyle Choices"} clearAll={()=>{handelClearAll("lifestyledata",[])}} options={lifestyle_Data&&lifestyle_Data.data} value={lifestyledata} onChangeData={(value)=>{handelPreference("lifestyledata",value);}}/>
 
-                <CustomDropdown placeholder={"Restaurant Features"} clearAll={clearAllFeature} options={restaurantFeatures_Data&&restaurantFeatures_Data.data} value={featuresValue} onChangeData={setFeaturesValue} />
+                <CustomDropdown placeholder={"Restaurant Features"} clearAll={()=>{handelClearAll("featuredata",[])}} options={restaurantFeatures_Data&&restaurantFeatures_Data.data} value={featuredata}  onChangeData={(value)=>{handelPreference("featuredata",value);}}/>
 
 
             </div>

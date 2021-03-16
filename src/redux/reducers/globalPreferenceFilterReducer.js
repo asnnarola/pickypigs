@@ -3,13 +3,18 @@
 const initialState = {
     isLoading : false,
     errorMessage:'',
-    selectedPreference:{},
+    selectedPreference:{
+      allergendata:[],
+      dietarydata:[],
+      lifestyledata:[],
+      featuredata:[],
+    },
     };
     
     const globalPreferenceFilterReducer = (state = initialState, { type, payload }) => {
       switch (type) {
           
-        case "UPDATE_MENU_FORM":
+        case "UPDATE_PREFERENCEFILTER_FORM":
             return  {
                 ...state,
                 isLoading: false,

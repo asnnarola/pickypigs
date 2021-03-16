@@ -41,18 +41,38 @@ const DishBlock = ({ restaurant_name, restaurant_pic, kmvalue, rating, restauran
                     </span>
                     <span>{kmvalue == "null" ? "Not Available" : `${kmvalue} from you `} </span>
                 </p>
-                <div className="foodtypes-wrap d-flex flex-wrap">
+                <div className="foodtypes-wrap d-flex ">
                     {restaurantfeature && restaurantfeature.length > 0 ?
                         <React.Fragment>
-                            {restaurantfeature && restaurantfeature.map((data, index) => {
-                                return (
-                                    <React.Fragment key={index}>
-                                        <div className="food-types mr-3 mb-2 d-flex justify-content-center align-items-center">
-                                            <img src={`${SERVER_URL}/${data.image}`} alt={"icon"}  className="img-fluid" title={data.name} />
-                                        </div>
-                                    </React.Fragment>
-                                )
-                            })}
+                            {restaurantfeature && restaurantfeature.length>3?
+                                <React.Fragment>
+                                    {restaurantfeature && restaurantfeature.slice(0,3).map((data, index) => {
+                                        return (
+                                            <React.Fragment key={index}>
+                                                <div className="food-types mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                                    <img src={`${SERVER_URL}/${data.image}`} alt={"icon"}  className="img-fluid" title={data.name} />
+                                                </div>
+                                            </React.Fragment>
+                                        )
+                                    })}
+                                    <div className="food-types mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                        <small style={{textAlign:"center",fontSize:10,flexWrap:"wrap"}}>+{restaurantfeature && restaurantfeature.length-3} More</small>
+                                    </div>
+                                </React.Fragment>
+                            :
+                                <React.Fragment>
+                                    {restaurantfeature && restaurantfeature.map((data, index) => {
+                                        return (
+                                            <React.Fragment key={index}>
+                                                <div className="food-types mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                                    <img src={`${SERVER_URL}/${data.image}`} alt={"icon"}  className="img-fluid" title={data.name} />
+                                                </div>
+                                            </React.Fragment>
+                                        )
+                                    })}
+                                </React.Fragment>
+                            }
+                           
                         </React.Fragment>
                         :
                         <React.Fragment>

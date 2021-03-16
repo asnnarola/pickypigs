@@ -23,6 +23,7 @@ import menuline from "../../assets/images/menu-line.svg"
 import search_icon from "../../assets/images/search_icon.svg"
 import no_Data_Image from "../../assets/images/no_data_found.png"
 import DiscDescriptionComp from '../../components/DiscDescriptionComp/DiscDescriptionComp';
+import { updatePreferenceFilter } from '../../redux/actions/globalPreferenceFilterAction';
 
 
 
@@ -100,20 +101,26 @@ const AllRestaurant = (props) => {
             }
         });
     }, [window.scrollY]);
+    
+    const preferenceData=useSelector((state)=>{
+        return state.myPreference.selectedPreference
+    });
+    let {allergendata=[],dietarydata=[],lifestyledata=[],featuredata=[],}=preferenceData
+
 
     useEffect(() => {
-        setAllergen(props.location.state && props.location.state.allergendata ? props.location.state.allergendata : allergen);
-        setDietary(props.location.state && props.location.state.dietarydata ? props.location.state.dietarydata : dietary);
-        setLifestyle(props.location.state && props.location.state.lifestyledata ? props.location.state.lifestyledata : lifestyle);
-        setfeatures(props.location.state && props.location.state.featuredata ? props.location.state.featuredata : features);
+        setAllergen(allergendata?allergendata: allergen);
+        setDietary(dietarydata?dietarydata: dietary);
+        setLifestyle(lifestyledata?lifestyledata: lifestyle);
+        setfeatures(featuredata? featuredata: features);
         setFilterData({
             ...filterData,
-            allergenId: props.location.state && props.location.state.allergendata ? props.location.state.allergendata : allergen,
-            dietaryId: props.location.state && props.location.state.dietarydata ? props.location.state.dietarydata : dietary,
-            lifestyleId: props.location.state && props.location.state.lifestyledata ? props.location.state.lifestyledata : lifestyle,
-            featuresId: props.location.state && props.location.state.featuredata ? props.location.state.featuredata : features,
+            allergenId: allergendata?allergendata: allergen,
+            dietaryId: dietarydata?dietarydata: dietary,
+            lifestyleId: lifestyledata?lifestyledata: lifestyle,
+            featuresId:featuredata? featuredata: features,
         });
-    }, [props.location.state]);
+    }, [preferenceData]);
 
         useEffect(()=>{
             if(props.location.state&&props.location.state.dishes){
@@ -133,10 +140,9 @@ const AllRestaurant = (props) => {
                 allergen: allergen && allergen.length > 0 ? allergen : [],
                 dietary: dietary && dietary.length > 0 ? dietary : [],
                 lifestyle: lifestyle && lifestyle.length > 0 ? lifestyle : [],
-                distance: nearby ? "20" : (distance * 1609.34),
+                distance: nearby ? 2000 : (distance * 1609.34),
             }
         ))
-        setOpenSearchBar(false)
 
     }, [dispatch, props.location.search, props.location.menu, shortBy, allergen, dietary, lifestyle, features, distance, nearby]);
 
@@ -151,10 +157,9 @@ const AllRestaurant = (props) => {
                 allergen: allergen && allergen.length > 0 ? allergen : [],
                 dietary: dietary && dietary.length > 0 ? dietary : [],
                 lifestyle: lifestyle && lifestyle.length > 0 ? lifestyle : [],
-                distance: nearby ? "20" : (distance * 1609.34),
+                distance: nearby ? 2000 : (distance * 1609.34),
             }
         ))
-        setOpenSearchBar(false)
 
     }, [dispatch, props.location.search, props.location.menu, shortBy, allergen, dietary, lifestyle, features, distance, nearby]);
 
@@ -261,11 +266,16 @@ const AllRestaurant = (props) => {
                                                     onHide={filterModalClose}
                                                     name="filterData"
                                                     onChangeData={(value) => {
+
                                                         setFilterData(value);
-                                                        setAllergen(value && value.allergenId && value.allergenId.length > 0 ? value.allergenId : []);
-                                                        setDietary(value && value.dietaryId && value.dietaryId.length > 0 ? value.dietaryId : []);
-                                                        setLifestyle(value && value.lifestyleId && value.lifestyleId.length > 0 ? value.lifestyleId : []);
-                                                        setfeatures(value && value.featuresId && value.featuresId.length > 0 ? value.featuresId : []);
+                                                        {value && value.allergenId!==allergen&&dispatch(updatePreferenceFilter("allergendata",value && value.allergenId && value.allergenId.length > 0 ? value.allergenId : []))}
+                                                        {value && value.dietaryId!==dietary&&dispatch(updatePreferenceFilter("dietarydata",value && value.dietaryId && value.dietaryId.length > 0 ? value.dietaryId : []))}
+                                                        {value && value.lifestyleId!==lifestyle&&dispatch(updatePreferenceFilter("lifestyledata",value && value.lifestyleId && value.lifestyleId.length > 0 ? value.lifestyleId : []))}
+                                                        {value && value.featuresId!==features&&dispatch(updatePreferenceFilter("featuredata",value && value.featuresId && value.featuresId.length > 0 ? value.featuresId : []))}
+                                                        // setAllergen(value && value.allergenId && value.allergenId.length > 0 ? value.allergenId : []);
+                                                        // setDietary(value && value.dietaryId && value.dietaryId.length > 0 ? value.dietaryId : []);
+                                                        // setLifestyle(value && value.lifestyleId && value.lifestyleId.length > 0 ? value.lifestyleId : []);
+                                                        // setfeatures(value && value.featuresId && value.featuresId.length > 0 ? value.featuresId : []);
                                                         setDistance(value && value.distance ? value.distance : '');
                                                         setNearby(value && value.toggle ? value.toggle : false);
 

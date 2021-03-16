@@ -63,18 +63,38 @@ const DiscDescriptionComp=({dish_name,dish_image,dish_priceunit,dish_price,dish_
                                 </div>
                             </div><p className="f-14 whatmenu-intro txt-lightgray">{dish_description?dish_description:'Description Not Available'}</p>
 
-                            <div className="whatmeu-types d-flex flex-wrap">
+                            <div className="whatmeu-types d-flex">
                                 {dish_allergy&&dish_allergy.length>0?
                                     <React.Fragment>
-                                        {dish_allergy&&dish_allergy.map((data,index)=>{
-                                            return(
-                                                <React.Fragment key={index}>
-                                                    <div className="whatmenu-list mr-3 mb-2 d-flex justify-content-center align-items-center">
-                                                        <img src={`${SERVER_URL}/${data.image}`} alt={"icon"} className="img-fluid" title={data.name} />
-                                                    </div>
-                                                </React.Fragment>
-                                            )
-                                        })}
+                                        {dish_allergy && dish_allergy.length>3?
+                                            <React.Fragment>
+                                                {dish_allergy && dish_allergy.slice(0,3).map((data, index) => {
+                                                    return (
+                                                        <React.Fragment key={index}>
+                                                            <div className="whatmenu-list mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                                                <img src={`${SERVER_URL}/${data.image}`} alt={"icon"} className="img-fluid" title={data.name?data.name:'unknown'} />
+                                                            </div>
+                                                        </React.Fragment>
+                                                    )
+                                                })}
+                                                <div className="whatmenu-list mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                                    <small style={{textAlign:"center",fontSize:10,flexWrap:"wrap"}}>+{dish_allergy && dish_allergy.length-3} More</small>
+                                                </div>
+                                            </React.Fragment>
+                                        :
+                                            <React.Fragment>
+                                                {dish_allergy && dish_allergy.map((data, index) => {
+                                                    return (
+                                                        <React.Fragment key={index}>
+                                                            <div className="whatmenu-list mr-3 mb-2 d-flex justify-content-center align-items-center">
+                                                                <img src={`${SERVER_URL}/${data.image}`} alt={"icon"} className="img-fluid" title={data.name?data.name:'unknown'} />
+                                                            </div>
+                                                        </React.Fragment>
+                                                    )
+                                                })}
+                                            </React.Fragment>
+                                        }
+                                    
                                     </React.Fragment>
                                     :
                                     <React.Fragment>
